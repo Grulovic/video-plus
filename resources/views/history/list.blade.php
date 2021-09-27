@@ -1,0 +1,117 @@
+
+<x-app-layout>
+    <x-slot name="header">
+   
+
+ <div class="row  m-0 p-0">
+  
+  <div class="col-lg-12  text-left">
+    <h2>History List:</h2>
+  </div>
+
+</div>
+
+
+    </x-slot>
+
+ <div class="row m-0 p-0 pt-5 pb-5">
+      <div class="col-md-1"></div>
+
+      <div class="col-md-10 p-0" style="padding-right: 0; overflow-x: auto;">          
+        <table class="table table-bordered sortable" id="laravel_crud">
+         <thead>
+            <tr class="thead-dark">
+                <th>ID</th>
+                <th>User ID</th>
+                <th>User Name</th>
+
+                <th>Item ID</th>
+                <th>Item Type</th>
+                <th>Item Name</th>
+                <th>Action</th>
+                
+              
+                <th>Created at</th>
+            </tr>
+         </thead>
+         <tbody>
+            @foreach($histories as $history)
+            <tr class=" bg-white " >
+
+              <td>{{ $history->id }}</td>
+              <td>{{ $history->user_id }}</td>
+              <td>{{ $history->user->name }}</td>
+              <td>
+                @if( $history->video_id == null )
+                  {{ $history->gallery_id }}
+                @else
+                  {{ $history->video_id }}
+                @endif
+              </td>
+
+              <td>
+                @if( $history->video_id == null )
+                  Photo
+                @else
+                  Video
+                @endif
+              </td>
+              
+              <td>
+
+                @if( !isset($history->video_id) )
+                  @if($history->gallery !=null)
+                  <a href="{{ route('photos.show', $history->gallery_id  )}}">Go to gallery</a>
+                  @else
+                  Gallery deleted
+                  @endif
+                @else
+                  @if($history->video !=null)
+                  <a href="{{ route('videos.show', $history->video_id  )}}">Go to video</a>
+                  @else
+                  Video deleted
+                  @endif
+                  
+                @endif
+              </td>
+              <td>{{ $history->action }}</td>
+
+
+              <td>{{ $history->created_at }}</td>
+              
+
+
+              
+
+            </tr>
+
+            @endforeach
+ 
+            @if(count($histories) < 1)
+              <tr class="bg-white">
+               <td colspan="13" class="text-center">There are no History events to show!</td>
+              </td>
+            </tr>
+            @endif
+         </tbody>
+        </table>
+        
+     </div> 
+      <div class="col-md-1"></div>
+      
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+          {!! $histories->appends(request()->input())->links() !!}
+      </div>
+      <div class="col-md-1"></div>
+
+
+     
+
+
+ </div>
+
+
+
+
+ </x-app-layout>

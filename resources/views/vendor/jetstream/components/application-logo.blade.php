@@ -1,0 +1,1 @@
+<img src="{{ asset('video-gov-logo.png') }}" style="max-height: 100px; " alt="{{ config('app.name') }}">
