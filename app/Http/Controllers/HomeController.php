@@ -59,6 +59,9 @@ class HomeController extends Controller
                         });
                 })
                 ->take(4)->get();
+        }else{
+            $data['most_articles_category'] = [ 'title' => 'No Category at the moment.' ];
+            $data['most_articles'] = null;
         }
 
 
@@ -78,6 +81,9 @@ class HomeController extends Controller
                         });
                 })
                 ->take(4)->get();
+        }else{
+            $data['most_videos_category'] = [ 'title' => 'No Category at the moment.' ];
+            $data['most_videos'] = null;
         }
 
 
@@ -94,6 +100,9 @@ class HomeController extends Controller
                         });
                 })
                 ->take(4)->get();
+        }else{
+            $data['most_photos_category'] = [ 'title' => 'No Category at the moment.' ];
+            $data['most_photos'] = null;
         }
 
 
