@@ -21,16 +21,22 @@
   <div class="row m-0 p-0 p-3 view-group">
 
   @include('alerts')
-  
+
   @foreach($videos as $video)
 
     @include('video.grid_card')
 
   @endforeach
 
+      @if($videos == null)
+          <div class="alert alert-info shadow-sm" role="alert" style="">
+              No videos found!
+          </div>
+      @endif
+
   <div class="col-lg-12 mt-4">
         {!! $videos->appends(request()->input())->links() !!}
-        
+
       </div>
   </div>
 
