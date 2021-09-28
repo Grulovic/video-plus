@@ -63,9 +63,11 @@
 				<a class="btn btn-outline-primary" href="{{route('videos.index')}}">Show latest videos <i class="fas fa-angle-right"></i></a>
 			</div>
 		</div>
+        @if($latest_videos != null)
 			@foreach($latest_videos as $video)
 				@include('home.video_card')
 			@endforeach
+        @endif
 	</div>
 
 
@@ -82,9 +84,11 @@
 				<a class="btn btn-outline-primary" href="{{route('photos.index')}}">Show latest photos <i class="fas fa-angle-right"></i></a>
 			</div>
 		</div>
-			@foreach($latest_photos as $gallery)
-				@include('home.photo_card')
-			@endforeach
+        @if($latest_photos != null)
+            @foreach($latest_photos as $gallery)
+                @include('home.photo_card')
+            @endforeach
+        @endif
 	</div>
 
   <hr>
@@ -99,9 +103,11 @@
 				<a class="btn btn-outline-primary" href="{{route('articles.index')}}">Show latest articles <i class="fas fa-angle-right"></i></a>
 			</div>
 		</div>
+        @if($latest_articles != null)
 			@foreach($latest_articles as $article)
 				@include('article.card')
 			@endforeach
+        @endif
 	</div>
 
   <hr>
@@ -119,9 +125,11 @@
 			</div>
             @endif
 		</div>
-			@foreach($most_videos as $video)
+        @if($most_videos != null)
+            @foreach($most_videos as $video)
 				@include('home.video_card')
 			@endforeach
+        @endif
 	</div>
 
 
@@ -138,9 +146,11 @@
 			</div>
             @endif
 		</div>
-			@foreach($most_photos as $gallery)
+        @if($most_photos != null)
+            @foreach($most_photos as $gallery)
 				@include('home.photo_card')
 			@endforeach
+        @endif
 	</div>
 
   <hr>
@@ -157,9 +167,11 @@
 			</div>
             @endif
 		</div>
-			@foreach($most_articles as $article)
+        @if($most_articles != null)
+            @foreach($most_articles as $article)
 				@include('article.card')
 			@endforeach
+        @endif
 	</div>
 
   <hr>
