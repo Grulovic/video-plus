@@ -8,7 +8,7 @@
           $temp.remove();
         }
         </script>
-        
+
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.js"></script>
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/base/jquery-ui.css" type="text/css" media="all">
@@ -25,8 +25,8 @@
           <div class="input btn-group mb-2">
            @if (!Auth::guest())
          	@can('create', App\Models\Article::class)
-            <a href="{{ route('articles.create') }}" class="btn btn-success"><i class="far fa-newspaper"></i> Create article</a> 
-          	@endcan	
+            <a href="{{ route('articles.create') }}" class="btn btn-success"><i class="far fa-newspaper"></i> Create article</a>
+          	@endcan
           @endif
           </div>
   </div>
@@ -43,11 +43,11 @@
     </div></div>
 
     <div class="col-5 col-lg-4 pl-0 pr-4 text-right"><div class="btn-group mb-2 ">
-      <button type="submit" class="btn btn-primary font-weight-bold " value="Submit">Search <i class="fas fa-search"></i></button>        
+      <button type="submit" class="btn btn-primary font-weight-bold " value="Submit">Search <i class="fas fa-search"></i></button>
       <a href="/articles" class="btn btn-danger"><i class="fas fa-times"></i></a>
     </div></div>
-    
-  </div>        
+
+  </div>
 </div>
 
   <div class="col-lg-3">
@@ -101,10 +101,10 @@
             </select>
           </div>
 </div>
-   
+
         </form>
       </div>
-      
+
     </div>
 
 
@@ -113,16 +113,24 @@
 
   <div class="row m-0 p-0 p-3 view-group">
     @include('alerts')
-  
+
   @foreach($articles as $article)
 
     @include('article.card')
 
   @endforeach
 
+      @if( sizeof($articles) == 0 )
+          <div class="col-lg-12">
+              <div class="alert alert-info shadow-sm w-100" role="alert" style="">
+                  No articles found!
+              </div>
+          </div>
+      @endif
+
   <div class="col-lg-12 mt-4">
         {!! $articles->appends(request()->input())->links() !!}
-        
+
       </div>
   </div>
 

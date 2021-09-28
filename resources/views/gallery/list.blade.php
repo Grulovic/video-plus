@@ -21,18 +21,26 @@
   </x-slot>
 
   <div class="row m-0 p-0 p-3 view-group">
-  
+
     @include('alerts')
-  
+
   @foreach($galleries as $gallery)
 
     @include('gallery.list_card')
 
   @endforeach
 
+      @if( sizeof($galleries) == 0 )
+          <div class="col-lg-12">
+              <div class="alert alert-info shadow-sm w-100" role="alert" style="">
+                  No galleries found!
+              </div>
+          </div>
+      @endif
+
   <div class="col-lg-12 mt-4">
         {!! $galleries->appends(request()->input())->links() !!}
-        
+
       </div>
   </div>
 

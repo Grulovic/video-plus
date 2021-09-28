@@ -8,7 +8,7 @@
           $temp.remove();
         }
         </script>
-        
+
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.js"></script>
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/base/jquery-ui.css" type="text/css" media="all">
@@ -20,18 +20,26 @@
   </x-slot>
 
   <div class="row m-0 p-0 p-3 view-group">
-  
+
     @include('alerts')
-  
+
   @foreach($videos as $video)
 
     @include('video.list_card')
 
   @endforeach
 
+      @if( sizeof($videos) == 0 )
+          <div class="col-lg-12">
+              <div class="alert alert-info shadow-sm w-100" role="alert" style="">
+                  No videos found!
+              </div>
+          </div>
+      @endif
+
   <div class="col-lg-12 mt-4">
         {!! $videos->appends(request()->input())->links() !!}
-        
+
       </div>
   </div>
 
