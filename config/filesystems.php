@@ -40,48 +40,48 @@ return [
             // 'root' => storage_path('app/public'),
             // 'url' => env('APP_URL').'/storage',
             // 'root'   => public_path() . '/uploads',
-            'root'   => '../video.gov/uploads',
+            'root'   => '../httpdocs/uploads',
             'url' => env('APP_URL').'/public',
             'visibility' => 'public',
         ],
-    
+
     	 'articles' => [
             'driver' => 'local',
-            'root'   => '../video.gov/uploads/articles',
+            'root'   => '../httpdocs/uploads/articles',
             'url' => env('APP_URL').'/public/articles',
             'visibility' => 'public',
         ],
-    
-    
+
+
         'photos' => [
             'driver' => 'local',
-            'root'   => '../video.gov/uploads/photos',
+            'root'   => '../httpdocs/uploads/photos',
             'url' => env('APP_URL').'/public/photos',
             'visibility' => 'public',
         ],
-    
-    
+
+
     	 'videos' => [
             'driver' => 'local',
-            'root'   => '../video.gov/uploads/videos',
+            'root'   => '../httpdocs/uploads/videos',
             'url' => env('APP_URL').'/public/videos',
             'visibility' => 'public',
         ],
-    
+
     	'previews' => [
             'driver' => 'local',
-            'root'   => '../video.gov/uploads/videos/previews',
+            'root'   => '../httpdocs/uploads/videos/previews',
             'url' => env('APP_URL').'/public/videos/previews',
             'visibility' => 'public',
         ],
-    
+
    		 'thumbs' => [
             'driver' => 'local',
-            'root'   => '../video.gov/uploads/videos/thumbs',
+            'root'   => '../httpdocs/uploads/videos/thumbs',
             'url' => env('APP_URL').'/public/videos/thumbs',
             'visibility' => 'public',
         ],
-    
+
 
         's3' => [
             'driver' => 's3',
