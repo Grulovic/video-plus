@@ -123,7 +123,7 @@ class HomeController extends Controller
 
         $video_id_available = Video::where('id' ,'>' ,0)->pluck('id')->toArray();
         $most_downloaded_videos = History::whereNull('gallery_id')->where('action','Video Downloaded')->whereIn('video_id',$video_id_available)->groupBy('video_id')->select('video_id', DB::raw('count(*) as total'))->orderBy('total','desc')->take(4)->get();
-
+        $data['most_downloaded_videos'] = null;
         foreach($most_downloaded_videos as $key => $video){
             $data['most_downloaded_videos'][$key] = $video->video;
         }
@@ -131,14 +131,14 @@ class HomeController extends Controller
 
         $photo_id_available = Gallery::where('id' ,'>' ,0)->pluck('id')->toArray();
         $most_downloaded_photos = History::whereNull('video_id')->where('action','Gallery Downloaded')->whereIn('gallery_id',$photo_id_available)->groupBy('gallery_id')->select('gallery_id', DB::raw('count(*) as total'))->orderBy('total','desc')->take(4)->get();
-
+        $data['most_downloaded_photos'] = null;
         foreach($most_downloaded_photos as $key => $photo){
             $data['most_downloaded_photos'][$key] = $photo->gallery;
         }
 
 
         $most_viewed_articles = ArticleView::groupBy('article_id')->select('article_id', DB::raw('count(*) as total'))->orderBy('total','desc')->take(4)->get();
-
+        $data['most_viewed_articles'] = null;
         foreach($most_viewed_articles as $key => $article){
             $data['most_viewed_articles'][$key] = $article->article;
         }
