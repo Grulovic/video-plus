@@ -44,13 +44,13 @@
     			<iframe  class="card-img" style="min-height:300px;" src="{{$live->url}}?autoplay=false"></iframe>
     		</div>
     		</div>
-		
+
 		@endforeach
 	</div>
 	</div>
 	</div>
-	
-	
+
+
 <div  class="container" style="max-width:1920px;">
 
 	<div class="row m-0 p-0 pt-4 pb-3">
@@ -86,7 +86,7 @@
 				@include('home.photo_card')
 			@endforeach
 	</div>
-  
+
   <hr>
 
 	<div class="row m-0 p-0 pt-4 pb-3">
@@ -103,7 +103,7 @@
 				@include('article.card')
 			@endforeach
 	</div>
-  
+
   <hr>
 
 
@@ -113,9 +113,11 @@
 				<h2>{{ $most_videos_category->title }} Videos:</h2>
 				<p>This is the most used category for videos.</p>
 			</div>
+            @if( $most_videos_category != 0)
 			<div class="float-right mt-2">
 				<a class="btn btn-outline-primary" href="{{route('videos.index')}}?category={{$most_videos_category->id}}">Show more {{ $most_videos_category->title }} videos <i class="fas fa-angle-right"></i></a>
 			</div>
+            @endif
 		</div>
 			@foreach($most_videos as $video)
 				@include('home.video_card')
@@ -130,15 +132,17 @@
 				<h2>{{ $most_photos_category->title }} Photos:</h2>
 				<p>This is the most used category for photos.</p>
 			</div>
+            @if( $most_photos_category != 0)
 			<div class="float-right mt-2">
 				<a class="btn btn-outline-primary" href="{{route('photos.index')}}?category={{$most_photos_category->id}}">Show  more {{ $most_photos_category->title }} photos <i class="fas fa-angle-right"></i></a>
 			</div>
+            @endif
 		</div>
 			@foreach($most_photos as $gallery)
 				@include('home.photo_card')
 			@endforeach
 	</div>
-  
+
   <hr>
 
 	<div class="row m-0 p-0 pt-4 pb-3">
@@ -147,15 +151,17 @@
 				<h2>{{ $most_articles_category->title }} Articles:</h2>
 				<p>This is the most used category for articles.</p>
 			</div>
+            @if( $most_articles_category != 0)
 			<div class="float-right mt-2">
 				<a class="btn btn-outline-primary" href="{{route('articles.index')}}?category={{$most_articles_category->id}}">Show  more {{ $most_articles_category->title }} articles <i class="fas fa-angle-right"></i></a>
 			</div>
+            @endif
 		</div>
 			@foreach($most_articles as $article)
 				@include('article.card')
 			@endforeach
 	</div>
-  
+
   <hr>
 
 
@@ -215,10 +221,10 @@
 
 
 
-  
+
 </div>
-  
-  
+
+
 
 
 </x-home-layout>

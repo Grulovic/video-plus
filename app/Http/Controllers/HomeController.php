@@ -64,6 +64,7 @@ class HomeController extends Controller
         }else{
             $most_articles_category = new stdClass();
             $most_articles_category->title = 'No Category at the moment.';
+            $most_articles_category->id = 0;
             $data['most_articles_category'] = $most_articles_category;
             $data['most_articles'] = null;
         }
@@ -88,6 +89,7 @@ class HomeController extends Controller
         }else{
             $most_videos_category = new stdClass();
             $most_videos_category->title = 'No Category at the moment.';
+            $most_videos_category->id = 0;
             $data['most_videos_category'] = $most_videos_category;
             $data['most_videos'] = null;
         }
@@ -109,6 +111,8 @@ class HomeController extends Controller
         }else{
             $most_photos_category = new stdClass();
             $most_photos_category->title = 'No Category at the moment.';
+            $most_photos_category->id = 0;
+
             $data['most_photos_category'] = $most_photos_category;
             $data['most_photos'] = null;
         }
