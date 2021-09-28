@@ -23,15 +23,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        
+
         $this->app->bind('path.public', function() {
             return base_path().'/../video.gov/';
         });
-        
-        //          $this->app->bind('path.public', function() {
-        //     return '/home/grulovic/public_html/video_gov';
-        // });
-        
-        
+
+
+
+
     }
 }
