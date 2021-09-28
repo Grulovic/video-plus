@@ -113,7 +113,7 @@
 				<h2>{{ $most_videos_category->title }} Videos:</h2>
 				<p>This is the most used category for videos.</p>
 			</div>
-            @if( $most_videos_category != 0)
+            @if( $most_videos_category->id != 0)
 			<div class="float-right mt-2">
 				<a class="btn btn-outline-primary" href="{{route('videos.index')}}?category={{$most_videos_category->id}}">Show more {{ $most_videos_category->title }} videos <i class="fas fa-angle-right"></i></a>
 			</div>
@@ -132,7 +132,7 @@
 				<h2>{{ $most_photos_category->title }} Photos:</h2>
 				<p>This is the most used category for photos.</p>
 			</div>
-            @if( $most_photos_category != 0)
+            @if( $most_photos_category->id != 0)
 			<div class="float-right mt-2">
 				<a class="btn btn-outline-primary" href="{{route('photos.index')}}?category={{$most_photos_category->id}}">Show  more {{ $most_photos_category->title }} photos <i class="fas fa-angle-right"></i></a>
 			</div>
@@ -151,7 +151,7 @@
 				<h2>{{ $most_articles_category->title }} Articles:</h2>
 				<p>This is the most used category for articles.</p>
 			</div>
-            @if( $most_articles_category != 0)
+            @if( $most_articles_category->id != 0)
 			<div class="float-right mt-2">
 				<a class="btn btn-outline-primary" href="{{route('articles.index')}}?category={{$most_articles_category->id}}">Show  more {{ $most_articles_category->title }} articles <i class="fas fa-angle-right"></i></a>
 			</div>
