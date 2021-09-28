@@ -29,8 +29,10 @@
   @endforeach
 
       @if( sizeof($videos) == 0 )
-          <div class="alert alert-info shadow-sm" role="alert" style="">
-              No videos found!
+          <div class="col-lg-12">
+              <div class="alert alert-info shadow-sm w-100" role="alert" style="">
+                  No videos found!
+            </div>
           </div>
       @endif
 
