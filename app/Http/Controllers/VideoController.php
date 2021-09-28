@@ -34,12 +34,12 @@ class VideoController extends Controller
             'create_view'
         ]]);
     }
-    
+
     public function index()
     {
-    
+
         $data['videos'] = $this->search()->paginate(12);
-        
+
         $data['users'] =  User::select('id','name')->orderBy('id','asc')->get();
         $data['categories'] =  Category::select('id','title')->orderBy('title','asc')->get();
 
@@ -54,26 +54,26 @@ class VideoController extends Controller
 
         return view('video.list',$data);
     }
-    
+
 
     public function create()
     {
         abort_unless( auth()->user()->role == "admin",403);
-        
+
         $data['categories'] =  Category::select('id','title')->orderBy('title','asc')->get();
     	$data['session_id'] = uniqid('', true);
-    
+
         return view('video.create',$data);
     }
-   
+
 
     public function store(Request $request)
     {
         abort_unless( auth()->user()->role == "admin",403);
-        
+
                     // dd(request()->category);
-        
-        
+
+
         $request->validate([
             'name' => 'present|nullable',
             'category' => 'required|nullable',
@@ -83,40 +83,40 @@ class VideoController extends Controller
         	'session_id' => 'required',
         	'email_push' => 'required'
         ]);
-		
+
 
         if( request()->file('video') ){
-            
-            
+
+
             $file = $request->file('video');
-            
+
 
             $video = request()->video;
-            
+
             if( request()->name == null ){
                   $request['name'] = $video->getClientOriginalName();
             }
-            
+
             $file_name = date('Y-m-d_H-i-s')."_". preg_replace("/[^a-z0-9\_\-\.]/i", '', str_replace(" ","-",$video->getClientOriginalName()) );
 
             Storage::disk('videos')->put($file_name,  File::get($video));
 
-        
+
             $request = $request->all();
 			$email_push = $request['email_push'];
             unset($request['email_push']);
-        
+
         	$session_id = $request['session_id'];
             // unset($request['session_id']);
 
-        
+
             $request['user_id'] = auth()->user()->id;
             $request['mime'] = $video->getClientMimeType();
-            
+
             $size = $video->getSize();
             $precision = 2;
             $base = log($size, 1024);
-            $suffixes = array('', 'KB', 'MB', 'GB', 'TB');   
+            $suffixes = array('', 'KB', 'MB', 'GB', 'TB');
             $size= round(pow(1024, $base - floor($base)), $precision) .' '. $suffixes[floor($base)];
             $request['size'] = $size;
 
@@ -128,13 +128,13 @@ class VideoController extends Controller
             unset($request['file']);
 
             $new_video = Video::create($request);
-        
+
         	$this->create_preview($file_name, $session_id);
-            $this->create_thumbnail($file_name);   
-        
+            $this->create_thumbnail($file_name);
+
 
         }
-        
+
         if( sizeof(request()->category) >0 ){
 
             $categories = request()->category;
@@ -148,14 +148,14 @@ class VideoController extends Controller
                 }
             }
         }
-        
+
         History::create([
                             'video_id' => $new_video->id
                             ,'user_id' => auth()->user()->id
                             ,'action' => "Video Uploaded"
                         ]);
-    
-    
+
+
     // Mail::to( User::where('id',1)->get()->first() )->send(new VideoUploaded( Video::where('id',$new_video->id)->get()->first()));
         if( $email_push == "admin" ){
         	 $users = User::where('role','admin')->orderBy('id','asc')->get();
@@ -164,7 +164,7 @@ class VideoController extends Controller
             }
         }
     	elseif(  $email_push == "all" ){
-        	
+
 			$users = User::where('id','>=',0)->orderBy('id','asc')->get();
         	foreach($users as $user){
         		Mail::to( $user )->send(new VideoUploaded( Video::where('id',$new_video->id)->get()->first()));
@@ -172,28 +172,28 @@ class VideoController extends Controller
 
         }else{
         }
-		
-		
+
+
        //  return Redirect::to('videos')
        // ->with('success','Greate! Video created successfully.');
     	return response()->json( $new_video->id );
     }
-    
+
 
 
 	public function create_preview($file_name, $id){
 
     $video = Video::where('session_id',$id);
-    
+
     // request()->session()->put('session_encoding_progress'.$id, 0 );
     // request()->session()->save();
-    
+
     // dd(public_path().'uploads/'.$file_name.'_preview.mp4');
         	//create low res
                 // create a video format...
        	 		// $lowBitrateFormat = (new X264('libmp3lame', 'libx264'))
        	 		$lowBitrateFormat = (new X264('aac', 'libx264'))
-                ->setKiloBitrate(250);
+                ->setKiloBitrate(500);
             	// open the uploaded video from the right disk...
                 $coversion = FFMpeg::fromDisk("videos")
                     ->open( $file_name)
@@ -214,43 +214,43 @@ class VideoController extends Controller
         				// request()->session()->put('session_encoding_progress'.$id, $percentage);
                     	// request()->session()->save();
                 	})
-                
+
                     ->toDisk('previews')
                     ->inFormat($lowBitrateFormat)
                 	->save( 'preview_'.$file_name);
     }
 
-	
+
 	public function create_thumbnail($file_name){
-    
+
     $video =  FFMpeg::fromDisk('previews')
     		->open('preview_'.$file_name);
 
-   
+
     foreach ([5, 15, 25, 60, 120, 240] as $key => $seconds) {
      $video =  $video->getFrameFromSeconds($seconds)
         ->export()
      	->toDisk('thumbs')
         ->save('thumb_'.($key+1)."_".$file_name.'.png');
 }
-    
+
 // 	// $duration = $video->getDurationInSeconds(); // returns an int
 // 	$duration = $video->get('duration'); // returns an int
 
     }
-	
-	
+
+
 	public function get_session_encoding_progress(Request $request){
-    
-    	
+
+
     	$request->validate([
     	'session_id' => 'required',
     	]);
     	$request = $request->all();
     	$id = $request['session_id'];
-    
+
     	$video = Video::where('session_id',$request['session_id'])->get()->first();
-   
+
     	// return response()->json( Session::get('session_encoding_progress') );
     	// return response()->json( request()->session()->get('session_encoding_progress'.$id) );
     	return response()->json( $video->progress );
@@ -261,30 +261,30 @@ class VideoController extends Controller
     {
         $where = array('id' => $video->id);
         $data['video'] = $video;
-        
+
     	if($data['video'] == null){
        	 return Redirect::to('videos')
        		->with('error','No such video found!');
-        
+
         }
-    	
+
         //create view
     	if( !$data['video']->viewed_before() ){
         	VideoView::create_log($data['video']);
         }
-    	
-    	
-    
-    
+
+
+
+
     	//get related videos
         foreach($data['video']->categories as $key => $category ){
             $current_video_tags[$key] = $category->category->id;
         }
-        
+
         if( isset($current_video_tags) ){
         // dd($current_video_tags);
        	$list_of_files = scandir(public_path()."uploads/videos");
-        
+
         $data['related'] = Video::whereHas('categories', function($q) use ($current_video_tags) {
                                     $q->whereIn('category_id', $current_video_tags);
                                 })
@@ -292,45 +292,45 @@ class VideoController extends Controller
         						->whereIn('file_name', $list_of_files)
                                 ->orderBy('created_at','desc')->take(4)->get();
         }else{
-            
+
             $data['related'] = Video::orderBy('created_at','desc')->where('id', '!=' , $video->id)->take(4)->get();
-            
+
         }
-        
-        
- 
+
+
+
         return view('video.show', $data);
     }
 
 	public function create_view($id){
-    	        
+
         $where = array('id' => $id);
         $data['video'] = Video::where($where)->first();
-        
+
     	if($data['video'] == null){
        	 return response()->json( "No such video found to update view!" );
-        
+
         }
-    	
+
         //create view
     	if( !$data['video']->viewed_before() ){
         	VideoView::create_log($data['video']);
         }
-    
+
     	return response()->json( "Video view updated successfully!" );
     }
 
     public function download(Video $video)
     {
-    
-    
+
+
         $where = array('id' => $video->id);
         $video = $video;
-    
+
     	if($video == null){
         	return Redirect::to('videos')
        		->with('error','No such video found!');
-        
+
         }
 
         History::create([
@@ -341,29 +341,29 @@ class VideoController extends Controller
 
         return Response::download(public_path()."uploads/videos/".$video->file_name);
     }
-    
+
 
     public function edit(Video $video)
-    {   
-    
+    {
+
         abort_unless( auth()->user()->role == "admin",403);
-        
+
         Session::put('video_edit_request_referrer', URL::previous());
 
         $where = array('id' => $video->id);
         $data['video'] = $video;
         $data['categories'] =  Category::select('id','title')->orderBy('title','asc')->get();
-        
-                        
+
+
         return view('video.edit', $data);
     }
-   
+
 
     public function update(Request $request, $id)
     {
-       
+
        abort_unless( auth()->user()->role == "admin",403);
-    
+
        $request->validate([
             'name' => 'present|nullable',
             'category' => 'required|nullable',
@@ -384,7 +384,7 @@ class VideoController extends Controller
             //     unlink($image_path);
             // }
             $request = $request->all();
-        		
+
         	$session_id = $request['session_id'];
 
             $video = request()->video;
@@ -392,10 +392,10 @@ class VideoController extends Controller
             $file_name = date('Y-m-d_H-i-s')."_".str_replace(" ","-",$video->getClientOriginalName());
 
             Storage::disk('videos')->put($file_name,  File::get($video));
-        
+
             $this->create_preview($file_name, $session_id );
-            $this->create_thumbnail($file_name); 
-            
+            $this->create_thumbnail($file_name);
+
             // $file->storeAs(public_path('vid'), $file_name);
 
             $request['mime'] = $video->getClientMimeType();
@@ -403,7 +403,7 @@ class VideoController extends Controller
             $size = $video->getSize();
             $precision = 2;
             $base = log($size, 1024);
-            $suffixes = array('', 'kb', 'mb', 'gb', 'tb');   
+            $suffixes = array('', 'kb', 'mb', 'gb', 'tb');
             $size= round(pow(1024, $base - floor($base)), $precision) .' '. $suffixes[floor($base)];
 
             $request['size'] = $size;
@@ -419,7 +419,7 @@ class VideoController extends Controller
             unset($request['_token']);
             unset($request['_method']);
             unset($request['user_id']);
-            
+
             $video = Video::where('id',$id);
 
            $this->delete_video_files( $video->latest()->first()->file_name );
@@ -427,7 +427,7 @@ class VideoController extends Controller
         }else{
 
             $video = Video::where('id',$id);
-            
+
             $request = $request->all();
 
             unset($request['file']);
@@ -461,76 +461,76 @@ class VideoController extends Controller
 
 
         $video->update($request);
-    
+
         History::create([
                             'video_id' => $id
                             ,'user_id' => auth()->user()->id
                             ,'action' => "Video Edited"
                         ]);
-                        
+
         // return Redirect::to('videos')
     // return redirect(Session::get('video_edit_request_referrer'))
     //    ->with('success','Great! Video updated successfully');
-    
+
     return response()->json( $video->id );
-    
+
     }
-	
+
 
 	public function delete_video_files($file_name){
     	 	$previous_video_path = public_path().'uploads/videos/'.$file_name;
             if(file_exists ($previous_video_path)){
             	unlink($previous_video_path);
             }
-        	
+
             $previous_preview_path = public_path().'uploads/videos/previews/preview_'.$file_name;
         	if(file_exists ($previous_preview_path)){
             	unlink($previous_preview_path);
             }
-        	
+
     		for ($i = 1; $i <= 3; $i++) {
             	$previous_thumbnail_path = public_path().'uploads/videos/thumbs/thumb_'.$i."_".$file_name.'.png';
         		if(file_exists ($previous_thumbnail_path)){
                 unlink($previous_thumbnail_path);
             	}
 			}
-        		
+
     }
 
 
     public function destroy($id)
     {
-        
+
         abort_unless( auth()->user()->role == "admin",403);
-        
+
         $video = Video::where('id',$id);
-        
+
         $this->delete_video_files( $video->latest()->first()->file_name );
 
         $video->delete();
         VideoCategory::where('video_id',$id)->delete();
         VideoView::where('video_id',$id)->delete();
-        
+
         History::create([
                             'video_id' => $id
                             ,'user_id' => auth()->user()->id
                             ,'action' => "Video Deleted"
                         ]);
-   
+
         return Redirect::to('videos')->with('success','Video deleted successfully');
     }
 
 
     public function search(){
-        
-   
+
+
         if(request()->sort == "new" || request()->sort == null){
             $videos = Video::orderBy('id','desc');
         }else{
             $videos = Video::orderBy('id','asc');
         }
 
-        
+
 
         if(isset(request()->search)){
             // var_dump(request()->search);
@@ -540,7 +540,7 @@ class VideoController extends Controller
                         ->orWhere('description', 'like', '%'.request()->search.'%')
                         ->orWhere('location', 'like', '%'.request()->search.'%')
                         ->orWhere('original_file_name', 'like', '%'.request()->search.'%')
-                        ->orWhereHas('user', function($query){ 
+                        ->orWhereHas('user', function($query){
                             $query->where('name', 'like', '%'.request()->search.'%');
                         });
                    }) ;
@@ -549,7 +549,7 @@ class VideoController extends Controller
         }
 
         if(isset(request()->user)){
-            
+
             $videos->where(function($query){
                     $query
                         ->where('user_id', request()->user);
@@ -559,7 +559,7 @@ class VideoController extends Controller
         }
 
         if(isset(request()->from_date)){
-            
+
             $videos->where(function($query){
                     $query
                         ->where('created_at',">=", request()->from_date);
@@ -569,10 +569,10 @@ class VideoController extends Controller
         }
 
         if(isset(request()->category)){
-            
+
             $videos->where(function($query){
                     $query
-                        ->whereHas('categories', function($query){ 
+                        ->whereHas('categories', function($query){
                             $query->where('category_id', request()->category);
                         });
                     })
@@ -581,7 +581,7 @@ class VideoController extends Controller
         // dd(public_path()."/uploads/");
         $list_of_files = scandir(public_path()."uploads/videos");
         $videos->whereIn('file_name', $list_of_files);
-        
+
         return $videos;
     }
 
