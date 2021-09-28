@@ -28,7 +28,7 @@
 
   @endforeach
 
-      @if( !isset($videos) )
+      @if( sizeof($videos) == 0 )
           <div class="alert alert-info shadow-sm" role="alert" style="">
               No videos found!
           </div>
