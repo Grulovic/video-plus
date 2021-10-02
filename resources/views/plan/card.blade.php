@@ -30,22 +30,22 @@
 
         <p>Video Items:
             @foreach( $plan->videoItems as $item )
-                <a href="{{ route('videos.show',$item->item_id)}}">{{ $item->getItem->name }}</a>
+                <a href="{{ route('videos.show',$item->item_id)}}">{{ $item->getItem->first()->name }}</a>
             @endforeach
         </p>
         <p>Photo Items:
             @foreach( $plan->photoItems as $item )
-                <a href="{{ route('photos.show',$item->item_id)}}">{{ $item->getItem->name }}</a>
+                <a href="{{ route('photos.show',$item->item_id)}}">{{ $item->getItem->first()->name }}</a>
             @endforeach
         </p>
         <p>Article Items:
             @foreach( $plan->textItems as $item )
-                <a href="{{ route('articles.show',$item->item_id)}}">{{ $item->getItem->title }}</a>
+                <a href="{{ route('articles.show',$item->item_id)}}">{{ $item->getItem->first()->title }}</a>
             @endforeach
         </p>
         <p>Live Items:
             @foreach( $plan->liveItems as $item )
-                <a href="{{ route('lives.show',$item->item_id)}}">{{ $item->getItem->title }}</a>
+                <a href="{{ route('lives.show',$item->item_id)}}">{{ $item->getItem->first()->title }}</a>
             @endforeach
         </p>
 
