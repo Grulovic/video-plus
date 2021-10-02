@@ -10,13 +10,13 @@
       <form class="form-inline row m-0 p-0" action="{{ route('plans.index') }}" method="GET">
           @csrf
           <input type="date" name="date" value="{{ $date_before }}" hidden>
-          <button type="submit" class="btn btn-primary" value="Submit"> < {{ $date_before }}</button>
+          <button type="submit" class="btn btn-primary" value="Submit"> < {{ date('j. F', strtotime($date_before)) }} </button>
       </form>
 
       <form class="form-inline row m-0 p-0" action="{{ route('plans.index') }}" method="GET">
           @csrf
           <input type="date" name="date" value="{{ $date_after }}" hidden>
-          <button type="submit" class="btn btn-primary" value="Submit">{{ $date_after }} > </button>
+          <button type="submit" class="btn btn-primary" value="Submit">{{ date('j. F', strtotime($date_after)) }} > </button>
       </form>
 
   </div>
