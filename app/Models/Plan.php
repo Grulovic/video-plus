@@ -34,19 +34,19 @@ class Plan extends Model
     }
 
     public function videoItems(){
-        return $this->items()->where('type',0)->get();
+        return $this->items()->where('type',0);
     }
 
     public function photoItems(){
-        return $this->items()->where('type',1)->get();
+        return $this->items()->where('type',1);
     }
 
     public function textItems(){
-        return $this->items()->where('type',2)->get();
+        return $this->items()->where('type',2);
     }
 
     public function liveItems(){
-        return $this->items()->where('type',3)->get();
+        return $this->items()->where('type',3);
     }
 
 }
