@@ -51,7 +51,7 @@ class PlannerController extends Controller
         $data['categories'] =  Category::select('id','title')->orderBy('title','asc')->get();
 
         $data['videos'] =  Video::select('id','name')->orderBy('created_at','desc')->limit(50)->get();
-        $data['photos'] =  Gallery::select('id','title')->orderBy('created_at','desc')->limit(50)->get();
+        $data['photos'] =  Gallery::select('id','name')->orderBy('created_at','desc')->limit(50)->get();
         $data['texts'] =  Article::select('id','title')->orderBy('created_at','desc')->limit(50)->get();
         $data['lives'] =  Live::select('id','title')->orderBy('created_at','desc')->limit(50)->get();
 
