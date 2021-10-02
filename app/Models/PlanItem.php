@@ -25,7 +25,7 @@ class PlanItem extends Model
             return $this->belongsTo(Video::class,'item_id');
         }
         else if($this->type == 1){
-            return $this->belongsTo(Photo::class,'item_id');
+            return $this->belongsTo(Gallery::class,'item_id');
         }
         else if($this->type == 2){
             return $this->belongsTo(Article::class,'item_id');
