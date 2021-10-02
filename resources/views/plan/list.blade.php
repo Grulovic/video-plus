@@ -16,11 +16,12 @@
       <form class="form-inline row m-0 p-0" action="{{ route('plans.index') }}" method="GET">
           @csrf
           <input type="date" name="date" value="{{ $today }}" hidden>
-          <button type="submit" class="btn btn-primary" value="Submit"> <i class="fas fa-chevron-left"></i> Today </button>
+          <button type="submit" class="btn btn-outline-primary" value="Submit">Today </button>
       </form>
 
       <script>
           $("#datepicker").change(function() {
+              alert("HERE");
               this.form.submit();
           });
       </script>
