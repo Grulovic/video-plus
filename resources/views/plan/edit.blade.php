@@ -67,7 +67,7 @@
     <div class="form-group  col-lg-6">
         <strong>Video Items</strong>
         <select multiple="" class="custom-select" id="video_items" name="video_items[]">
-            <option value="" @if(sizeof($plan->videoItems) == 0)selected=""@endif>None</option>
+            <option value="" selected="">None</option>
             @foreach($videos as $item)
                 <option value="{{$item->id}}"
                 @foreach($plan->videoItems as $video_item)
@@ -80,7 +80,7 @@
     <div class="form-group  col-lg-6">
         <strong>Photo Items</strong>
         <select multiple="" class="custom-select" id="photo_items" name="photo_items[]">
-            <option value="" @if(sizeof($plan->photoItems) == 0)selected=""@endif>None</option>
+            <option value="" selected="">None</option>
             @foreach($photos as $item)
                 <option value="{{$item->id}}"
                 @foreach($plan->photoItems as $photo_item)
@@ -92,7 +92,7 @@
     <div class="form-group  col-lg-6">
         <strong>Text Items</strong>
         <select multiple="" class="custom-select" id="text_items" name="text_items[]">
-            <option value="" @if(sizeof($plan->textItems) == 0)selected=""@endif>None</option>
+            <option value="" selected="">None</option>
             @foreach($texts as $item)
                 <option value="{{$item->id}}"
                 @foreach($plan->textItems as $text_item)
@@ -104,7 +104,7 @@
     <div class="form-group  col-lg-6">
         <strong>Live Items</strong>
         <select multiple="" class="custom-select" id="live_items" name="live_items[]">
-            <option value="" @if(sizeof($plan->liveItems) == 0)selected=""@endif>None</option>
+            <option value="" selected="">None</option>
             @foreach($lives as $item)
                 <option value="{{$item->id}}"
                 @foreach($plan->liveItems as $live_item)
