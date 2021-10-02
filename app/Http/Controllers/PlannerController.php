@@ -58,10 +58,10 @@ class PlannerController extends Controller
             'text' => 'present|nullable',
             'live' => 'present|nullable',
 
-            'video_items' => 'present|nullable',
-            'photo_items' => 'present|nullable',
-            'text_items' => 'present|nullable',
-            'live_items' => 'present|nullable',
+            'video_items' => 'nullable',
+            'photo_items' => 'nullable',
+            'text_items' => 'nullable',
+            'live_items' => 'nullable',
         ]);
 
         $request = $request->all();
@@ -170,10 +170,10 @@ class PlannerController extends Controller
             'text' => 'present|nullable',
             'live' => 'present|nullable',
 
-            'video_items' => 'present|nullable',
-            'photo_items' => 'present|nullable',
-            'text_items' => 'present|nullable',
-            'live_items' => 'present|nullable',
+            'video_items' => 'nullable',
+            'photo_items' => 'nullable',
+            'text_items' => 'nullable',
+            'live_items' => 'nullable',
         ]);
 
         $request = $request->all();
