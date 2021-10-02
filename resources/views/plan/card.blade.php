@@ -101,39 +101,8 @@
         </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
     </div>
 
-    <div class="card-footer  text-right">
-        <div class="btn-group ">
-
-           @if (!Auth::guest())
- 			@can('update',$plan)
-
-
-          <a href="{{ route('plans.edit',$plan->id)}}" class="btn btn-sm btn-warning"><i class="far fa-edit"></i></a>
-          @endcan
- 			@can('delete',$plan)
-
-           <button type="button" class="btn btn-sm  btn-danger" style="border-radius: 0 0.25rem 0.25rem 0;" data-toggle="modal" data-target="#modal_{{$plan->id}}_delete_btn"  data-toggle="tooltip" data-placement="top" title="Delete plan">
-                   <i class="far fa-trash-alt"></i>
-                  </button>
-          @endcan
-
-          @endif
-
-        </div>
-      </div>
 
   </div>
 </div>
