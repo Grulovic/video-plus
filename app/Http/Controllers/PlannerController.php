@@ -26,10 +26,10 @@ class PlannerController extends Controller
 
         if($request->has('date')){
             $date = Carbon::parse($request->date)->toDateString();
-            $data['plans'] = Plan::where('date',$date);
+            $data['plans'] = Plan::where('date',$date)->get();
         }else{
             $today = Carbon::now()->toDateString();
-            $data['plans'] = Plan::where('date',$today);
+            $data['plans'] = Plan::where('date',$today)->get();
         }
         dd($data);
         return view('plan.list',$data);
