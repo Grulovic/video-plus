@@ -28,6 +28,9 @@
             <i class="fas fa-file-alt"></i>
         @endif
 
+        @php
+            dd($plan->videoItems)
+        @endphp
         @if($plan->videoItems)
         <p>Video Items:
             @foreach( $plan->videoItems as $item )
