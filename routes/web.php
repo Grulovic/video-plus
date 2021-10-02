@@ -97,7 +97,7 @@ Route::get('/clear-cache', function() {
 
 // PLANNER
 Route::group( ['middleware' => ['auth:sanctum'] ] ,function () {
-    Route::get('/planner', 'PlannerController@index')->name("plans.index");
+    Route::post('/planner', 'PlannerController@index')->name("plans.index");
     Route::get('/planner/create', 'PlannerController@create')->name("plans.create");
     Route::post('/planner', 'PlannerController@store')->name("plans.store");
     Route::get('/planner/{plan}/edit', 'PlannerController@edit')->name("plans.edit");
