@@ -19,14 +19,18 @@
           <button type="submit" class="btn btn-outline-primary" value="Submit">Today </button>
       </form>
 
-      <script>
-          $("#datepicker").change(function() {
-              alert("HERE");
-              this.form.submit();
-          });
-      </script>
+
       <form class="form-inline row m-0 p-0" action="{{ route('plans.index') }}" method="GET">
           @csrf
+          <script>
+              $( document ).ready(function() {
+                  $("#datepicker").change(function() {
+                      alert("HERE");
+                      this.form.submit();
+                  });
+              });
+
+          </script>
           <input type="date" id="datepicker" name="date" value="{{ $date_before }}">
       </form>
 
