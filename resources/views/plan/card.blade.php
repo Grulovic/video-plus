@@ -28,7 +28,7 @@
             <i class="fas fa-file-alt"></i>
         @endif
 
-        @if(sizeof($plan->videoItems)>0)
+        @if(sizeof($plan->videoItems->get())>0)
         <p>Video Items:
             @foreach( $plan->videoItems as $item )
                 <a href="{{ route('videos.show',$item->item_id)}}">{{ $item->getItem->name }}</a>
@@ -36,21 +36,21 @@
         </p>
         @endif
 
-        @if(sizeof($plan->photoItems)>0)
+        @if(sizeof($plan->photoItems->get())>0)
         <p>Photo Items:
             @foreach( $plan->photoItems as $item )
                 <a href="{{ route('photos.show',$item->item_id)}}">{{ $item->getItem->name }}</a>
             @endforeach
         </p>
          @endif
-        @if(sizeof($plan->textItems)>0)
+        @if(sizeof($plan->textItems->get())>0)
         <p>Article Items:
             @foreach( $plan->textItems as $item )
                 <a href="{{ route('articles.show',$item->item_id)}}">{{ $item->getItem->title }}</a>
             @endforeach
         </p>
         @endif
-        @if(sizeof($plan->liveItems)>0)
+        @if(sizeof($plan->liveItems->get())>0)
         <p>Live Items:
             @foreach( $plan->liveItems as $item )
                 <a href="{{ route('lives.show',$item->item_id)}}">{{ $item->getItem->title }}</a>
