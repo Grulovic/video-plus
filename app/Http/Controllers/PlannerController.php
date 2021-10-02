@@ -82,7 +82,7 @@ class PlannerController extends Controller
         ]);
 
         $request = $request->all();
-        dd($request);
+
         unset($request['_token']);
         unset($request['_method']);
         $request['user_id'] = Auth::id();
