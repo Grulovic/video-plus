@@ -5,6 +5,18 @@
 
   <div class="col-9  text-left">
     <h2>Plan List:</h2>
+
+
+      <form class="form-inline row m-0 p-0" action="/planner" method="POST">
+          <input type="date" name="date" value="{{ $date_before }}">
+          <button type="submit" class="btn btn-primary" value="Submit"> < </button>
+      </form>
+
+      <form class="form-inline row m-0 p-0" action="/planner" method="POST">
+          <input type="date" name="date" value="{{ $date_after }}">
+          <button type="submit" class="btn btn-primary" value="Submit"> > </button>
+      </form>
+
   </div>
 
 

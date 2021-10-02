@@ -25,15 +25,19 @@ class PlannerController extends Controller
         ]);
 
         if($request->has('date')){
+            $date_before = Carbon::parse($request->date)->subDays(1)->toDateString();
             $date = Carbon::parse($request->date)->toDateString();
             $date_after = Carbon::parse($request->date)->addDays(1)->toDateString();
             $data['plans'] = Plan::where('date',">=",$date)->where('date',"<",$date_after)->get();
         }else{
-            $today = Carbon::now()->toDateString();
-            $tomorrow = Carbon::now()->addDays(1)->toDateString();
+            $date_before = Carbon::now()->subDays(1)->toDateString();
+            $date = Carbon::now()->toDateString();
+            $date_after = Carbon::now()->addDays(1)->toDateString();
 
-            $data['plans'] = Plan::where('date',">=",$today)->where('date',"<",$tomorrow)->get();
+            $data['plans'] = Plan::where('date',">=",$date)->where('date',"<",$date_after)->get();
         }
+        $data['date_after'] = $date_after;
+        $data['date_before'] = $date_before;
         return view('plan.list',$data);
     }
 
@@ -140,7 +144,7 @@ class PlannerController extends Controller
 //            ,'action' => "Gallery Edited"
 //        ]);
 
-        return Redirect::to('plans')
+        return Redirect::to('planner')
             ->with('success','Great! Plan created successfully.');
     }
 
