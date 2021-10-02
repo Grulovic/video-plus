@@ -23,8 +23,9 @@
                 <h5 class="pb-0 mb-0">{{ $plan->title }}</h5>
                 <p class="mb-0 pb-0" style="">{{ $plan->description }}</p>
                 @if(sizeof($plan->videoItems) != 0)
-                    <div class="collapse " id="plan{{ $loop->index }}videos">
-                        <div class="card card-body">Video Items:
+                    <div class="collapse mb-2 " id="plan{{ $loop->index }}videos">
+                        <div class="card">
+                            <div class="rounded-top bg-light border-bottom">Videos:</div>
                         @foreach( $plan->videoItems as $item )
                             <a href="{{ route('videos.show',$item->item_id)}}">{{ $item->getItem->name }}</a>
                         @endforeach
@@ -33,9 +34,9 @@
                 @endif
 
                 @if(sizeof($plan->photoItems) != 0)
-                <div class="collapse " id="plan{{ $loop->index }}photos">
+                <div class="collapse mb-2 " id="plan{{ $loop->index }}photos">
                     <div class="card card-body">
-                    Photo Items:
+                        <div class="rounded-top bg-light border-bottom">Galleries:</div>
                         @foreach( $plan->photoItems as $item )
                             <a href="{{ route('photos.show',$item->item_id)}}">{{ $item->getItem->name }}</a>
                         @endforeach
@@ -43,9 +44,9 @@
                     </div>
                 @endif
                 @if(sizeof($plan->textItems) != 0)
-                <div class="collapse " id="plan{{ $loop->index }}texts">
+                <div class="collapse mb-2" id="plan{{ $loop->index }}texts">
                     <div class="card card-body">
-                    Article Items:
+                        <div class="rounded-top bg-light border-bottom">Articles:</div>
                         @foreach( $plan->textItems as $item )
                             <a href="{{ route('articles.show',$item->item_id)}}">{{ $item->getItem->title }}</a>
                         @endforeach
@@ -53,8 +54,9 @@
                     </div>
                 @endif
                 @if(sizeof($plan->liveItems) != 0)
-                <div class="collapse " id="plan{{ $loop->index }}lives">
-                    <div class="card card-body">Live Items:
+                <div class="collapse mb-2" id="plan{{ $loop->index }}lives">
+                    <div class="card card-body">
+                        <div class="rounded-top bg-light border-bottom">Live Streams:</div>
                         @foreach( $plan->liveItems as $item )
                             <a href="{{ route('lives.show',$item->item_id)}}">{{ $item->getItem->title }}</a>
                         @endforeach
