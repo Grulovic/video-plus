@@ -8,11 +8,13 @@
 
 
       <form class="form-inline row m-0 p-0" action="/planner" method="POST">
+          @csrf
           <input type="date" name="date" value="{{ $date_before }}" hidden>
           <button type="submit" class="btn btn-primary" value="Submit"> < </button>
       </form>
 
       <form class="form-inline row m-0 p-0" action="/planner" method="POST">
+          @csrf
           <input type="date" name="date" value="{{ $date_after }}" hidden>
           <button type="submit" class="btn btn-primary" value="Submit"> > </button>
       </form>
