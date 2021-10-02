@@ -62,6 +62,10 @@
                         {{ __('Live') }}
                     </x-jet-nav-link>
 
+                    <x-jet-nav-link href="{{ route('plans.index') }}" :active="request()->routeIs(['plans.index','plans.create','plans.edit'])">
+                        {{ __('Planner') }}
+                    </x-jet-nav-link>
+
                     @auth
                      @if( auth()->user()->role == "admin")
 
@@ -229,6 +233,10 @@
 
                     <x-jet-responsive-nav-link href="{{ route('lives.index') }}" :active="request()->routeIs(['lives.index','lives.create','lives.edit','lives.show'])">
                         {{ __('Live') }}
+                    </x-jet-responsive-nav-link>
+
+                    <x-jet-responsive-nav-link href="{{ route('plans.index') }}" :active="request()->routeIs(['plans.index','plans.create','plans.edit'])">
+                        {{ __('Planner') }}
                     </x-jet-responsive-nav-link>
 
                     @auth

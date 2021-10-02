@@ -66,7 +66,7 @@ Route::group( ['middleware' => ['auth:sanctum'] ] ,function () {
 	Route::get('/lives/{live}/edit', 'LiveController@edit')->name("lives.edit");
 	Route::patch('lives/{live}','LiveController@update')->name("lives.update");
 	Route::delete('lives/{live}','LiveController@destroy')->name("lives.destroy");
-	
+
 	Route::post('/lives/update/{live}', 'LiveController@update_featured')->name("lives.update_featured");
 
 });
@@ -95,7 +95,15 @@ Route::get('/clear-cache', function() {
 
 
 
-
+// PLANNER
+Route::group( ['middleware' => ['auth:sanctum'] ] ,function () {
+    Route::get('/planner', 'PlanController@index')->name("plans.index");
+    Route::get('/planner/create', 'PlanController@create')->name("plans.create");
+    Route::post('/planner', 'PlanController@store')->name("plans.store");
+    Route::get('/planner/{plan}/edit', 'PlanController@edit')->name("plans.edit");
+    Route::patch('planner/{plan}','PlanController@update')->name("plans.update");
+    Route::delete('planner/{plan}','PlanController@destroy')->name("plans.destroy");
+});
 
 
 // Route::get('/telegram/connect', 'TelegramController@connect')->name('telegram.connect');
