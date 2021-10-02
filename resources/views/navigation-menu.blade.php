@@ -3,18 +3,18 @@
 // $(window).scroll(function(){
 //   if ($(window).scrollTop() >= 65 ){
 //   	if( $('#main-nav').hasClass("slided") ){
-    	
+
 //     }else{
 //     	$('body').css("margin-top","65px");
 //     	$('#main-nav').hide().slideDown().addClass('slided').addClass('fixed-top');
 //     }
-  	
+
 //    }
 //    else if ( $(window).scrollTop() <= 5 ) {
-   
+
 //     $('#main-nav').removeClass('slided').removeClass('fixed-top');
 //    	$('body').css("margin-top","0px");
-   
+
 //    }
 // });
 // });
@@ -37,7 +37,7 @@
                     <x-jet-nav-link href="{{ route('home.index') }}" :active="request()->routeIs('home.index')">
                         {{ __('Home') }}
                     </x-jet-nav-link>
-                    
+
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
@@ -49,33 +49,36 @@
                      <x-jet-nav-link href="{{ route('photos.index') }}" :active="request()->routeIs(['photos.index','photos.list','photos.create','photos.edit','photos.show'])">
                         {{ __('Photos') }}
                     </x-jet-nav-link>
-                
+
                 	<x-jet-nav-link href="{{ route('articles.index') }}" :active="request()->routeIs(['articles.index','articles.create','articles.edit','articles.show'])">
                         {{ __('Articles') }}
                     </x-jet-nav-link>
-                    
+
                     <x-jet-nav-link href="{{ route('history.index') }}" :active="request()->routeIs(['history.index'])">
                         {{ __('History') }}
                     </x-jet-nav-link>
-                    @auth
-                     @if( auth()->user()->role == "admin")
+
                     <x-jet-nav-link href="{{ route('lives.index') }}" :active="request()->routeIs(['lives.index','lives.create','lives.edit','lives.show'])">
                         {{ __('Live') }}
                     </x-jet-nav-link>
 
+                    @auth
+                     @if( auth()->user()->role == "admin")
+
+
                     <x-jet-nav-link href="{{ route('categories.index') }}" :active="request()->routeIs(['categories.index','categories.create','categories.edit','categories.show'])">
                         {{ __('Categories') }}
                     </x-jet-nav-link>
-                    
+
                     <x-jet-nav-link href="{{ route('users.index') }}" :active="request()->routeIs(['users.index'])">
                         {{ __('Users') }}
                     </x-jet-nav-link>
                     @endif
                     @endauth
 
-                    
-                    
-                    
+
+
+
 
                 </div>
             </div>
@@ -203,7 +206,7 @@
                     <x-jet-responsive-nav-link href="{{ route('home.index') }}" :active="request()->routeIs('home.index')">
                         {{ __('Home') }}
                     </x-jet-responsive-nav-link>
-                    
+
                     <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-responsive-nav-link>
@@ -215,24 +218,25 @@
                      <x-jet-responsive-nav-link href="{{ route('photos.index') }}" :active="request()->routeIs(['photos.index','photos.list','photos.create','photos.edit','photos.show'])">
                         {{ __('Photos') }}
                     </x-jet-responsive-nav-link>
-                    
+
         			<x-jet-responsive-nav-link href="{{ route('articles.index') }}" :active="request()->routeIs(['articles.index','articles.create','articles.edit','articles.show'])">
                         {{ __('Articles') }}
                     </x-jet-responsive-nav-link>
-        
+
                     <x-jet-responsive-nav-link href="{{ route('history.index') }}" :active="request()->routeIs(['history.index'])">
                         {{ __('History') }}
                     </x-jet-responsive-nav-link>
+
+                    <x-jet-responsive-nav-link href="{{ route('lives.index') }}" :active="request()->routeIs(['lives.index','lives.create','lives.edit','lives.show'])">
+                        {{ __('Live') }}
+                    </x-jet-responsive-nav-link>
+
                     @auth
                     @if( auth()->user()->role == "admin")
                     <x-jet-responsive-nav-link href="{{ route('categories.index') }}" :active="request()->routeIs(['categories.index','categories.create','categories.edit','categories.show'])">
                         {{ __('Categories') }}
                     </x-jet-responsive-nav-link>
-                    
-                    <x-jet-responsive-nav-link href="{{ route('lives.index') }}" :active="request()->routeIs(['lives.index','lives.create','lives.edit','lives.show'])">
-                        {{ __('Live') }}
-                    </x-jet-responsive-nav-link>
-                    
+
                      <x-jet-responsive-nav-link href="{{ route('users.index') }}" :active="request()->routeIs(['users.index'])">
                         {{ __('Users') }}
                     </x-jet-responsive-nav-link>
