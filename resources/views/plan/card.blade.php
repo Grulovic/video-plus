@@ -29,7 +29,7 @@
         @endif
 
         @php
-            dd($plan->videoItems)
+            dd( sizeof($plan->videoItems))
         @endphp
         @if($plan->videoItems)
         <p>Video Items:
