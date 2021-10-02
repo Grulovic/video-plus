@@ -37,10 +37,8 @@
 
 
  <div class="col-lg-12 p-0" style="">
-            @if(isset($plans))
-            @if(count($plans) < 1)
+            @if($plans == null || sizeof($plans) <= 0 )
                <div colspan="13" class="text-center">There are no plan available yet!</div>
-			@endif
             @endif
      </div>
 
