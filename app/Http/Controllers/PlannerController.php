@@ -285,7 +285,7 @@ class PlannerController extends Controller
     public function destroy(Plan $plan)
     {
         // abort_unless( auth()->user()->role == "admin",403);
-        dd($plan->videoItems());
+        dd($plan->videoItems()->get());
 
         $plan->videoItems()->delete();
         $plan->photoItems()->delete();
