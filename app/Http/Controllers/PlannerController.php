@@ -226,63 +226,63 @@ class PlannerController extends Controller
         }
 
 
-//        //replace video items
-//        $video_items = request()->video_items;
-//        $plan->videoItems()->delete();
-//        if( sizeof($video_items) > 0 && $video_items[0]!=null  ){
-//            foreach ($video_items as $video_item) {
-//                PlanItem::create([
-//                    'plan_id' => $plan->id
-//                    ,'type' => 0
-//                    ,'item_id' => $video_item
-//                ]);
-//            }
-//        }
-//
-//        //replace photo items
-//        $photo_items = request()->photo_items;
-//        $plan->photoItems()->delete();
-//        if( sizeof($photo_items) > 0 && $photo_items[0]!=null  ){
-//            foreach ($photo_items as $photo_items) {
-//                PlanCategory::create([
-//                    'plan_id' => $plan->id
-//                    ,'type' => 1
-//                    ,'item_id' => $photo_items
-//                ]);
-//            }
-//        }
-//
-//        //replace text items
-//        $article_items = request()->article_items;
-//        $plan->textItems()->delete();
-//        if( sizeof($article_items) > 0 && $article_items[0]!=null  ){
-//            foreach ($article_items as $article_item) {
-//                PlanItem::create([
-//                    'plan_id' => $plan->id
-//                    ,'type' => 2
-//                    ,'item_id' => $article_item
-//                ]);
-//            }
-//        }
-//
-//        //replace live items
-//        $live_items = request()->live_items;
-//        $plan->liveItems()->delete();
-//        if( sizeof($live_items) > 0 && $live_items[0]!=null  ){
-//            foreach ($live_items as $live_item) {
-//                PlanItem::create([
-//                    'plan_id' => $plan->id
-//                    ,'type' => 3
-//                    ,'item_id' => $live_item
-//                ]);
-//            }
-//        }
+        //replace video items
+        $video_items = request()->video_items;
+        $plan->videoItems()->delete();
+        if( sizeof($video_items) > 0 && $video_items[0]!=null  ){
+            foreach ($video_items as $video_item) {
+                PlanItem::create([
+                    'plan_id' => $plan->id
+                    ,'type' => 0
+                    ,'item_id' => $video_item
+                ]);
+            }
+        }
 
-//        History::create([
-//            'gallery_id' => $id
-//            ,'user_id' => auth()->user()->id
-//            ,'action' => "Gallery Edited"
-//        ]);
+        //replace photo items
+        $photo_items = request()->photo_items;
+        $plan->photoItems()->delete();
+        if( sizeof($photo_items) > 0 && $photo_items[0]!=null  ){
+            foreach ($photo_items as $photo_items) {
+                PlanCategory::create([
+                    'plan_id' => $plan->id
+                    ,'type' => 1
+                    ,'item_id' => $photo_items
+                ]);
+            }
+        }
+
+        //replace text items
+        $article_items = request()->article_items;
+        $plan->textItems()->delete();
+        if( sizeof($article_items) > 0 && $article_items[0]!=null  ){
+            foreach ($article_items as $article_item) {
+                PlanItem::create([
+                    'plan_id' => $plan->id
+                    ,'type' => 2
+                    ,'item_id' => $article_item
+                ]);
+            }
+        }
+
+        //replace live items
+        $live_items = request()->live_items;
+        $plan->liveItems()->delete();
+        if( sizeof($live_items) > 0 && $live_items[0]!=null  ){
+            foreach ($live_items as $live_item) {
+                PlanItem::create([
+                    'plan_id' => $plan->id
+                    ,'type' => 3
+                    ,'item_id' => $live_item
+                ]);
+            }
+        }
+
+        History::create([
+            'gallery_id' => $id
+            ,'user_id' => auth()->user()->id
+            ,'action' => "Gallery Edited"
+        ]);
 
         return Redirect::to('planner')
             ->with('success','Great! Plan updated successfully');
