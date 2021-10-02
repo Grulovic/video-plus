@@ -68,28 +68,28 @@
             </div>
             <div class="col-lg-2">
                 <div class="row m-0 p-0">
-                    <div class="col-6 text-center my-auto">
+                    <div class="col-6 text-center my-auto mb-2">
                         @if(sizeof($plan->videoItems) != 0)
                             <a class="btn btn-primary  w-100 h-100" data-toggle="collapse" href="#plan{{ $loop->index }}videos" role="button" aria-expanded="false" aria-controls="#plan{{ $loop->index }}videos">
                                 <i class="fas fa-video" style=""></i>
                             </a>
                         @endif
                     </div>
-                    <div class="col-6 text-center my-auto">
+                    <div class="col-6 text-center my-auto mb-2">
                         @if(sizeof($plan->photoItems) != 0)
                             <a class="btn btn-primary  w-100 h-100" data-toggle="collapse" href="#plan{{ $loop->index }}photos" role="button" aria-expanded="false" aria-controls="#plan{{ $loop->index }}photos">
                                 <i class="fas fa-image" style=""></i>
                             </a>
                         @endif
                     </div>
-                    <div class="col-6 text-center my-auto">
+                    <div class="col-6 text-center my-auto mb-2">
                         @if(sizeof($plan->textItems) != 0)
                             <a class="btn btn-primary  w-100 h-100" data-toggle="collapse" href="#plan{{ $loop->index }}texts" role="button" aria-expanded="false" aria-controls="#plan{{ $loop->index }}texts">
                                 <i class="fas fa-microphone" style=""></i>
                             </a>
                         @endif
                     </div>
-                    <div class="col-6 text-center my-auto">
+                    <div class="col-6 text-center my-auto mb-2">
                         @if(sizeof($plan->liveItems) != 0)
                             <a class="btn btn-primary  w-100 h-100" data-toggle="collapse" href="#plan{{ $loop->index }}lives" role="button" aria-expanded="false" aria-controls="#plan{{ $loop->index }}lives">
                                 <i class="fas fa-file-alt" style=""></i>
