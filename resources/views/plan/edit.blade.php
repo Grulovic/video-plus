@@ -71,7 +71,7 @@
             @foreach($videos as $item)
                 <option value="{{$item->id}}"
                 @foreach($plan->videoItems as $video_item)
-                    {{ $item->id == $video_item->id ? 'selected=""' : '' }}
+                    {{ $item->id == $video_item->item_id ? 'selected=""' : '' }}
                     @endforeach
                 >{{$item->name}}</option>
             @endforeach
@@ -84,7 +84,7 @@
             @foreach($photos as $item)
                 <option value="{{$item->id}}"
                 @foreach($plan->photoItems as $photo_item)
-                    {{ $item->id == $photo_item->id ? 'selected=""' : '' }}
+                    {{ $item->id == $photo_item->item_id ? 'selected=""' : '' }}
                     @endforeach>{{$item->name}}</option>
             @endforeach
         </select>
@@ -96,7 +96,7 @@
             @foreach($texts as $item)
                 <option value="{{$item->id}}"
                 @foreach($plan->textItems as $text_item)
-                    {{ $item->id == $text_item->id ? 'selected=""' : '' }}
+                    {{ $item->id == $text_item->item_id ? 'selected=""' : '' }}
                     @endforeach>{{$item->title}}</option>
             @endforeach
         </select>
@@ -108,7 +108,7 @@
             @foreach($lives as $item)
                 <option value="{{$item->id}}"
                 @foreach($plan->liveItems as $live_item)
-                    {{ $item->id == $live_item->id ? 'selected=""' : '' }}
+                    {{ $item->id == $live_item->item_id ? 'selected=""' : '' }}
                     @endforeach>{{$item->title}}</option>
             @endforeach
         </select>
