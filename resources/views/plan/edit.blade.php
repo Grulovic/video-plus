@@ -29,16 +29,6 @@
         <span class="text-danger">{{ $errors->first('title') }}</span>
     </div>
 
-
-    <div class="form-group col-lg-4">
-        <strong>Title</strong>
-        <input type="text" name="title" class="form-control" placeholder="Enter title" value="{{ $plan->title }}">
-        <span class="text-danger">{{ $errors->first('title') }}</span>
-    </div>
-
-
-
-
     <div class="form-group col-lg-4">
         <strong>Location</strong>
         <input type="text" name="location" class="form-control" placeholder="Enter location"value="{{ $plan->location }}">
