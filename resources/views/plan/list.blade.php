@@ -21,13 +21,18 @@
                   });
 
                   $(".plan-item-btn").click(function() {
+
+                      $(".plan-item-btn.btn-primary").toggleClass("btn-outline-primary").toggleClass("btn-primary");
+                      $(".plan-item-btn.secondary").toggleClass("btn-outline-primary").toggleClass("btn-primary");
+
+                      $('.collapse').collapse('hide');
+
                       if( $(this).hasClass('btn-outline-primary') || $(this).hasClass('btn-primary') ){
                           $(this).toggleClass("btn-outline-primary").toggleClass("btn-primary");
                       }
                       if( $(this).hasClass('btn-outline-secondary') || $(this).hasClass('btn-secondary') ){
                           $(this).toggleClass("btn-outline-secondary").toggleClass("btn-secondary");
                       }
-                      $('.collapse').collapse('hide');
                   });
               });
 
