@@ -19,6 +19,16 @@
                       alert("HERE");
                       this.form.submit();
                   });
+
+                  $(".plan-item-btn").click(function() {
+                      if( $(this).hasClass('btn-outline-primary') || $(this).hasClass('btn-primary') ){
+                          $(this).toggleClass("btn-outline-primary").toggleClass("btn-primary");
+                      }
+                      if( $(this).hasClass('btn-outline-secondary') || $(this).hasClass('btn-secondary') ){
+                          $(this).toggleClass("btn-outline-secondary").toggleClass("btn-secondary");
+                      }
+
+                  });
               });
 
           </script>
