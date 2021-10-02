@@ -26,40 +26,42 @@
                     <div class="collapse mb-2 " id="plan{{ $loop->index }}videos">
                         <div class="card">
                             <div class="rounded-top bg-light border-bottom">Videos:</div>
+                            <div class="card-body">
                         @foreach( $plan->videoItems as $item )
                             <a href="{{ route('videos.show',$item->item_id)}}">{{ $item->getItem->name }}</a>
-                        @endforeach
+                        @endforeach</div>
+                            </div>
                         </div>
                     </div>
                 @endif
 
                 @if(sizeof($plan->photoItems) != 0)
                 <div class="collapse mb-2 " id="plan{{ $loop->index }}photos">
-                    <div class="card card-body">
+                    <div class="card">
                         <div class="rounded-top bg-light border-bottom">Galleries:</div>
-                        @foreach( $plan->photoItems as $item )
+                        <div class="card-body">@foreach( $plan->photoItems as $item )
                             <a href="{{ route('photos.show',$item->item_id)}}">{{ $item->getItem->name }}</a>
-                        @endforeach
+                        @endforeach</div>
                         </div>
                     </div>
                 @endif
                 @if(sizeof($plan->textItems) != 0)
                 <div class="collapse mb-2" id="plan{{ $loop->index }}texts">
-                    <div class="card card-body">
+                    <div class="card">
                         <div class="rounded-top bg-light border-bottom">Articles:</div>
-                        @foreach( $plan->textItems as $item )
+                        <div class="card-body">@foreach( $plan->textItems as $item )
                             <a href="{{ route('articles.show',$item->item_id)}}">{{ $item->getItem->title }}</a>
-                        @endforeach
+                        @endforeach</div>
                         </div>
                     </div>
                 @endif
                 @if(sizeof($plan->liveItems) != 0)
                 <div class="collapse mb-2" id="plan{{ $loop->index }}lives">
-                    <div class="card card-body">
+                    <div class="card">
                         <div class="rounded-top bg-light border-bottom">Live Streams:</div>
-                        @foreach( $plan->liveItems as $item )
+                        <div class="card-body">@foreach( $plan->liveItems as $item )
                             <a href="{{ route('lives.show',$item->item_id)}}">{{ $item->getItem->title }}</a>
-                        @endforeach
+                        @endforeach</div>
                     </div>
                 </div>
                 @endif
