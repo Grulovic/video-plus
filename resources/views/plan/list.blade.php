@@ -7,13 +7,13 @@
     <h2>Plan List:</h2>
 
 
-      <form class="form-inline row m-0 p-0" action="{{ route('plans.index') }}" method="POST">
+      <form class="form-inline row m-0 p-0" action="{{ route('plans.index') }}" method="GET">
           @csrf
           <input type="date" name="date" value="{{ $date_before }}" >
           <button type="submit" class="btn btn-primary" value="Submit"> < </button>
       </form>
 
-      <form class="form-inline row m-0 p-0" action="{{ route('plans.index') }}" method="POST">
+      <form class="form-inline row m-0 p-0" action="{{ route('plans.index') }}" method="GET">
           @csrf
           <input type="date" name="date" value="{{ $date_after }}" >
           <button type="submit" class="btn btn-primary" value="Submit"> > </button>
