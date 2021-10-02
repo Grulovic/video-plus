@@ -8,6 +8,64 @@
             <div class="col-lg-2">
                 <div class="text-left w-100 pr-2">{{ date('j. F Y. H:i', strtotime($plan->date)) }}</div>
             </div>
+            <div class="col-lg-6">
+                <p class="text-muted" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                        @if(sizeof($plan->categories) > 0)
+                            @foreach($plan->categories as $category)
+                                {{$category->category->title}}
+                                @if(!$loop->last) | @endif
+                            @endforeach
+                        @else
+                            No categories
+                        @endif
+                    </p>
+
+                <h5 class="pb-0 mb-0">{{ $plan->title }}</h5>
+                <p class="mb-0 pb-0" style="">{{ $plan->description }}</p>
+                @if(sizeof($plan->videoItems) != 0)
+                    <div class="collapse " id="plan{{ $loop->index }}videos">
+                        <div class="card card-body">Video Items:
+                        @foreach( $plan->videoItems as $item )
+                            <a href="{{ route('videos.show',$item->item_id)}}">{{ $item->getItem->name }}</a>
+                        @endforeach
+                        </div>
+                    </div>
+                @endif
+
+                @if(sizeof($plan->photoItems) != 0)
+                <div class="collapse " id="plan{{ $loop->index }}photos">
+                    <div class="card card-body">
+                    Photo Items:
+                        @foreach( $plan->photoItems as $item )
+                            <a href="{{ route('photos.show',$item->item_id)}}">{{ $item->getItem->name }}</a>
+                        @endforeach
+                        </div>
+                    </div>
+                @endif
+                @if(sizeof($plan->textItems) != 0)
+                <div class="collapse " id="plan{{ $loop->index }}texts">
+                    <div class="card card-body">
+                    Article Items:
+                        @foreach( $plan->textItems as $item )
+                            <a href="{{ route('articles.show',$item->item_id)}}">{{ $item->getItem->title }}</a>
+                        @endforeach
+                        </div>
+                    </div>
+                @endif
+                @if(sizeof($plan->liveItems) != 0)
+                <div class="collapse " id="plan{{ $loop->index }}lives">
+                    <div class="card card-body">Live Items:
+                        @foreach( $plan->liveItems as $item )
+                            <a href="{{ route('lives.show',$item->item_id)}}">{{ $item->getItem->title }}</a>
+                        @endforeach
+                    </div>
+                </div>
+                @endif
+
+            </div>
+            <div class="col-lg-2">
+                <p class="text-muted mb-0 pb-0" style="">Location: {{ $plan->location }}</p>
+            </div>
             <div class="col-lg-2">
                 <div class="row m-0 p-0">
                     <div class="col-6 text-center my-auto">
@@ -40,65 +98,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <p class="text-muted" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                        @if(sizeof($plan->categories) > 0)
-                            @foreach($plan->categories as $category)
-                                {{$category->category->title}}
-                                @if(!$loop->last) | @endif
-                            @endforeach
-                        @else
-                            No categories
-                        @endif
-                    </p>
-
-                <h5 class="pb-0 mb-0">{{ $plan->title }}</h5>
-                <p class="mb-0 pb-0" style="">{{ $plan->description }}</p>
-                @if(sizeof($plan->videoItems) != 0)
-                    <div class="collapse multi-collapse" id="#plan{{ $loop->index }}videos">
-                        <div class="card card-body">Video Items:
-                        @foreach( $plan->videoItems as $item )
-                            <a href="{{ route('videos.show',$item->item_id)}}">{{ $item->getItem->name }}</a>
-                        @endforeach
-                        </div>
-                    </div>
-                @endif
-
-                @if(sizeof($plan->photoItems) != 0)
-                <div class="collapse multi-collapse" id="#plan{{ $loop->index }}photos">
-                    <div class="card card-body">
-                    Photo Items:
-                        @foreach( $plan->photoItems as $item )
-                            <a href="{{ route('photos.show',$item->item_id)}}">{{ $item->getItem->name }}</a>
-                        @endforeach
-                        </div>
-                    </div>
-                @endif
-                @if(sizeof($plan->textItems) != 0)
-                <div class="collapse multi-collapse" id="#plan{{ $loop->index }}texts">
-                    <div class="card card-body">
-                    Article Items:
-                        @foreach( $plan->textItems as $item )
-                            <a href="{{ route('articles.show',$item->item_id)}}">{{ $item->getItem->title }}</a>
-                        @endforeach
-                        </div>
-                    </div>
-                @endif
-                @if(sizeof($plan->liveItems) != 0)
-                <div class="collapse multi-collapse" id="#plan{{ $loop->index }}lives">
-                    <div class="card card-body">Live Items:
-                        @foreach( $plan->liveItems as $item )
-                            <a href="{{ route('lives.show',$item->item_id)}}">{{ $item->getItem->title }}</a>
-                        @endforeach
-                    </div>
-                </div>
-                @endif
-
-            </div>
-            <div class="col-lg-2">
-                <p class="text-muted mb-0 pb-0" style="">Location: {{ $plan->location }}</p>
-            </div>
-
         </div>
 
 
