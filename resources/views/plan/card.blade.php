@@ -4,12 +4,12 @@
 
     <div class="card-body pt-0" style="overflow: hidden;">
 
-        <div class="row">
+        <div class="row mt-2">
             <div class="col-lg-2">
                 <div class="text-left w-100 pr-2">{{ date('j. F Y. H:i', strtotime($plan->date)) }}</div>
             </div>
             <div class="col-lg-6">
-                <p class="text-muted" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><small>
+                <p class="text-muted" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                         @if(sizeof($plan->categories) > 0)
                             @foreach($plan->categories as $category)
                                 {{$category->category->title}}
@@ -18,7 +18,7 @@
                         @else
                             No categories
                         @endif
-                    </small></p>
+                    </p>
 
                 <h5 class="pb-0 mb-0">{{ $plan->title }}</h5>
                 <p class="mb-0 pb-0" style="">{{ $plan->description }}</p>
