@@ -37,7 +37,7 @@
 
     <div class="form-group col-lg-4">
         <strong>Date</strong>
-        <input type="datetime-local" name="date" class="form-control" placeholder="Enter date" value="{{ date_format($plan->date,'YYYY-MM-DDThh:mm:ssTZD') }}">
+        <input type="datetime-local" name="date" class="form-control" placeholder="Enter date" value="{{ date_format(date_create($plan->date),'YYYY-MM-DDThh:mm:ssTZD') }}">
         <span class="text-danger">{{ $errors->first('location') }}</span>
     </div>
 
