@@ -15,6 +15,22 @@
 
       <form class="form-inline row m-0 p-0" action="{{ route('plans.index') }}" method="GET">
           @csrf
+          <input type="date" name="date" value="{{ $date_before }}" hidden>
+          <button type="submit" class="btn btn-primary" value="Submit"> <i class="fas fa-chevron-left"></i> {{ date('j. F', strtotime($today)) }} </button>
+      </form>
+
+      <script>
+          $("#datepicker").change(function() {
+              this.form.submit();
+          });
+      </script>
+      <form class="form-inline row m-0 p-0" action="{{ route('plans.index') }}" method="GET">
+          @csrf
+          <input type="date" id="datepicker" name="date" value="{{ $date_before }}">
+      </form>
+
+      <form class="form-inline row m-0 p-0" action="{{ route('plans.index') }}" method="GET">
+          @csrf
           <input type="date" name="date" value="{{ $date_after }}" hidden>
           <button type="submit" class="btn btn-primary" value="Submit">{{ date('j. F', strtotime($date_after)) }} <i class="fas fa-chevron-right"></i> </button>
       </form>

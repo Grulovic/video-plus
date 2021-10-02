@@ -41,6 +41,7 @@ class PlannerController extends Controller
             $data['plans'] = Plan::where('date',">=",$date)->where('date',"<",$date_after)->get();
         }
         $data['date_after'] = $date_after;
+        $data['today'] = $date;
         $data['date_before'] = $date_before;
         return view('plan.list',$data);
     }
