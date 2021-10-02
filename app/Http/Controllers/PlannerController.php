@@ -51,10 +51,10 @@ class PlannerController extends Controller
     {
         $data['categories'] =  Category::select('id','title')->orderBy('title','asc')->get();
 
-        $data['videos'] =  Video::select('id','name')->orderBy('created_at','desc')->limit(50)->get();
-        $data['photos'] =  Gallery::select('id','name')->orderBy('created_at','desc')->limit(50)->get();
-        $data['texts'] =  Article::select('id','title')->orderBy('created_at','desc')->limit(50)->get();
-        $data['lives'] =  Live::select('id','title')->orderBy('created_at','desc')->limit(50)->get();
+        $data['videos'] =  Video::select('id','name')->orderBy('created_at','desc')->limit(20)->get();
+        $data['photos'] =  Gallery::select('id','name')->orderBy('created_at','desc')->limit(20)->get();
+        $data['texts'] =  Article::select('id','title')->orderBy('created_at','desc')->limit(20)->get();
+        $data['lives'] =  Live::select('id','title')->orderBy('created_at','desc')->limit(20)->get();
 
         return view('plan.create',$data);
     }
@@ -165,7 +165,13 @@ class PlannerController extends Controller
         // abort_unless( auth()->user()->role == "admin",403);
 
         $data['plan'] = $plan;
+
         $data['categories'] =  Category::select('id','title')->orderBy('title','asc')->get();
+
+        $data['videos'] =  Video::select('id','name')->orderBy('created_at','desc')->limit(20)->get();
+        $data['photos'] =  Gallery::select('id','name')->orderBy('created_at','desc')->limit(20)->get();
+        $data['texts'] =  Article::select('id','title')->orderBy('created_at','desc')->limit(20)->get();
+        $data['lives'] =  Live::select('id','title')->orderBy('created_at','desc')->limit(20)->get();
 
         return view('plan.edit', $data);
     }
