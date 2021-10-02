@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use App\Models\Category;
+use App\Models\Gallery;
 use App\Models\History;
+use App\Models\Live;
 use App\Models\Plan;
 use App\Models\PlanCategory;
 use App\Models\PlanItem;
+use App\Models\Video;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -45,6 +49,12 @@ class PlannerController extends Controller
     public function create()
     {
         $data['categories'] =  Category::select('id','title')->orderBy('title','asc')->get();
+
+        $data['videos'] =  Video::select('id','title')->orderBy('title','asc')->limit(50)->get();
+        $data['photos'] =  Gallery::select('id','title')->orderBy('title','asc')->limit(50)->get();
+        $data['texts'] =  Article::select('id','title')->orderBy('title','asc')->limit(50)->get();
+        $data['lives'] =  Live::select('id','title')->orderBy('title','asc')->limit(50)->get();
+
         return view('plan.create',$data);
     }
 
