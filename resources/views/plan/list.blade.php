@@ -9,13 +9,13 @@
 
       <form class="form-inline row m-0 p-0" action="/planner" method="POST">
           @csrf
-          <input type="date" name="date" value="{{ $date_before }}" hidden>
+          <input type="date" name="date" value="{{ $date_before }}" >
           <button type="submit" class="btn btn-primary" value="Submit"> < </button>
       </form>
 
       <form class="form-inline row m-0 p-0" action="/planner" method="POST">
           @csrf
-          <input type="date" name="date" value="{{ $date_after }}" hidden>
+          <input type="date" name="date" value="{{ $date_after }}" >
           <button type="submit" class="btn btn-primary" value="Submit"> > </button>
       </form>
 
