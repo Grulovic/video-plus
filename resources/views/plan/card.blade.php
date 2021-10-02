@@ -27,8 +27,8 @@
                         <div class="card">
                             <div class="rounded-top bg-light border-bottom font-weight-bold p-1">Videos:</div>
                             <div class="card-body">
-                        @foreach( $plan->videoItems as $item )
-                            <a href="{{ route('videos.show',$item->item_id)}}">{{ $item->getItem->name }}</a>
+                        @foreach( $plan->videoItems as $video )
+                            @include('plan.video_card')
                         @endforeach
                             </div>
                         </div>
@@ -39,8 +39,9 @@
                 <div class="collapse mb-2 " id="plan{{ $loop->index }}photos">
                     <div class="card">
                         <div class="rounded-top bg-light border-bottom font-weight-bold p-1">Galleries:</div>
-                        <div class="card-body">@foreach( $plan->photoItems as $item )
-                            <a href="{{ route('photos.show',$item->item_id)}}">{{ $item->getItem->name }}</a>
+                        <div class="card-body">
+                            @foreach( $plan->photoItems as $gallery )
+                                @include('plan.photo_card')
                         @endforeach</div>
                         </div>
                     </div>
@@ -49,8 +50,9 @@
                 <div class="collapse mb-2" id="plan{{ $loop->index }}texts">
                     <div class="card">
                         <div class="rounded-top bg-light border-bottom font-weight-bold p-1">Articles:</div>
-                        <div class="card-body">@foreach( $plan->textItems as $item )
-                            <a href="{{ route('articles.show',$item->item_id)}}">{{ $item->getItem->title }}</a>
+                        <div class="card-body">
+                            @foreach( $plan->textItems as $article )
+                                @include('plan.text_card')
                         @endforeach</div>
                         </div>
                     </div>
@@ -59,8 +61,9 @@
                 <div class="collapse mb-2" id="plan{{ $loop->index }}lives">
                     <div class="card">
                         <div class="rounded-top bg-light border-bottom font-weight-bold p-1">Live Streams:</div>
-                        <div class="card-body">@foreach( $plan->liveItems as $item )
-                            <a href="{{ route('lives.show',$item->item_id)}}">{{ $item->getItem->title }}</a>
+                        <div class="card-body">
+                            @foreach( $plan->liveItems as $live )
+                                @include('plan.live_card')
                         @endforeach</div>
                     </div>
                 </div>
@@ -101,7 +104,7 @@
                         @endif
                     </div>
 
-                    <div class="col-lg-12 card-footer  text-center border">
+                    <div class="col-lg-12 text-center border">
                         <div class="btn-group ">
 
                             @if (!Auth::guest())
