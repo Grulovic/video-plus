@@ -63,7 +63,7 @@
 	<div class="form-group col-lg-3">
         <strong>Video</strong><br>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="video" id="video0" value="0">
+          <input class="form-check-input" type="radio" name="video" id="video0" value="0" checked>
           <label class="form-check-label" for="featured0">No</label>
         </div>
         <div class="form-check form-check-inline">
@@ -76,7 +76,7 @@
     <div class="form-group col-lg-3">
         <strong>Photo</strong><br>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="photo" id="photo0" value="0">
+            <input class="form-check-input" type="radio" name="photo" id="photo0" value="0" checked>
             <label class="form-check-label" for="featured0">No</label>
         </div>
         <div class="form-check form-check-inline">
@@ -89,7 +89,7 @@
     <div class="form-group col-lg-3">
         <strong>Text</strong><br>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="text" id="text0" value="0">
+            <input class="form-check-input" type="radio" name="text" id="text0" value="0" checked>
             <label class="form-check-label" for="featured0">No</label>
         </div>
         <div class="form-check form-check-inline">
@@ -102,7 +102,7 @@
     <div class="form-group col-lg-3">
         <strong>Live</strong><br>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="live" id="live0" value="0">
+            <input class="form-check-input" type="radio" name="live" id="live0" value="0" checked>
             <label class="form-check-label" for="featured0">No</label>
         </div>
         <div class="form-check form-check-inline">

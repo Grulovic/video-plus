@@ -81,7 +81,7 @@
             <label class="form-check-label" for="featured0">Yes</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="video" id="video1" value="1" {{ $plan->video == 0 ? "checked" : "" }}>
+            <input class="form-check-input" type="radio" name="video" id="video1" value="1" {{ $plan->video == 1 ? "checked" : "" }}>
             <label class="form-check-label" for="featured1">No</label>
         </div>
     </div>
@@ -94,7 +94,7 @@
             <label class="form-check-label" for="featured0">Yes</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="photo" id="photo1" value="1" {{ $plan->photo == 0 ? "checked" : "" }}>
+            <input class="form-check-input" type="radio" name="photo" id="photo1" value="1" {{ $plan->photo == 1 ? "checked" : "" }}>
             <label class="form-check-label" for="featured1">No</label>
         </div>
     </div>
@@ -107,7 +107,7 @@
             <label class="form-check-label" for="featured0">Yes</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="text" id="text1" value="1" {{ $plan->text == 0 ? "checked" : "" }}>
+            <input class="form-check-input" type="radio" name="text" id="text1" value="1" {{ $plan->text == 1 ? "checked" : "" }}>
             <label class="form-check-label" for="featured1">No</label>
         </div>
     </div>
