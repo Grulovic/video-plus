@@ -258,7 +258,7 @@ class PlannerController extends Controller
 //            ,'action' => "Gallery Edited"
 //        ]);
 
-        return Redirect::to('plans')
+        return Redirect::to('planner')
             ->with('success','Great! Plan updated successfully');
     }
 
@@ -279,6 +279,6 @@ class PlannerController extends Controller
 //            ,'action' => "Gallery Edited"
 //        ]);
 
-        return Redirect::to('plans')->with('success','Plan deleted successfully');
+        return Redirect::to('planner')->with('success','Plan deleted successfully');
     }
 }
