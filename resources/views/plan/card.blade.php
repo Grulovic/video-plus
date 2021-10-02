@@ -3,62 +3,95 @@
 
 
     <div class="card-body pt-0" style="overflow: hidden;">
-        <div class="text-left w-100 pr-2">{{ date('j. F Y. H:i', strtotime($plan->date)) }}</div>
-      <h5 class="pb-0 mb-0">{{ Str::limit($plan->title, 35, $end='...')}}</h5>
-        <p class="text-muted" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><small>
-                @if(sizeof($plan->categories) > 0)
-                    @foreach($plan->categories as $category)
-                        {{$category->category->title}}
-                        @if(!$loop->last) | @endif
-                    @endforeach
-                @else
-                    No categories
+
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="text-left w-100 pr-2">{{ date('j. F Y. H:i', strtotime($plan->date)) }}</div>
+            </div>
+            <div class="col-lg-6">
+                <p class="text-muted" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><small>
+                        @if(sizeof($plan->categories) > 0)
+                            @foreach($plan->categories as $category)
+                                {{$category->category->title}}
+                                @if(!$loop->last) | @endif
+                            @endforeach
+                        @else
+                            No categories
+                        @endif
+                    </small></p>
+
+                <h5 class="pb-0 mb-0">{{ $plan->title }}</h5>
+                <p class="mb-0 pb-0" style="">{{ $plan->description }}</p>
+                @if(sizeof($plan->videoItems) != 0)
+                    <p>Video Items:
+                        @foreach( $plan->videoItems as $item )
+                            <a href="{{ route('videos.show',$item->item_id)}}">{{ $item->getItem->name }}</a>
+                        @endforeach
+                    </p>
                 @endif
-            </small></p>
-        @if($plan->video)
-        <i class="fas fa-video"></i>
-        @endif
-        @if($plan->photo)
-            <i class="fas fa-image"></i>
-        @endif
-        @if($plan->live)
-            <i class="fas fa-microphone"></i>
-        @endif
-        @if($plan->text)
-            <i class="fas fa-file-alt"></i>
-        @endif
 
-        @if(sizeof($plan->videoItems) != 0)
-        <p>Video Items:
-            @foreach( $plan->videoItems as $item )
-                <a href="{{ route('videos.show',$item->item_id)}}">{{ $item->getItem->name }}</a>
-            @endforeach
-        </p>
-        @endif
+                @if(sizeof($plan->photoItems) != 0)
+                    <p>Photo Items:
+                        @foreach( $plan->photoItems as $item )
+                            <a href="{{ route('photos.show',$item->item_id)}}">{{ $item->getItem->name }}</a>
+                        @endforeach
+                    </p>
+                @endif
+                @if(sizeof($plan->textItems) != 0)
+                    <p>Article Items:
+                        @foreach( $plan->textItems as $item )
+                            <a href="{{ route('articles.show',$item->item_id)}}">{{ $item->getItem->title }}</a>
+                        @endforeach
+                    </p>
+                @endif
+                @if(sizeof($plan->liveItems) != 0)
+                    <p>Live Items:
+                        @foreach( $plan->liveItems as $item )
+                            <a href="{{ route('lives.show',$item->item_id)}}">{{ $item->getItem->title }}</a>
+                        @endforeach
+                    </p>
+                @endif
+            </div>
+            <div class="col-lg-2">
+                <p class="text-muted mb-0 pb-0" style="">{{ $plan->location }}</p>
+            </div>
+            <div class="col-lg-2">
+                <div class="row m-0 p-0">
+                    <div class="col-6">
+                        @if($plan->video)
+                            <i class="fas fa-video"></i>
+                        @endif
+                    </div>
+                    <div class="col-6">
+                        @if($plan->photo)
+                            <i class="fas fa-image"></i>
+                        @endif
+                    </div>
+                    <div class="col-6">
+                        @if($plan->live)
+                            <i class="fas fa-microphone"></i>
+                        @endif
+                    </div>
+                    <div class="col-6">
+                        @if($plan->text)
+                            <i class="fas fa-file-alt"></i>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        @if(sizeof($plan->photoItems) != 0)
-        <p>Photo Items:
-            @foreach( $plan->photoItems as $item )
-                <a href="{{ route('photos.show',$item->item_id)}}">{{ $item->getItem->name }}</a>
-            @endforeach
-        </p>
-         @endif
-        @if(sizeof($plan->textItems) != 0)
-        <p>Article Items:
-            @foreach( $plan->textItems as $item )
-                <a href="{{ route('articles.show',$item->item_id)}}">{{ $item->getItem->title }}</a>
-            @endforeach
-        </p>
-        @endif
-        @if(sizeof($plan->liveItems) != 0)
-        <p>Live Items:
-            @foreach( $plan->liveItems as $item )
-                <a href="{{ route('lives.show',$item->item_id)}}">{{ $item->getItem->title }}</a>
-            @endforeach
-        </p>
-        @endif
 
-      <p class="text-muted mb-0 pb-0" style="">{{ Str::limit($plan->description, 70, $end='...')}}</p>
+
+
+
+
+
+
+
+
+
+
 
     </div>
 
