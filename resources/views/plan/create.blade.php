@@ -44,8 +44,7 @@
 
     <div class="form-group col-lg-6">
         <strong>Description</strong>
-        <textarea type="text" name="description" class="form-control" placeholder="Enter description" style="min-height:106px;">
-        </textarea>
+        <textarea type="text" name="description" class="form-control" placeholder="Enter description" style="min-height:106px;"></textarea>
         <span class="text-danger">{{ $errors->first('description') }}</span>
     </div>
 
