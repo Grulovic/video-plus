@@ -7,14 +7,14 @@
     <h2>Plan List:</h2>
 
     <div class="row m-0 p-0">
-      <form class="form-inline col" action="{{ route('plans.index') }}" method="GET">
+      <form class="form-inline col pull-left" action="{{ route('plans.index') }}" method="GET">
           @csrf
           <input type="date" name="date" value="{{ $date_before }}" hidden>
           <button type="submit" class="btn btn-primary" value="Submit"> <i class="fas fa-chevron-left"></i> {{ date('j. F', strtotime($date_before)) }} </button>
       </form>
 
 
-      <form class="form-inline col" action="{{ route('plans.index') }}" method="GET">
+      <form class="form-inline col pull-left" action="{{ route('plans.index') }}" method="GET">
           @csrf
           <script>
               $( document ).ready(function() {
@@ -27,14 +27,14 @@
           </script>
           <input type="date" id="datepicker" name="date" value="{{ $date_before }}">
       </form>
-        <form class="form-inline col" action="{{ route('plans.index') }}" method="GET">
+        <form class="form-inline col pull-left" action="{{ route('plans.index') }}" method="GET">
             @csrf
             <input type="date" name="date" value="{{ $today }}" hidden>
             <button type="submit" class="btn btn-outline-primary" value="Submit">Today </button>
         </form>
 
 
-        <form class="form-inline col" action="{{ route('plans.index') }}" method="GET">
+        <form class="form-inline col pull-left" action="{{ route('plans.index') }}" method="GET">
           @csrf
           <input type="date" name="date" value="{{ $date_after }}" hidden>
           <button type="submit" class="btn btn-primary" value="Submit">{{ date('j. F', strtotime($date_after)) }} <i class="fas fa-chevron-right"></i> </button>
