@@ -116,7 +116,7 @@ class PlannerController extends Controller
         $photo_items = request()->photo_items;
         if( sizeof($photo_items) > 0 && $photo_items[0]!=null  ){
             foreach ($photo_items as $photo_item) {
-                PlanCategory::create([
+                PlanItem::create([
                     'plan_id' => $new_plan->id
                     ,'type' => 1
                     ,'item_id' => $photo_item
