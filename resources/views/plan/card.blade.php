@@ -30,7 +30,7 @@
 
         <p>Video Items:
             @foreach( $plan->videoItems as $item )
-                {{ $item->getItem()->name }}
+                {{ $item->getItem->name }}
             @endforeach
         </p>
 
