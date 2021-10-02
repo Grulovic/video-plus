@@ -28,6 +28,12 @@
             <i class="fas fa-file-alt"></i>
         @endif
 
+        <p>Video Items:
+            @foreach( $plan->videoItems as $item )
+                {{ $item->getItem()->name }}
+            @endforeach
+        </p>
+
       <p class="text-muted mb-0 pb-0" style="">{{ Str::limit($plan->description, 70, $end='...')}}</p>
 
     </div>
