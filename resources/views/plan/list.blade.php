@@ -29,7 +29,7 @@
         <form class="float-left" action="{{ route('plans.index') }}" method="GET">
             @csrf
             <input type="date" name="date" value="{{ $today }}" hidden>
-            <button type="submit" class="btn btn-outline-primary" value="Submit" style="min-height: 42px;">Today </button>
+            <button type="submit" class="btn btn-outline-primary" value="Submit" style="min-height: 42px;">Today  {{ $today }} </button>
         </form>
 
 
