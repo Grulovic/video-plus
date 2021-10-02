@@ -4,7 +4,7 @@
 
     <div class="card-body pt-0" style="overflow: hidden;">
 
-        <div class="row mt-2">
+        <div class="row mt-3">
             <div class="col-lg-2">
                 <div class="text-left w-100 pr-2">{{ date('j. F Y. H:i', strtotime($plan->date)) }}</div>
             </div>
@@ -57,24 +57,24 @@
             </div>
             <div class="col-lg-2">
                 <div class="row m-0 p-0">
-                    <div class="col-6">
+                    <div class="col-6 text-center my-auto">
                         @if($plan->video)
-                            <i class="fas fa-video"></i>
+                            <i class="fas fa-video" style="height: 40px;"></i>
                         @endif
                     </div>
-                    <div class="col-6">
+                    <div class="col-6 text-center my-auto">
                         @if($plan->photo)
-                            <i class="fas fa-image"></i>
+                            <i class="fas fa-image" style="height: 40px;"></i>
                         @endif
                     </div>
-                    <div class="col-6">
+                    <div class="col-6 text-center my-auto">
                         @if($plan->live)
-                            <i class="fas fa-microphone"></i>
+                            <i class="fas fa-microphone" style="height: 40px;"></i>
                         @endif
                     </div>
-                    <div class="col-6">
+                    <div class="col-6 text-center my-auto">
                         @if($plan->text)
-                            <i class="fas fa-file-alt"></i>
+                            <i class="fas fa-file-alt" style="height: 40px;"></i>
                         @endif
                     </div>
                 </div>
