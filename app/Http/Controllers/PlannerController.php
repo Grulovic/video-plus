@@ -54,7 +54,7 @@ class PlannerController extends Controller
         $data['photos'] =  Gallery::select('id','name')->orderBy('created_at','desc')->limit(50)->get();
         $data['texts'] =  Article::select('id','title')->orderBy('created_at','desc')->limit(50)->get();
         $data['lives'] =  Live::select('id','title')->orderBy('created_at','desc')->limit(50)->get();
-        dd($data);
+
         return view('plan.create',$data);
     }
 
