@@ -28,11 +28,7 @@
     </div>
 
 
-    <div class="form-group col-lg-4">
-        <strong>Description</strong>
-        <input type="text" name="description" class="form-control" placeholder="Enter description">
-        <span class="text-danger">{{ $errors->first('description') }}</span>
-    </div>
+
 
     <div class="form-group col-lg-4">
         <strong>Location</strong>
@@ -46,7 +42,14 @@
         <span class="text-danger">{{ $errors->first('location') }}</span>
     </div>
 
-    <div class="form-group  col-lg-4">
+    <div class="form-group col-lg-6">
+        <strong>Description</strong>
+        <textarea type="text" name="description" class="form-control" placeholder="Enter description">
+        </textarea>
+        <span class="text-danger">{{ $errors->first('description') }}</span>
+    </div>
+
+    <div class="form-group  col-lg-6">
         <strong>Categories</strong>
         <select multiple="" class="custom-select" id="category" name="category[]">
             <option value="" selected="">None</option>
@@ -58,7 +61,7 @@
 
 
 {{--    VIDEO--}}
-	<div class="form-group col-lg-4">
+	<div class="form-group col-lg-3">
         <strong>Video</strong><br>
         <div class="form-check form-check-inline">
           <input class="form-check-input" type="radio" name="video" id="video0" value="0">
@@ -71,7 +74,7 @@
     </div>
 
 {{--    PHOTO --}}
-    <div class="form-group col-lg-4">
+    <div class="form-group col-lg-3">
         <strong>Photo</strong><br>
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="photo" id="photo0" value="0">
@@ -84,7 +87,7 @@
     </div>
 
 {{--   TEXT --}}
-    <div class="form-group col-lg-4">
+    <div class="form-group col-lg-3">
         <strong>Text</strong><br>
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="text" id="text0" value="0">
@@ -97,7 +100,7 @@
     </div>
 
 {{--  LIVE  --}}
-    <div class="form-group col-lg-4">
+    <div class="form-group col-lg-3">
         <strong>Live</strong><br>
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="live" id="live0" value="0">
