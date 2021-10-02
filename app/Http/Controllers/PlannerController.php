@@ -178,8 +178,6 @@ class PlannerController extends Controller
 
         $request = $request->all();
 
-        dd($request);
-
         unset($request['_token']);
         unset($request['_method']);
         // $update = ['title' => $request->title, 'description' => $request->description];
