@@ -32,7 +32,7 @@ class PlannerController extends Controller
             $data['plans'] = Plan::where('date',$today);
         }
 
-        return view('live.list',$data);
+        return view('plan.list',$data);
     }
 
 
