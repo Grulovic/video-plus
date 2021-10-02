@@ -149,7 +149,7 @@ class PlannerController extends Controller
 
         $data['plan'] = $plan;
 
-        return view('plan.edit', $plan);
+        return view('plan.edit', $data);
     }
 
 
