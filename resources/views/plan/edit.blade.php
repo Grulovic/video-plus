@@ -3,7 +3,7 @@
 
 <div class="row m-0 p-0">
   <div class="col-9">
-    <h2>Editing Plan <a href="{{ route('plans.show',$plan->id)}}">{{$plan->title}}</a></h2>
+    <h2>Editing Plan {{$plan->title}}</h2>
 
   </div>
   <div class="col-3 text-right">
