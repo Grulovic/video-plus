@@ -191,8 +191,8 @@ class PlannerController extends Controller
 
         //replace categories
         $categories = request()->category;
+        PlanCategory::where('plan_id',$plan->id)->delete();
         if(  sizeof($categories) > 0 && $categories[0]!=null   ){
-            PlanCategory::where('plan_id',$plan->id)->delete();
             foreach ($categories as $category) {
                 PlanCategory::create([
                     'plan_id' => $plan->id
