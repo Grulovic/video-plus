@@ -31,7 +31,7 @@ class PlannerController extends Controller
             $today = Carbon::now()->toDateString();
             $data['plans'] = Plan::where('date',$today);
         }
-
+        dd($data);
         return view('plan.list',$data);
     }
 
