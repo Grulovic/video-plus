@@ -15,8 +15,6 @@
     <div class="card-footer  text-right">
         <div class="btn-group ">
 
-          <button class="btn btn-sm btn-info" onclick="copyToClipboard('{{ route('plans.show',$plan->id)}}')"><i class="far fa-share-square"></i></button>
-
            @if (!Auth::guest())
  			@can('update',$plan)
 
