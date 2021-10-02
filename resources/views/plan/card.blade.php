@@ -4,7 +4,16 @@
       <div class="text-muted text-right w-100 pr-2"><small>{{ date('j. F Y. H:i', strtotime($plan->created_at)) }}</small></div>
     <div class="card-body pt-0" style="overflow: hidden;">
       <h5 class="pb-0 mb-0">{{ Str::limit($plan->title, 35, $end='...')}}</h5>
-
+        <p class="text-muted" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><small>
+                @if(sizeof($plan->categories) > 0)
+                    @foreach($plan->categories as $category)
+                        {{$category->category->title}}
+                        @if(!$loop->last) | @endif
+                    @endforeach
+                @else
+                    No categories
+                @endif
+            </small></p>
 
 
 
