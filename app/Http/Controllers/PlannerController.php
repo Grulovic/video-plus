@@ -278,11 +278,11 @@ class PlannerController extends Controller
             }
         }
 
-        History::create([
-            'gallery_id' => $id
-            ,'user_id' => auth()->user()->id
-            ,'action' => "Gallery Edited"
-        ]);
+//        History::create([
+//            'gallery_id' => $id
+//            ,'user_id' => auth()->user()->id
+//            ,'action' => "Gallery Edited"
+//        ]);
 
         return Redirect::to('planner')
             ->with('success','Great! Plan updated successfully');
