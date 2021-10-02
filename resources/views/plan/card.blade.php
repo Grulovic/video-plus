@@ -40,12 +40,12 @@
         </p>
         <p>Article Items:
             @foreach( $plan->textItems as $item )
-                <a href="{{ route('articles.show',$item->item_id)}}">{{ $item->getItem->name }}</a>
+                <a href="{{ route('articles.show',$item->item_id)}}">{{ $item->getItem->title }}</a>
             @endforeach
         </p>
         <p>Live Items:
             @foreach( $plan->liveItems as $item )
-                <a href="{{ route('lives.show',$item->item_id)}}">{{ $item->getItem->name }}</a>
+                <a href="{{ route('lives.show',$item->item_id)}}">{{ $item->getItem->title }}</a>
             @endforeach
         </p>
 
