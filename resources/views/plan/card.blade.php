@@ -8,6 +8,38 @@
             <div class="col-lg-2">
                 <div class="text-left w-100 pr-2">{{ date('j. F Y. H:i', strtotime($plan->date)) }}</div>
             </div>
+            <div class="col-lg-2">
+                <div class="row m-0 p-0">
+                    <div class="col-6 text-center my-auto">
+                        @if(sizeof($plan->videoItems) != 0)
+                            <a class="btn btn-primary  w-100 h-100" data-toggle="collapse" href="#plan{{ $loop->index }}videos" role="button" aria-expanded="false" aria-controls="#plan{{ $loop->index }}videos">
+                                <i class="fas fa-video" style=""></i>
+                            </a>
+                        @endif
+                    </div>
+                    <div class="col-6 text-center my-auto">
+                        @if(sizeof($plan->photoItems) != 0)
+                            <a class="btn btn-primary  w-100 h-100" data-toggle="collapse" href="#plan{{ $loop->index }}photos" role="button" aria-expanded="false" aria-controls="#plan{{ $loop->index }}photos">
+                                <i class="fas fa-image" style=""></i>
+                            </a>
+                        @endif
+                    </div>
+                    <div class="col-6 text-center my-auto">
+                        @if(sizeof($plan->textItems) != 0)
+                            <a class="btn btn-primary  w-100 h-100" data-toggle="collapse" href="#plan{{ $loop->index }}texts" role="button" aria-expanded="false" aria-controls="#plan{{ $loop->index }}texts">
+                                <i class="fas fa-microphone" style=""></i>
+                            </a>
+                        @endif
+                    </div>
+                    <div class="col-6 text-center my-auto">
+                        @if(sizeof($plan->liveItems) != 0)
+                            <a class="btn btn-primary  w-100 h-100" data-toggle="collapse" href="#plan{{ $loop->index }}lives" role="button" aria-expanded="false" aria-controls="#plan{{ $loop->index }}lives">
+                                <i class="fas fa-file-alt" style=""></i>
+                            </a>
+                        @endif
+                    </div>
+                </div>
+            </div>
             <div class="col-lg-6">
                 <p class="text-muted" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                         @if(sizeof($plan->categories) > 0)
@@ -23,7 +55,7 @@
                 <h5 class="pb-0 mb-0">{{ $plan->title }}</h5>
                 <p class="mb-0 pb-0" style="">{{ $plan->description }}</p>
                 @if(sizeof($plan->videoItems) != 0)
-                    <div class="collapse multi-collapse" id="#planvideos">
+                    <div class="collapse multi-collapse" id="#plan{{ $loop->index }}videos">
                         <div class="card card-body">Video Items:
                         @foreach( $plan->videoItems as $item )
                             <a href="{{ route('videos.show',$item->item_id)}}">{{ $item->getItem->name }}</a>
@@ -33,7 +65,7 @@
                 @endif
 
                 @if(sizeof($plan->photoItems) != 0)
-                <div class="collapse multi-collapse" id="#planphotos">
+                <div class="collapse multi-collapse" id="#plan{{ $loop->index }}photos">
                     <div class="card card-body">
                     Photo Items:
                         @foreach( $plan->photoItems as $item )
@@ -43,7 +75,7 @@
                     </div>
                 @endif
                 @if(sizeof($plan->textItems) != 0)
-                <div class="collapse multi-collapse" id="#plantexts">
+                <div class="collapse multi-collapse" id="#plan{{ $loop->index }}texts">
                     <div class="card card-body">
                     Article Items:
                         @foreach( $plan->textItems as $item )
@@ -53,7 +85,7 @@
                     </div>
                 @endif
                 @if(sizeof($plan->liveItems) != 0)
-                <div class="collapse multi-collapse" id="#planlives">
+                <div class="collapse multi-collapse" id="#plan{{ $loop->index }}lives">
                     <div class="card card-body">Live Items:
                         @foreach( $plan->liveItems as $item )
                             <a href="{{ route('lives.show',$item->item_id)}}">{{ $item->getItem->title }}</a>
@@ -66,38 +98,7 @@
             <div class="col-lg-2">
                 <p class="text-muted mb-0 pb-0" style="">Location: {{ $plan->location }}</p>
             </div>
-            <div class="col-lg-2">
-                <div class="row m-0 p-0">
-                    <div class="col-6 text-center my-auto">
-                        @if(sizeof($plan->videoItems) != 0)
-                            <a class="btn btn-primary  w-100 h-100" data-toggle="collapse" href="#planvideos" role="button" aria-expanded="false" aria-controls="#planvideos">
-                                <i class="fas fa-video" style=""></i>
-                            </a>
-                        @endif
-                    </div>
-                    <div class="col-6 text-center my-auto">
-                        @if(sizeof($plan->photoItems) != 0)
-                            <a class="btn btn-primary  w-100 h-100" data-toggle="collapse" href="#planphotos" role="button" aria-expanded="false" aria-controls="#planphotos">
-                                <i class="fas fa-image" style=""></i>
-                            </a>
-                        @endif
-                    </div>
-                    <div class="col-6 text-center my-auto">
-                        @if(sizeof($plan->textItems) != 0)
-                            <a class="btn btn-primary  w-100 h-100" data-toggle="collapse" href="#plantexts" role="button" aria-expanded="false" aria-controls="#plantexts">
-                                <i class="fas fa-microphone" style=""></i>
-                            </a>
-                        @endif
-                    </div>
-                    <div class="col-6 text-center my-auto">
-                        @if(sizeof($plan->liveItems) != 0)
-                            <a class="btn btn-primary  w-100 h-100" data-toggle="collapse" href="#planlives" role="button" aria-expanded="false" aria-controls="#planlives">
-                                <i class="fas fa-file-alt" style=""></i>
-                            </a>
-                        @endif
-                    </div>
-                </div>
-            </div>
+
         </div>
 
 
