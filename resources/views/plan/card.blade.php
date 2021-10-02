@@ -27,7 +27,7 @@
                         <div class="card">
                             <div class="rounded-top bg-light border-bottom font-weight-bold p-1">Videos:</div>
                             <div class="card-body">
-                        @foreach( $plan->videoItems as $video )
+                        @foreach( $plan->videoItems as $video->getItem )
                             @include('plan.video_card')
                         @endforeach
                             </div>
@@ -40,7 +40,7 @@
                     <div class="card">
                         <div class="rounded-top bg-light border-bottom font-weight-bold p-1">Galleries:</div>
                         <div class="card-body">
-                            @foreach( $plan->photoItems as $gallery )
+                            @foreach( $plan->photoItems as $gallery->getItem )
                                 @include('plan.photo_card')
                         @endforeach</div>
                         </div>
@@ -51,7 +51,7 @@
                     <div class="card">
                         <div class="rounded-top bg-light border-bottom font-weight-bold p-1">Articles:</div>
                         <div class="card-body">
-                            @foreach( $plan->textItems as $article )
+                            @foreach( $plan->textItems as $article->getItem )
                                 @include('plan.text_card')
                         @endforeach</div>
                         </div>
@@ -62,7 +62,7 @@
                     <div class="card">
                         <div class="rounded-top bg-light border-bottom font-weight-bold p-1">Live Streams:</div>
                         <div class="card-body">
-                            @foreach( $plan->liveItems as $live )
+                            @foreach( $plan->liveItems as $live->getItem )
                                 @include('plan.live_card')
                         @endforeach</div>
                     </div>
