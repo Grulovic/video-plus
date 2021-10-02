@@ -97,12 +97,12 @@ Route::get('/clear-cache', function() {
 
 // PLANNER
 Route::group( ['middleware' => ['auth:sanctum'] ] ,function () {
-    Route::get('/planner', 'PlanController@index')->name("plans.index");
-    Route::get('/planner/create', 'PlanController@create')->name("plans.create");
-    Route::post('/planner', 'PlanController@store')->name("plans.store");
-    Route::get('/planner/{plan}/edit', 'PlanController@edit')->name("plans.edit");
-    Route::patch('planner/{plan}','PlanController@update')->name("plans.update");
-    Route::delete('planner/{plan}','PlanController@destroy')->name("plans.destroy");
+    Route::get('/planner', 'PlannerController@index')->name("plans.index");
+    Route::get('/planner/create', 'PlannerController@create')->name("plans.create");
+    Route::post('/planner', 'PlannerController@store')->name("plans.store");
+    Route::get('/planner/{plan}/edit', 'PlannerController@edit')->name("plans.edit");
+    Route::patch('planner/{plan}','PlannerController@update')->name("plans.update");
+    Route::delete('planner/{plan}','PlannerController@destroy')->name("plans.destroy");
 });
 
 
