@@ -37,11 +37,7 @@
     </div>
 
 
-    <div class="form-group col-lg-4">
-        <strong>Description</strong>
-        <input type="text" name="description" class="form-control" placeholder="Enter description" value="{{ $plan->description }}">
-        <span class="text-danger">{{ $errors->first('description') }}</span>
-    </div>
+
 
     <div class="form-group col-lg-4">
         <strong>Location</strong>
@@ -55,7 +51,12 @@
         <span class="text-danger">{{ $errors->first('location') }}</span>
     </div>
 
-    <div class="form-group  col-lg-4">
+    <div class="form-group col-lg-6">
+        <strong>Description</strong>
+        <input type="text" name="description" class="form-control" placeholder="Enter description" value="{{ $plan->description }}" style="min-height: 106px;">
+        <span class="text-danger">{{ $errors->first('description') }}</span>
+    </div>
+    <div class="form-group  col-lg-6">
         <strong>Categories</strong>
         <select multiple="" class="custom-select" id="category" name="category[]">
             <option value="" @if(sizeof($plan->categories) == 0)selected=""@endif>None</option>
@@ -74,7 +75,7 @@
 
 
     {{--    VIDEO--}}
-    <div class="form-group col-lg-4">
+    <div class="form-group col-lg-3">
         <strong>Video</strong><br>
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="video" id="video0" value="0" {{ $plan->video == 0 ? "checked" : "" }}>
@@ -87,7 +88,7 @@
     </div>
 
     {{--    PHOTO --}}
-    <div class="form-group col-lg-4">
+    <div class="form-group col-lg-3">
         <strong>Photo</strong><br>
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="photo" id="photo0" value="0" {{ $plan->photo == 0 ? "checked" : "" }}>
@@ -100,7 +101,7 @@
     </div>
 
     {{--   TEXT --}}
-    <div class="form-group col-lg-4">
+    <div class="form-group col-lg-3">
         <strong>Text</strong><br>
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="text" id="text0" value="0" {{ $plan->text == 0 ? "checked" : "" }}>
@@ -113,7 +114,7 @@
     </div>
 
     {{--  LIVE  --}}
-    <div class="form-group col-lg-4">
+    <div class="form-group col-lg-3">
         <strong>Live</strong><br>
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="live" id="live0" value="0" {{ $plan->live == 0 ? "checked" : "" }}>
