@@ -1,7 +1,7 @@
 <div class="col-12 d-flex align-items-stretch p-1">
   <div class="card mb-4 w-100 shadow-sm">
 
-      <div class="text-left w-100 pr-2">{{ date('j. F Y. H:i', strtotime($plan->date)) }}</div>
+      <div class="text-left w-100 pr-2">{{ date('j. F Y. ', strtotime($plan->date)) }}</div>
     <div class="card-body pt-0" style="overflow: hidden;">
       <h5 class="pb-0 mb-0">{{ Str::limit($plan->title, 35, $end='...')}}</h5>
         <p class="text-muted" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><small>
