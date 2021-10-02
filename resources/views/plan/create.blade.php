@@ -64,11 +64,11 @@
         <strong>Video</strong><br>
         <div class="form-check form-check-inline">
           <input class="form-check-input" type="radio" name="video" id="video0" value="0">
-          <label class="form-check-label" for="featured0">Yes</label>
+          <label class="form-check-label" for="featured0">No</label>
         </div>
         <div class="form-check form-check-inline">
           <input class="form-check-input" type="radio" name="video" id="video1" value="1">
-          <label class="form-check-label" for="featured1">No</label>
+          <label class="form-check-label" for="featured1">Yes</label>
         </div>
     </div>
 
@@ -77,11 +77,11 @@
         <strong>Photo</strong><br>
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="photo" id="photo0" value="0">
-            <label class="form-check-label" for="featured0">Yes</label>
+            <label class="form-check-label" for="featured0">No</label>
         </div>
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="photo" id="photo1" value="1">
-            <label class="form-check-label" for="featured1">No</label>
+            <label class="form-check-label" for="featured1">Yes</label>
         </div>
     </div>
 
@@ -90,11 +90,11 @@
         <strong>Text</strong><br>
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="text" id="text0" value="0">
-            <label class="form-check-label" for="featured0">Yes</label>
+            <label class="form-check-label" for="featured0">No</label>
         </div>
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="text" id="text1" value="1">
-            <label class="form-check-label" for="featured1">No</label>
+            <label class="form-check-label" for="featured1">Yes</label>
         </div>
     </div>
 
@@ -103,11 +103,11 @@
         <strong>Live</strong><br>
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="live" id="live0" value="0">
-            <label class="form-check-label" for="featured0">Yes</label>
+            <label class="form-check-label" for="featured0">No</label>
         </div>
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="live" id="live1" value="1">
-            <label class="form-check-label" for="featured1">No</label>
+            <label class="form-check-label" for="featured1">Yes</label>
         </div>
     </div>
 
