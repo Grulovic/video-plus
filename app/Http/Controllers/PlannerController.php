@@ -232,7 +232,7 @@ class PlannerController extends Controller
         if( sizeof($video_items) > 0 && $video_items[0]!=null  ){
             foreach ($video_items as $video_item) {
                 PlanItem::create([
-                    'plan_id' => $new_plan->id
+                    'plan_id' => $plan->id
                     ,'type' => 0
                     ,'item_id' => $video_item
                 ]);
@@ -245,7 +245,7 @@ class PlannerController extends Controller
         if( sizeof($photo_items) > 0 && $photo_items[0]!=null  ){
             foreach ($photo_items as $photo_item) {
                 PlanItem::create([
-                    'plan_id' => $new_plan->id
+                    'plan_id' => $plan->id
                     ,'type' => 1
                     ,'item_id' => $photo_item
                 ]);
@@ -258,7 +258,7 @@ class PlannerController extends Controller
         if( sizeof($article_items) > 0 && $article_items[0]!=null  ){
             foreach ($article_items as $article_item) {
                 PlanItem::create([
-                    'plan_id' => $new_plan->id
+                    'plan_id' => $plan->id
                     ,'type' => 2
                     ,'item_id' => $article_item
                 ]);
@@ -271,7 +271,7 @@ class PlannerController extends Controller
         if( sizeof($live_items) > 0 && $live_items[0]!=null  ){
             foreach ($live_items as $live_item) {
                 PlanItem::create([
-                    'plan_id' => $new_plan->id
+                    'plan_id' => $plan->id
                     ,'type' => 3
                     ,'item_id' => $live_item
                 ]);
