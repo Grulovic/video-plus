@@ -1,29 +1,29 @@
-<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 d-flex align-items-stretch p-1">
+<div class="col-lg-6 d-flex align-items-stretch p-1">
   <div class="card mb-4 w-100 shadow-sm">
     <iframe  class="card-img-top bg-dark" style="height:260px!important; height:auto; min-width: 100%!important; display: block;" src="{{$live->url}}?autoplay=false"></iframe>
-  
+
       <div class="text-muted text-right w-100 pr-2"><small>{{ date('j. F Y. H:i', strtotime($live->created_at)) }}</small></div>
     <div class="card-body pt-0" style="overflow: hidden;">
       <a href="{{ route('lives.show',$live->id)}}" class="text-black"><h5 class="pb-0 mb-0">{{ Str::limit($live->title, 35, $end='...')}}</h5></a>
-    
-    	
-    
+
+
+
 
       <p class="text-muted mb-0 pb-0" style="">{{ Str::limit($live->description, 70, $end='...')}}</p>
-      
+
     </div>
-   
+
     <div class="card-footer  text-right">
         <div class="btn-group ">
           <a href="{{ route('lives.show',$live->id)}}" class="btn btn-sm btn-primary"   data-toggle="tooltip" data-placement="top" title="Show live" ><i class="far fa-eye"></i> View</a>
-          
+
           <button class="btn btn-sm btn-info" onclick="copyToClipboard('{{ route('lives.show',$live->id)}}')"><i class="far fa-share-square"></i></button>
-          
-          
+
+
            @if (!Auth::guest())
  			@can('update',$live)
-        
-        
+
+
           <a href="{{ route('lives.edit',$live->id)}}" class="btn btn-sm btn-warning"><i class="far fa-edit"></i></a>
           @endcan
  			@can('delete',$live)
@@ -43,7 +43,7 @@
 
 
 
-	
+
          @if (!Auth::guest())
 			@can('delete',$live)
                 <!-- Modal -->
@@ -60,7 +60,7 @@
                         Are you sure you want to delete <strong>{{ $live->name }}</strong>?
                       </div>
                       <div class="modal-footer">
-                        
+
                         <form class="" action="{{ route('lives.destroy', $live->id)}}" method="post">
                           {{ csrf_field() }}
                           @method('DELETE')
@@ -68,7 +68,7 @@
                           data-toggle="tooltip" data-placement="top" title="Delete live">
                           <i class="far fa-trash-alt"></i> Delete Live</button>
                         </form>
-                        
+
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                       </div>
                     </div>
