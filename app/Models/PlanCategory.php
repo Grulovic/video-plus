@@ -11,7 +11,7 @@ class PlanCategory extends Model
 
     protected $fillable = [
         'category_id',
-        'gallery_id',
+        'plan_id',
 
     ];
 

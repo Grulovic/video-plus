@@ -9,6 +9,12 @@ class PlanItem extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'plan_id',
+        'type',
+        'item_id',
+    ];
+
     public function plan(){
         return $this->belongsTo(Plan::class);
     }

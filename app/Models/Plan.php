@@ -9,6 +9,17 @@ class Plan extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'user_id',
+        'date',
+        'description',
+        'location',
+        'video',
+        'photo',
+        'text',
+        'live',
+    ];
+
     public function categories() {
         return $this->hasMany(PlanCategory::class);
     }
