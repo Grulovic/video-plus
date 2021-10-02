@@ -148,6 +148,7 @@ class PlannerController extends Controller
         // abort_unless( auth()->user()->role == "admin",403);
 
         $data['plan'] = $plan;
+        $data['categories'] =  Category::select('id','title')->orderBy('title','asc')->get();
 
         return view('plan.edit', $data);
     }
