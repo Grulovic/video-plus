@@ -63,6 +63,58 @@
         </select>
     </div>
 
+    {{--    ITEMS --}}
+    <div class="form-group  col-lg-6">
+        <strong>Video Items</strong>
+        <select multiple="" class="custom-select" id="video_items" name="video_items[]">
+            <option value="" selected="">None</option>
+            @foreach($videos as $item)
+                <option value="{{$item->id}}"
+                @foreach($plan->videoItems as $video_item)
+                    {{ $item->id == $video_item->id ? 'selected=""' : '' }}
+                    @endforeach
+                >{{$item->name}}</option>
+            @endforeach
+        </select>
+    </div>
+    <div class="form-group  col-lg-6">
+        <strong>Photo Items</strong>
+        <select multiple="" class="custom-select" id="photo_items" name="photo_items[]">
+            <option value="" selected="">None</option>
+            @foreach($photos as $item)
+                <option value="{{$item->id}}"
+                @foreach($plan->photoItems as $photo_item)
+                    {{ $item->id == $photo_item->id ? 'selected=""' : '' }}
+                    @endforeach>{{$item->name}}</option>
+            @endforeach
+        </select>
+    </div>
+    <div class="form-group  col-lg-6">
+        <strong>Text Items</strong>
+        <select multiple="" class="custom-select" id="text_items" name="text_items[]">
+            <option value="" selected="">None</option>
+            @foreach($texts as $item)
+                <option value="{{$item->id}}"
+                @foreach($plan->textItems as $text_item)
+                    {{ $item->id == $text_item->id ? 'selected=""' : '' }}
+                    @endforeach>{{$item->title}}</option>
+            @endforeach
+        </select>
+    </div>
+    <div class="form-group  col-lg-6">
+        <strong>Live Items</strong>
+        <select multiple="" class="custom-select" id="live_items" name="live_items[]">
+            <option value="" selected="">None</option>
+            @foreach($lives as $item)
+                <option value="{{$item->id}}"
+                @foreach($plan->liveItems as $live_item)
+                    {{ $item->id == $live_item->id ? 'selected=""' : '' }}
+                    @endforeach>{{$item->title}}</option>
+            @endforeach
+        </select>
+    </div>
+
+
 
     {{--    VIDEO--}}
     <div class="form-group col-lg-3">
