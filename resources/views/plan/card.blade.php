@@ -97,21 +97,24 @@
                         @endif
                     </div>
 
-                    <div class="col-lg-12 card-footer  text-right border">
+                    <div class="col-lg-12 card-footer  text-center border">
                         <div class="btn-group ">
 
                             @if (!Auth::guest())
                                 @can('update',$plan)
 
 
-                                    <a href="{{ route('plans.edit',$plan->id)}}" class="btn btn-sm btn-warning"><i class="far fa-edit"></i></a>
+                                    <a href="{{ route('plans.edit',$plan->id)}}" class="btn btn-sm btn-warning"><i class="far fa-edit"></i> Edit</a>
                                 @endcan
                                 @can('delete',$plan)
 
                                     <button type="button" class="btn btn-sm  btn-danger" style="border-radius: 0 0.25rem 0.25rem 0;" data-toggle="modal" data-target="#modal_{{$plan->id}}_delete_btn"  data-toggle="tooltip" data-placement="top" title="Delete plan">
-                                        <i class="far fa-trash-alt"></i>
+                                        <i class="far fa-trash-alt"></i> Delete
                                     </button>
                                 @endcan
+                                <button type="button" class="btn btn-sm  btn-info" style="border-radius: 0 0.25rem 0.25rem 0;"  data-toggle="tooltip" data-placement="top" title="Get Email Notifications">
+                                    FOLLOW
+                                </button>
 
                             @endif
 
