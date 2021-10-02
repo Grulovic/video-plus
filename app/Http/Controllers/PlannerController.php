@@ -125,7 +125,7 @@ class PlannerController extends Controller
         }
 
         //create text items
-        $article_items = request()->article_items;
+        $article_items = request()->text_items;
         if( sizeof($article_items) > 0 && $article_items[0]!=null  ){
             foreach ($article_items as $article_item) {
                 PlanItem::create([
