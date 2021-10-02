@@ -14,8 +14,18 @@
                     No categories
                 @endif
             </small></p>
-
-
+        @if($plan->video)
+        <i class="fas fa-video"></i>
+        @endif
+        @if($plan->photo)
+            <i class="fas fa-image"></i>
+        @endif
+        @if($plan->live)
+            <i class="fas fa-microphone"></i>
+        @endif
+        @if($plan->text)
+            <i class="fas fa-file-alt"></i>
+        @endif
 
       <p class="text-muted mb-0 pb-0" style="">{{ Str::limit($plan->description, 70, $end='...')}}</p>
 
