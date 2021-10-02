@@ -30,7 +30,7 @@ class Plan extends Model
     }
 
     public function items(){
-        return $this->belongsTo(PlanItem::class);
+        return $this->hasMany(PlanItem::class);
     }
 
     public function videoItems(){
