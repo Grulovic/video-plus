@@ -29,7 +29,7 @@
                             <div class="card-body">
                         @foreach( $plan->videoItems as $item )
                             <a href="{{ route('videos.show',$item->item_id)}}">{{ $item->getItem->name }}</a>
-                        @endforeach</div>
+                        @endforeach
                             </div>
                         </div>
                     </div>
