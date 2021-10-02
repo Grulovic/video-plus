@@ -64,7 +64,7 @@
         <select multiple="" class="custom-select" id="video_items" name="video_items[]">
             <option value="" selected="">None</option>
             @foreach($videos as $item)
-                <option value="{{$item->id}}">{{$item->title}}</option>
+                <option value="{{$item->id}}">{{$item->name}}</option>
             @endforeach
         </select>
     </div>
@@ -73,7 +73,7 @@
         <select multiple="" class="custom-select" id="photo_items" name="photo_items[]">
             <option value="" selected="">None</option>
             @foreach($photos as $item)
-                <option value="{{$item->id}}">{{$item->title}}</option>
+                <option value="{{$item->id}}">{{$item->name}}</option>
             @endforeach
         </select>
     </div>
