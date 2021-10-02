@@ -111,7 +111,7 @@
             <label class="form-check-label" for="featured0">Yes</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="live" id="live1" value="1" {{ $plan->live == 0 ? "checked" : "" }}>
+            <input class="form-check-input" type="radio" name="live" id="live1" value="1" {{ $plan->live == 1 ? "checked" : "" }}>
             <label class="form-check-label" for="featured1">No</label>
         </div>
     </div>
