@@ -27,7 +27,7 @@
                       if( $(this).hasClass('btn-outline-secondary') || $(this).hasClass('btn-secondary') ){
                           $(this).toggleClass("btn-outline-secondary").toggleClass("btn-secondary");
                       }
-
+                      $('.collapse').collapse('hide');
                   });
               });
 
