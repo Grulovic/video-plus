@@ -24,8 +24,6 @@ class PlannerController extends Controller
             'date' => 'nullable',
         ]);
 
-        var_dump($request->all());
-
         if($request->has('date')){
             $date_before = Carbon::parse($request->date)->subDays(1)->toDateString();
             $date = Carbon::parse($request->date)->toDateString();
