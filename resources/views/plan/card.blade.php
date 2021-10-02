@@ -53,28 +53,36 @@
                 @endif
             </div>
             <div class="col-lg-2">
-                <p class="text-muted mb-0 pb-0" style="">{{ $plan->location }}</p>
+                <p class="text-muted mb-0 pb-0" style="">Location: {{ $plan->location }}</p>
             </div>
             <div class="col-lg-2">
                 <div class="row m-0 p-0">
                     <div class="col-6 text-center my-auto">
                         @if($plan->video)
-                            <i class="fas fa-video" style="height: 40px;"></i>
+                            <a class="btn btn-primary  w-100 h-100" data-toggle="collapse" href="#plan{{ $loop->index }}" role="button" aria-expanded="false" aria-controls="#plan{{ $loop->index }}">
+                                <i class="fas fa-video" style=""></i>
+                            </a>
                         @endif
                     </div>
                     <div class="col-6 text-center my-auto">
                         @if($plan->photo)
-                            <i class="fas fa-image" style="height: 40px;"></i>
+                            <a class="btn btn-primary  w-100 h-100" data-toggle="collapse" href="#plan{{ $loop->index }}" role="button" aria-expanded="false" aria-controls="#plan{{ $loop->index }}">
+                                <i class="fas fa-image" style=""></i>
+                            </a>
                         @endif
                     </div>
                     <div class="col-6 text-center my-auto">
                         @if($plan->live)
-                            <i class="fas fa-microphone" style="height: 40px;"></i>
+                            <a class="btn btn-primary  w-100 h-100" data-toggle="collapse" href="#plan{{ $loop->index }}" role="button" aria-expanded="false" aria-controls="#plan{{ $loop->index }}">
+                                <i class="fas fa-microphone" style=""></i>
+                            </a>
                         @endif
                     </div>
                     <div class="col-6 text-center my-auto">
                         @if($plan->text)
-                            <i class="fas fa-file-alt" style="height: 40px;"></i>
+                            <a class="btn btn-primary  w-100 h-100" data-toggle="collapse" href="#plan{{ $loop->index }}" role="button" aria-expanded="false" aria-controls="#plan{{ $loop->index }}">
+                                <i class="fas fa-file-alt" style=""></i>
+                            </a>
                         @endif
                     </div>
                 </div>
