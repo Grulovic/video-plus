@@ -3,7 +3,7 @@
 
       <div class="text-muted text-right w-100 pr-2"><small>{{ date('j. F Y. H:i', strtotime($plan->created_at)) }}</small></div>
     <div class="card-body pt-0" style="overflow: hidden;">
-      <a href="{{ route('plans.show',$plan->id)}}" class="text-black"><h5 class="pb-0 mb-0">{{ Str::limit($plan->title, 35, $end='...')}}</h5></a>
+      <h5 class="pb-0 mb-0">{{ Str::limit($plan->title, 35, $end='...')}}</h5>
 
 
 
