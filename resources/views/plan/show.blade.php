@@ -7,7 +7,7 @@
         </div><div class="col-lg-2 text-right">
 
           <a class="btn btn-danger mb-2" href="{{ URL::previous() }}"><i class="fas fa-caret-left"></i></a>
-          <a href="{{ route('plans.show') }}" class="btn btn-danger mb-2 text-right">Go to Planner</a>
+          <a href="{{ route('plans.index') }}" class="btn btn-danger mb-2 text-right">Go to Planner</a>
         </div>
       </div>
 
