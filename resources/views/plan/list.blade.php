@@ -45,6 +45,7 @@
                           async: false,
                           url: '/planner/favorite/'+plan_id,
                           success:function(data){
+                              $(this).toggleClass('btn-outline-info').toggleClass('btn-info');
                               console.log('Added/Removed to favorites successfully.');
                           },
                           error:function(){
