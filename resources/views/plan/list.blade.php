@@ -8,7 +8,7 @@
 
       <form class="float-left" action="{{ route('plans.index') }}" method="GET">
           <input type="date" name="date" value="{{ $date_before }}" hidden>
-          <button type="submit" class="btn btn-outline-primary border-start" value="Submit" style="min-height: 42px;"> <i class="fas fa-chevron-left"></i> {{ date('j. F', strtotime($date_before)) }} </button>
+          <button type="submit" class="btn btn-outline-primary border-start" value="Submit" style="min-height: 42px; border-top-right-radius:0; border-bottom-right-radius:0; "> <i class="fas fa-chevron-left"></i> {{ date('j. F', strtotime($date_before)) }} </button>
       </form>
 
 
@@ -41,13 +41,13 @@
       </form>
         <form class="float-left" action="{{ route('plans.index') }}" method="GET">
             <input type="date" name="date" value="{{ $today }}" hidden>
-            <button type="submit" class="btn btn-{{ isset($_GET['date']) && $_GET['date'] != $today ? "outline-" : null   }}primary border-0" value="Submit" style="min-height: 42px;">Today</button>
+            <button type="submit" class="btn btn-{{ isset($_GET['date']) && $_GET['date'] != $today ? "outline-" : null   }}primary border-0" value="Submit" style="min-height: 42px; border-radius: 0;">Today</button>
         </form>
 
 
         <form class="float-left" action="{{ route('plans.index') }}" method="GET">
           <input type="date" name="date" value="{{ $date_after }}" hidden>
-          <button type="submit" class="btn btn-outline-primary border-end" value="Submit" style="min-height: 42px;">{{ date('j. F', strtotime($date_after)) }} <i class="fas fa-chevron-right"></i> </button>
+          <button type="submit" class="btn btn-outline-primary border-end" value="Submit" style="min-height: 42px;  border-top-left-radius:0; border-bottom-left-radius:0;" >{{ date('j. F', strtotime($date_after)) }} <i class="fas fa-chevron-right"></i> </button>
       </form>
     </div>
 
