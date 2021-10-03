@@ -41,7 +41,7 @@
       </form>
         <form class="float-left" action="{{ route('plans.index') }}" method="GET">
             <input type="date" name="date" value="{{ $today }}" hidden>
-            <button type="submit" class="btn btn-secondary border-0" value="Submit" style="min-height: 42px;">Today</button>
+            <button type="submit" class="btn btn-{{ isset($_GET['date']) && $_GET['date'] != $today ? "outline-" : null   }}primary border-0" value="Submit" style="min-height: 42px;">Today</button>
         </form>
 
 
