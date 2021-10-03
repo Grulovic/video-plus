@@ -7,15 +7,6 @@
         <script type="text/javascript" src="{{ asset('js/video-datepicker.js') }}"></script>
         <link href="{{ asset('css/video-datepicker.css') }}" rel="stylesheet">
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.css" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.js"></script>
-
-        <script>
-            jQuery(function($) {
-                $("#datetimepicker").datetimepicker();
-            });
-        </script>
-
 <div class="row m-0 p-0">
   <div class="col-9">
     <h2>Editing Plan {{$plan->title}}</h2>
@@ -54,7 +45,7 @@
         <strong>Date</strong>
 
 {{--        <input type="datetime-local" name="date" class="form-control" placeholder="Enter date" value="{{ date_format(date_create($plan->date),'Y-m-d')."T".date_format(date_create($plan->date),'h:i:s') }}">--}}
-        <input id="datetimepicker" type="text" name="date" class="form-control" placeholder="Enter date" value="{{ date_format(date_create($plan->date),'d.m.Y h:i') }}">
+        <input id="datepicker" type="text" name="date" class="form-control" placeholder="Enter date" value="{{ date_format(date_create($plan->date),'Y-m-d') }}">
         <span class="text-danger">{{ $errors->first('location') }}</span>
     </div>
 
