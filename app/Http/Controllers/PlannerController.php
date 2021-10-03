@@ -217,7 +217,7 @@ class PlannerController extends Controller
         // if( auth()->user()->type != "admin" ){
         //     abort_unless( auth()->user()->id == $live->first()->user_id,403);
         // }
-
+        $plan_id = $plan->id;
         $plan = $plan->update($request);
 
 
@@ -302,7 +302,7 @@ class PlannerController extends Controller
         }
         elseif(  $email_push == "all" ){
 
-            $user_plans = UserPlan::where('plan_id',$plan->id)->orderBy('id','asc')->get();
+            $user_plans = UserPlan::where('plan_id',$plan_id)->orderBy('id','asc')->get();
             foreach($user_plans as $user_plan){
                 $user = $user_plan->user;
                 Mail::to( $user )->send(new PlanUpdated( $plan ));
