@@ -317,8 +317,6 @@ class PlannerController extends Controller
 
         $existing_favorite = UserPlan::where('plan_id',$plan_id)->where('user_id',$user_id)->get();
 
-        dd($existing_favorite);
-
         if( sizeof($existing_favorite) > 0){
             return json_encode(['error'=>'Plan already in favorites.']);
         }else{
