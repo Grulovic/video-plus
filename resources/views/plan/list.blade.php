@@ -35,6 +35,25 @@
                           $(this).toggleClass("btn-outline-secondary").toggleClass("btn-secondary");
                       }
                   });
+
+                  $(".plan-favorite-btn").click(function() {
+                      var plan_id = $(this).data( "plan" );
+
+                      console.log(plan_id);
+                      $.ajax({
+                          type:'GET',
+                          async: false,
+                          url: '/planner/favorite/'+plan_id,
+                          success:function(data){
+                              console.log('Added to favorites successfully.');
+                          },
+                          error:function(){
+                              console.log('Error adding to favorites.');
+                          },
+                      });
+
+                  });
+
               });
 
           </script>
