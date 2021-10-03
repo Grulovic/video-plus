@@ -16,7 +16,6 @@
                     interval: 15,
                     minTime: '0',
                     maxTime: '11:59pm',
-                    defaultTime: '12',
                     startTime: '10:00',
                     dynamic: true,
                     dropdown: true,
