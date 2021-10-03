@@ -104,6 +104,7 @@ Route::group( ['middleware' => ['auth:sanctum'] ] ,function () {
     Route::get('/planner/{plan}/edit', 'PlannerController@edit')->name("plans.edit");
     Route::patch('planner/{plan}','PlannerController@update')->name("plans.update");
     Route::delete('planner/{plan}','PlannerController@destroy')->name("plans.destroy");
+    Route::get('/planner/favorite/{plan}', 'PlannerController@addToFavorites')->name("plans.favorite");
 });
 
 

@@ -10,6 +10,7 @@ use App\Models\Live;
 use App\Models\Plan;
 use App\Models\PlanCategory;
 use App\Models\PlanItem;
+use App\Models\UserPlan;
 use App\Models\Video;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -307,4 +308,21 @@ class PlannerController extends Controller
 
         return Redirect::to('planner')->with('success','Plan deleted successfully');
     }
+
+
+    public function addToFavorites(Plan $plan){
+
+        $plan_id = $plan->id;
+        $user_id = Auth::id();
+
+        $user_plan_favorite = new UserPlan();
+
+        $user_plan_favorite->user_id = $user_id;
+        $user_plan_favorite->plan_id = $plan_id;
+
+        $user_plan_favorite->save();
+
+        return response('success','Great! Plan added to favorites.');
+    }
+
 }
