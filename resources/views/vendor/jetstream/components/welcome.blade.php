@@ -18,37 +18,53 @@
 
         <div class="p-6 border" >
             <div class="flex items-center">
-               
-                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/videos"> 
+
+                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/videos">
                     <i class="fas fa-video" style="width:60px!important; text-align:center!important;"></i> Videos</a></div>
             </div>
         </div>
-        
+
         <div class="p-6 border" >
             <div class="flex items-center">
-               
-                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/photos"> 
+
+                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/photos">
                     <i class="fas fa-image" style="width:60px!important; text-align:center!important;"></i> Photos</a></div>
             </div>
         </div>
 
-@if( auth()->user()->role == "admin" )
         <div class="p-6 border">
             <div class="flex items-center">
-               
-                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/lives"> 
-                    <i class="fas fa-microphone" style="width:60px!important; text-align:center!important;"></i> Live</a></div>
+
+                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/lives">
+                        <i class="fas fa-microphone" style="width:60px!important; text-align:center!important;"></i> Live Streams</a></div>
             </div>
         </div>
 
+        <div class="p-6 border">
+            <div class="flex items-center">
+
+                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/articles">
+                        <i class="fas fa-file-alt" style="width:60px!important; text-align:center!important;"></i> Articles</a></div>
+            </div>
+        </div>
+        <i class="fas fa-calendar-alt"></i>
+        <div class="p-6 border">
+            <div class="flex items-center">
+                <i class="fas fa-file-alt"></i>
+                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/planner">
+                        <i class="fas fa-calendar-alt" style="width:60px!important; text-align:center!important;"></i> Planner</a></div>
+            </div>
+        </div>
+
+@if( auth()->user()->role == "admin" )
         <div class="p-6 border-gray-200 border">
             <div class="flex items-center">
-                
-                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/categories"> 
+
+                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/categories">
                     <i class="fas fa-boxes" style="width:60px!important; text-align:center!important;"></i> Categories</a></div>
             </div>
         </div>
-        
+
         <div class="p-6 border  border-gray-200">
             <div class="flex items-center">
                 <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/users">
@@ -57,23 +73,24 @@
             </div>
         </div>
 
+            <div class="p-6 border border-gray-200">
+                <div class="flex items-center">
+                    <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/history">
+
+                            <i class="fas fa-history" style="width:60px!important; text-align:center!important;"></i> History</a></div>
+                </div>
+            </div>
+@endif
+
         <div class="p-6 border  border-gray-200">
             <div class="flex items-center">
                 <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/user/profile">
 
-                <i class="fas fa-user" style="width:60px!important; text-align:center!important;"></i>My Profile</a></div>
+                        <i class="fas fa-user" style="width:60px!important; text-align:center!important;"></i>My Profile</a></div>
             </div>
         </div>
 
-@endif
 
-        <div class="p-6 border border-gray-200">
-            <div class="flex items-center">
-                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/history">
-
-                <i class="fas fa-history" style="width:60px!important; text-align:center!important;"></i> History</a></div>
-            </div>
-        </div>
 
     </div>
 

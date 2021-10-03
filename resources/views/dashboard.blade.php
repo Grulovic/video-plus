@@ -11,9 +11,6 @@
                 <x-jet-welcome />
             </div>
         </div>
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8" style="margin-top:65px!important;">
-            qwe
-        </div>
     </div>
 
     <div class="container">
