@@ -44,13 +44,13 @@
     {{ csrf_field() }}
     <input type="text" name="user_id" hidden="" value="{{ auth()->user()->id }}">
 
-    <div class="form-group col-lg-4">
+    <div class="form-group col-lg-3">
         <strong>Title</strong>
         <input type="text" name="title" class="form-control" placeholder="Enter title">
         <span class="text-danger">{{ $errors->first('title') }}</span>
     </div>
 
-    <div class="form-group col-lg-4">
+    <div class="form-group col-lg-3">
         <strong>Location</strong>
         <input type="text" name="location" class="form-control" placeholder="Enter location">
         <span class="text-danger">{{ $errors->first('location') }}</span>
