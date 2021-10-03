@@ -44,8 +44,9 @@
 
             }
             .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus{
-                background-color:#007bff!important;
+
                 background: none!important;
+                background-color:#007bff!important;
                 border:0px!important;
                 font-weight:400!important;
                 color:#ffffff!important;
