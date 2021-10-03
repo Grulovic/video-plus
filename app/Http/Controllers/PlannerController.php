@@ -319,7 +319,7 @@ class PlannerController extends Controller
 
         if( sizeof($existing_favorite) > 0){
 
-            $existing_favorite->delete();
+            $existing_favorite->first()->delete();
 
             return json_encode(['success'=>'Plan removed from favorites.']);
         }else{
