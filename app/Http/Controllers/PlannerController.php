@@ -315,14 +315,20 @@ class PlannerController extends Controller
         $plan_id = $plan->id;
         $user_id = Auth::id();
 
-        $user_plan_favorite = new UserPlan();
+        $existing_favorite = UserPlan::where('plan_id',$plan_id)->where('user_id',$user_id)->first();
 
-        $user_plan_favorite->user_id = $user_id;
-        $user_plan_favorite->plan_id = $plan_id;
+        if( sizeof($existing_favorite) > 0){
+            return json_encode(['error'=>'Plan already in favorites.']);
+        }else{
+            $user_plan_favorite = new UserPlan();
 
-        $user_plan_favorite->save();
+            $user_plan_favorite->user_id = $user_id;
+            $user_plan_favorite->plan_id = $plan_id;
 
-        return json_encode(['success'=>'Great! Plan added to favorites.']);
+            $user_plan_favorite->save();
+
+            return json_encode(['success'=>'Great! Plan added to favorites.']);
+        }
     }
 
 }
