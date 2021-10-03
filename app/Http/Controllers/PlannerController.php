@@ -64,6 +64,12 @@ class PlannerController extends Controller
         return view('plan.create',$data);
     }
 
+    public function show(Plan $plan)
+    {
+        $data['plan'] = $plan;
+        return view('plan.show',$data);
+    }
+
 
     public function store(Request $request)
     {
