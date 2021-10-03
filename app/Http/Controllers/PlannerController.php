@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\PlanUpdated;
+use App\Mail\VideoUploaded;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Gallery;
@@ -10,11 +12,13 @@ use App\Models\Live;
 use App\Models\Plan;
 use App\Models\PlanCategory;
 use App\Models\PlanItem;
+use App\Models\User;
 use App\Models\UserPlan;
 use App\Models\Video;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 
 class PlannerController extends Controller
@@ -198,6 +202,9 @@ class PlannerController extends Controller
             'photo_items' => 'nullable',
             'text_items' => 'nullable',
             'live_items' => 'nullable',
+
+
+            'email_push' => 'required'
         ]);
 
         $request = $request->all();
@@ -211,7 +218,7 @@ class PlannerController extends Controller
         //     abort_unless( auth()->user()->id == $live->first()->user_id,403);
         // }
 
-        $plan->update($request);
+        $plan = $plan->update($request);
 
 
         //replace categories
@@ -284,6 +291,26 @@ class PlannerController extends Controller
 //            ,'user_id' => auth()->user()->id
 //            ,'action' => "Gallery Edited"
 //        ]);
+
+
+        $email_push = $request->email_push;
+        if( $email_push == "admin" ){
+            $users = User::where('role','admin')->orderBy('id','asc')->get();
+            foreach($users as $user){
+                Mail::to( $user )->send(new PlanUpdated( $plan ));
+            }
+        }
+        elseif(  $email_push == "all" ){
+
+            $user_plans = UserPlan::where('plan_id',$plan->id)->orderBy('id','asc')->get();
+            foreach($user_plans as $user_plan){
+                $user = $user_plan->user;
+                Mail::to( $user )->send(new PlanUpdated( $plan ));
+            }
+
+        }else{
+        }
+
 
         return Redirect::to('planner')
             ->with('success','Great! Plan updated successfully');

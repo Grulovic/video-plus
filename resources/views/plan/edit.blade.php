@@ -168,6 +168,35 @@
         </div>
     </div>
 
+    <div class="col-lg-12">
+        <strong>Email push: </strong>
+        <div class="input-group  mb-2">
+
+            <div class="form-check  form-check-inline mt-3">
+                <input class="form-check-input" type="radio" name="email_push" id="email_push_admin" value="admin" checked="">
+                <label class="form-check-label video-thumbnail" for="email_push_admin">
+                    Send email notification to <strong>admins</strong> only.
+                </label>
+            </div>
+
+            <div class="form-check  form-check-inline mt-3">
+                <input class="form-check-input" type="radio" name="email_push" id="email_push_all" value="all">
+                <label class="form-check-label video-thumbnail" for="email_push_admin">
+                    Send email notification to <strong>everyone</strong> only!
+                </label>
+            </div>
+
+            <div class="form-check  form-check-inline mt-3">
+                <input class="form-check-input" type="radio" name="email_push" id="email_push_none" value="none">
+                <label class="form-check-label video-thumbnail" for="email_push_admin">
+                    <strong>Don't</strong> send email notifications!
+                </label>
+            </div>
+
+
+        </div>
+    </div>
+
 
 
 
