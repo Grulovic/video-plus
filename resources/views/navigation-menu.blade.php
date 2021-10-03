@@ -58,7 +58,7 @@
                         {{ __('Live') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('plans.index') }}" :active="request()->routeIs(['plans.index','plans.create','plans.edit,'plans.show'])">
+                    <x-jet-nav-link href="{{ route('plans.index') }}" :active="request()->routeIs(['plans.index','plans.create','plans.edit','plans.show'])">
                         {{ __('Planner') }}
                     </x-jet-nav-link>
 
@@ -229,7 +229,7 @@
                         {{ __('Live') }}
                     </x-jet-responsive-nav-link>
 
-                    <x-jet-responsive-nav-link href="{{ route('plans.index') }}" :active="request()->routeIs(['plans.index','plans.create','plans.edit,'plans.show'])">
+                    <x-jet-responsive-nav-link href="{{ route('plans.index') }}" :active="request()->routeIs(['plans.index','plans.create','plans.edit','plans.show'])">
                         {{ __('Planner') }}
                     </x-jet-responsive-nav-link>
 

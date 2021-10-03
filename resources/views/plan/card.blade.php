@@ -110,7 +110,7 @@
 
                     <div class="col-lg-12 text-center ">
                         <div class="btn-group ">
-
+                            <a href="{{ route('plans.show',$plan->id)}}" class="btn btn-sm btn-primary"   data-toggle="tooltip" data-placement="top" title="Show Plan" ><i class="far fa-eye"></i> View</a>
                             @if (!Auth::guest())
                                 @can('update',$plan)
 
