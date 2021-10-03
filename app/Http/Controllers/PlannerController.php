@@ -81,6 +81,7 @@ class PlannerController extends Controller
             'description' => 'present|nullable',
             'location' => 'present|nullable',
             'date' => 'required',
+            'time' => 'required',
             'category' => 'present|nullable',
 
             'video' => 'present|nullable',
@@ -95,7 +96,8 @@ class PlannerController extends Controller
         ]);
 
         $request = $request->all();
-
+        $request['date'] = $request['date']." ".$request['time'];
+        unset($request['time']);
         unset($request['_token']);
         unset($request['_method']);
         $request['user_id'] = Auth::id();
