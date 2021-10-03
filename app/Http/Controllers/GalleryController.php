@@ -376,6 +376,8 @@ class GalleryController extends Controller
             }
         }
 
+        $planner_items = PlanItem::where('type',1)->where('item_id',$id)->delete();
+
         $gallery->delete();
         Photo::where('gallery_id',$id)->delete();
         GalleryCategory::where('gallery_id',$id)->delete();
@@ -392,8 +394,6 @@ class GalleryController extends Controller
 
     public function destroy_photo($id)
     {
-
-        dd(PlanItem::where('type',1)->where('item_id',$id)->get());
 
         abort_unless( auth()->user()->role == "admin",403);
 
@@ -420,7 +420,6 @@ class GalleryController extends Controller
             unlink($previous_photo_path);
         }
 
-        $planner_items = PlanItem::where('type',1)->where('item_id',$id)->delete();
 
         $photo->delete();
 
