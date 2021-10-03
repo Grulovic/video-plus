@@ -117,7 +117,7 @@
 
                                     <a href="{{ route('plans.edit',$plan->id)}}" class="btn btn-sm btn-warning"><i class="far fa-edit"></i> Edit</a>
                                 @endcan
-                                <button type="button" class="plan-favorite-btn btn btn-sm  btn-{{ $plan->inFavorite() ? null : "outline-" }}info  pl-4 pr-4" style="border-radius: 0 0.25rem 0.25rem 0;"  data-toggle="tooltip" data-placement="top" title="Get Email Notifications"
+                                <button type="button" id="plan-favorite-btn-{{$plan->id}}" class="plan-favorite-btn  btn btn-sm  btn-{{ $plan->inFavorite() ? null : "outline-" }}info  pl-4 pr-4" style="border-radius: 0 0.25rem 0.25rem 0;"  data-toggle="tooltip" data-placement="top" title="Get Email Notifications"
                                     data-plan="{{$plan->id}}">
                                    <strong>FOLLOW</strong>
                                 </button>

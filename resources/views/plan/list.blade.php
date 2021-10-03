@@ -38,6 +38,7 @@
 
                   $(".plan-favorite-btn").click(function() {
                       var plan_id = $(this).data( "plan" );
+                        var favorite_btn_id = '#plan-favorite-btn-'+plan_id;
 
                       console.log(plan_id);
                       $.ajax({
@@ -45,7 +46,7 @@
                           async: false,
                           url: '/planner/favorite/'+plan_id,
                           success:function(data){
-                              $(this).toggleClass('btn-outline-info').toggleClass('btn-info');
+                              $(favorite_btn_id).toggleClass('btn-outline-info').toggleClass('btn-info');
                               console.log('Added/Removed to favorites successfully.');
                           },
                           error:function(){
