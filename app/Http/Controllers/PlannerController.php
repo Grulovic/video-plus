@@ -218,7 +218,7 @@ class PlannerController extends Controller
         //     abort_unless( auth()->user()->id == $live->first()->user_id,403);
         // }
         $plan_id = $plan->id;
-        $plan = $plan->update($request);
+        $plan->update($request);
 
 
         //replace categories
