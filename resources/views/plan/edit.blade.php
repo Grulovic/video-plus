@@ -1,6 +1,21 @@
 <x-app-layout>
     <x-slot name="header">
 
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/base/jquery-ui.css" type="text/css" media="all">
+        <script type="text/javascript" src="{{ asset('js/video-datepicker.js') }}"></script>
+        <link href="{{ asset('css/video-datepicker.css') }}" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.js"></script>
+
+        <script>
+            jQuery(function($) {
+                $("#datetimepicker").datetimepicker();
+            });
+        </script>
+
 <div class="row m-0 p-0">
   <div class="col-9">
     <h2>Editing Plan {{$plan->title}}</h2>
@@ -37,7 +52,9 @@
 
     <div class="form-group col-lg-4">
         <strong>Date</strong>
-        <input type="datetime-local" name="date" class="form-control" placeholder="Enter date" value="{{ date_format(date_create($plan->date),'Y-m-d')."T".date_format(date_create($plan->date),'h:i:s') }}">
+
+{{--        <input type="datetime-local" name="date" class="form-control" placeholder="Enter date" value="{{ date_format(date_create($plan->date),'Y-m-d')."T".date_format(date_create($plan->date),'h:i:s') }}">--}}
+        <input id="datetimepicker" type="text" name="date" class="form-control" placeholder="Enter date" value="{{ date_format(date_create($plan->date),'Y-m-d')."T".date_format(date_create($plan->date),'h:i:s') }}">
         <span class="text-danger">{{ $errors->first('location') }}</span>
     </div>
 
