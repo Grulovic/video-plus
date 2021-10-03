@@ -3,11 +3,11 @@
 
       <div class="row m-0 p-0">
         <div class="col-lg-10">
-          <h4>Showing Gallery <strong>{{$video->name}}</strong> {{--(ID: {{ $video->id }})--}}</h4>
+          <h4>Showing Plan <strong>{{$plan->title}}</strong> {{--(ID: {{ $video->id }})--}}</h4>
         </div><div class="col-lg-2 text-right">
 
           <a class="btn btn-danger mb-2" href="{{ URL::previous() }}"><i class="fas fa-caret-left"></i></a>
-          <a href="{{ route('videos.index') }}" class="btn btn-danger mb-2 text-right">Go to Videos</a>
+          <a href="{{ route('plans.show') }}" class="btn btn-danger mb-2 text-right">Go to Planner</a>
         </div>
       </div>
 
