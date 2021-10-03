@@ -16,6 +16,7 @@
                     interval: 15,
                     minTime: '0',
                     maxTime: '11:59pm',
+                    defaultTime: '{{ date_format(date_create($plan->date),'h:i') }}',
                     startTime: '10:00',
                     dynamic: true,
                     dropdown: true,
