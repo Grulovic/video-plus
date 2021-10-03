@@ -418,7 +418,7 @@ class GalleryController extends Controller
             unlink($previous_photo_path);
         }
 
-        $planner_items = PlanItem::where('type',1)-≥where('item_id',$id)->delete();
+        $planner_items = PlanItem::where('type',1)->where('item_id',$id)->delete();
 
         $photo->delete();
 

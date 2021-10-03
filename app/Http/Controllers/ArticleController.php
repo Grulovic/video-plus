@@ -187,7 +187,7 @@ class ArticleController extends Controller
             abort_unless( auth()->user()->id == $article->first()->user_id,403);
         }
 
-        $planner_items = PlanItem::where('type',2)-≥where('item_id',$article->id)->delete();
+        $planner_items = PlanItem::where('type',2)->where('item_id',$article->id)->delete();
 
         $article->delete();
 

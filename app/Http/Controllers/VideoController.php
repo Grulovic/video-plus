@@ -510,7 +510,7 @@ class VideoController extends Controller
 
         $this->delete_video_files( $video->latest()->first()->file_name );
 
-        $planner_items = PlanItem::where('type',0)-≥where('item_id',$id)->delete();
+        $planner_items = PlanItem::where('type',0)->where('item_id',$id)->delete();
 
         $video->delete();
         VideoCategory::where('video_id',$id)->delete();

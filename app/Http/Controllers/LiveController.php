@@ -151,7 +151,7 @@ class LiveController extends Controller
 
         // $live = Live::where('id',$id);
 
-        $planner_items = PlanItem::where('type',3)-≥where('item_id',$live->id)->delete();
+        $planner_items = PlanItem::where('type',3)->where('item_id',$live->id)->delete();
 
         $live->delete();
 
