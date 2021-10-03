@@ -30,16 +30,12 @@
                 overflow-x:hidden
             }
             .ui-timepicker-standard{
-                font-family:Verdana,Arial,sans-serif;
-                font-size:1.1em;
                 background-color:#FFF;
-                border:1px solid #AAA;
                 color:#222;
                 margin:0;
                 padding:2px
             }
             .ui-timepicker-standard a{
-                border:1px solid transparent;
                 color:#222;
                 display:block;
                 padding:.2em .4em;
@@ -48,8 +44,7 @@
 
             }
             .ui-timepicker-standard .ui-state-hover{
-                background-color:#DADADA;
-                border:1px solid #999;
+                background-color:#007bff;
                 font-weight:400;
                 color:#212121
             }
@@ -58,9 +53,9 @@
                 padding:0
             }
             .ui-timepicker-corners,.ui-timepicker-corners .ui-corner-all{
-                -moz-border-radius:4px;
-                -webkit-border-radius:4px;
-                border-radius:4px
+                -moz-border-radius:0px;
+                -webkit-border-radius:0px;
+                border-radius:0px
             }
             .ui-timepicker-hidden{
                 display:none
