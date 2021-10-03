@@ -49,7 +49,6 @@
 
         <div class="p-6 border">
             <div class="flex items-center">
-                <i class="fas fa-file-alt"></i>
                 <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/planner">
                         <i class="fas fa-calendar-alt" style="width:60px!important; text-align:center!important;"></i> Planner</a></div>
             </div>
