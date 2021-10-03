@@ -4,7 +4,7 @@
  <div class="row  m-0 p-0">
 
   <div class="col-9  text-left">
-    <h2>Plan List:</h2>
+    <h2 class="float-left">Planner:</h2>
 
       <form class="float-left" action="{{ route('plans.index') }}" method="GET">
           <input type="date" name="date" value="{{ $date_before }}" hidden>
