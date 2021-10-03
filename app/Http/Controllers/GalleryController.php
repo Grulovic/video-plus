@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gallery;
+use App\Models\PlanItem;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -416,6 +417,8 @@ class GalleryController extends Controller
         if (file_exists($previous_photo_path)) {
             unlink($previous_photo_path);
         }
+
+        $planner_items = PlanItem::where('type',1)-≥where('item_id',$id)->delete();
 
         $photo->delete();
 

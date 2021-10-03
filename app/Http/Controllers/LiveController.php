@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Live;
+use App\Models\PlanItem;
 use Illuminate\Http\Request;
 use Redirect;
 
@@ -149,6 +150,8 @@ class LiveController extends Controller
         // abort_unless( auth()->user()->role == "admin",403);
 
         // $live = Live::where('id',$id);
+
+        $planner_items = PlanItem::where('type',3)-≥where('item_id',$live->id)->delete();
 
         $live->delete();
 
