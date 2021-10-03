@@ -1,4 +1,4 @@
-<div class="col-lg-6 d-flex align-items-stretch p-1">
+<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 d-flex align-items-stretch p-1">
   <div class="card mb-4 w-100 shadow-sm">
     <iframe  class="card-img-top bg-dark" style="height:260px!important; height:auto; min-width: 100%!important; display: block;" src="{{$live->url}}?autoplay=false"></iframe>
 
