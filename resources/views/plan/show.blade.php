@@ -44,6 +44,48 @@
 
                         <h5 class="pb-0 mb-0">{{ $plan->title }}</h5>
                         <p class="mb-0 pb-0" style="">{{ $plan->description }}</p>
+
+                    </div>
+                    <div class="col-lg-2">
+                        <p class="text-muted mb-0 pb-0" style="">Location: {{ $plan->location }}</p>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="row m-0 p-0">
+                            <div class="col-6 text-center mb-2 pl-1 pr-1 p-0">
+                                @if(sizeof($plan->videoItems) != 0 || $plan->video)
+                                    <a class="btn plan-item-btn btn-outline-{{  sizeof($plan->videoItems) == 0 ? "secondary" : "primary" }}  w-100 h-100" data-toggle="collapse" href="#plan_videos" role="button" aria-expanded="false" aria-controls="#plan_videos">
+                                        <i class="fas fa-video" style=""></i>
+                                    </a>
+                                @endif
+                            </div>
+                            <div class="col-6 text-center mb-2 pl-1 pr-1 p-0">
+                                @if(sizeof($plan->photoItems) != 0 || $plan->photo)
+                                    <a class="btn plan-item-btn btn-outline-{{  sizeof($plan->photoItems) == 0 ? "secondary" : "primary" }}  w-100 h-100" data-toggle="collapse" href="#plan_photos" role="button" aria-expanded="false" aria-controls="#plan_photos">
+                                        <i class="fas fa-image" style=""></i>
+                                    </a>
+                                @endif
+                            </div>
+                            <div class="col-6 text-center mb-2 pl-1 pr-1 p-0">
+                                @if(sizeof($plan->textItems) != 0 || $plan->text)
+                                    <a class="btn plan-item-btn btn-outline-{{  sizeof($plan->textItems) == 0 ? "secondary" : "primary" }}  w-100 h-100" data-toggle="collapse" href="#plan_texts" role="button" aria-expanded="false" aria-controls="#plan_texts">
+                                        <i class="fas fa-microphone" style=""></i>
+                                    </a>
+                                @endif
+                            </div>
+                            <div class="col-6 text-center mb-2 pl-1 pr-1 p-0">
+                                @if(sizeof($plan->liveItems) != 0 || $plan->live)
+                                    <a class="btn plan-item-btn btn-outline-{{  sizeof($plan->liveItems) == 0 ? "secondary" : "primary" }}  w-100 h-100" data-toggle="collapse" href="#plan_lives" role="button" aria-expanded="false" aria-controls="#plan_lives">
+                                        <i class="fas fa-file-alt" style=""></i>
+                                    </a>
+                                @endif
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-lg-12">
                         @if(sizeof($plan->videoItems) != 0)
                             <div class=" mb-2 " id="plan_videos">
                                 <div class="card">
@@ -94,46 +136,8 @@
                                 </div>
                             </div>
                         @endif
-
-                    </div>
-                    <div class="col-lg-2">
-                        <p class="text-muted mb-0 pb-0" style="">Location: {{ $plan->location }}</p>
-                    </div>
-                    <div class="col-lg-2">
-                        <div class="row m-0 p-0">
-                            <div class="col-6 text-center mb-2 pl-1 pr-1 p-0">
-                                @if(sizeof($plan->videoItems) != 0 || $plan->video)
-                                    <a class="btn plan-item-btn btn-outline-{{  sizeof($plan->videoItems) == 0 ? "secondary" : "primary" }}  w-100 h-100" data-toggle="collapse" href="#plan_videos" role="button" aria-expanded="false" aria-controls="#plan_videos">
-                                        <i class="fas fa-video" style=""></i>
-                                    </a>
-                                @endif
-                            </div>
-                            <div class="col-6 text-center mb-2 pl-1 pr-1 p-0">
-                                @if(sizeof($plan->photoItems) != 0 || $plan->photo)
-                                    <a class="btn plan-item-btn btn-outline-{{  sizeof($plan->photoItems) == 0 ? "secondary" : "primary" }}  w-100 h-100" data-toggle="collapse" href="#plan_photos" role="button" aria-expanded="false" aria-controls="#plan_photos">
-                                        <i class="fas fa-image" style=""></i>
-                                    </a>
-                                @endif
-                            </div>
-                            <div class="col-6 text-center mb-2 pl-1 pr-1 p-0">
-                                @if(sizeof($plan->textItems) != 0 || $plan->text)
-                                    <a class="btn plan-item-btn btn-outline-{{  sizeof($plan->textItems) == 0 ? "secondary" : "primary" }}  w-100 h-100" data-toggle="collapse" href="#plan_texts" role="button" aria-expanded="false" aria-controls="#plan_texts">
-                                        <i class="fas fa-microphone" style=""></i>
-                                    </a>
-                                @endif
-                            </div>
-                            <div class="col-6 text-center mb-2 pl-1 pr-1 p-0">
-                                @if(sizeof($plan->liveItems) != 0 || $plan->live)
-                                    <a class="btn plan-item-btn btn-outline-{{  sizeof($plan->liveItems) == 0 ? "secondary" : "primary" }}  w-100 h-100" data-toggle="collapse" href="#plan_lives" role="button" aria-expanded="false" aria-controls="#plan_lives">
-                                        <i class="fas fa-file-alt" style=""></i>
-                                    </a>
-                                @endif
-                            </div>
-
-                        </div>
                     </div>
                 </div>
-
 
             </div>
             <div class="card-footer text-right ">
