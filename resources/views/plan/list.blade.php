@@ -1,6 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
 
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/base/jquery-ui.css" type="text/css" media="all">
+        <script type="text/javascript" src="{{ asset('js/video-datepicker.js') }}"></script>
+        <link href="{{ asset('css/video-datepicker.css') }}" rel="stylesheet">
+
+
  <div class="row  m-0 p-0">
 
   <div class="col-lg-2  text-left">
@@ -17,7 +24,6 @@
           <script>
               $( document ).ready(function() {
                   $("#datepicker").change(function() {
-                      alert("HERE");
                       this.form.submit();
                   });
 
