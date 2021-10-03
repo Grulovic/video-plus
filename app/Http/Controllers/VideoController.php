@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Plan;
 use App\Models\Video;
 use App\Models\VideoView;
 use App\Models\User;
@@ -560,9 +561,16 @@ class VideoController extends Controller
 
         if(isset(request()->from_date)){
 
-            $videos->where(function($query){
+            $date_before = Carbon::parse(request()->from_date)->subDays(1)->toDateString();
+            $date = Carbon::parse(request()->from_date)->toDateString();
+            $date_after = Carbon::parse(request()->from_date)->addDays(1)->toDateString();
+
+
+
+            $videos->where(function($query) use ($date,$date_after){
                     $query
-                        ->where('created_at',">=", request()->from_date);
+                        ->where('created_at',">=",$date)->where('created_at',"<",$date_after);
+                        //->where('created_at',">=", request()->from_date);
                     })
                     ;
 
