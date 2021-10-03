@@ -43,10 +43,17 @@
                 font-size:16px;
 
             }
+            .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus{
+                background-color:#007bff!important;
+                background: none!important;
+                border:0px!important;
+                font-weight:400!important;
+                color:#ffffff!important;
+            }
             .ui-timepicker-standard .ui-state-hover{
                 background-color:#007bff;
                 font-weight:400;
-                color:#212121
+                color:#ffffff
             }
             .ui-timepicker-standard .ui-menu-item{
                 margin:0;
