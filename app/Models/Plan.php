@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Plan extends Model
 {
@@ -47,6 +48,19 @@ class Plan extends Model
 
     public function liveItems(){
         return $this->items()->where('type',3);
+    }
+
+    public function inFavorite(){
+        $user_id = Auth::id();
+        $plan_id = $this->id;
+
+        $existing_favorite = UserPlan::where('plan_id',$plan_id)->where('user_id',$user_id)->get();
+
+        if( sizeof($existing_favorite) > 0){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 }
