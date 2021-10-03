@@ -2,7 +2,7 @@
 
 namespace App\Mail;
 
-use App\Models\Video;
+use App\Models\Plan;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
