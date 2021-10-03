@@ -6,7 +6,73 @@
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/base/jquery-ui.css" type="text/css" media="all">
         <script type="text/javascript" src="{{ asset('js/video-datepicker.js') }}"></script>
         <link href="{{ asset('css/video-datepicker.css') }}" rel="stylesheet">
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+        <style>
+            .ui-timepicker-container{
+                position:absolute;
+                overflow:hidden;
+                box-sizing:border-box
+            }
+            .ui-timepicker,.ui-timepicker-viewport{
+                box-sizing:content-box;
+                height:205px;
+                display:block;
+                margin:0
+            }
+            .ui-timepicker{
+                list-style:none;
+                padding:0 1px;
+                text-align:center
+            }
+            .ui-timepicker-viewport{
+                padding:0;
+                overflow:auto;
+                overflow-x:hidden
+            }
+            .ui-timepicker-standard{
+                background-color:#FFF;
+                color:#222;
+                margin:0;
+                padding:2px
+            }
+            .ui-timepicker-standard a{
+                color:#222;
+                display:block;
+                padding:.2em .4em;
+                text-decoration:none;
+                font-size:16px;
+
+            }
+            .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus{
+
+                background: none!important;
+                background-color:#007bff!important;
+                border:0px!important;
+                font-weight:400!important;
+                color:#ffffff!important;
+            }
+            .ui-timepicker-standard .ui-state-hover{
+                background-color:#007bff;
+                font-weight:400;
+                color:#ffffff
+            }
+            .ui-timepicker-standard .ui-menu-item{
+                margin:0;
+                padding:0
+            }
+            .ui-timepicker-corners,.ui-timepicker-corners .ui-corner-all{
+                -moz-border-radius:0px;
+                -webkit-border-radius:0px;
+                border-radius:0px
+            }
+            .ui-timepicker-hidden{
+                display:none
+            }
+            .ui-timepicker-no-scrollbar .ui-timepicker{
+                border:none
+            }
+            /*# sourceMappingURL=jquery.timepicker.min.css.map */
+
+        </style>
         <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 
         <script>
