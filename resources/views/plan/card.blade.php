@@ -22,57 +22,6 @@
 
                 <h5 class="pb-0 mb-0">{{ $plan->title }}</h5>
                 <p class="mb-0 pb-0" style="">{{ $plan->description }}</p>
-                @if(sizeof($plan->videoItems) != 0)
-                    <div class="collapse mb-2 " id="plan{{ $loop->index }}videos">
-                        <div class="card">
-                            <div class="rounded-top bg-light border-bottom font-weight-bold p-1">Videos:</div>
-                            <div class="card-body">
-                        @foreach( $plan->videoItems as $video )
-                                    @php $video = $video->getItem @endphp
-                            @include('plan.video_card')
-                        @endforeach
-                            </div>
-                        </div>
-                    </div>
-                @endif
-
-                @if(sizeof($plan->photoItems) != 0)
-                <div class="collapse mb-2 " id="plan{{ $loop->index }}photos">
-                    <div class="card">
-                        <div class="rounded-top bg-light border-bottom font-weight-bold p-1">Galleries:</div>
-                        <div class="card-body">
-                            @foreach( $plan->photoItems as $gallery )
-                                @php $gallery = $gallery->getItem @endphp
-                                @include('plan.photo_card')
-                        @endforeach</div>
-                        </div>
-                    </div>
-                @endif
-                @if(sizeof($plan->textItems) != 0)
-                <div class="collapse mb-2" id="plan{{ $loop->index }}texts">
-                    <div class="card">
-                        <div class="rounded-top bg-light border-bottom font-weight-bold p-1">Articles:</div>
-                        <div class="card-body">
-                            @foreach( $plan->textItems as $article )
-                                @php $article = $article->getItem @endphp
-                                @include('plan.text_card')
-                        @endforeach</div>
-                        </div>
-                    </div>
-                @endif
-                @if(sizeof($plan->liveItems) != 0)
-                <div class="collapse mb-2" id="plan{{ $loop->index }}lives">
-                    <div class="card">
-                        <div class="rounded-top bg-light border-bottom font-weight-bold p-1">Live Streams:</div>
-                        <div class="card-body">
-                            @foreach( $plan->liveItems as $live )
-                                @php $live = $live->getItem @endphp
-                                @include('plan.live_card')
-                        @endforeach</div>
-                    </div>
-                </div>
-                @endif
-
             </div>
             <div class="col-lg-2">
                 <p class="text-muted mb-0 pb-0" style="">Location: {{ $plan->location }}</p>
@@ -138,6 +87,60 @@
             </div>
         </div>
 
+        <div class="row mt-3">
+            <div class="col-lg-12">
+                @if(sizeof($plan->videoItems) != 0)
+                    <div class="collapse mb-2 " id="plan{{ $loop->index }}videos">
+                        <div class="card">
+                            <div class="rounded-top bg-light border-bottom font-weight-bold p-1">Videos:</div>
+                            <div class="card-body">
+                                @foreach( $plan->videoItems as $video )
+                                    @php $video = $video->getItem @endphp
+                                    @include('plan.video_card')
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                @endif
+
+                @if(sizeof($plan->photoItems) != 0)
+                    <div class="collapse mb-2 " id="plan{{ $loop->index }}photos">
+                        <div class="card">
+                            <div class="rounded-top bg-light border-bottom font-weight-bold p-1">Galleries:</div>
+                            <div class="card-body">
+                                @foreach( $plan->photoItems as $gallery )
+                                    @php $gallery = $gallery->getItem @endphp
+                                    @include('plan.photo_card')
+                                @endforeach</div>
+                        </div>
+                    </div>
+                @endif
+                @if(sizeof($plan->textItems) != 0)
+                    <div class="collapse mb-2" id="plan{{ $loop->index }}texts">
+                        <div class="card">
+                            <div class="rounded-top bg-light border-bottom font-weight-bold p-1">Articles:</div>
+                            <div class="card-body">
+                                @foreach( $plan->textItems as $article )
+                                    @php $article = $article->getItem @endphp
+                                    @include('plan.text_card')
+                                @endforeach</div>
+                        </div>
+                    </div>
+                @endif
+                @if(sizeof($plan->liveItems) != 0)
+                    <div class="collapse mb-2" id="plan{{ $loop->index }}lives">
+                        <div class="card">
+                            <div class="rounded-top bg-light border-bottom font-weight-bold p-1">Live Streams:</div>
+                            <div class="card-body">
+                                @foreach( $plan->liveItems as $live )
+                                    @php $live = $live->getItem @endphp
+                                    @include('plan.live_card')
+                                @endforeach</div>
+                        </div>
+                    </div>
+                @endif
+            </div>
+        </div>
 
     </div>
 
