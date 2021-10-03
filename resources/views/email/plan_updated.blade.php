@@ -28,12 +28,13 @@
                                            <h1 style="box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';color:#3d4852;font-size:18px;font-weight:bold;margin-top:0;text-align:left">New updates on the Planner</h1>
                                            <p style="box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-size:16px;line-height:1.5em;margin-top:0;text-align:left">
 											    <hr>
-											    <br>The Plan "{{$plan->title}}}" has new updates!
+											    <br>The Plan "{{$plan->title}}" has new updates!
                                         		<br>
 
-      <div class="text-muted text-right w-100 pr-2"><small>{{ date('j. F Y. H:i', strtotime($plan->date)) }}</small></div>
+
 
       <a href="{{ config('app.url')."/planner?date=".$plan->date }}" class="text-black"><h2 class="pb-0 mb-0">{{ $plan->title }}</h2></a>
+                                            <div class="text-muted text-right w-100 pr-2">Date of event: {{ date('j. F Y. H:i', strtotime($plan->date)) }}</div>
       <p class="text-muted" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
         @if(sizeof($plan->categories) > 0)
           @foreach($plan->categories as $category)
