@@ -3,7 +3,7 @@
 
  <div class="row  m-0 p-0">
 
-  <div class="col-9  text-left">
+  <div class="col-12  text-left">
     <h2 class="float-left mr-5">Planner:</h2>
 
       <form class="float-left" action="{{ route('plans.index') }}" method="GET">
@@ -49,20 +49,15 @@
           <input type="date" name="date" value="{{ $date_after }}" hidden>
           <button type="submit" class="btn btn-primary border-end" value="Submit" style="min-height: 42px;  border-top-left-radius:0; border-bottom-left-radius:0;" >{{ date('j. F', strtotime($date_after)) }} <i class="fas fa-chevron-right"></i> </button>
       </form>
+
+      @if (!Auth::guest())
+
+          @can('create', App\Models\Plan::class)
+              <a href="{{ route('plans.create') }}" class="btn btn-success float-right ml-1 "><i class="fas fa-archive"></i> Add Plan</a>
+          @endcan
+      @endif
+
     </div>
-
-
-
-
-  <div class="col-3 text-center">
- @if (!Auth::guest())
-
-  @can('create', App\Models\Plan::class)
-    <a href="{{ route('plans.create') }}" class="btn btn-success float-right ml-1 "><i class="fas fa-archive"></i> Add Plan</a>
-@endcan
-  @endif
-  </div>
-
 
 </div>
 
