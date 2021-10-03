@@ -7,9 +7,9 @@
         <h2>Add Live</h2>
     </div>
   <div class="col-3 text-right">
-        <a href="{{ route('lives.index') }}" class="btn btn-danger mb-2"><i class="fas fa-chevron-left"></i> Go Back</a> 
+        <a href="{{ route('lives.index') }}" class="btn btn-danger mb-2"><i class="fas fa-chevron-left"></i> Go Back</a>
     </div>
-    
+
 </div>
 
 </x-slot>
@@ -20,21 +20,17 @@
 <form  class="row" action="{{ route('lives.store') }}" method="POST" name="add_live">
     {{ csrf_field() }}
     <input type="text" name="user_id" hidden="" value="{{ auth()->user()->id }}">
-      
-    <div class="form-group col-lg-4">
+
+    <div class="form-group col-lg-6">
         <strong>Title</strong>
         <input type="text" name="title" class="form-control" placeholder="Enter title">
         <span class="text-danger">{{ $errors->first('title') }}</span>
     </div>
 
 
-    <div class="form-group col-lg-4">
-        <strong>Description</strong>
-        <input type="text" name="description" class="form-control" placeholder="Enter description">
-        <span class="text-danger">{{ $errors->first('description') }}</span>
-    </div>
 
-	<div class="form-group col-lg-4">
+
+	<div class="form-group col-lg-6">
         <strong>Featured</strong><br>
     <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="featured" id="featured0" value="0">
@@ -45,14 +41,20 @@
   <label class="form-check-label" for="featured1">Show on Homepage</label>
 </div>
 </div>
-    
+
+    <div class="form-group col-lg-12">
+        <strong>Description</strong>
+        <textarea type="text" name="description" class="form-control" placeholder="Enter description" style="min-height:200px;"></textarea>
+        <span class="text-danger">{{ $errors->first('description') }}</span>
+    </div>
+
     <div class="form-group col-12">
         <strong>URL</strong>
         <input type="text" name="url" class="form-control" placeholder="Enter url">
         <span class="text-danger">{{ $errors->first('url') }}</span>
     </div>
 
-    
+
 
 
 
@@ -65,13 +67,13 @@
         </div>
 
         <div class="w-50 float-left p-1">
-            <a href="{{ route('lives.index') }}" class="btn btn-danger w-100"><i class="fas fa-ban"></i>  Cancel create</a> 
+            <a href="{{ route('lives.index') }}" class="btn btn-danger w-100"><i class="fas fa-ban"></i>  Cancel create</a>
         </div>
     </div>
 
 
 
-    </div>     
+    </div>
 
 </form>
 

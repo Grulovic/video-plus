@@ -1,14 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
- 
+
 <div class="row m-0 p-0">
   <div class="col-9">
     <h2>Editing Live <a href="{{ route('lives.show',$live->id)}}">{{$live->title}}</a></h2>
 
   </div>
   <div class="col-3 text-right">
-    <a href="{{ route('lives.index') }}" class="btn btn-danger mb-2"><i class="fas fa-chevron-left"></i> Go Back</a> 
-  </div>    
+    <a href="{{ route('lives.index') }}" class="btn btn-danger mb-2"><i class="fas fa-chevron-left"></i> Go Back</a>
+  </div>
 
 </div>
 
@@ -23,20 +23,16 @@
   @method('PATCH')
 
 
-  <div class="form-group col-lg-4">
+  <div class="form-group col-lg-6">
         <strong>Title</strong>
         <input live="text" name="title" class="form-control" placeholder="Enter title" value="{{ $live->title }}">
         <span class="text-danger">{{ $errors->first('title') }}</span>
     </div>
 
 
-    <div class="form-group col-lg-4">
-        <strong>Description</strong>
-        <input type="text" name="description" class="form-control" placeholder="Enter description" value="{{ $live->description }}">
-        <span class="text-danger">{{ $errors->first('description') }}</span>
-    </div>
-    
-	<div class="form-group col-lg-4">
+
+
+	<div class="form-group col-lg-6">
         <strong>Featured</strong><br>
     <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="featured" id="featured0" value="0"  {{ $live->featured == 0 ? "checked" : "" }}>
@@ -48,7 +44,11 @@
 </div>
 </div>
 
-
+    <div class="form-group col-lg-12">
+        <strong>Description</strong>
+        <textarea type="text" name="description" class="form-control" placeholder="Enter description" style="min-height:200px;">{{ $live->description }}</textarea>
+        <span class="text-danger">{{ $errors->first('description') }}</span>
+    </div>
     <div class="form-group col-12">
         <strong>URL</strong>
         <input type="text" name="url" class="form-control" placeholder="Enter url" value="{{ $live->url }}">
@@ -61,12 +61,12 @@
 
 <div class="col-12 pt-3">
         <div class="w-50 float-left p-1">
-            
-            
+
+
              <button type="button" class="btn btn-primary w-100" data-toggle="modal" data-target="#modal_{{$live->id}}_delete_btn"  data-toggle="tooltip" data-placement="top" title="Edit Live">
                    <i class="far fa-edit"></i> Edit Live
                   </button>
-                  
+
         <!-- Modal -->
         <div class="modal fade text-black" id="modal_{{$live->id}}_delete_btn" tabindex="-1" role="dialog" aria-labelledby="modal_{{$live->id}}_delete_btn" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -82,19 +82,19 @@
               </div>
               <div class="modal-footer">
                  <button type="submit" class="btn btn-primary"><i class="far fa-edit"></i> Edit live</button>
-                
+
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               </div>
             </div>
           </div>
         </div>
         <!-- End Modal -->
-        
-        
+
+
         </div>
 
         <div class="w-50 float-left p-1">
-            <a href="{{ route('lives.index') }}" class="btn btn-danger w-100"><i class="fas fa-ban"></i> Cancel edit</a> 
+            <a href="{{ route('lives.index') }}" class="btn btn-danger w-100"><i class="fas fa-ban"></i> Cancel edit</a>
         </div>
     </div>
 
