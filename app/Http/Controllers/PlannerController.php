@@ -312,7 +312,7 @@ class PlannerController extends Controller
         }
 
 
-        return Redirect::to('planner')
+        return Redirect::route('plans.index', ['date'=>$plan->date ])
             ->with('success','Great! Plan updated successfully');
     }
 

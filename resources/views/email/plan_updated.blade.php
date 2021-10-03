@@ -33,7 +33,7 @@
 
 
 
-      <a href="{{ config('app.url')."/planner?date=".$plan->date }}" class="text-black"><h2 class="pb-0 mb-0">{{ $plan->title }}</h2></a>
+      <a href="{{config('app.url')}}/planner?date={{$plan->date}}" class="text-black"><h2 class="pb-0 mb-0">{{ $plan->title }}</h2></a>
                                             <div class="text-muted text-right w-100 pr-2">Date of event: {{ date('j. F Y. H:i', strtotime($plan->date)) }}</div>
       <p class="text-muted" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
         @if(sizeof($plan->categories) > 0)
