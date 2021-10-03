@@ -293,7 +293,7 @@ class PlannerController extends Controller
 //        ]);
 
 
-        $email_push = $request->email_push;
+        $email_push = request()->email_push;
         if( $email_push == "admin" ){
             $users = User::where('role','admin')->orderBy('id','asc')->get();
             foreach($users as $user){
