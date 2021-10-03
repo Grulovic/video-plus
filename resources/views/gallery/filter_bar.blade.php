@@ -43,7 +43,7 @@
           <div class="input-group-prepend">
               <label class="input-group-text" for="from_date"><i class="far fa-calendar-alt"></i></label>
           </div>
-          <input class="form-control" type="text" id="datepicker" name="from_date" placeholder="Chose from date..." value="{{(isset(request()->from_date)) ? request()->from_date : ""}}"  autocomplete="off">
+          <input class="form-control" type="text" id="datepicker" name="from_date" placeholder="Chose date..." value="{{(isset(request()->from_date)) ? request()->from_date : ""}}"  autocomplete="off">
         </div>
   </div>
   <div class="col-lg-3">
