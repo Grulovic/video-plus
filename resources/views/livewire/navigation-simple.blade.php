@@ -15,7 +15,7 @@
                     <x-jet-nav-link href="{{ route('home.index') }}" :active="request()->routeIs('home.index')">
                         {{ __('Home') }}
                     </x-jet-nav-link>
-                    
+
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
@@ -27,24 +27,30 @@
                      <x-jet-nav-link href="{{ route('photos.index') }}" :active="request()->routeIs(['photos.index','photos.list','photos.create','photos.edit','photos.show'])">
                         {{ __('Photos') }}
                     </x-jet-nav-link>
-                    
+
                 	<x-jet-nav-link href="{{ route('articles.index') }}" :active="request()->routeIs(['articles.index','articles.create','articles.edit','articles.show'])">
                         {{ __('Articles') }}
                     </x-jet-nav-link>
-                
-                    <x-jet-nav-link href="{{ route('history.index') }}" :active="request()->routeIs(['history.index'])">
-                        {{ __('History') }}
-                    </x-jet-nav-link>
-                    @auth
-                    @if( auth()->user()->role == "admin")
+
                     <x-jet-nav-link href="{{ route('lives.index') }}" :active="request()->routeIs(['lives.index','lives.create','lives.edit','lives.show'])">
                         {{ __('Live') }}
                     </x-jet-nav-link>
 
+                    <x-jet-nav-link href="{{ route('plans.index') }}" :active="request()->routeIs(['plans.index','plans.create','plans.edit'])">
+                        {{ __('Planner') }}
+                    </x-jet-nav-link>
+
+                    @auth
+                    @if( auth()->user()->role == "admin")
+                    <x-jet-nav-link href="{{ route('history.index') }}" :active="request()->routeIs(['history.index'])">
+                        {{ __('History') }}
+                    </x-jet-nav-link>
+
+
                     <x-jet-nav-link href="{{ route('categories.index') }}" :active="request()->routeIs(['categories.index','categories.create','categories.edit','categories.show'])">
                         {{ __('Categories') }}
                     </x-jet-nav-link>
-                    
+
                     <x-jet-nav-link href="{{ route('users.index') }}" :active="request()->routeIs(['users.index'])">
                         {{ __('Users') }}
                     </x-jet-nav-link>
@@ -66,8 +72,8 @@
 		                        <a href="{{ route('register') }}" class="btn btn-outline-success">Register</a>
 		                    @endif
                     @endif
-                    	 
-			             
+
+
 
      	 				@if (Route::has('login'))
                         @auth
@@ -136,7 +142,7 @@
 	                    @endauth
 	                   	@endif
 
-                    
+
                 </div>
             </div>
 
@@ -158,7 +164,7 @@
              <x-jet-responsive-nav-link href="{{ route('home.index') }}" :active="request()->routeIs('home.index')">
                         {{ __('Home') }}
                     </x-jet-responsive-nav-link>
-                    
+
                     <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-responsive-nav-link>
@@ -167,23 +173,32 @@
                         {{ __('Videos') }}
                     </x-jet-responsive-nav-link>
 
-                     <x-jet-responsive-nav-link href="{{ route('photos.index') }}" :active="request()->routeIs(['photos.index','photos.list','photos.create','photos.edit','photos.show'])">
+                    <x-jet-responsive-nav-link href="{{ route('photos.index') }}" :active="request()->routeIs(['photos.index','photos.list','photos.create','photos.edit','photos.show'])">
                         {{ __('Photos') }}
                     </x-jet-responsive-nav-link>
-                    
-                    <x-jet-responsive-nav-link href="{{ route('history.index') }}" :active="request()->routeIs(['history.index'])">
-                        {{ __('History') }}
+
+                    <x-jet-responsive-nav-link href="{{ route('articles.index') }}" :active="request()->routeIs(['articles.index','articles.create','articles.edit','articles.show'])">
+                        {{ __('Articles') }}
                     </x-jet-responsive-nav-link>
-                    @auth
-                    @if( auth()->user()->role == "admin")
+
                     <x-jet-responsive-nav-link href="{{ route('lives.index') }}" :active="request()->routeIs(['lives.index','lives.create','lives.edit','lives.show'])">
                         {{ __('Live') }}
+                    </x-jet-responsive-nav-link>
+
+                    <x-jet-responsive-nav-link href="{{ route('plans.index') }}" :active="request()->routeIs(['plans.index','plans.create','plans.edit'])">
+                        {{ __('Planner') }}
+                    </x-jet-responsive-nav-link>
+
+                    @auth
+                    @if( auth()->user()->role == "admin")
+                    <x-jet-responsive-nav-link href="{{ route('history.index') }}" :active="request()->routeIs(['history.index'])">
+                        {{ __('History') }}
                     </x-jet-responsive-nav-link>
 
                     <x-jet-responsive-nav-link href="{{ route('categories.index') }}" :active="request()->routeIs(['categories.index','categories.create','categories.edit','categories.show'])">
                         {{ __('Categories') }}
                     </x-jet-responsive-nav-link>
-                    
+
                     <x-jet-responsive-nav-link href="{{ route('users.index') }}" :active="request()->routeIs(['users.index'])">
                         {{ __('Users') }}
                     </x-jet-responsive-nav-link>
@@ -208,7 +223,7 @@
                     <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
                 </div>
 				  @else
-					
+
 
 				@endauth
 				@endif
@@ -256,7 +271,7 @@
 					@endauth
 				@endif
 
-                
+
             </div>
         </div>
     </div>
