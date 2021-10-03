@@ -3,9 +3,10 @@
 
  <div class="row  m-0 p-0">
 
-  <div class="col-12  text-left">
+  <div class="col-lg-2  text-left">
     <h2 class="float-left mr-5">Planner:</h2>
 
+      <div class="col-lg-8  text-left">
       <form class="float-left" action="{{ route('plans.index') }}" method="GET">
           <input type="date" name="date" value="{{ $date_before }}" hidden>
           <button type="submit" class="btn btn-primary border-start" value="Submit" style="min-height: 42px; border-top-right-radius:0; border-bottom-right-radius:0; "> <i class="fas fa-chevron-left"></i> {{ date('j. F', strtotime($date_before)) }} </button>
@@ -50,6 +51,8 @@
           <button type="submit" class="btn btn-primary border-end" value="Submit" style="min-height: 42px;  border-top-left-radius:0; border-bottom-left-radius:0;" >{{ date('j. F', strtotime($date_after)) }} <i class="fas fa-chevron-right"></i> </button>
       </form>
 
+      </div>
+          <div class="col-lg-2  text-left">
       @if (!Auth::guest())
 
           @can('create', App\Models\Plan::class)
