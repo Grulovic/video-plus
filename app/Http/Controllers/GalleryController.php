@@ -393,6 +393,8 @@ class GalleryController extends Controller
     public function destroy_photo($id)
     {
 
+        dd(PlanItem::where('type',1)->where('item_id',$id)->get());
+
         abort_unless( auth()->user()->role == "admin",403);
 
         $photo = Photo::where('id',$id);
