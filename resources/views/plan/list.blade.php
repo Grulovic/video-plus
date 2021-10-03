@@ -45,10 +45,10 @@
                           async: false,
                           url: '/planner/favorite/'+plan_id,
                           success:function(data){
-                              console.log('Added to favorites successfully.');
+                              console.log('Added/Removed to favorites successfully.');
                           },
                           error:function(){
-                              console.log('Error adding to favorites.');
+                              console.log('Error adding/removing from favorites.');
                           },
                       });
 

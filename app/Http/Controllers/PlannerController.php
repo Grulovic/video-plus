@@ -318,7 +318,10 @@ class PlannerController extends Controller
         $existing_favorite = UserPlan::where('plan_id',$plan_id)->where('user_id',$user_id)->get();
 
         if( sizeof($existing_favorite) > 0){
-            return json_encode(['error'=>'Plan already in favorites.']);
+
+            $existing_favorite->delete();
+
+            return json_encode(['success'=>'Plan removed from favorites.']);
         }else{
             $user_plan_favorite = new UserPlan();
 
