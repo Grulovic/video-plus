@@ -1,6 +1,29 @@
 <x-app-layout>
     <x-slot name="header">
 
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/base/jquery-ui.css" type="text/css" media="all">
+        <script type="text/javascript" src="{{ asset('js/video-datepicker.js') }}"></script>
+        <link href="{{ asset('css/video-datepicker.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                $('#timepicker').timepicker({
+                    timeFormat: 'HH:mm',
+                    interval: 15,
+                    minTime: '0',
+                    maxTime: '11:59pm',
+                    defaultTime: '12',
+                    startTime: '10:00',
+                    dynamic: true,
+                    dropdown: true,
+                    scrollbar: true
+                });
+            });
+        </script>
 
 <div class="row m-0 p-0">
   <div class="col-9 text-left">
@@ -27,19 +50,23 @@
         <span class="text-danger">{{ $errors->first('title') }}</span>
     </div>
 
-
-
-
     <div class="form-group col-lg-4">
         <strong>Location</strong>
         <input type="text" name="location" class="form-control" placeholder="Enter location">
         <span class="text-danger">{{ $errors->first('location') }}</span>
     </div>
 
-    <div class="form-group col-lg-4">
+    <div class="form-group col-lg-3">
         <strong>Date</strong>
-        <input type="datetime-local" name="date" class="form-control" placeholder="Enter date">
-        <span class="text-danger">{{ $errors->first('location') }}</span>
+        <input id="datepicker" type="text" name="date" class="form-control" placeholder="Enter date">
+        <span class="text-danger">{{ $errors->first('date') }}</span>
+    </div>
+
+
+    <div class="form-group col-lg-3">
+        <strong>Time</strong>
+        <input id="timepicker" type="text" name="time" class="form-control" placeholder="Enter date">
+        <span class="text-danger">{{ $errors->first('time') }}</span>
     </div>
 
     <div class="form-group col-lg-6">
