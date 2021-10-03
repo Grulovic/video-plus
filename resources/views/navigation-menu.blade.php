@@ -54,10 +54,6 @@
                         {{ __('Articles') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('history.index') }}" :active="request()->routeIs(['history.index'])">
-                        {{ __('History') }}
-                    </x-jet-nav-link>
-
                     <x-jet-nav-link href="{{ route('lives.index') }}" :active="request()->routeIs(['lives.index','lives.create','lives.edit','lives.show'])">
                         {{ __('Live') }}
                     </x-jet-nav-link>
@@ -68,7 +64,9 @@
 
                     @auth
                      @if( auth()->user()->role == "admin")
-
+                    <x-jet-nav-link href="{{ route('history.index') }}" :active="request()->routeIs(['history.index'])">
+                        {{ __('History') }}
+                    </x-jet-nav-link>
 
                     <x-jet-nav-link href="{{ route('categories.index') }}" :active="request()->routeIs(['categories.index','categories.create','categories.edit','categories.show'])">
                         {{ __('Categories') }}
@@ -227,10 +225,6 @@
                         {{ __('Articles') }}
                     </x-jet-responsive-nav-link>
 
-                    <x-jet-responsive-nav-link href="{{ route('history.index') }}" :active="request()->routeIs(['history.index'])">
-                        {{ __('History') }}
-                    </x-jet-responsive-nav-link>
-
                     <x-jet-responsive-nav-link href="{{ route('lives.index') }}" :active="request()->routeIs(['lives.index','lives.create','lives.edit','lives.show'])">
                         {{ __('Live') }}
                     </x-jet-responsive-nav-link>
@@ -241,6 +235,11 @@
 
                     @auth
                     @if( auth()->user()->role == "admin")
+
+                    <x-jet-responsive-nav-link href="{{ route('history.index') }}" :active="request()->routeIs(['history.index'])">
+                        {{ __('History') }}
+                    </x-jet-responsive-nav-link>
+
                     <x-jet-responsive-nav-link href="{{ route('categories.index') }}" :active="request()->routeIs(['categories.index','categories.create','categories.edit','categories.show'])">
                         {{ __('Categories') }}
                     </x-jet-responsive-nav-link>
