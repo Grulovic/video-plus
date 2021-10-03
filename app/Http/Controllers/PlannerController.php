@@ -322,7 +322,7 @@ class PlannerController extends Controller
 
         $user_plan_favorite->save();
 
-        return response('success','Great! Plan added to favorites.');
+        return json_encode(['success'=>'Great! Plan added to favorites.']);
     }
 
 }
