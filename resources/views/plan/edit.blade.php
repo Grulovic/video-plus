@@ -54,7 +54,7 @@
         <strong>Date</strong>
 
 {{--        <input type="datetime-local" name="date" class="form-control" placeholder="Enter date" value="{{ date_format(date_create($plan->date),'Y-m-d')."T".date_format(date_create($plan->date),'h:i:s') }}">--}}
-        <input id="datetimepicker" type="text" name="date" class="form-control" placeholder="Enter date" value="{{ date_format(date_create($plan->date),'Y-m-d')."T".date_format(date_create($plan->date),'h:i:s') }}">
+        <input id="datetimepicker" type="text" name="date" class="form-control" placeholder="Enter date" value="{{ date_format(date_create($plan->date),'Y-m-d h:i:s') }}">
         <span class="text-danger">{{ $errors->first('location') }}</span>
     </div>
 
