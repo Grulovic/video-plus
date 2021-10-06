@@ -153,7 +153,7 @@
     </div>
 
 {{--    ITEMS --}}
-    <div class="form-group  col-lg-6">
+    <div class="form-group  col-lg-4">
         <strong>Video Items</strong>
         <select multiple="" class="custom-select" id="video_items" name="video_items[]">
             <option value="" selected="">None</option>
@@ -162,7 +162,7 @@
             @endforeach
         </select>
     </div>
-    <div class="form-group  col-lg-6">
+    <div class="form-group  col-lg-4">
         <strong>Photo Items</strong>
         <select multiple="" class="custom-select" id="photo_items" name="photo_items[]">
             <option value="" selected="">None</option>
@@ -180,7 +180,7 @@
 {{--            @endforeach--}}
 {{--        </select>--}}
 {{--    </div>--}}
-    <div class="form-group  col-lg-6">
+    <div class="form-group  col-lg-4">
         <strong>Live Items</strong>
         <select multiple="" class="custom-select" id="live_items" name="live_items[]">
             <option value="" selected="">None</option>
