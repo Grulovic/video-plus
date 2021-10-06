@@ -1,1 +1,1 @@
-<img src="{{ asset('video-gov-logo.png') }}" style="max-height: 50px; ">
+<img src="{{ asset('logo.png') }}" style="max-height: 50px; ">
