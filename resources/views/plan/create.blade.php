@@ -132,7 +132,7 @@
 
     <div class="form-group col-lg-3">
         <strong>Time</strong>
-        <input id="timepicker" type="text" name="time" class="form-control" placeholder="Enter date">
+        <input id="timepicker" type="text" name="time" class="form-control" placeholder="Enter date" required>
         <span class="text-danger">{{ $errors->first('time') }}</span>
     </div>
 
