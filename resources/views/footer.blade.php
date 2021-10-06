@@ -21,7 +21,7 @@
                          <h6 class="mb-3 mb-lg-4 text-muted bold-text mt-sm-0 mt-5"><b>ADDRESS</b></h6>
                          <p class="mb-1">Resavska 40/1</p>
                          <p>Belgrade, Serbia</p>
-
+                            <br><br>
                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#contact_us">
                              CONTACT US
                          </button>
