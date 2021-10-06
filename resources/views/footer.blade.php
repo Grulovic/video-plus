@@ -21,6 +21,56 @@
                          <h6 class="mb-3 mb-lg-4 text-muted bold-text mt-sm-0 mt-5"><b>ADDRESS</b></h6>
                          <p class="mb-1">Resavska 40/1</p>
                          <p>Belgrade, Serbia</p>
+
+                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#contact_us">
+                             CONTACT US
+                         </button>
+
+
+                         <!-- Modal -->
+                         <div class="modal fade" id="contact_us" tabindex="-1" role="dialog" aria-labelledby="contact_us" aria-hidden="true">
+                             <div class="modal-dialog" role="document">
+                                 <div class="modal-content">
+                                     <div class="modal-header">
+                                         <h5 class="modal-title" id="create_modal_label">Create New Message</h5>
+                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                             <span aria-hidden="true">&times;</span>
+                                         </button>
+                                     </div>
+
+                                     <div class="modal-body">
+                                         <form action="{{ route('messages.store') }}" method="POST" name="add_live">
+                                             {{ csrf_field() }}
+                                             <input type="text" name="user_id" hidden="" value="{{ auth()->user()->id }}">
+
+                                             <div class="form-group col-12">
+                                                 <strong>Title</strong>
+                                                 <input type="text" name="title" class="form-control" placeholder="Enter title">
+                                                 <span class="text-danger">{{ $errors->first('title') }}</span>
+                                             </div>
+
+
+                                             <div class="form-group col-12">
+                                                 <strong>Description</strong>
+                                                 <input type="text" name="description" class="form-control" placeholder="Enter description">
+                                                 <span class="text-danger">{{ $errors->first('description') }}</span>
+                                             </div>
+
+
+                                             <div class="modal-footer">
+                                                 <button type="submit" class="btn btn-primary"><i class="fas fa-envelope"></i> Create new Message</button>
+                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                                             </div>
+                                         </form>
+
+                                     </div>
+
+
+                                 </div>
+                             </div>
+                         </div>
+                         <!-- End modal -->
                      </div>
                  </div>
                  <div class="row ">
@@ -28,6 +78,7 @@
 
                      </div>
                      <div class="col-xl-2 col-md-4 col-sm-4 col-auto order-1 align-self-end ">
+
                      </div>
                      <div class="col-xl-2 col-md-4 col-sm-4 col-auto order-2 align-self-end mt-3 ">
                          <h6 class="text-muted bold-text"><b>STEFAN GRULOVIĆ</b></h6><small><span><i class="fa fa-envelope" aria-hidden="true"></i></span>  stefan@grulovic.rs</small>
