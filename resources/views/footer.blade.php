@@ -81,7 +81,7 @@
 
                      </div>
                      <div class="col-xl-2 col-md-4 col-sm-4 col-auto order-2 align-self-end mt-3 ">
-                         <h6 class="text-muted bold-text"><b>STEFAN GRULOVIĆ</b></h6><small><span><i class="fa fa-envelope" aria-hidden="true"></i></span>  stefan@grulovic.rs</small>
+
                      </div>
                  </div>
              </div>
