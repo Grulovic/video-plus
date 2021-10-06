@@ -47,27 +47,27 @@ class HomeController extends Controller
         $data['lives'] = Live::where('featured',1)->orderBy('id', 'desc')->get();
 
 
-        $most_articles_id = ArticleCategory::groupBy('category_id')->select('category_id', DB::raw('count(*) as total'))->orderBy('total','desc')->get()->first();
-        if($most_articles_id != null ){
-            $most_articles_id = $most_articles_id->category_id;
-
-            $data['most_articles_category'] = Category::where('id', $most_articles_id)->get()->first();
-
-            $data['most_articles'] = Article::orderBy('id', 'desc')
-                ->where(function($query) use ($most_articles_id){
-                    $query
-                        ->whereHas('categories', function($query) use ($most_articles_id){
-                            $query->where('category_id', $most_articles_id);
-                        });
-                })
-                ->take(4)->get();
-        }else{
-            $most_articles_category = new stdClass();
-            $most_articles_category->title = 'No Category at the moment.';
-            $most_articles_category->id = 0;
-            $data['most_articles_category'] = $most_articles_category;
-            $data['most_articles'] = null;
-        }
+//        $most_articles_id = ArticleCategory::groupBy('category_id')->select('category_id', DB::raw('count(*) as total'))->orderBy('total','desc')->get()->first();
+//        if($most_articles_id != null ){
+//            $most_articles_id = $most_articles_id->category_id;
+//
+//            $data['most_articles_category'] = Category::where('id', $most_articles_id)->get()->first();
+//
+//            $data['most_articles'] = Article::orderBy('id', 'desc')
+//                ->where(function($query) use ($most_articles_id){
+//                    $query
+//                        ->whereHas('categories', function($query) use ($most_articles_id){
+//                            $query->where('category_id', $most_articles_id);
+//                        });
+//                })
+//                ->take(4)->get();
+//        }else{
+//            $most_articles_category = new stdClass();
+//            $most_articles_category->title = 'No Category at the moment.';
+//            $most_articles_category->id = 0;
+//            $data['most_articles_category'] = $most_articles_category;
+//            $data['most_articles'] = null;
+//        }
 
 
 
@@ -137,11 +137,11 @@ class HomeController extends Controller
         }
 
 
-        $most_viewed_articles = ArticleView::groupBy('article_id')->select('article_id', DB::raw('count(*) as total'))->orderBy('total','desc')->take(4)->get();
-        $data['most_viewed_articles'] = null;
-        foreach($most_viewed_articles as $key => $article){
-            $data['most_viewed_articles'][$key] = $article->article;
-        }
+//        $most_viewed_articles = ArticleView::groupBy('article_id')->select('article_id', DB::raw('count(*) as total'))->orderBy('total','desc')->take(4)->get();
+//        $data['most_viewed_articles'] = null;
+//        foreach($most_viewed_articles as $key => $article){
+//            $data['most_viewed_articles'][$key] = $article->article;
+//        }
 
 		// $merged_latest = $data['latest_videos']->merge($data['latest_photos']);
 		// $merged_latest = $merged_latest->merge($data['latest_articles']);
