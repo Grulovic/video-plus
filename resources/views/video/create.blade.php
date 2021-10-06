@@ -241,6 +241,7 @@ $.ajax({
             },
             uploadProgress: function(event, position, total, percentComplete) {
                 var percentVal = percentComplete + '%';
+                console.log(percentVal);
                 bar.attr('aria-valuenow', percentVal).css("width",percentVal);
                 percent.html(percentVal);
             	// console.log(percentVal);
