@@ -93,25 +93,25 @@
 
   <hr>
 
-	<div class="row m-0 p-0 pt-4 pb-3">
-		<div class="col-lg-12 my-auto">
-			<div class="float-left">
-				<h2>Latest Articles:</h2>
-				<p>These are the latest articles posted.</p>
-			</div>
-			<div class="float-right mt-2">
-				<a class="btn btn-outline-primary" href="{{route('articles.index')}}">Show latest articles <i class="fas fa-angle-right"></i></a>
-			</div>
-		</div>
-        @if($latest_articles != null)
-			@foreach($latest_articles as $article)
-				@include('article.card')
-			@endforeach
-        @endif
-	</div>
+{{--	<div class="row m-0 p-0 pt-4 pb-3">--}}
+{{--		<div class="col-lg-12 my-auto">--}}
+{{--			<div class="float-left">--}}
+{{--				<h2>Latest Articles:</h2>--}}
+{{--				<p>These are the latest articles posted.</p>--}}
+{{--			</div>--}}
+{{--			<div class="float-right mt-2">--}}
+{{--				<a class="btn btn-outline-primary" href="{{route('articles.index')}}">Show latest articles <i class="fas fa-angle-right"></i></a>--}}
+{{--			</div>--}}
+{{--		</div>--}}
+{{--        @if($latest_articles != null)--}}
+{{--			@foreach($latest_articles as $article)--}}
+{{--				@include('article.card')--}}
+{{--	--}}
+{{--		@endforeach--}}
+{{--        @endif--}}
+{{--	</div>--}}
 
-  <hr>
-
+{{--  <hr>--}}
 
   	<div class="row m-0 p-0 pt-4 pb-3">
 		<div class="col-lg-12 my-auto">
@@ -155,26 +155,26 @@
 
   <hr>
 
-	<div class="row m-0 p-0 pt-4 pb-3">
-		<div class="col-lg-12 my-auto">
-			<div class="float-left">
-				<h2>{{ $most_articles_category->title }} Articles:</h2>
-				<p>This is the most used category for articles.</p>
-			</div>
-            @if( $most_articles_category->id != 0)
-			<div class="float-right mt-2">
-				<a class="btn btn-outline-primary" href="{{route('articles.index')}}?category={{$most_articles_category->id}}">Show  more {{ $most_articles_category->title }} articles <i class="fas fa-angle-right"></i></a>
-			</div>
-            @endif
-		</div>
-        @if($most_articles != null)
-            @foreach($most_articles as $article)
-				@include('article.card')
-			@endforeach
-        @endif
-	</div>
+{{--	<div class="row m-0 p-0 pt-4 pb-3">--}}
+{{--		<div class="col-lg-12 my-auto">--}}
+{{--			<div class="float-left">--}}
+{{--				<h2>{{ $most_articles_category->title }} Articles:</h2>--}}
+{{--				<p>This is the most used category for articles.</p>--}}
+{{--			</div>--}}
+{{--            @if( $most_articles_category->id != 0)--}}
+{{--			<div class="float-right mt-2">--}}
+{{--				<a class="btn btn-outline-primary" href="{{route('articles.index')}}?category={{$most_articles_category->id}}">Show  more {{ $most_articles_category->title }} articles <i class="fas fa-angle-right"></i></a>--}}
+{{--			</div>--}}
+{{--            @endif--}}
+{{--		</div>--}}
+{{--        @if($most_articles != null)--}}
+{{--            @foreach($most_articles as $article)--}}
+{{--				@include('article.card')--}}
+{{--			@endforeach--}}
+{{--        @endif--}}
+{{--	</div>--}}
 
-  <hr>
+{{--  <hr>--}}
 
 
 
@@ -219,22 +219,22 @@
 
 <hr>
 
-	<div class="row m-0 p-0 pt-4 pb-3">
-		<div class="col-lg-12 my-auto">
-			<div class="float-left">
-				<h2>Most Viewed Articles:</h2>
-				<p>These are the most viewed articles ordered by date added.</p>
-			</div>
-			<div class="float-right mt-2">
-				<a class="btn btn-outline-primary" href="{{route('articles.index')}}">Show latest articles <i class="fas fa-angle-right"></i></a>
-			</div>
-		</div>
-        @if($most_viewed_articles != null)
-            @foreach($most_viewed_articles as $article)
-				@include('article.card')
-			@endforeach
-        @endif
-	</div>
+{{--	<div class="row m-0 p-0 pt-4 pb-3">--}}
+{{--		<div class="col-lg-12 my-auto">--}}
+{{--			<div class="float-left">--}}
+{{--				<h2>Most Viewed Articles:</h2>--}}
+{{--				<p>These are the most viewed articles ordered by date added.</p>--}}
+{{--			</div>--}}
+{{--			<div class="float-right mt-2">--}}
+{{--				<a class="btn btn-outline-primary" href="{{route('articles.index')}}">Show latest articles <i class="fas fa-angle-right"></i></a>--}}
+{{--			</div>--}}
+{{--		</div>--}}
+{{--        @if($most_viewed_articles != null)--}}
+{{--            @foreach($most_viewed_articles as $article)--}}
+{{--				@include('article.card')--}}
+{{--			@endforeach--}}
+{{--        @endif--}}
+{{--	</div>--}}
 
 
 
