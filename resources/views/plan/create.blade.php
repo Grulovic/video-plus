@@ -132,7 +132,7 @@
 
     <div class="form-group col-lg-3">
         <strong>Time</strong>
-        <input id="timepicker" type="text" name="time" class="form-control" placeholder="Enter date" required>
+        <input id="timepicker" type="text" name="time" class="form-control" placeholder="Enter date">
         <span class="text-danger">{{ $errors->first('time') }}</span>
     </div>
 
@@ -171,15 +171,15 @@
             @endforeach
         </select>
     </div>
-{{--    <div class="form-group  col-lg-6">--}}
-{{--        <strong>Text Items</strong>--}}
-{{--        <select multiple="" class="custom-select" id="text_items" name="text_items[]">--}}
-{{--            <option value="" selected="">None</option>--}}
-{{--            @foreach($texts as $item)--}}
-{{--                <option value="{{$item->id}}">{{$item->title}}</option>--}}
-{{--            @endforeach--}}
-{{--        </select>--}}
-{{--    </div>--}}
+    <div class="form-group  col-lg-6">
+        <strong>Text Items</strong>
+        <select multiple="" class="custom-select" id="text_items" name="text_items[]">
+            <option value="" selected="">None</option>
+            @foreach($texts as $item)
+                <option value="{{$item->id}}">{{$item->title}}</option>
+            @endforeach
+        </select>
+    </div>
     <div class="form-group  col-lg-6">
         <strong>Live Items</strong>
         <select multiple="" class="custom-select" id="live_items" name="live_items[]">
@@ -232,17 +232,17 @@
     </div>
 
 {{--  LIVE  --}}
-{{--    <div class="form-group col-lg-3">--}}
-{{--        <strong>Live</strong><br>--}}
-{{--        <div class="form-check form-check-inline">--}}
-{{--            <input class="form-check-input" type="radio" name="live" id="live0" value="0" checked>--}}
-{{--            <label class="form-check-label" for="featured0">No</label>--}}
-{{--        </div>--}}
-{{--        <div class="form-check form-check-inline">--}}
-{{--            <input class="form-check-input" type="radio" name="live" id="live1" value="1">--}}
-{{--            <label class="form-check-label" for="featured1">Yes</label>--}}
-{{--        </div>--}}
-{{--    </div>--}}
+    <div class="form-group col-lg-3">
+        <strong>Live</strong><br>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="live" id="live0" value="0" checked>
+            <label class="form-check-label" for="featured0">No</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="live" id="live1" value="1">
+            <label class="form-check-label" for="featured1">Yes</label>
+        </div>
+    </div>
 
 
 
