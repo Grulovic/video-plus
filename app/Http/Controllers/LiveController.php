@@ -118,7 +118,7 @@ class LiveController extends Controller
        ->with('success','Great! Live updated successfully');
     }
 
-
+x
     public function update_featured(Request $request, Live $live)
     {
         // abort_unless( auth()->user()->role == "admin",403);
