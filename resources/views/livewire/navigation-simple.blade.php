@@ -28,9 +28,9 @@
                         {{ __('Photos') }}
                     </x-jet-nav-link>
 
-                	<x-jet-nav-link href="{{ route('articles.index') }}" :active="request()->routeIs(['articles.index','articles.create','articles.edit','articles.show'])">
-                        {{ __('Articles') }}
-                    </x-jet-nav-link>
+{{--                	<x-jet-nav-link href="{{ route('articles.index') }}" :active="request()->routeIs(['articles.index','articles.create','articles.edit','articles.show'])">--}}
+{{--                        {{ __('Articles') }}--}}
+{{--                    </x-jet-nav-link>--}}
 
                     <x-jet-nav-link href="{{ route('lives.index') }}" :active="request()->routeIs(['lives.index','lives.create','lives.edit','lives.show'])">
                         {{ __('Live') }}
@@ -177,9 +177,9 @@
                         {{ __('Photos') }}
                     </x-jet-responsive-nav-link>
 
-                    <x-jet-responsive-nav-link href="{{ route('articles.index') }}" :active="request()->routeIs(['articles.index','articles.create','articles.edit','articles.show'])">
-                        {{ __('Articles') }}
-                    </x-jet-responsive-nav-link>
+{{--                    <x-jet-responsive-nav-link href="{{ route('articles.index') }}" :active="request()->routeIs(['articles.index','articles.create','articles.edit','articles.show'])">--}}
+{{--                        {{ __('Articles') }}--}}
+{{--                    </x-jet-responsive-nav-link>--}}
 
                     <x-jet-responsive-nav-link href="{{ route('lives.index') }}" :active="request()->routeIs(['lives.index','lives.create','lives.edit','lives.show'])">
                         {{ __('Live') }}
