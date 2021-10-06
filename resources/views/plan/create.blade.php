@@ -153,7 +153,7 @@
     </div>
 
 {{--    ITEMS --}}
-    <div class="form-group  col-lg-4">
+    <div class="form-group  col-lg-6">
         <strong>Video Items</strong>
         <select multiple="" class="custom-select" id="video_items" name="video_items[]">
             <option value="" selected="">None</option>
@@ -162,7 +162,7 @@
             @endforeach
         </select>
     </div>
-    <div class="form-group  col-lg-4">
+    <div class="form-group  col-lg-6">
         <strong>Photo Items</strong>
         <select multiple="" class="custom-select" id="photo_items" name="photo_items[]">
             <option value="" selected="">None</option>
@@ -171,16 +171,16 @@
             @endforeach
         </select>
     </div>
-{{--    <div class="form-group  col-lg-6">--}}
-{{--        <strong>Text Items</strong>--}}
-{{--        <select multiple="" class="custom-select" id="text_items" name="text_items[]">--}}
-{{--            <option value="" selected="">None</option>--}}
-{{--            @foreach($texts as $item)--}}
-{{--                <option value="{{$item->id}}">{{$item->title}}</option>--}}
-{{--            @endforeach--}}
-{{--        </select>--}}
-{{--    </div>--}}
-    <div class="form-group  col-lg-4">
+    <div class="form-group  col-lg-6">
+        <strong>Text Items</strong>
+        <select multiple="" class="custom-select" id="text_items" name="text_items[]">
+            <option value="" selected="">None</option>
+            @foreach($texts as $item)
+                <option value="{{$item->id}}">{{$item->title}}</option>
+            @endforeach
+        </select>
+    </div>
+    <div class="form-group  col-lg-6">
         <strong>Live Items</strong>
         <select multiple="" class="custom-select" id="live_items" name="live_items[]">
             <option value="" selected="">None</option>
@@ -232,17 +232,17 @@
     </div>
 
 {{--  LIVE  --}}
-{{--    <div class="form-group col-lg-3">--}}
-{{--        <strong>Live</strong><br>--}}
-{{--        <div class="form-check form-check-inline">--}}
-{{--            <input class="form-check-input" type="radio" name="live" id="live0" value="0" checked>--}}
-{{--            <label class="form-check-label" for="featured0">No</label>--}}
-{{--        </div>--}}
-{{--        <div class="form-check form-check-inline">--}}
-{{--            <input class="form-check-input" type="radio" name="live" id="live1" value="1">--}}
-{{--            <label class="form-check-label" for="featured1">Yes</label>--}}
-{{--        </div>--}}
-{{--    </div>--}}
+    <div class="form-group col-lg-3">
+        <strong>Live</strong><br>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="live" id="live0" value="0" checked>
+            <label class="form-check-label" for="featured0">No</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="live" id="live1" value="1">
+            <label class="form-check-label" for="featured1">Yes</label>
+        </div>
+    </div>
 
 
 

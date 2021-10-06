@@ -189,18 +189,18 @@
             @endforeach
         </select>
     </div>
-{{--    <div class="form-group  col-lg-6">--}}
-{{--        <strong>Text Items</strong>--}}
-{{--        <select multiple="" class="custom-select" id="text_items" name="text_items[]">--}}
-{{--            <option value=""  @if(sizeof($plan->textItems) == 0)selected=""@endif>None</option>--}}
-{{--            @foreach($texts as $item)--}}
-{{--                <option value="{{$item->id}}"--}}
-{{--                @foreach($plan->textItems as $text_item)--}}
-{{--                    {{ $item->id == $text_item->item_id ? 'selected=""' : '' }}--}}
-{{--                    @endforeach>{{$item->title}}</option>--}}
-{{--            @endforeach--}}
-{{--        </select>--}}
-{{--    </div>--}}
+    <div class="form-group  col-lg-6">
+        <strong>Text Items</strong>
+        <select multiple="" class="custom-select" id="text_items" name="text_items[]">
+            <option value=""  @if(sizeof($plan->textItems) == 0)selected=""@endif>None</option>
+            @foreach($texts as $item)
+                <option value="{{$item->id}}"
+                @foreach($plan->textItems as $text_item)
+                    {{ $item->id == $text_item->item_id ? 'selected=""' : '' }}
+                    @endforeach>{{$item->title}}</option>
+            @endforeach
+        </select>
+    </div>
     <div class="form-group  col-lg-6">
         <strong>Live Items</strong>
         <select multiple="" class="custom-select" id="live_items" name="live_items[]">
@@ -243,17 +243,17 @@
     </div>
 
     {{--   TEXT --}}
-{{--    <div class="form-group col-lg-3">--}}
-{{--        <strong>Text</strong><br>--}}
-{{--        <div class="form-check form-check-inline">--}}
-{{--            <input class="form-check-input" type="radio" name="text" id="text0" value="0" {{ $plan->text == 0 ? "checked" : "" }}>--}}
-{{--            <label class="form-check-label" for="featured0">Yes</label>--}}
-{{--        </div>--}}
-{{--        <div class="form-check form-check-inline">--}}
-{{--            <input class="form-check-input" type="radio" name="text" id="text1" value="1" {{ $plan->text == 1 ? "checked" : "" }}>--}}
-{{--            <label class="form-check-label" for="featured1">No</label>--}}
-{{--        </div>--}}
-{{--    </div>--}}
+    <div class="form-group col-lg-3">
+        <strong>Text</strong><br>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="text" id="text0" value="0" {{ $plan->text == 0 ? "checked" : "" }}>
+            <label class="form-check-label" for="featured0">Yes</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="text" id="text1" value="1" {{ $plan->text == 1 ? "checked" : "" }}>
+            <label class="form-check-label" for="featured1">No</label>
+        </div>
+    </div>
 
     {{--  LIVE  --}}
     <div class="form-group col-lg-3">
