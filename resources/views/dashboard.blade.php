@@ -98,78 +98,7 @@
               </h4>
 
 
-              @if( auth()->user()->role == "admin")
-                <!-- Delete Modal -->
-                <div class="modal fade text-black" id="modal_{{$message->id}}_delete_btn" tabindex="-1" role="dialog" aria-labelledby="modal_{{$message->id}}_delete_btn" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Deleting Message</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body text-left">
-                        Are you sure you want to delete <strong>{{ $message->title }}</strong>?
-                      </div>
-                      <div class="modal-footer">
-                         <form action="{{ route('messages.destroy', $message->id)}}" method="post">
-                            {{ csrf_field() }}
-                            @method('DELETE')
-                            <button class="btn btn-danger" type="submit"><i class="far fa-trash-alt"></i> Delete Message</button>
-                          </form>
 
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- End Modal -->
-
-                 <!-- Edit Modal -->
-                <div class="modal fade" id="edit_modal_{{$message->id}}" tabindex="-1" role="dialog" aria-labelledby="edit_modal_{{$message->id}}" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="edit_modal_{{$message->id}}_label">Create New Message</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-
-                      <div class="modal-body">
-                        <form action="{{ route('messages.update', $message->id ) }}" method="POST" name="add_live">
-                            {{ csrf_field() }}
-                            <input type="text" name="user_id" hidden="" value="{{ auth()->user()->id }}">
-
-                            <div class="form-group col-12">
-                                <strong>Title</strong>
-                                <input type="text" name="title" class="form-control" placeholder="Enter title" value="{{$message->title}}">
-                                <span class="text-danger">{{ $errors->first('title') }}</span>
-                            </div>
-
-
-                            <div class="form-group col-12">
-                                <strong>Description</strong>
-                                <input type="text" name="description" class="form-control" placeholder="Enter description" value="{{$message->description}}">
-                                <span class="text-danger">{{ $errors->first('description') }}</span>
-                            </div>
-
-
-                      <div class="modal-footer">
-                                <button type="submit" class="btn btn-warning"><i class="fas fa-envelope"></i> Edit Message</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-                      </div>
-                      </form>
-
-                      </div>
-
-
-                    </div>
-                  </div>
-                </div>
-            @endif
 
 
 
@@ -182,6 +111,79 @@
             </div>
 
         </div>
+
+            @if( auth()->user()->role == "admin")
+            <!-- Delete Modal -->
+                <div class="modal fade text-black" id="modal_{{$message->id}}_delete_btn" tabindex="-1" role="dialog" aria-labelledby="modal_{{$message->id}}_delete_btn" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Deleting Message</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body text-left">
+                                Are you sure you want to delete <strong>{{ $message->title }}</strong>?
+                            </div>
+                            <div class="modal-footer">
+                                <form action="{{ route('messages.destroy', $message->id)}}" method="post">
+                                    {{ csrf_field() }}
+                                    @method('DELETE')
+                                    <button class="btn btn-danger" type="submit"><i class="far fa-trash-alt"></i> Delete Message</button>
+                                </form>
+
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Modal -->
+
+                <!-- Edit Modal -->
+                <div class="modal fade" id="edit_modal_{{$message->id}}" tabindex="-1" role="dialog" aria-labelledby="edit_modal_{{$message->id}}" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="edit_modal_{{$message->id}}_label">Create New Message</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body">
+                                <form action="{{ route('messages.update', $message->id ) }}" method="POST" name="add_live">
+                                    {{ csrf_field() }}
+                                    <input type="text" name="user_id" hidden="" value="{{ auth()->user()->id }}">
+
+                                    <div class="form-group col-12">
+                                        <strong>Title</strong>
+                                        <input type="text" name="title" class="form-control" placeholder="Enter title" value="{{$message->title}}">
+                                        <span class="text-danger">{{ $errors->first('title') }}</span>
+                                    </div>
+
+
+                                    <div class="form-group col-12">
+                                        <strong>Description</strong>
+                                        <input type="text" name="description" class="form-control" placeholder="Enter description" value="{{$message->description}}">
+                                        <span class="text-danger">{{ $errors->first('description') }}</span>
+                                    </div>
+
+
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-warning"><i class="fas fa-envelope"></i> Edit Message</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                                    </div>
+                                </form>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            @endif
         @endforeach
 
 
