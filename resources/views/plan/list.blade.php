@@ -108,7 +108,11 @@
 
  <div class="col-lg-12 p-0" style="">
             @if( sizeof($plans) == 0 )
-               <div colspan="13" class="text-center">There are no plan available yet!</div>
+             <div class="col-lg-12">
+                 <div class="alert alert-info shadow-sm w-100" role="alert" style="">
+                     There are no events available yet!
+                 </div>
+             </div>
             @endif
      </div>
 
