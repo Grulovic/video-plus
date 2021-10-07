@@ -34,7 +34,7 @@
 		<div class="col-lg-12 my-auto" >
 			<div class="text-center">
 				<h2>Latest Live Streams:</h2>
-{{--				<p>These are the latest lives.</p>--}}
+				<p>These are the latest lives streams.</p>
 			</div>
 		</div>
 		@foreach($lives as $live)
@@ -57,7 +57,7 @@
 		<div class="col-lg-12 my-auto">
 			<div class="float-left">
 				<h2>Latest Videos:</h2>
-{{--				<p>These are the latest videos uploaded.</p>--}}
+				<p>These are the latest videos uploaded.</p>
 			</div>
 			<div class="float-right mt-2">
 				<a class="btn btn-outline-primary" href="{{route('videos.index')}}">Show latest videos <i class="fas fa-angle-right"></i></a>
@@ -78,7 +78,7 @@
 		<div class="col-lg-12 my-auto">
 			<div class="float-left">
 				<h2>Latest Photos:</h2>
-{{--				<p>These are the latest photos uploaded.</p>--}}
+				<p>These are the latest photo galleries uploaded.</p>
 			</div>
 			<div class="float-right mt-2">
 				<a class="btn btn-outline-primary" href="{{route('photos.index')}}">Show latest photos <i class="fas fa-angle-right"></i></a>
