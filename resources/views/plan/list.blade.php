@@ -44,8 +44,9 @@
 
                   $(".plan-favorite-btn").click(function() {
                         var plan_id = $(this).data( "planid" );
+                      console.log($(this));
 
-                        var favorite_btn_id = '#plan-favorite-btn-'+plan_id;
+                      var favorite_btn_id = '#plan-favorite-btn-'+plan_id;
 
                       console.log(plan_id);
                       $.ajax({
