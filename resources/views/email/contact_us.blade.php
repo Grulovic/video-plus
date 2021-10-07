@@ -25,16 +25,14 @@
                                   <tr>
                                      <td style="box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';max-width:100vw;padding:32px">
                                         <span class="im">
-                                           <h1 style="box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';color:#3d4852;font-size:18px;font-weight:bold;margin-top:0;text-align:left">New updates on the Planner</h1>
+                                           <h1 style="box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';color:#3d4852;font-size:18px;font-weight:bold;margin-top:0;text-align:left">New support message</h1>
                                            <p style="box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-size:16px;line-height:1.5em;margin-top:0;text-align:left">
 											    <hr>
-											    <br>The Plan "{{$plan->title}}" has new updates!
-                                        		<br>
 
 
                                 <h2 class="pb-0 mb-0">{{ $supportMessage->id }}) {{ $supportMessage->email }}</h2>
                                             <div class="text-muted text-right w-100 pr-2">Date created: {{ date('j. F Y. H:i', strtotime($supportMessage->created_at)) }}</div>
-                                            <p class="text-muted mb-0 pb-0" style="">{{ $plan->message }}</p>
+                                            <p class="text-muted mb-0 pb-0" style="">{{ $supportMessage->message }}</p>
 
                                            </p>
                                         </span>
