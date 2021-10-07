@@ -54,7 +54,7 @@ class LiveController extends Controller
         $youtube_url = null;
         preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $request['url'], $youtube_url);
 
-//        dd($youtube_url);
+        dd($youtube_url[0][0]);
 
         parse_str( parse_url( $youtube_url[0][0], PHP_URL_QUERY ), $my_array_of_vars );
         dd($my_array_of_vars);
