@@ -44,7 +44,7 @@
                    }
             @endphp
         </p>
-        <p><strong>URL:</strong> {{ $live->url }}</p>
+          <p><strong>URL:</strong> <a href="{{ $live->url }}">{{ $live->url }}</a></p>
         <p><strong>Created at:</strong> {{ $live->created_at }}</p>
 
 
