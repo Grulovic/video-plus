@@ -9,7 +9,14 @@
 
 
 
-      <p class="text-muted mb-0 pb-0" style="">{!! $live->description !!} }</p>
+      <p class="text-muted mb-0 pb-0" style="">
+          @php
+              $url = '@(http(s)?)?(://)?(([a-zA-Z])([-\w]+\.)+([^\s\.]+[^\s]*)+[^,.\s])@';
+            $string = preg_replace($url, '<a href="http$2://$4" target="_blank" title="$0">$0</a>', $live->description);
+            echo $string;
+          @endphp
+{{--          {!! $live->description !!} }--}}
+      </p>
 
     </div>
 
