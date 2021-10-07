@@ -113,5 +113,6 @@ Route::group( ['middleware' => ['auth:sanctum'] ] ,function () {
 // Route::get('/telegram/callback', 'TelegramController@callback')->name('telegram.callback');
 
 
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
 
