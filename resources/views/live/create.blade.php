@@ -42,7 +42,7 @@
 </div>
 </div>
 
-    <div class="form-group col-lg-6">
+    <div class="form-group col-lg-4">
         <strong>Try to extract Youtube ID</strong><br>
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="youtube" id="featured0" value="0" checked>
