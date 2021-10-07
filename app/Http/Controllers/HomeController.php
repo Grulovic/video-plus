@@ -168,8 +168,10 @@ class HomeController extends Controller
             'message' => 'required|max:5000'
         ]);
 
+        dd($validator->messages()->first());
+
         if ($validator->fails()) {
-            return back()->with('error','Message failed to send! '.$validator->messages()->first());
+            return back()->with('error',$validator->messages()->first());
         }
 
         $request = $request->all();
