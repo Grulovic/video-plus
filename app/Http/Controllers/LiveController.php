@@ -43,7 +43,7 @@ class LiveController extends Controller
             'description' => 'required',
             'url' => 'required',
             'featured' => 'required',
-//            'youtube' => 'required'
+            'youtube' => 'required'
         ]);
 
         $request = $request->all();
@@ -51,18 +51,13 @@ class LiveController extends Controller
         unset($request['_method']);
         $request['user_id'] = auth()->user()->id;
 
-        $youtube_url = null;
-        preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $request['url'], $youtube_url);
-
-//        dd($youtube_url[0][0]);
-
-//        parse_str( parse_url( $youtube_url[0][0], PHP_URL_QUERY ), $my_array_of_vars );
-        preg_match("/^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user)\/))([^\?&\"'>]+)/",
-            $youtube_url[0][0], $matches);
-        dd($matches[1]);
-//        $request['url'] =  'https://www.youtube.com/embed/'.$my_array_of_vars['v'];
-
-
+        if($request['youtube'] == 1){
+            $youtube_url = null;
+            preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $request['url'], $youtube_url);
+            preg_match("/^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user)\/))([^\?&\"'>]+)/",
+                $youtube_url[0][0], $matches);
+            $request['url']  = $matches[1];
+        }
 
         Live::create($request);
 
