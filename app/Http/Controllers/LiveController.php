@@ -59,7 +59,7 @@ class LiveController extends Controller
 //        parse_str( parse_url( $youtube_url[0][0], PHP_URL_QUERY ), $my_array_of_vars );
         preg_match("/^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user)\/))([^\?&\"'>]+)/",
             $youtube_url[0][0], $matches);
-        dd($matches);
+        dd($matches[1]);
 //        $request['url'] =  'https://www.youtube.com/embed/'.$my_array_of_vars['v'];
 
 
