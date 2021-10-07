@@ -23,7 +23,7 @@
                          <p>Belgrade, Serbia</p>
                             <br><br>
                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#contact_us">
-                             CONTACT US
+                             <i class="fas fa-envelope"></i> CONTACT US
                          </button>
 
 
@@ -41,18 +41,17 @@
                                      <div class="modal-body">
                                          <form action="{{ route('messages.store') }}" method="POST" name="add_live">
                                              {{ csrf_field() }}
-                                             <input type="text" name="user_id" hidden="" value="{{ auth()->user()->id }}">
 
                                              <div class="form-group col-12">
-                                                 <strong>Title</strong>
-                                                 <input type="text" name="title" class="form-control" placeholder="Enter title">
+                                                 <strong>Email</strong>
+                                                 <input type="text" name="email" class="form-control" placeholder="Enter email" required>
                                                  <span class="text-danger">{{ $errors->first('title') }}</span>
                                              </div>
 
 
                                              <div class="form-group col-12">
-                                                 <strong>Description</strong>
-                                                 <input type="text" name="description" class="form-control" placeholder="Enter description">
+                                                 <strong>Message</strong>
+                                                 <textarea type="text" name="message" class="form-control" placeholder="Enter message" required style="min-height: 106px;"></textarea>
                                                  <span class="text-danger">{{ $errors->first('description') }}</span>
                                              </div>
 

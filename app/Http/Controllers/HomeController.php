@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\PlanUpdated;
+use App\Models\SupportMessage;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Mail\ContactUs;
 
 use App\Models\Category;
 
@@ -20,6 +24,7 @@ use App\Models\ArticleView;
 use App\Models\History;
 use App\Models\Live;
 use DB;
+use Illuminate\Support\Facades\Mail;
 use \stdClass;
 
 
@@ -149,4 +154,30 @@ class HomeController extends Controller
 
     	return view('home.index',$data);
     }
+
+
+
+
+    public function contactUs(Request $request){
+
+        $request->validate([
+            'email' => 'required',
+            'message' => 'required'
+        ]);
+
+        $request = $request->all();
+
+        $support_message = new SupportMessage();
+        $support_message->email = $request['email'];
+        $support_message->message = $request['message'];
+        $support_message->save();
+
+        $users = User::where('id',1)->orderBy('id','asc')->get();
+        foreach($users as $user){
+            Mail::to( $user )->send(new ContactUs( $support_message ));
+        }
+
+
+    }
+
 }
