@@ -25,6 +25,7 @@ use App\Models\History;
 use App\Models\Live;
 use DB;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use \stdClass;
 
@@ -183,7 +184,7 @@ class HomeController extends Controller
             Mail::to( $user )->send(new ContactUs( $support_message ));
         }
 
-        return back()->with('success','Message sent successfully!');
+        return Redirect::back()->with('success','Message sent successfully!');
     }
 
 }
