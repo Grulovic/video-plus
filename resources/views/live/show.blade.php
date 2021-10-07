@@ -1,19 +1,19 @@
 <x-app-layout>
     <x-slot name="header">
- 
+
 <div class="row m-0 p-0">
   <div class="col-6">
     <h2>Showing Live <strong>{{ $live->title }}</strong></h2>
   </div><div class="col-6 text-right">
-    
+
     <a class="btn btn-danger mb-2" href="{{ URL::previous() }}"><i class="fas fa-caret-left"></i></a>
-    <a href="{{ route('lives.index') }}" class="btn btn-danger mb-2 text-right">Go to lives</a> 
+    <a href="{{ route('lives.index') }}" class="btn btn-danger mb-2 text-right">Go to lives</a>
   </div>
 
 </div>
 
 </x-slot>
-  
+
 
 
 
@@ -29,23 +29,33 @@
       <div class="card-body">
         <small class="float-right">ID: {{ $live->id }}</small>
         <h3 class="card-title"><strong>Title:</strong> {{ $live->{'title'} }}</h3>
-        
+
 
         <p><strong>User ID:</strong> {{ $live->user_id }}</p>
         <p><strong>User Name:</strong> {{ $live->user->name }}</p>
-        <p><strong>Description:</strong> {{ $live->description }}</p>
+        <p><strong>Description:</strong>
+            @php
+                foreach(preg_split("/((\r?\n)|(\r\n?))/", $live->description) as $line){
+                      if(filter_var($line, FILTER_VALIDATE_URL)){
+                       echo '<a href="'.$line.'">'.$line.'</a><br>';
+                      }else{
+                       echo $line.'<br>';
+                      }
+                   }
+            @endphp
+        </p>
         <p><strong>URL:</strong> {{ $live->url }}</p>
         <p><strong>Created at:</strong> {{ $live->created_at }}</p>
 
-       
+
 
       </div>
  @if (!Auth::guest())
 
       <div class="card-footer text-center">
-        
+
         <div class=" btn-group">
-        
+
         <div>
         	<button class="btn btn-info mr-3" onclick="copyToClipboard('{{ route('lives.show',$live->id)}}')"><i class="far fa-share-square"></i> Copy Link</button>
     	</div>
@@ -60,16 +70,16 @@
               <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_{{$live->id}}_delete_btn"  data-toggle="tooltip" data-placement="top" title="Delete Video">
                    <i class="far fa-trash-alt"></i> Delete
                   </button>
-               
+
           </div>
         @endcan
-        
+
         </div>
 
       </div>
 @endif
     </div>
-  
+
    @if (!Auth::guest())
   @can('delete',$live)
    <!-- Modal -->
@@ -91,7 +101,7 @@
                             @method('DELETE')
                             <button class="btn btn-danger" type="submit"><i class="far fa-trash-alt"></i> Delete Live</button>
                           </form>
-                        
+
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                       </div>
                     </div>
@@ -101,9 +111,9 @@
         @endcan
 @endif
 
-            
-            
-  
+
+
+
 
   </div>
 
@@ -111,7 +121,7 @@
 
 
 </div>
-  
+
 
 
 </x-app-layout>
