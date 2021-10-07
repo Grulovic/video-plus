@@ -54,6 +54,11 @@
                           url: '/planner/favorite/'+plan_id,
                           success:function(data){
                               $(favorite_btn_id).toggleClass('btn-outline-info').toggleClass('btn-info');
+                              if( $(favorite_btn_id).html() == "FOLLOW" ){
+                                  $(favorite_btn_id).html("UNFOLLOW");
+                              }else{
+                                  $(favorite_btn_id).html("FOLLOW");
+                              }
                               console.log('Added/Removed to favorites successfully.');
                           },
                           error:function(xhr, status, error){
