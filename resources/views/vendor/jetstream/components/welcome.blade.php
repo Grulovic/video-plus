@@ -9,7 +9,8 @@
         </div>
 
         <div class="mt-6 text-gray-500">
-            {{ config('app.name') }} je servis koji Vam omogućava da pratite šta se dešava, pruža pristup snimcima i fotografijama i omogućava Vam da skidate materijal!
+            {{ config('app.name') }} is a specialised pool service that provides non-aligned, yet related, audiovisual material for media professionals.
+            You can download news items such as live feeds, video files, stock shots and photography.
         </div>
     </div>
 
