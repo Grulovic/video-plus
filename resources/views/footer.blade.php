@@ -15,6 +15,7 @@
                              <li><a href="{{route('photos.index')}}">Photos</a></li>
                              <li><a href="{{route('lives.index')}}">Live Streams</a></li>
                              <li><a href="{{route('plans.index')}}">Planner</a></li>
+                             <li><a href="{{route('about')}}">About Us</a></li>
                          </ul>
                      </div>
                      <div class="col-xl-2 col-md-4 col-sm-4 col-12">
