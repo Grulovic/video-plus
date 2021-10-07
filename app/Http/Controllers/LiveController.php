@@ -106,6 +106,7 @@ class LiveController extends Controller
             'description' => 'required',
             'url' => 'required',
             'featured' => 'required',
+            'youtube' => 'required',
         ]);
 
         $request = $request->all();
@@ -117,7 +118,13 @@ class LiveController extends Controller
         // if( auth()->user()->type != "admin" ){
         //     abort_unless( auth()->user()->id == $live->first()->user_id,403);
         // }
-
+        if($request['youtube'] == 1){
+            $youtube_url = null;
+            preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $request['url'], $youtube_url);
+            preg_match("/^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user)\/))([^\?&\"'>]+)/",
+                $youtube_url[0][0], $matches);
+            $request['url']  = 'https://www.youtube.com/embed/'.$matches[1];
+        }
 
 
         $live->update($request);

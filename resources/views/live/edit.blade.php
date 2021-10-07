@@ -23,7 +23,7 @@
   @method('PATCH')
 
 
-  <div class="form-group col-lg-6">
+  <div class="form-group col-lg-4">
         <strong>Title</strong>
         <input live="text" name="title" class="form-control" placeholder="Enter title" value="{{ $live->title }}">
         <span class="text-danger">{{ $errors->first('title') }}</span>
@@ -32,7 +32,7 @@
 
 
 
-	<div class="form-group col-lg-6">
+	<div class="form-group col-lg-4">
         <strong>Featured</strong><br>
     <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="featured" id="featured0" value="0"  {{ $live->featured == 0 ? "checked" : "" }}>
@@ -43,6 +43,19 @@
   <label class="form-check-label" for="featured1">Show on Homepage</label>
 </div>
 </div>
+
+
+    <div class="form-group col-lg-4">
+        <strong>Try to extract Youtube ID</strong><br>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="youtube" id="featured0" value="0" checked>
+            <label class="form-check-label" for="featured0">No</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="youtube" id="featured1" value="1">
+            <label class="form-check-label" for="featured1">Yes</label>
+        </div>
+    </div>
 
     <div class="form-group col-lg-12">
         <strong>Description</strong>
