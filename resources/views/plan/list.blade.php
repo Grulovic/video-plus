@@ -42,27 +42,27 @@
                       }
                   });
 
-                  // $(".plan-favorite-btn").click(function() {
-                  //       var plan_id = $(this).data( "planid" );
-                  //
-                  //       var favorite_btn_id = '#plan-favorite-btn-'+plan_id;
-                  //
-                  //     console.log(plan_id);
-                  //     $.ajax({
-                  //         type:'GET',
-                  //         async: false,
-                  //         url: '/planner/favorite/'+plan_id,
-                  //         success:function(data){
-                  //             $(favorite_btn_id).toggleClass('btn-outline-info').toggleClass('btn-info');
-                  //             console.log('Added/Removed to favorites successfully.');
-                  //         },
-                  //         error:function(xhr, status, error){
-                  //             console.log('Error adding/removing from favorites.');
-                  //             var err = eval("(" + xhr.responseText + ")");
-                  //         },
-                  //     });
-                  //
-                  // });
+                  $(".plan-favorite-btn").click(function() {
+                        var plan_id = $(this).data( "planid" );
+
+                        var favorite_btn_id = '#plan-favorite-btn-'+plan_id;
+
+                      console.log(plan_id);
+                      $.ajax({
+                          type:'GET',
+                          async: false,
+                          url: '/planner/favorite/'+plan_id,
+                          success:function(data){
+                              $(favorite_btn_id).toggleClass('btn-outline-info').toggleClass('btn-info');
+                              console.log('Added/Removed to favorites successfully.');
+                          },
+                          error:function(xhr, status, error){
+                              console.log('Error adding/removing from favorites.');
+                              var err = eval("(" + xhr.responseText + ")");
+                          },
+                      });
+
+                  });
 
               });
 

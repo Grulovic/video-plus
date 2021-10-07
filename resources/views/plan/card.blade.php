@@ -128,10 +128,15 @@
 
                       <a href="{{ route('plans.edit',$plan->id)}}" class="btn btn-sm btn-warning"><i class="far fa-edit"></i> Edit</a>
                   @endcan
-                  <a href="{{ route('plans.favorite',$plan->id)  }}}" type="button" id="plan-favorite-btn-{{$plan->id}}" class="plan-favorite-btn  btn btn-sm  btn-{{ $plan->inFavorite() ? null : "outline-" }}info  pl-4 pr-4" style="border-radius: 0 0.25rem 0.25rem 0;"  data-toggle="tooltip" data-placement="top" title="Get Email Notifications"
+                  <a href="{{ route('plans.favorite',$plan->id)  }}" type="button" id="plan-favorite-btn-{{$plan->id}}" class="plan-favorite-btn  btn btn-sm  btn-{{ $plan->inFavorite() ? null : "outline-" }}info  pl-4 pr-4" style="border-radius: 0 0.25rem 0.25rem 0;"  data-toggle="tooltip" data-placement="top" title="Get Email Notifications"
                           data-planid="{{$plan->id}}">
                       <strong>{{ $plan->inFavorite() ? "UNFOLLOW" : "FOLLOW" }}</strong>
                   </a>
+
+                      <button type="button" id="plan-favorite-btn-{{$plan->id}}" class="plan-favorite-btn  btn btn-sm  btn-{{ $plan->inFavorite() ? null : "outline-" }}info  pl-4 pr-4" style="border-radius: 0 0.25rem 0.25rem 0;"  data-toggle="tooltip" data-placement="top" title="Get Email Notifications"
+                         data-planid="{{$plan->id}}">
+                          <strong>{{ $plan->inFavorite() ? "UNFOLLOW" : "FOLLOW" }}</strong>
+                      </button>
                   @can('delete',$plan)
 
                       <button type="button" class="btn btn-sm  btn-danger" style="border-radius: 0 0.25rem 0.25rem 0;" data-toggle="modal" data-target="#modal_{{$plan->id}}_delete_btn"  data-toggle="tooltip" data-placement="top" title="Delete plan">
