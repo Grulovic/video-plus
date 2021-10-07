@@ -43,12 +43,17 @@ class LiveController extends Controller
             'description' => 'required',
             'url' => 'required',
             'featured' => 'required',
+//            'youtube' => 'required'
         ]);
 
         $request = $request->all();
         unset($request['_token']);
         unset($request['_method']);
         $request['user_id'] = auth()->user()->id;
+
+
+        parse_str( parse_url( $request['url'], PHP_URL_QUERY ), $my_array_of_vars );
+        $request['url'] =  'https://www.youtube.com/embed/'.$my_array_of_vars['v'];
 
 
         Live::create($request);
