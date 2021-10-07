@@ -177,7 +177,7 @@ class HomeController extends Controller
             Mail::to( $user )->send(new ContactUs( $support_message ));
         }
 
-
+        return back();
     }
 
 }

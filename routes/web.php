@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', 'HomeController@index')->name("home.index");
-Route::get('/contact', 'HomeController@contactUs')->name("contact");
+Route::post('/contact', 'HomeController@contactUs')->name("contact");
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //     return view('dashboard');
