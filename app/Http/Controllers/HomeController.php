@@ -25,6 +25,7 @@ use App\Models\History;
 use App\Models\Live;
 use DB;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 use \stdClass;
 
 
@@ -160,10 +161,15 @@ class HomeController extends Controller
 
     public function contactUs(Request $request){
 
-        $request->validate([
+
+        $validator = Validator::make($request->all(), [
             'email' => 'required|email',
             'message' => 'required|max:5000'
         ]);
+
+        if ($validator->fails()) {
+            return back()->with('error','Message failed to send! '.$validator->messages()->first());
+        }
 
         $request = $request->all();
 
@@ -177,7 +183,7 @@ class HomeController extends Controller
             Mail::to( $user )->send(new ContactUs( $support_message ));
         }
 
-        return back();
+        return back()->with('success','Message sent successfully!');
     }
 
 }
