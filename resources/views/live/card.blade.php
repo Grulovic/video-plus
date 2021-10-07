@@ -11,9 +11,9 @@
 
       <p class="text-muted mb-0 pb-0" style="">
           @php
-              $url = '@(http(s)?)?(://)?(([a-zA-Z])([-\w]+\.)+([^\s\.]+[^\s]*)+[^,.\s])@';
-            $string = preg_replace($url, '<a href="http$2://$4" target="_blank" title="$0">$0</a>', $live->description);
-            echo $string;
+              foreach(preg_split("/((\r?\n)|(\r\n?))/", $live->description) as $line){
+                     echo '<a href="'.$line.'">'.$line.'</a>'
+                 }
           @endphp
 {{--          {!! $live->description !!} }--}}
       </p>
