@@ -31,8 +31,6 @@
         <h3 class="card-title"><strong>Title:</strong> {{ $live->{'title'} }}</h3>
 
 
-        <p><strong>User ID:</strong> {{ $live->user_id }}</p>
-        <p><strong>User Name:</strong> {{ $live->user->name }}</p>
         <p><strong>Description:</strong>
             @php
                 foreach(preg_split("/((\r?\n)|(\r\n?))/", $live->description) as $line){
