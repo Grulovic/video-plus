@@ -43,7 +43,7 @@
                   });
 
                   $(".plan-favorite-btn").click(function() {
-                        var plan_id = $(this).attr("data-planid");
+                      var plan_id = $(this).attr("data-planid");
 
                       var favorite_btn_id = '#plan-favorite-btn-'+plan_id;
 
