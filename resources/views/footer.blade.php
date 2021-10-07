@@ -32,7 +32,7 @@
                              <div class="modal-dialog" role="document">
                                  <div class="modal-content">
                                      <div class="modal-header">
-                                         <h5 class="modal-title" id="create_modal_label">Create New Message</h5>
+                                         <h5 class="modal-title" id="create_modal_label">Contact Us</h5>
                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                              <span aria-hidden="true">&times;</span>
                                          </button>
@@ -57,7 +57,7 @@
 
 
                                              <div class="modal-footer">
-                                                 <button type="submit" class="btn btn-primary"><i class="fas fa-envelope"></i> Create new Message</button>
+                                                 <button type="submit" class="btn btn-primary"><i class="fas fa-envelope"></i> Send Message</button>
                                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
                                              </div>
