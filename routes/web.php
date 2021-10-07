@@ -117,4 +117,4 @@ Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
 Route::get('/about', function () {
     return view('about');
-});
+})->name('about');

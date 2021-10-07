@@ -4,7 +4,7 @@
              <div class="col-11">
                  <div class="row ">
                      <div class="col-xl-8 col-md-4 col-sm-4 col-12 my-auto mx-auto a ">
-                         <img src="{{ asset('video-plus-logo.png') }}" style="max-height: 100px; " class="mb-5">
+                         <a href="{{route('about')}}" ><img src="{{ asset('video-plus-logo.png') }}" style="max-height: 100px; " class="mb-5"></a>
                      </div>
                      <div class="col-xl-2 col-md-4 col-sm-4 col-12">
                          <h6 class="mb-3 mb-lg-4 bold-text "><b>MENU</b></h6>
