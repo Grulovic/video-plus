@@ -39,7 +39,7 @@
                                      </div>
 
                                      <div class="modal-body">
-                                         <form action="{{ route('messages.store') }}" method="POST" name="add_live">
+                                         <form action="{{ route('contact') }}" method="POST" name="contact">
                                              {{ csrf_field() }}
 
                                              <div class="form-group col-12">
