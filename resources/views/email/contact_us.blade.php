@@ -67,4 +67,5 @@
 </table>
 </div>
 {{ session('success') }}
+{{ session('error') }}
 @include('alerts')
