@@ -58,7 +58,6 @@
                           error:function(xhr, status, error){
                               console.log('Error adding/removing from favorites.');
                               var err = eval("(" + xhr.responseText + ")");
-                              alert(err.Message);
                           },
                       });
 
