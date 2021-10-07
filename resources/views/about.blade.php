@@ -38,6 +38,7 @@
                             <br><br>Also, our system has been further improved and solutions have been found that can be integrated on any better computer where it can be recorded and broadcast immediately in the service, which gives you the speed of broadcasting video material through your services.
 
                             <br><br>We are ready to present everything on the spot, we also offer a trial period in which you can see for yourself the quality of our services and solutions we offer.
+                            <br><br><br><br>
                         </div>
                     </div>
 
