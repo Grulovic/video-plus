@@ -35,7 +35,7 @@ class ContactUs extends Mailable
     {
         return $this->from( config('mail.from.address') )
                     ->with([
-                        'video' => $this->supportMessage
+                        'supportMessage' => $this->supportMessage
                     ])
                     ->view('email.contact_us');
     }
