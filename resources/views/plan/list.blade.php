@@ -55,8 +55,10 @@
                               $(favorite_btn_id).toggleClass('btn-outline-info').toggleClass('btn-info');
                               console.log('Added/Removed to favorites successfully.');
                           },
-                          error:function(){
+                          error:function(xhr, status, error){
                               console.log('Error adding/removing from favorites.');
+                              var err = eval("(" + xhr.responseText + ")");
+                              alert(err.Message);
                           },
                       });
 
