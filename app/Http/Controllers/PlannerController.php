@@ -359,7 +359,7 @@ class PlannerController extends Controller
 
             $existing_favorite->first()->delete();
 
-            return json_encode(['success'=>'Plan removed from favorites.']);
+            return Redirect::back()->with(['success'=>'Plan removed from favorites.']);
         }else{
             $user_plan_favorite = new UserPlan();
 
@@ -368,7 +368,7 @@ class PlannerController extends Controller
 
             $user_plan_favorite->save();
 
-            return json_encode(['success'=>'Great! Plan added to favorites.']);
+            return Redirect::back()->with(['success'=>'Great! Plan added to favorites.']);
         }
     }
 
