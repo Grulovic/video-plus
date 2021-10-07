@@ -29,7 +29,7 @@
 
 
     <div class="">
-    <div  class="container bg-dark2 card mt-5 no-hover" style="max-width:1920px; background-color:#484e53;">
+    <div  class="container bg-dark2 card mt-5 no-hover pl-2 pr-2" style="max-width:1920px; background-color:#484e53;">
   	<div class="row m-0 p-0 pt-4 pb-5 text-white justify-content-center">
 		<div class="col-lg-12 my-auto" >
 			<div class="text-center">
