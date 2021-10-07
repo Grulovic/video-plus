@@ -56,7 +56,7 @@ class LiveController extends Controller
             preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $request['url'], $youtube_url);
             preg_match("/^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user)\/))([^\?&\"'>]+)/",
                 $youtube_url[0][0], $matches);
-            $request['url']  = $matches[1];
+            $request['url']  = 'https://www.youtube.com/embed/'.$matches[1];
         }
 
         Live::create($request);
