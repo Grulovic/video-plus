@@ -12,7 +12,7 @@
       <p class="text-muted mb-0 pb-0" style="">
           @php
               foreach(preg_split("/((\r?\n)|(\r\n?))/", $live->description) as $line){
-                    if(is_link($line)){\
+                    if(is_link($line)){
                      echo '<a href="'.$line.'">'.$line.'</a><br>';
                     }else{
                      echo $line.'<br>';
