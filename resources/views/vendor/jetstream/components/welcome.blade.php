@@ -5,7 +5,7 @@
         </div>
 
         <div class="mt-8 text-2xl">
-            Dobrodošli na {{ config('app.name') }}!
+            Welcome to {{ config('app.name') }}!
         </div>
 
         <div class="mt-6 text-gray-500">
