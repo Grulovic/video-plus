@@ -33,8 +33,8 @@
   	<div class="row m-0 p-0 pt-4 pb-5 text-white justify-content-center">
 		<div class="col-lg-12 my-auto" >
 			<div class="text-center">
-				<h2>Live:</h2>
-				<p>These are the latest lives.</p>
+				<h2>Latest Live Streams:</h2>
+{{--				<p>These are the latest lives.</p>--}}
 			</div>
 		</div>
 		@foreach($lives as $live)
@@ -57,7 +57,7 @@
 		<div class="col-lg-12 my-auto">
 			<div class="float-left">
 				<h2>Latest Videos:</h2>
-				<p>These are the latest videos uploaded.</p>
+{{--				<p>These are the latest videos uploaded.</p>--}}
 			</div>
 			<div class="float-right mt-2">
 				<a class="btn btn-outline-primary" href="{{route('videos.index')}}">Show latest videos <i class="fas fa-angle-right"></i></a>
@@ -78,7 +78,7 @@
 		<div class="col-lg-12 my-auto">
 			<div class="float-left">
 				<h2>Latest Photos:</h2>
-				<p>These are the latest photos uploaded.</p>
+{{--				<p>These are the latest photos uploaded.</p>--}}
 			</div>
 			<div class="float-right mt-2">
 				<a class="btn btn-outline-primary" href="{{route('photos.index')}}">Show latest photos <i class="fas fa-angle-right"></i></a>
@@ -113,47 +113,47 @@
 
 {{--  <hr>--}}
 
-  	<div class="row m-0 p-0 pt-4 pb-3">
-		<div class="col-lg-12 my-auto">
-			<div class="float-left">
-				<h2>{{ $most_videos_category->title }} Videos:</h2>
-				<p>This is the most used category for videos.</p>
-			</div>
-            @if( $most_videos_category->id != 0)
-			<div class="float-right mt-2">
-				<a class="btn btn-outline-primary" href="{{route('videos.index')}}?category={{$most_videos_category->id}}">Show more {{ $most_videos_category->title }} videos <i class="fas fa-angle-right"></i></a>
-			</div>
-            @endif
-		</div>
-        @if($most_videos != null)
-            @foreach($most_videos as $video)
-				@include('home.video_card')
-			@endforeach
-        @endif
-	</div>
+{{--  	<div class="row m-0 p-0 pt-4 pb-3">--}}
+{{--		<div class="col-lg-12 my-auto">--}}
+{{--			<div class="float-left">--}}
+{{--				<h2>{{ $most_videos_category->title }} Videos:</h2>--}}
+{{--				<p>This is the most used category for videos.</p>--}}
+{{--			</div>--}}
+{{--            @if( $most_videos_category->id != 0)--}}
+{{--			<div class="float-right mt-2">--}}
+{{--				<a class="btn btn-outline-primary" href="{{route('videos.index')}}?category={{$most_videos_category->id}}">Show more {{ $most_videos_category->title }} videos <i class="fas fa-angle-right"></i></a>--}}
+{{--			</div>--}}
+{{--            @endif--}}
+{{--		</div>--}}
+{{--        @if($most_videos != null)--}}
+{{--            @foreach($most_videos as $video)--}}
+{{--				@include('home.video_card')--}}
+{{--			@endforeach--}}
+{{--        @endif--}}
+{{--	</div>--}}
 
 
-<hr>
-	<div class="row m-0 p-0 pt-4 pb-3">
-		<div class="col-lg-12 my-auto">
-			<div class="float-left">
-				<h2>{{ $most_photos_category->title }} Photos:</h2>
-				<p>This is the most used category for photos.</p>
-			</div>
-            @if( $most_photos_category->id != 0)
-			<div class="float-right mt-2">
-				<a class="btn btn-outline-primary" href="{{route('photos.index')}}?category={{$most_photos_category->id}}">Show  more {{ $most_photos_category->title }} photos <i class="fas fa-angle-right"></i></a>
-			</div>
-            @endif
-		</div>
-        @if($most_photos != null)
-            @foreach($most_photos as $gallery)
-				@include('home.photo_card')
-			@endforeach
-        @endif
-	</div>
+{{--<hr>--}}
+{{--	<div class="row m-0 p-0 pt-4 pb-3">--}}
+{{--		<div class="col-lg-12 my-auto">--}}
+{{--			<div class="float-left">--}}
+{{--				<h2>{{ $most_photos_category->title }} Photos:</h2>--}}
+{{--				<p>This is the most used category for photos.</p>--}}
+{{--			</div>--}}
+{{--            @if( $most_photos_category->id != 0)--}}
+{{--			<div class="float-right mt-2">--}}
+{{--				<a class="btn btn-outline-primary" href="{{route('photos.index')}}?category={{$most_photos_category->id}}">Show  more {{ $most_photos_category->title }} photos <i class="fas fa-angle-right"></i></a>--}}
+{{--			</div>--}}
+{{--            @endif--}}
+{{--		</div>--}}
+{{--        @if($most_photos != null)--}}
+{{--            @foreach($most_photos as $gallery)--}}
+{{--				@include('home.photo_card')--}}
+{{--			@endforeach--}}
+{{--        @endif--}}
+{{--	</div>--}}
 
-  <hr>
+{{--  <hr>--}}
 
 {{--	<div class="row m-0 p-0 pt-4 pb-3">--}}
 {{--		<div class="col-lg-12 my-auto">--}}
@@ -179,45 +179,45 @@
 
 
 
-  	<div class="row m-0 p-0 pt-4 pb-3">
-		<div class="col-lg-12 my-auto">
-			<div class="float-left">
-				<h2>Most Downloaded Videos:</h2>
-				<p>These are the most downloaded videos ordered by date added.</p>
-			</div>
-			<div class="float-right mt-2">
-				<a class="btn btn-outline-primary" href="{{route('videos.index')}}">Show latest videos <i class="fas fa-angle-right"></i></a>
-			</div>
-		</div>
-        @if($most_downloaded_videos != null)
-			@foreach($most_downloaded_videos as $video)
-				@include('home.video_card')
-			@endforeach
-        @endif
-	</div>
+{{--  	<div class="row m-0 p-0 pt-4 pb-3">--}}
+{{--		<div class="col-lg-12 my-auto">--}}
+{{--			<div class="float-left">--}}
+{{--				<h2>Most Downloaded Videos:</h2>--}}
+{{--				<p>These are the most downloaded videos ordered by date added.</p>--}}
+{{--			</div>--}}
+{{--			<div class="float-right mt-2">--}}
+{{--				<a class="btn btn-outline-primary" href="{{route('videos.index')}}">Show latest videos <i class="fas fa-angle-right"></i></a>--}}
+{{--			</div>--}}
+{{--		</div>--}}
+{{--        @if($most_downloaded_videos != null)--}}
+{{--			@foreach($most_downloaded_videos as $video)--}}
+{{--				@include('home.video_card')--}}
+{{--			@endforeach--}}
+{{--        @endif--}}
+{{--	</div>--}}
 
 
-<hr>
+{{--<hr>--}}
 
-	<div class="row m-0 p-0 pt-4 pb-3">
-		<div class="col-lg-12 my-auto">
-			<div class="float-left">
-				<h2>Most Downloaded Photos:</h2>
-				<p>These are the most downloaded photos ordered by date added.</p>
-			</div>
-			<div class="float-right mt-2">
-				<a class="btn btn-outline-primary" href="{{route('photos.index')}}">Show latest photos <i class="fas fa-angle-right"></i></a>
-			</div>
-		</div>
-        @if($most_downloaded_photos != null)
-			@foreach($most_downloaded_photos as $gallery)
-				@include('home.photo_card')
-			@endforeach
-        @endif
-	</div>
+{{--	<div class="row m-0 p-0 pt-4 pb-3">--}}
+{{--		<div class="col-lg-12 my-auto">--}}
+{{--			<div class="float-left">--}}
+{{--				<h2>Most Downloaded Photos:</h2>--}}
+{{--				<p>These are the most downloaded photos ordered by date added.</p>--}}
+{{--			</div>--}}
+{{--			<div class="float-right mt-2">--}}
+{{--				<a class="btn btn-outline-primary" href="{{route('photos.index')}}">Show latest photos <i class="fas fa-angle-right"></i></a>--}}
+{{--			</div>--}}
+{{--		</div>--}}
+{{--        @if($most_downloaded_photos != null)--}}
+{{--			@foreach($most_downloaded_photos as $gallery)--}}
+{{--				@include('home.photo_card')--}}
+{{--			@endforeach--}}
+{{--        @endif--}}
+{{--	</div>--}}
 
 
-<hr>
+{{--<hr>--}}
 
 {{--	<div class="row m-0 p-0 pt-4 pb-3">--}}
 {{--		<div class="col-lg-12 my-auto">--}}
