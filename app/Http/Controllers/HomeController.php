@@ -161,8 +161,8 @@ class HomeController extends Controller
     public function contactUs(Request $request){
 
         $request->validate([
-            'email' => 'required',
-            'message' => 'required'
+            'email' => 'required|email',
+            'message' => 'required|max:5000'
         ]);
 
         $request = $request->all();
