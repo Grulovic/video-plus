@@ -87,3 +87,5 @@
          </div>
      </footer>
  </div>
+
+@include('alerts')
