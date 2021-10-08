@@ -18,22 +18,22 @@
                 <h5 class="pb-0 mb-0"><strong>{{ Str::limit($plan->title, 40, $end='...')}}</strong></h5>
                 <p class="mb-0 pb-0" style="">{{ Str::limit($plan->description , 100, $end='...')}}</p>
             </div>
-            <div class="col-lg-12">
-                <div class="row m-0 p-0 mt-2">
-                    <div class="col-4 text-center mb-2 pl-1 pr-1 p-0">
-                        @if(sizeof($plan->videoItems) != 0 || $plan->video)
-                            <a class="btn plan-item-btn btn-outline-{{  sizeof($plan->videoItems) == 0 ? "secondary" : "primary" }}  w-100 h-100" data-toggle="collapse" href="#plan{{ $loop->index }}videos" role="button" aria-expanded="false" aria-controls="#plan{{ $loop->index }}videos">
-                                <i class="fas fa-video" style=""></i>
-                            </a>
-                        @endif
-                    </div>
-                    <div class="col-4 text-center mb-2 pl-1 pr-1 p-0">
-                        @if(sizeof($plan->photoItems) != 0 || $plan->photo)
-                            <a class="btn plan-item-btn btn-outline-{{  sizeof($plan->photoItems) == 0 ? "secondary" : "primary" }}  w-100 h-100" data-toggle="collapse" href="#plan{{ $loop->index }}photos" role="button" aria-expanded="false" aria-controls="#plan{{ $loop->index }}photos">
-                                <i class="fas fa-image" style=""></i>
-                            </a>
-                        @endif
-                    </div>
+{{--            <div class="col-lg-12">--}}
+{{--                <div class="row m-0 p-0 mt-2">--}}
+{{--                    <div class="col-4 text-center mb-2 pl-1 pr-1 p-0">--}}
+{{--                        @if(sizeof($plan->videoItems) != 0 || $plan->video)--}}
+{{--                            <a class="btn plan-item-btn btn-outline-{{  sizeof($plan->videoItems) == 0 ? "secondary" : "primary" }}  w-100 h-100" data-toggle="collapse" href="#plan{{ $loop->index }}videos" role="button" aria-expanded="false" aria-controls="#plan{{ $loop->index }}videos">--}}
+{{--                                <i class="fas fa-video" style=""></i>--}}
+{{--                            </a>--}}
+{{--                        @endif--}}
+{{--                    </div>--}}
+{{--                    <div class="col-4 text-center mb-2 pl-1 pr-1 p-0">--}}
+{{--                        @if(sizeof($plan->photoItems) != 0 || $plan->photo)--}}
+{{--                            <a class="btn plan-item-btn btn-outline-{{  sizeof($plan->photoItems) == 0 ? "secondary" : "primary" }}  w-100 h-100" data-toggle="collapse" href="#plan{{ $loop->index }}photos" role="button" aria-expanded="false" aria-controls="#plan{{ $loop->index }}photos">--}}
+{{--                                <i class="fas fa-image" style=""></i>--}}
+{{--                            </a>--}}
+{{--                        @endif--}}
+{{--                    </div>--}}
 {{--                    <div class="col-4 text-center mb-2 pl-1 pr-1 p-0">--}}
 {{--                        @if(sizeof($plan->textItems) != 0 || $plan->text)--}}
 {{--                            <a class="btn plan-item-btn btn-outline-{{  sizeof($plan->textItems) == 0 ? "secondary" : "primary" }}  w-100 h-100" data-toggle="collapse" href="#plan{{ $loop->index }}texts" role="button" aria-expanded="false" aria-controls="#plan{{ $loop->index }}texts">--}}
@@ -41,17 +41,17 @@
 {{--                            </a>--}}
 {{--                        @endif--}}
 {{--                    </div>--}}
-                    <div class="col-4 text-center mb-2 pl-1 pr-1 p-0">
-                        @if(sizeof($plan->liveItems) != 0 || $plan->live)
-                            <a class="btn plan-item-btn btn-outline-{{  sizeof($plan->liveItems) == 0 ? "secondary" : "primary" }}  w-100 h-100" data-toggle="collapse" href="#plan{{ $loop->index }}lives" role="button" aria-expanded="false" aria-controls="#plan{{ $loop->index }}lives">
-                                <i class="fas fa-satellite-dish"></i>
-                            </a>
-                        @endif
-                    </div>
+{{--                    <div class="col-4 text-center mb-2 pl-1 pr-1 p-0">--}}
+{{--                        @if(sizeof($plan->liveItems) != 0 || $plan->live)--}}
+{{--                            <a class="btn plan-item-btn btn-outline-{{  sizeof($plan->liveItems) == 0 ? "secondary" : "primary" }}  w-100 h-100" data-toggle="collapse" href="#plan{{ $loop->index }}lives" role="button" aria-expanded="false" aria-controls="#plan{{ $loop->index }}lives">--}}
+{{--                                <i class="fas fa-satellite-dish"></i>--}}
+{{--                            </a>--}}
+{{--                        @endif--}}
+{{--                    </div>--}}
 
 
-                </div>
-            </div>
+{{--                </div>--}}
+{{--            </div>--}}
         </div>
 
     </div>
