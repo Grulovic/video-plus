@@ -2,8 +2,8 @@
     <div class="p-6 my-auto" style="padding-right: 50px!important;padding-left: 50px!important;">
         <div>
 {{--            <x-jet-application-logo class="block h-12 w-auto" />--}}
-            <img src="{{ asset('logo.png') }}" style="max-height: 100px; " alt="{{ config('app.name') }}" class="inline mr-2 ">
-            <div class="inline border-left" style="height: 100px;"> </div>
+            <img src="{{ asset('logo.png') }}" style="max-height: 100px; " alt="{{ config('app.name') }}" class="inline mr-3 ">
+
             <a href="{{route('about')}}" class="" ><img src="{{ asset('video-plus-logo.png') }}" style="max-height: 100px; " class="inline"></a>
         </div>
 
