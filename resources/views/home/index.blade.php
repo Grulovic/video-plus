@@ -45,11 +45,7 @@
     		</div>
     		</div>
 		@endforeach
-        @if( sizeof($lives) == 0 )
-                <div class="alert alert-info shadow-sm w-100" role="alert" style="">
-                    There are no events available yet!
-                </div>
-        @endif
+
 
 	</div>
 	</div>
@@ -72,6 +68,14 @@
             @foreach($plans as $plan)
                 @include('home.plan_card')
             @endforeach
+        @endif
+
+        @if($plans != null)
+            @if( sizeof($plans) == 0 )
+            <div class="alert alert-info shadow-sm w-100" role="alert" style="">
+                There are no events at the moment!
+            </div>
+        @endif
         @endif
     </div>
 
