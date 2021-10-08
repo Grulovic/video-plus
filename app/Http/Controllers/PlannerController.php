@@ -67,6 +67,10 @@ class PlannerController extends Controller
 
     public function show(Plan $plan)
     {
+        if(!$plan){
+            return Redirect::to('planner')
+                ->with('error','Planner Event not found.');
+        }
         $data['plan'] = $plan;
         return view('plan.show',$data);
     }
