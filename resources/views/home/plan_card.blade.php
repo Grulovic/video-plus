@@ -42,13 +42,13 @@
                             </a>
                         @endif
                     </div>
-                    <div class="col-4 text-center mb-2 pl-1 pr-1 p-0">
-                        @if(sizeof($plan->textItems) != 0 || $plan->text)
-                            <a class="btn plan-item-btn btn-outline-{{  sizeof($plan->textItems) == 0 ? "secondary" : "primary" }}  w-100 h-100" data-toggle="collapse" href="#plan{{ $loop->index }}texts" role="button" aria-expanded="false" aria-controls="#plan{{ $loop->index }}texts">
-                                <i class="fas fa-file-alt" style=""></i>
-                            </a>
-                        @endif
-                    </div>
+{{--                    <div class="col-4 text-center mb-2 pl-1 pr-1 p-0">--}}
+{{--                        @if(sizeof($plan->textItems) != 0 || $plan->text)--}}
+{{--                            <a class="btn plan-item-btn btn-outline-{{  sizeof($plan->textItems) == 0 ? "secondary" : "primary" }}  w-100 h-100" data-toggle="collapse" href="#plan{{ $loop->index }}texts" role="button" aria-expanded="false" aria-controls="#plan{{ $loop->index }}texts">--}}
+{{--                                <i class="fas fa-file-alt" style=""></i>--}}
+{{--                            </a>--}}
+{{--                        @endif--}}
+{{--                    </div>--}}
                     <div class="col-4 text-center mb-2 pl-1 pr-1 p-0">
                         @if(sizeof($plan->liveItems) != 0 || $plan->live)
                             <a class="btn plan-item-btn btn-outline-{{  sizeof($plan->liveItems) == 0 ? "secondary" : "primary" }}  w-100 h-100" data-toggle="collapse" href="#plan{{ $loop->index }}lives" role="button" aria-expanded="false" aria-controls="#plan{{ $loop->index }}lives">
