@@ -46,6 +46,14 @@
     		</div>
 		@endforeach
 
+        @if($plans != null)
+            @if( sizeof($plans) == 0 )
+                <div class="alert alert-info shadow-sm w-100" role="alert" style="">
+                    There are no live streams at the moment!
+                </div>
+            @endif
+        @endif
+
 
 	</div>
 	</div>
@@ -71,7 +79,7 @@
         @endif
 
         @if($plans != null)
-            @if( sizeof($plans) == 0 )
+        @if( sizeof($plans) == 0 )
             <div class="alert alert-info shadow-sm w-100" role="alert" style="">
                 There are no events at the moment!
             </div>
@@ -99,6 +107,14 @@
 				@include('home.video_card')
 			@endforeach
         @endif
+
+        @if($latest_videos != null)
+            @if( sizeof($latest_videos) == 0 )
+                <div class="alert alert-info shadow-sm w-100" role="alert" style="">
+                    There are no videos at the moment!
+                </div>
+            @endif
+        @endif
 	</div>
 
 
@@ -119,6 +135,14 @@
             @foreach($latest_photos as $gallery)
                 @include('home.photo_card')
             @endforeach
+        @endif
+
+        @if($latest_photos != null)
+            @if( sizeof($latest_photos) == 0 )
+                <div class="alert alert-info shadow-sm w-100" role="alert" style="">
+                    There are no photos at the moment!
+                </div>
+            @endif
         @endif
 	</div>
 
