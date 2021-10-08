@@ -6,7 +6,7 @@
 
         <div class="row mt-3">
             <div class="col-lg-2">
-                <div class="text-left w-100 pr-2">{{ date('j. F Y. H:i', strtotime($plan->date)) }}</div>
+                <div class="text-left w-100 pr-2">{{ date('j. F Y.', strtotime($plan->date)) }} <strong>{{ date('H:i', strtotime($plan->date)) }}</strong></div>
             </div>
             <div class="col-lg-6">
                 <p class="text-muted" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">

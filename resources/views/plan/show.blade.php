@@ -3,7 +3,7 @@
 
       <div class="row m-0 p-0">
         <div class="col-lg-10">
-          <h4>Showing Plan <strong>{{$plan->title}}</strong> {{--(ID: {{ $video->id }})--}}</h4>
+          <h4>Showing Event <strong>{{$plan->title}}</strong> {{--(ID: {{ $video->id }})--}}</h4>
         </div><div class="col-lg-2 text-right">
 
           <a class="btn btn-danger mb-2" href="{{ URL::previous() }}"><i class="fas fa-caret-left"></i></a>
@@ -28,7 +28,7 @@
 
                 <div class="row mt-3">
                     <div class="col-lg-2">
-                        <div class="text-left w-100 pr-2">{{ date('j. F Y. H:i', strtotime($plan->date)) }}</div>
+                        <div class="text-left w-100 pr-2">{{ date('j. F Y.', strtotime($plan->date)) }} <strong>{{ date('H:i', strtotime($plan->date)) }}</strong></div>
                     </div>
                     <div class="col-lg-6">
                         <p class="text-muted" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">

@@ -37,13 +37,13 @@ class PlannerController extends Controller
             $date_before = Carbon::parse($request->date)->subDays(1)->toDateString();
             $date = Carbon::parse($request->date)->toDateString();
             $date_after = Carbon::parse($request->date)->addDays(1)->toDateString();
-            $data['plans'] = Plan::where('date',">=",$date)->where('date',"<",$date_after)->orderBy('date','desc')->get();
+            $data['plans'] = Plan::where('date',">=",$date)->where('date',"<",$date_after)->orderBy('date','asc')->get();
         }else{
             $date_before = Carbon::now()->subDays(1)->toDateString();
             $date = Carbon::now()->toDateString();
             $date_after = Carbon::now()->addDays(1)->toDateString();
 
-            $data['plans'] = Plan::where('date',">=",$date)->where('date',"<",$date_after)->orderBy('date','desc')->get();
+            $data['plans'] = Plan::where('date',">=",$date)->where('date',"<",$date_after)->orderBy('date','asc')->get();
         }
         $data['date_after'] = $date_after;
         $data['date'] = Carbon::parse($request->date)->toDateString();
