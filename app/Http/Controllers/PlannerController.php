@@ -320,7 +320,9 @@ class PlannerController extends Controller
             $user_plans = UserPlan::where('plan_id',$plan_id)->orderBy('id','asc')->get();
             foreach($user_plans as $user_plan){
                 $user = $user_plan->user;
-                Mail::to( $user )->send(new PlanUpdated( $plan ));
+                if($user){
+                    Mail::to( $user )->send(new PlanUpdated( $plan ));
+                }
             }
 
         }else{
