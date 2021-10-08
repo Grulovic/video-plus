@@ -20,7 +20,7 @@
                         @endif
                     </p>
 
-                <h5 class="pb-0 mb-0">{{ $plan->title }}</h5>
+                <h5 class="pb-0 mb-0"><strong>{{ $plan->title }}</strong></h5>
                 <p class="mb-0 pb-0" style="">{{ $plan->description }}</p>
             </div>
             <div class="col-lg-2">
