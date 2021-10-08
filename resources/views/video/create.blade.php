@@ -66,7 +66,7 @@ $( document ).ready(function() {
      <div class="form-group col-lg-6 mb-3">
       <strong>Video File</strong>
       <div class="custom-file mb-4">
-        <input type="file" name="video" id="video" class="custom-file-input">
+        <input type="file" name="video" id="video" class="custom-file-input" required>
         <label class="custom-file-label" for="video">Select video file...</label>
       </div>
       <span class="text-danger">{{ $errors->first('video') }}</span>

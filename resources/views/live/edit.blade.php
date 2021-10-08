@@ -64,7 +64,7 @@
     </div>
     <div class="form-group col-12">
         <strong>URL</strong>
-        <input type="text" name="url" class="form-control" placeholder="Enter url" value="{{ $live->url }}">
+        <input type="text" name="url" class="form-control" placeholder="Enter url" value="{{ $live->url }}" required>
         <span class="text-danger">{{ $errors->first('url') }}</span>
     </div>
 
