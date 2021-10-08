@@ -44,7 +44,7 @@
                     <div class="col-4 text-center mb-2 pl-1 pr-1 p-0">
                         @if(sizeof($plan->liveItems) != 0 || $plan->live)
                             <a class="btn plan-item-btn btn-outline-{{  sizeof($plan->liveItems) == 0 ? "secondary" : "primary" }}  w-100 h-100" data-toggle="collapse" href="#plan{{ $loop->index }}lives" role="button" aria-expanded="false" aria-controls="#plan{{ $loop->index }}lives">
-                                <i class="fas fa-microphone" style=""></i>
+                                <i class="fas fa-satellite-dish"></i>
                             </a>
                         @endif
                     </div>
