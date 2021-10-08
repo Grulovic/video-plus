@@ -70,7 +70,7 @@
             </div>
         </div>
         <div class="col-lg-6 my-auto">
-            <div class="text-center text-lg-right mt-2 mb-2">
+            <div class="text-center text-lg-right mt-2 mb-4">
                 <a class="btn btn-outline-primary" href="{{route('plans.index')}}">Show today's events <i class="fas fa-angle-right"></i></a>
             </div>
         </div>
