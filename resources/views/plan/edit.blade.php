@@ -79,10 +79,10 @@
             $(document).ready(function(){
                 $('#timepicker').timepicker({
                     timeFormat: 'HH:mm',
-                    interval: 1,
+                    interval: 5,
                     minTime: '0',
                     maxTime: '11:59pm',
-                    defaultTime: '{{ date_format(date_create($plan->date),'H:m') }}',
+                    defaultTime: '{{ date_format(date_create($plan->date),'G:i') }}',
                     startTime: '10:00',
                     dynamic: true,
                     dropdown: true,
@@ -136,7 +136,7 @@
 
     <div class="form-group col-lg-3">
         <strong>Time</strong>
-        <input id="timepicker" type="text" name="time" class="form-control" placeholder="Enter date" value="{{date_format(date_create($plan->date),'H:m')}}"  autocomplete="off">
+        <input id="timepicker" type="text" name="time" class="form-control" placeholder="Enter date" value="{{date_format(date_create($plan->date),'G:i')}}"  autocomplete="off">
 
         <span class="text-danger">{{ $errors->first('time') }}</span>
     </div>
