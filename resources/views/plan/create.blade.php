@@ -80,7 +80,7 @@
             $(document).ready(function(){
                 $('#timepicker').timepicker({
                     timeFormat: 'HH:mm',
-                    interval: 15,
+                    interval: 5,
                     minTime: '0',
                     maxTime: '11:59pm',
                     defaultTime: '12',
