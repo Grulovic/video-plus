@@ -136,7 +136,8 @@
 
     <div class="form-group col-lg-3">
         <strong>Time</strong>
-        <input id="timepicker" type="text" name="time" class="form-control" placeholder="Enter date" value="{{ date_format(date_create($plan->date),'HH:mm') }}"  autocomplete="off">{{ date_format(date_create($plan->date),'HH:mm') }}
+        <input id="timepicker" type="text" name="time" class="form-control" placeholder="Enter date" value="{{date_format(date_create($plan->date),'H:m')}}"  autocomplete="off">
+                                                                                                        {{date_format(date_create($plan->date),'H:m')}}
         <span class="text-danger">{{ $errors->first('time') }}</span>
     </div>
 
