@@ -44,8 +44,13 @@
     			<iframe  class="card-img" style="min-height:300px;" src="{{$live->url}}?autoplay=false"></iframe>
     		</div>
     		</div>
-
 		@endforeach
+        @if( sizeof($lives) == 0 )
+                <div class="alert alert-info shadow-sm w-100" role="alert" style="">
+                    There are no events available yet!
+                </div>
+        @endif
+
 	</div>
 	</div>
 	</div>
