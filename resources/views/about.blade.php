@@ -21,7 +21,7 @@
                         <div class="mt-6 text-gray-500">
                             Video plus production and live streaming services are a growing brand in the region, offering live services on social media and production services. In addition, there is plenty of video and IP streaming for TV stations, portals, and other media.
 
-                            <br><br>Our team cooperated with all leading world agencies such as Reuters, Anatolia, Ruptley, and AP for national and regional media. Reporting on the territory of Serbia, Kosovo and Metohija, Montenegro, Albania, Macedonia, and Bosnia and Herzegovina.
+                            <br><br>Our team cooperated with all leading world agencies such as Reuters, Anadoly agency, Ruptley, and AP for national and regional media. Reporting on the territory of Serbia, Kosovo and Metohija, Montenegro, Albania, Macedonia, and Bosnia and Herzegovina.
 
                             <br><br>We took advantage of our many years of experience in video production and went a step further.
 
