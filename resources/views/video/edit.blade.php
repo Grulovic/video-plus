@@ -1,13 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
- 
+
 <div class="row m-0 p-0">
   <div class="col-lg-10">
     <h4>Editing Video <strong><a href="{{ route('videos.show',$video->id) }}">{{$video->name}}</a></strong> {{--(ID: {{ $video->id }})--}}</h4>
   </div>
   <div class="col-lg-2 text-right">
-    <a href="{{ route('videos.index') }}" class="btn btn-danger mb-2">Go Back</a> 
-  </div>    
+    <a href="{{ route('videos.index') }}" class="btn btn-danger mb-2">Go Back</a>
+  </div>
 
 </div>
 
@@ -28,18 +28,18 @@ $( document ).ready(function() {
 
    $(".custom-file-input").on("change", function() {
       var fileName = $(this).val().split("\\").pop();
-      
+
       if(fileName.length > 50){
             var length = 50;
             var fileName = fileName.substring(0, length) + "...";
         }
-      
-      
+
+
       $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
     });
 
-$('input[name=thumbnail]').change(function() {  
-	
+$('input[name=thumbnail]').change(function() {
+
 // alert('label[for'+$(this).attr("id")+']');
 	$('.form-check-label img').css("border","2px solid white");
    $('label[for='+$(this).attr("id")+'] img').css("border","2px solid #007bff");
@@ -70,7 +70,7 @@ $('input[name=thumbnail]').change(function() {
 
     <div class="form-group col-6 col-md-6 col-lg-6 mb-3">
         <strong>Name</strong>
-        <input type="text" name="name" class="form-control" placeholder="Enter name of the video..." value="{{ $video->name }}">
+        <input type="text" name="name" class="form-control" placeholder="Enter name of the video..." value="{{ $video->name }}" required>
         <span class="text-danger">{{ $errors->first('name') }}</span>
     </div>
 
@@ -102,7 +102,7 @@ $('input[name=thumbnail]').change(function() {
             <select multiple="" class="custom-select" id="category" name="category[]">
               <option value="" @if(sizeof($video->categories) == 0)selected=""@endif>None</option>
               @foreach($categories as $category)
-                <option value="{{$category->id}}" 
+                <option value="{{$category->id}}"
                   @foreach($video->categories as $video_category)
                             {{ $category->id == $video_category->category_id ? 'selected=""' : '' }}
                   @endforeach
@@ -111,7 +111,7 @@ $('input[name=thumbnail]').change(function() {
             </select>
           </div>
 
-    
+
     <div class="form-group mb-3">
         <strong>Description</strong>
         <textarea class="form-control" col="4" name="description" placeholder="Enter video description..." style="min-height:175px;">{{ $video->description }}</textarea>
@@ -161,14 +161,14 @@ $('input[name=thumbnail]').change(function() {
 
 
     <div class="col-6 mt-3">
-        
-        
+
+
 <button type="submit" class="btn btn-primary w-100"><i class="far fa-edit"></i> Edit video</button>
-        
-        
+
+
     </div>
     <div class="col-6 mt-3">
-        <a href="{{ route('videos.index') }}" class="btn btn-danger w-100"><i class="fas fa-ban"></i> Cancel edit</a> 
+        <a href="{{ route('videos.index') }}" class="btn btn-danger w-100"><i class="fas fa-ban"></i> Cancel edit</a>
     </div>
 
 
@@ -184,12 +184,12 @@ $('input[name=thumbnail]').change(function() {
 
 <div id="alert-done" class="alert alert-success" role="alert">
   <h4 class="alert-heading">Encoding Done!</h4>
-  <p>Thumbnail and preview version created! Your video can now be viewed. 
+  <p>Thumbnail and preview version created! Your video can now be viewed.
   <br>You will be <strong>redirected in 10 seconds</strong>!</p>
 </div>
 	</div>
 
-     
+
 </form>
 
 
@@ -206,16 +206,16 @@ $.ajaxSetup({
 
 var encoding_bar = $('.encoding_bar');
 var encoding_percent = $('.encoding_percent');
-    
+
 $('.encoding_progress').hide();
-    
+
 var percent_converted = '0%';
 		encoding_bar.attr('aria-valuenow', 0).css("width",percent_converted);
         encoding_percent.html(percent_converted);
 
 function get_progress(e) {
 // e.preventDefault();
-     
+
      var percent = null;
      var percent_converted = null;
 $.ajax({
@@ -223,13 +223,13 @@ $.ajax({
   url: '/videos/encoding_progress',
  data: {session_id: "{{$video->session_id}}" },
   success:function(data){
-  			
+
           var percent = data;
           var percent_converted = percent + '%';
 
   			// console.log( percent  + "-------" + encoding_bar.attr('aria-valuenow') );
-  			
-  			if( percent != encoding_bar.attr('aria-valuenow') ){    	
+
+  			if( percent != encoding_bar.attr('aria-valuenow') ){
             	encoding_bar.attr('aria-valuenow', percent).css("width",percent_converted);
   				// console.log( "UPDATED: " + percent  + "-------" + encoding_bar.attr('aria-valuenow') );
             	encoding_percent.html(percent_converted);
@@ -246,19 +246,19 @@ $.ajax({
 
     	$("#alert-uploaded").hide();
     	$("#alert-done").hide();
-    
+
         var bar = $('.upload_bar');
         var percent = $('.upload_percent');
         $('.upload_progress').hide();
-    
+
           $('form').ajaxForm({
             beforeSend: function() {
             // alert($('#video').val());
 
             	if($('#video').val() != "" ){
-            
+
             		$('.upload_progress').show();
-                
+
             		var percentVal = '0%';
                 	bar.attr('aria-valuenow', percentVal).css("width",percentVal);
                 	percent.html(percentVal);
@@ -266,7 +266,7 @@ $.ajax({
             },
             uploadProgress: function(event, position, total, percentComplete) {
             if($('#video').val() != "" ){
-            
+
                 var percentVal = percentComplete + '%';
                 bar.attr('aria-valuenow', percentVal).css("width",percentVal);
                 percent.html(percentVal);
@@ -284,28 +284,28 @@ $.ajax({
             }
             },
             complete: function(xhr) {
-            
+
             if($('#video').val() != "" ){
 //             	console.log(xhr.responseText);
-				
+
             	var response = xhr.responseText;
-            
+
             	 $('.encoding_bar').attr('aria-valuenow', 100).css("width","100%");
             	$('.encoding_percent').html("100%");
             	// console.log(response[0]);
                 // alert('Done! Thumbnail and preview version created! ');
     				$("#alert-done").show();
 
-               setTimeout(function() { 
+               setTimeout(function() {
                 window.location.href = "/videos/{{$video->id}}";
                }, 10000);
-            
+
             }else{
           		 window.location.href = "/videos/{{$video->id}}";
           	}
             }
           });
-    }); 
+    });
 </script>
 
 

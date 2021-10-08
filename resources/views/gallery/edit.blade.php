@@ -1,13 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
- 
+
 <div class="row m-0 p-0">
   <div class="col-lg-10">
     <h4>Editing gallery <strong><a href="{{route('photos.show',$gallery->id)}}">{{$gallery->name}}</a></strong> (ID: {{$gallery->id}})</h4>
   </div>
   <div class="col-lg-2 text-right">
-    <a href="{{ route('photos.index') }}" class="btn btn-danger mb-2">Go Back</a> 
-  </div>    
+    <a href="{{ route('photos.index') }}" class="btn btn-danger mb-2">Go Back</a>
+  </div>
 
 </div>
 
@@ -84,7 +84,7 @@ $("#gallery_preview").hide();
 
   <div class="form-group col-lg-6">
         <strong>Gallery Name</strong>
-        <input type="text" name="name" class="form-control" placeholder="Enter name of the gallery..." value="{{ $gallery->name }}">
+        <input type="text" name="name" class="form-control" placeholder="Enter name of the gallery..." value="{{ $gallery->name }}" required>
         <span class="text-danger">{{ $errors->first('name') }}</span>
     </div>
 
@@ -126,7 +126,7 @@ $("#gallery_preview").hide();
              <i class="fas fa-file-image mt-1 mr-2"></i>{{$photo->original_file_name}}
             </div>
         </div>
-        
+
 
 
       @endforeach
@@ -138,7 +138,7 @@ $("#gallery_preview").hide();
 
 
 
-    
+
 
     <div class="col-lg-6">
                    <strong>Categories</strong>
@@ -146,16 +146,16 @@ $("#gallery_preview").hide();
 
             <select multiple="" class="custom-select" id="category" name="category[]">
               <option value="" @if(sizeof($gallery->categories) == 0)selected=""@endif>None</option>
-              
+
                 @foreach($categories as $category)
-                  <option value="{{$category->id}}" 
+                  <option value="{{$category->id}}"
                     @foreach($gallery->categories as $gallery_category)
                               {{ $category->id == $gallery_category->category_id ? 'selected=""' : '' }}
                     @endforeach
                   >{{$category->title}}</option>
                 @endforeach
 
-              
+
             </select>
     </div>
 
@@ -174,11 +174,11 @@ $("#gallery_preview").hide();
   <div  id="gallery-preview-carousel" class="carousel slide container-fluid m-0 p-0 bg-dark" data-ride="carousel">
 
       <div class="carousel-inner">
-        
+
           <div class="carousel-item active" >
             <img class="d-block bg-dark " src="" style="max-height: 400px; margin-left: auto; margin-right: auto;">
           </div>
-      
+
           <div class="carousel-item" >
             <img class="d-block bg-dark" src="" style="max-height: 400px; margin-left: auto; margin-right: auto;">
           </div>
@@ -211,12 +211,12 @@ $("#gallery_preview").hide();
     <div class="col-6 mt-3">
 
  			<button type="submit" class="btn btn-primary w-100"><i class="far fa-edit"></i> Edit gallery</button>
-                   
+
     </div>
 
 
     <div class="col-6 mt-3">
-        <a href="{{ route('photos.index') }}" class="btn btn-danger w-100"><i class="fas fa-ban"></i> Cancel upload</a> 
+        <a href="{{ route('photos.index') }}" class="btn btn-danger w-100"><i class="fas fa-ban"></i> Cancel upload</a>
     </div>
 
 
@@ -225,12 +225,12 @@ $("#gallery_preview").hide();
 <div class="col-lg-12 pt-5">
     <div id="alert-uploaded" class="alert alert-success" role="alert">
   <h4 class="alert-heading">Upload Done!</h4>
-  <p>Images have been uploaded successfully. 
+  <p>Images have been uploaded successfully.
     <br>You will be <strong>redirected in 10 seconds</strong>!</p>
 </div>
 
 
-  
+
 </form>
 
 </div>
@@ -241,17 +241,17 @@ $("#gallery_preview").hide();
 $( document ).ready(function() {
 
     	$("#alert-uploaded").hide();
-    
+
         var bar = $('.upload_bar');
         var percent = $('.upload_percent');
         $('.upload_progress').hide();
-    
+
           $('#edit_form').ajaxForm({
             beforeSend: function() {
             // alert($('#video').val());
             if($('#gallery').val() != "" ){
             		$('.upload_progress').show();
-                
+
             		var percentVal = '0%';
                 	bar.attr('aria-valuenow', percentVal).css("width",percentVal);
                 	percent.html(percentVal);
@@ -273,17 +273,17 @@ $( document ).ready(function() {
             }
             },
             complete: function(xhr) {
-            
+
             var response = xhr.responseText;
-            
+
             if($('#gallery').val() != "" ){
 //             	console.log(xhr.responseText);
-				
-            	
+
+
             	// console.log(response[0]);
               // alert('Done! Thumbnail and preview version created! ');
 
-               setTimeout(function() { 
+               setTimeout(function() {
                 window.location.href = "/photos/" + response;
                }, 10000);
 
@@ -293,7 +293,7 @@ $( document ).ready(function() {
             }
             }
           });
-    }); 
+    });
 </script>
 
 
@@ -321,10 +321,10 @@ $( document ).ready(function() {
           <button class="btn btn-danger" category="submit"><!-- Delete --><i class="far fa-trash-alt"></i></button>
         </form></div>
       </div>
-      
 
-      
-        
+
+
+
     </div>
 
     @endforeach

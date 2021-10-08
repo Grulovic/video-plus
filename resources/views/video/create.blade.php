@@ -53,7 +53,7 @@ $( document ).ready(function() {
 
   <div class="form-group col-lg-6">
         <strong>Name</strong>
-        <input type="text" name="name" class="form-control" placeholder="Enter name of the video..." value="{{ old('name') }}">
+        <input type="text" name="name" class="form-control" placeholder="Enter name of the video..." value="{{ old('name') }}" required>
         <span class="text-danger">{{ $errors->first('name') }}</span>
     </div>
 

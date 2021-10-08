@@ -25,7 +25,7 @@
 
   <div class="form-group col-lg-4">
         <strong>Title</strong>
-        <input live="text" name="title" class="form-control" placeholder="Enter title" value="{{ $live->title }}">
+        <input live="text" name="title" class="form-control" placeholder="Enter title" value="{{ $live->title }}" required>
         <span class="text-danger">{{ $errors->first('title') }}</span>
     </div>
 
