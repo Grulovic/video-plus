@@ -121,7 +121,7 @@
 
     <div class="form-group col-lg-3">
         <strong>Location</strong>
-        <input type="text" name="location" class="form-control" placeholder="Enter location"value="{{ $plan->location }}">
+        <input type="text" name="location" class="form-control" placeholder="Enter location" value="{{ $plan->location }}">
         <span class="text-danger">{{ $errors->first('location') }}</span>
     </div>
 
@@ -136,7 +136,7 @@
 
     <div class="form-group col-lg-3">
         <strong>Time</strong>
-        <input id="timepicker" type="text" name="time" class="form-control" placeholder="Enter date" value="{{ date_format(date_create($plan->date),'h:i') }}"  autocomplete="off">
+        <input id="timepicker" type="text" name="time" class="form-control" placeholder="Enter date" value="{{ date_format(date_create($plan->date),'H:i') }}"  autocomplete="off">
         <span class="text-danger">{{ $errors->first('time') }}</span>
     </div>
 
