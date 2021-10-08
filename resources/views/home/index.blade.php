@@ -63,12 +63,14 @@
 <div  class="container" style="max-width:1920px;">
 
     <div class="row m-0 p-0 pt-4 pb-3">
-        <div class="col-lg-12 my-auto">
-            <div class="float-left">
+        <div class="col-lg-6 my-auto">
+            <div class="text-center text-lg-left">
                 <h2>Latest Events:</h2>
                 <p>These are the following events:.</p>
             </div>
-            <div class="float-right mt-2">
+        </div>
+        <div class="col-lg-6 my-auto">
+            <div class="text-center text-lg-left mt-2">
                 <a class="btn btn-outline-primary" href="{{route('plans.index')}}">Show today's events <i class="fas fa-angle-right"></i></a>
             </div>
         </div>
