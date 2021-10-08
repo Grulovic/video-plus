@@ -73,8 +73,9 @@ Route::group( ['middleware' => ['auth:sanctum'] ] ,function () {
 });
 
 
-
-Route::get('/history', 'HistoryController@index')->name("history.index");
+Route::group( ['middleware' => ['auth:sanctum','is.admin'] ] ,function () {
+    Route::get('/history', 'HistoryController@index')->name("history.index");
+});
 // Route::resource('histories', HistoryController::class);
 
 
