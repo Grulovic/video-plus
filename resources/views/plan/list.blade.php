@@ -76,7 +76,7 @@
               });
 
           </script>
-          <input type="text" id="datepicker" name="date" value="{{ $date }}"   autocomplete="off">
+          <input type="text" id="datepicker" name="date" value="{{ $date }}" style="width: 150px;"  autocomplete="off">
       </form>
         <form class="float-left" action="{{ route('plans.index') }}" method="GET">
             <input type="date" name="date" value="{{ $today }}" hidden>
