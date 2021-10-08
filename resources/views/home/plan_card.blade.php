@@ -14,16 +14,6 @@
             </div>
 
             <div class="col-lg-12">
-                <p class="text-muted" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                        @if(sizeof($plan->categories) > 0)
-                            @foreach($plan->categories as $category)
-                                {{$category->category->title}}
-                                @if(!$loop->last) | @endif
-                            @endforeach
-                        @else
-                            No categories
-                        @endif
-                    </p>
 
                 <h5 class="pb-0 mb-0"><strong>{{ Str::limit($plan->title, 40, $end='...')}}</strong></h5>
                 <p class="mb-0 pb-0" style="">{{ Str::limit($plan->description , 50, $end='...')}}</p>
