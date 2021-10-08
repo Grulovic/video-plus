@@ -13,7 +13,7 @@
                 <p class="text-muted mb-0 pb-0" style="">Location: {{ $plan->location }}</p>
             </div>
 
-            <div class="col-lg-12">
+            <div class="col-lg-12 mt-2">
 
                 <h5 class="pb-0 mb-0"><strong>{{ Str::limit($plan->title, 40, $end='...')}}</strong></h5>
                 <p class="mb-0 pb-0" style="">{{ Str::limit($plan->description , 100, $end='...')}}</p>
