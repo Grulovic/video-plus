@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Mail\PlanUpdated;
+use App\Models\Plan;
 use App\Models\SupportMessage;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Mail\ContactUs;
 
@@ -35,6 +37,12 @@ use \stdClass;
 class HomeController extends Controller
 {
     public function index(){
+
+        $date = Carbon::now()->subHour();
+        $date_after = Carbon::now()->addDays(1)->toDateString();
+
+        $data['plans'] = Plan::where('date',">=",$date)->where('date',"<",$date_after)->orderBy('date','asc')->get();
+
 
         $list_of_files = scandir(public_path()."/uploads/videos/");
         // ->whereIn('file_name', $list_of_files);
