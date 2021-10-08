@@ -21,6 +21,6 @@ class IsAdmin
             return $next($request);
         }
 
-        return redirect()->route('index.home'); // If user is not an admin.
+        return redirect()->route('home.index'); // If user is not an admin.
     }
 }
