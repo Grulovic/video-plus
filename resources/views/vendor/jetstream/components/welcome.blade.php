@@ -3,7 +3,7 @@
         <div>
             <x-jet-application-logo class="inline-block mr-1" style="" />
 
-            <a href="{{route('about')}}" class="border-left" ><img src="{{ asset('video-plus-logo.png') }}" style="max-height: 100px; " class=""></a>
+            <a href="{{route('about')}}" class="border-left inline-block " ><img src="{{ asset('video-plus-logo.png') }}" style="max-height: 100px; " class=""></a>
         </div>
 
         <div class="mt-8 text-2xl">
