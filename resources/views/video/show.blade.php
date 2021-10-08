@@ -1,13 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
- 
+
       <div class="row m-0 p-0">
         <div class="col-lg-10">
-          <h4>Showing Gallery <strong>{{$video->name}}</strong> {{--(ID: {{ $video->id }})--}}</h4>
+          <h4>Showing Video <strong>{{$video->name}}</strong> {{--(ID: {{ $video->id }})--}}</h4>
         </div><div class="col-lg-2 text-right">
-          
+
           <a class="btn btn-danger mb-2" href="{{ URL::previous() }}"><i class="fas fa-caret-left"></i></a>
-          <a href="{{ route('videos.index') }}" class="btn btn-danger mb-2 text-right">Go to Videos</a> 
+          <a href="{{ route('videos.index') }}" class="btn btn-danger mb-2 text-right">Go to Videos</a>
         </div>
       </div>
 
@@ -16,7 +16,7 @@
 
 <style type="text/css">
   #vide-col .card-img-top{
-    border-radius:0.25rem 0 0 0.25rem; 
+    border-radius:0.25rem 0 0 0.25rem;
   }
 
   #desc-card-col .card{
@@ -25,7 +25,7 @@
 
   @media only screen and (max-width: 991px) {
     #vide-col .card-img-top{
-      border-radius:0.25rem 0.25rem 0 0; 
+      border-radius:0.25rem 0.25rem 0 0;
     }
 
     #desc-card-col .card{
@@ -38,7 +38,7 @@
 
 <div class="container">
 <div class="row pt-5 pb-5 pl-1 pr-1">
-  
+
 <div id="vide-col" class="col-lg-12 d-flex align-items-stretch p-0 ">
   <video id="{{$video->id}}" class="card-img-top  rounded-top shadow-sm bg-dark h-100" style="height: 400px; width: 100%!important; display: block;"  poster="{{ url('uploads/videos/thumbs/thumb_'.$video->thumbnail.'_'. $video->file_name.'.png') }}" controls="true"  playsinline preload="none">
 
@@ -49,14 +49,14 @@
 
 <div id="desc-card-col" class="col-lg-12 d-flex align-items-stretch p-0 ">
   <div class="card w-100  rounded-bottom shadow-sm" style="">
-    
+
 
     <div class="card-body">
       <h2>{{$video->name}}</h2>
       <p class="text-muted">
         @if( sizeof($video->categories) > 0 )
           @foreach($video->categories as $category)
-          {{$category->category->title}} 
+          {{$category->category->title}}
             @if(!$loop->last) | @endif
           @endforeach
         @else
@@ -64,7 +64,7 @@
         @endif
       </p>
 
-      
+
       <p class="mb-0 pb-0"><strong>Video uploaded by:</strong> {{ $video->user->name}}</p>
 
       <p class="mb-0 pb-0"><strong>Location:</strong> {{ $video->location}}</p>
@@ -72,13 +72,13 @@
       <br>
 
       <strong>Description:</strong>
-      
+
       @if( strlen( $video->description ) >= 140)
       <script>
       $( document ).ready(function() {
             $( ".show-more-btn" ).click(function() {
               $current = $(this).html();
-              
+
                   if( $current == "Show more" ){
                       $(this).html("Show less");
                       $('.short-description').hide();
@@ -89,33 +89,33 @@
             });
       });
 
-          
+
       </script>
       <div class="collapse" id="show_more_{{$video->id}}">
           <div class="">
             {{ $video->description}}
           </div>
         </div>
-        
+
       <p class="short-description mb-0 pb-0">{{ Str::limit($video->description, 140, $end='...')}}</p>
-      
+
       <a class="show-more-btn btn btn-sm btn-outline-primary" data-toggle="collapse" href="#show_more_{{$video->id}}" role="button" aria-expanded="false" aria-controls="show_more_{{$video->id}}">Show more</a>
-      
+
       <br>
       @else
       <p class="mb-0 pb-0">{{ $video->description}}</p>
-      
-      
+
+
       @endif
-      
-      
+
+
       <br>
 
       <p class="mb-0 pb-0"><strong>File type:</strong> {{ $video->mime}}</p>
 
       <p class="mb-0 pb-0"><strong>File size:</strong> {{ $video->size}}</p>
       <br>
-      
+
 
 
     </div>
@@ -127,7 +127,7 @@
           <button class="btn btn-sm btn-info" onclick="copyToClipboard('{{ route('videos.show',$video->id)}}')"><i class="far fa-share-square"></i> Copy Link</button>
           <!-- <a href="{{ route('videos.show',$video->id)}}" class="btn btn-sm btn-outline-primary"><i class="far fa-eye"></i> View</a> -->
           <a href="{{ route('videos.download',$video->id)}}" class="btn btn-sm btn-success"><i class="fas fa-download"></i> Download</a>
-          
+
           @if( auth()->user()->role == "admin")
           <a href="{{ route('videos.edit',$video->id)}}" class="btn btn-sm btn-warning text-white"><i class="far fa-edit"></i> Edit</a>
 
@@ -137,7 +137,7 @@
                 @endif
 
 
-          
+
         </div>
       </div>
 
@@ -160,7 +160,7 @@
                         Are you sure you want to delete <strong>{{ $video->name }}</strong>?
                       </div>
                       <div class="modal-footer">
-                        
+
                         <form class="" action="{{ route('videos.destroy', $video->id)}}" method="post">
                           {{ csrf_field() }}
                           @method('DELETE')
@@ -168,7 +168,7 @@
                           data-toggle="tooltip" data-placement="top" title="Delete video">
                           <i class="far fa-trash-alt"></i> Delete Video</button>
                         </form>
-                        
+
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                       </div>
                     </div>
@@ -193,12 +193,12 @@
 @endif
 
 @foreach($related as $video)
-    
+
     @include('video.related_card')
-    
+
     @endforeach
-    
-    
+
+
 </div>
 </div>
 
