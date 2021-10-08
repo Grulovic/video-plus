@@ -129,14 +129,14 @@
         <strong>Date</strong>
 
 {{--        <input type="datetime-local" name="date" class="form-control" placeholder="Enter date" value="{{ date_format(date_create($plan->date),'Y-m-d')."T".date_format(date_create($plan->date),'h:i:s') }}">--}}
-        <input id="datepicker" type="text" name="date" class="form-control" placeholder="Enter date" value="{{ date_format(date_create($plan->date),'Y-m-d') }}">
+        <input id="datepicker" type="text" name="date" class="form-control" placeholder="Enter date" value="{{ date_format(date_create($plan->date),'Y-m-d') }}"  autocomplete="off">
         <span class="text-danger">{{ $errors->first('date') }}</span>
     </div>
 
 
     <div class="form-group col-lg-3">
         <strong>Time</strong>
-        <input id="timepicker" type="text" name="time" class="form-control" placeholder="Enter date" value="{{ date_format(date_create($plan->date),'h:i') }}">
+        <input id="timepicker" type="text" name="time" class="form-control" placeholder="Enter date" value="{{ date_format(date_create($plan->date),'h:i') }}"  autocomplete="off">
         <span class="text-danger">{{ $errors->first('time') }}</span>
     </div>
 

@@ -125,14 +125,14 @@
 
     <div class="form-group col-lg-3">
         <strong>Date</strong>
-        <input id="datepicker" type="text" name="date" class="form-control" placeholder="Enter date" required>
+        <input id="datepicker" type="text" name="date" class="form-control" placeholder="Enter date" required  autocomplete="off">
         <span class="text-danger">{{ $errors->first('date') }}</span>
     </div>
 
 
     <div class="form-group col-lg-3">
         <strong>Time</strong>
-        <input id="timepicker" type="text" name="time" class="form-control" placeholder="Enter time"  required>
+        <input id="timepicker" type="text" name="time" class="form-control" placeholder="Enter time"  required  autocomplete="off">
         <span class="text-danger">{{ $errors->first('time') }}</span>
     </div>
 
