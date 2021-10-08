@@ -113,8 +113,11 @@ Route::group( ['middleware' => ['auth:sanctum'] ] ,function () {
 // Route::get('/telegram/callback', 'TelegramController@callback')->name('telegram.callback');
 
 Route::group( ['middleware' => ['auth:sanctum'] ] ,function () {
-Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+    if(\Illuminate\Support\Facades\Auth::user()->isAdmin()){
+        Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+    }
 });
+
 Route::get('/about', function () {
     return view('about');
 })->name('about');
