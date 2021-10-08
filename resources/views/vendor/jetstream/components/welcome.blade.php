@@ -14,8 +14,15 @@
         </div>
     </div>
 
-
     <div class="bg-gray-200 bg-opacity-25 grid grid-cols-1">
+
+        <div class="p-6 border" >
+            <div class="flex items-center">
+
+                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="{{route('home.index')}}">
+                        <i class="fas fa-home" style="width:60px!important; text-align:center!important;"></i> Home</a></div>
+            </div>
+        </div>
 
         <div class="p-6 border" >
             <div class="flex items-center">
