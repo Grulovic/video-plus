@@ -112,7 +112,7 @@ Route::group( ['middleware' => ['auth:sanctum'] ] ,function () {
 // Route::get('/telegram/connect', 'TelegramController@connect')->name('telegram.connect');
 // Route::get('/telegram/callback', 'TelegramController@callback')->name('telegram.callback');
 
-Route::group( ['middleware' => ['auth:sanctum'] ] ,function () {
+Route::group( ['middleware' => ['auth:sanctum','is.admin'] ] ,function () {
         Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 });
 
