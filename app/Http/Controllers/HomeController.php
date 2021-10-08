@@ -42,7 +42,7 @@ class HomeController extends Controller
         $date_after = Carbon::now()->addDays(1)->toDateString();
 
         $data['plans'] = Plan::
-//        where('date',">=",$date)->where('date',"<",$date_after)->orderBy('date','asc')->
+        where('date',">=",$date)->where('date',"<",$date_after)->orderBy('date','asc')->
         take(4)->get();
 
 
