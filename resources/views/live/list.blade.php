@@ -38,7 +38,13 @@
 
  <div class="col-lg-12 p-0" style="">
             @if(count($lives) < 1)
-               <div colspan="13" class="text-center">There are no live available yet!</div>
+
+             <div class="col-lg-12">
+                 <div class="alert alert-info shadow-sm w-100" role="alert" style="">
+                     There are no live streams available yet!
+                 </div>
+             </div>
+
 			@endif
         {!! $lives->appends(request()->input())->links() !!}
      </div>
