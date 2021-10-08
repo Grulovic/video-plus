@@ -4,9 +4,9 @@
 {{--            <x-jet-application-logo class="block h-12 w-auto" />--}}
             <img src="{{ asset('logo.png') }}" style="max-height: 100px; " alt="{{ config('app.name') }}" class="inline mr-2 ">
 
-            <a href="{{route('about')}}" class="border-left pr-2" ><img src="{{ asset('video-plus-logo.png') }}" style="max-height: 100px; " class="inline"></a>
+            <a href="{{route('about')}}" class="" ><img src="{{ asset('video-plus-logo.png') }}" style="max-height: 100px; " class="inline"></a>
         </div>
-
+        <div class="inline border-left" style="height: 100px;"> </div>
         <div class="mt-8 text-2xl">
             Welcome to {{ config('app.name') }}!
         </div>
