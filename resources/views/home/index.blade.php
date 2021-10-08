@@ -69,7 +69,7 @@
                 <p>These are the following events:.</p>
             </div>
             <div class="float-right mt-2">
-                <a class="btn btn-outline-primary" href="{{route('plans.index')}}">Show events for today <i class="fas fa-angle-right"></i></a>
+                <a class="btn btn-outline-primary" href="{{route('plans.index')}}">Show today's events <i class="fas fa-angle-right"></i></a>
             </div>
         </div>
         @if($plans != null)
