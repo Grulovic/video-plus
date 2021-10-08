@@ -37,7 +37,7 @@
             <div class="flex items-center">
 
                 <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/lives">
-                        <i class="fas fa-microphone" style="width:60px!important; text-align:center!important;"></i> Live Streams</a></div>
+                        <i class="fas fa-satellite-dish" style="width:60px!important; text-align:center!important;"></i> Live Streams</a></div>
             </div>
         </div>
 
