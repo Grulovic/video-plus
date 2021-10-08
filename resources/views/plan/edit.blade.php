@@ -79,7 +79,7 @@
             $(document).ready(function(){
                 $('#timepicker').timepicker({
                     timeFormat: 'HH:mm',
-                    // interval: 5,
+                    interval: 1,
                     minTime: '0',
                     maxTime: '11:59pm',
                     defaultTime: '{{ date_format(date_create($plan->date),'H:m') }}',
