@@ -16,7 +16,10 @@
       <div class="col-lg-8  text-left">
       <form class="float-left" action="{{ route('plans.index') }}" method="GET">
           <input type="date" name="date" value="{{ $date_before }}" hidden>
-          <button type="submit" class="btn btn-primary border-start" value="Submit" style="min-height: 42px; border-top-right-radius:0; border-bottom-right-radius:0; "> <i class="fas fa-chevron-left"></i> {{ date('j. F', strtotime($date_before)) }} </button>
+
+          <div class="d-block d-lg-none"><button type="submit" class="btn btn-primary border-start" value="Submit" style="min-height: 42px; border-top-right-radius:0; border-bottom-right-radius:0; "> <i class="fas fa-chevron-left"></i></button></div>
+          <div class="d-none d-lg-block"><button type="submit" class="btn btn-primary border-start" value="Submit" style="min-height: 42px; border-top-right-radius:0; border-bottom-right-radius:0; "> <i class="fas fa-chevron-left"></i> {{ date('j. F', strtotime($date_before)) }} </button></div>
+
       </form>
 
 
@@ -83,7 +86,11 @@
 
         <form class="float-left" action="{{ route('plans.index') }}" method="GET">
           <input type="date" name="date" value="{{ $date_after }}" hidden>
-          <button type="submit" class="btn btn-primary border-end" value="Submit" style="min-height: 42px;  border-top-left-radius:0; border-bottom-left-radius:0;" >{{ date('j. F', strtotime($date_after)) }} <i class="fas fa-chevron-right"></i> </button>
+            <div class="d-block d-lg-none"><button type="submit" class="btn btn-primary border-end" value="Submit" style="min-height: 42px;  border-top-left-radius:0; border-bottom-left-radius:0;" > <i class="fas fa-chevron-right"></i> </button></div>
+            <div class="d-none d-lg-block"><button type="submit" class="btn btn-primary border-end" value="Submit" style="min-height: 42px;  border-top-left-radius:0; border-bottom-left-radius:0;" >{{ date('j. F', strtotime($date_after)) }} <i class="fas fa-chevron-right"></i> </button></div>
+
+
+
       </form>
 
       </div>
