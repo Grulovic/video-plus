@@ -78,16 +78,16 @@ class PlannerController extends Controller
 
         $request->validate([
             'title' => 'required',
-            'description' => 'present|nullable',
-            'location' => 'present|nullable',
+            'description' => 'required',
+            'location' => 'required',
             'date' => 'required',
             'time' => 'required',
-            'category' => 'present|nullable',
+            'category' => 'present',
 
-            'video' => 'present|nullable',
-            'photo' => 'present|nullable',
-            'text' => 'present|nullable',
-            'live' => 'present|nullable',
+            'video' => 'required',
+            'photo' => 'required',
+            'text' => 'required',
+            'live' => 'required',
 
             'video_items' => 'nullable',
             'photo_items' => 'nullable',

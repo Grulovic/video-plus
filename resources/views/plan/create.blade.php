@@ -113,32 +113,32 @@
 
     <div class="form-group col-lg-3">
         <strong>Title</strong>
-        <input type="text" name="title" class="form-control" placeholder="Enter title">
+        <input type="text" name="title" class="form-control" placeholder="Enter title" required>
         <span class="text-danger">{{ $errors->first('title') }}</span>
     </div>
 
     <div class="form-group col-lg-3">
         <strong>Location</strong>
-        <input type="text" name="location" class="form-control" placeholder="Enter location">
+        <input type="text" name="location" class="form-control" placeholder="Enter location" required>
         <span class="text-danger">{{ $errors->first('location') }}</span>
     </div>
 
     <div class="form-group col-lg-3">
         <strong>Date</strong>
-        <input id="datepicker" type="text" name="date" class="form-control" placeholder="Enter date">
+        <input id="datepicker" type="text" name="date" class="form-control" placeholder="Enter date" required>
         <span class="text-danger">{{ $errors->first('date') }}</span>
     </div>
 
 
     <div class="form-group col-lg-3">
         <strong>Time</strong>
-        <input id="timepicker" type="text" name="time" class="form-control" placeholder="Enter date">
+        <input id="timepicker" type="text" name="time" class="form-control" placeholder="Enter time"  required>
         <span class="text-danger">{{ $errors->first('time') }}</span>
     </div>
 
     <div class="form-group col-lg-6">
         <strong>Description</strong>
-        <textarea type="text" name="description" class="form-control" placeholder="Enter description" style="min-height:106px;"></textarea>
+        <textarea type="text" name="description" class="form-control" placeholder="Enter description" style="min-height:106px;" required></textarea>
         <span class="text-danger">{{ $errors->first('description') }}</span>
     </div>
 
