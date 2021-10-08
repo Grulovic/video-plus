@@ -2,6 +2,7 @@
     <div class="p-6 my-auto" style="padding-right: 50px!important;padding-left: 50px!important;">
         <div>
             <x-jet-application-logo class="block h-12 w-auto" />
+            <a href="{{route('about')}}" ><img src="{{ asset('video-plus-logo.png') }}" style="max-height: 100px; " class=""></a>
         </div>
 
         <div class="mt-8 text-2xl">
