@@ -273,14 +273,14 @@
         <div class="input-group  mb-2">
 
             <div class="form-check  form-check-inline mt-3">
-                <input class="form-check-input" type="radio" name="email_push" id="email_push_admin" value="admin" checked="">
+                <input class="form-check-input" type="radio" name="email_push" id="email_push_admin" value="admin">
                 <label class="form-check-label video-thumbnail" for="email_push_admin">
                     Send email notification to <strong>admins</strong> only.
                 </label>
             </div>
 
             <div class="form-check  form-check-inline mt-3">
-                <input class="form-check-input" type="radio" name="email_push" id="email_push_all" value="all">
+                <input class="form-check-input" type="radio" name="email_push" id="email_push_all" value="all" checked="">
                 <label class="form-check-label video-thumbnail" for="email_push_admin">
                     Send email notification to <strong>subscribed</strong> only!
                 </label>
