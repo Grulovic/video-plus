@@ -27,9 +27,7 @@ class SendQueueEmail implements ShouldQueue
      */
     public function __construct($data)
     {
-        $this->mail = $data['mail'];
-        $this->users = $data['users'];
-        $this->data = $data['data'];
+        $this->data = $data;
     }
 
     /**
@@ -39,11 +37,10 @@ class SendQueueEmail implements ShouldQueue
      */
     public function handle()
     {
-        Log::debug($this->mail);
         Log::debug($this->data);
-        Log::debug($this->users);
-        foreach ($this->users as $user){
-            Mail::to( $user )->send(new $this->mail( $this->data ));
+
+        foreach ($this->data['users'] as $user){
+            Mail::to( $user )->send(new $this->data['mail']( $this->data['data'] ));
         }
     }
 }
