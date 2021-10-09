@@ -3,15 +3,15 @@ $(document).ready(function(){
 console.log("here");
 
     $('#home_carousel').on('slide.bs.carousel', function(event) {
-    
+
    	console.log("car change stop video");
-    
+
        $("#home_carousel video").each(function(){
             $(this).get(0).pause();
        });
     });
 
-    
+
     $('#home_carousel video').bind('play', function (e) {
     console.log("car stop");
          $('#home_carousel').carousel('pause');
@@ -32,7 +32,7 @@ console.log("here");
 }
 .carousel-item{
 	height: 700px;
-}	
+}
 @media only screen and (max-width: 991px) {
   #home_carousel {
     margin-top:65px!important;
@@ -42,21 +42,21 @@ console.log("here");
     /*text-shadow: -1px 1px 3px rgba(150, 150, 150, 1);*/
     text-shadow: -2px 2px 2px rgba(0,0,0,0.75)!important;
   }
-  
+
   .carousel-control-prev
   ,.carousel-control-next{
       width:7.5%!important;
   }
-  
+
    .carousel-indicators li {
     background-color: #fff;
     box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.5);
 }
-  
+
   .carousel-indicators .active{
     background-color: #007bed ;
 }
-  
+
     .carousel-control-prev-icon,
 .carousel-control-next-icon {
   height: 100px;
@@ -84,18 +84,18 @@ console.log("here");
   .carousel-control-prev, .carousel-control-next{
     opacity:1;
   }
-  
+
   .carousel-control-prev:hover .carousel-control-prev-icon:after
 , .carousel-control-next:hover .carousel-control-next-icon:after{
 	color:#007bed!important;
   }
 </style>
 
-<div class="carousel-wrapper">
+<div class="carousel-wrapper border-bottom">
 <div  class="container p-0" style="max-width:1920px;">
 <div id="home_carousel_wrapper" class="row m-0 p-0">
   <div class="col-lg-12 p-0">
-    
+
     <div id="home_carousel" class="carousel slide" data-ride="carousel">
 	  <ol class="carousel-indicators">
 	  	@foreach($carausel as $item)
@@ -109,21 +109,21 @@ console.log("here");
 		    <div class="carousel-item {{ ($loop->first)?'active':'' }}" style="">
 		    	<div class="container h-100" style="max-width: 85%;">
 		      <div class="row m-0 p-0 h-100" style="">
-		      	
-		      	
+
+
 		      	<div class="col-lg-6 my-lg-auto text-white bg-info2 order-lg-1 order-2">
 		      		<div>
 		      		<h2 class="text-shadow-sm">{{ Str::limit($item->name, 80, $end='...')}}</h2>
 				      <p class="text-white text-shadow-sm">
 				        @if( sizeof($item->categories) > 0 )
 				          @foreach($item->categories as $category)
-				          {{$category->category->title}} 
+				          {{$category->category->title}}
 				            @if(!$loop->last) | @endif
 				          @endforeach
 				        @endif
 				      </p>
 				      <p class="mb-0 pb-0 text-shadow-sm">{{ Str::limit($item->description, 140, $end='...')}}</p>
-				      
+
 				      <a href="{{ route('videos.show',$item->id)}}" class="btn btn-primary mt-5"><i class="far fa-eye"></i> Go to Video</a>
 
 				      </div>
@@ -136,23 +136,23 @@ console.log("here");
 				      <source src="{{ url('uploads/videos/previews/preview_'.$item->file_name) }}" type="{{$item->mime}}">
 				      Your browser does not support the video tag.
 				    </video>
- 
-                
+
+
 		      	</div>
 
 		      </div>
 		      </div>
 		    </div>
 		    @else
-		    
+
     		    @if(sizeof($item->photos) > 0)
     		    <div class="carousel-item {{ ($loop->first)?'active':'' }}" style="
     		    background-color:rgba(0,0,0,0.3);
-    		    background-image:url({{url('uploads/photos/'.$item->photos[0]->file_name)}})!important; 
+    		    background-image:url({{url('uploads/photos/'.$item->photos[0]->file_name)}})!important;
     		    background-size:cover;
     		    background-position:top;
     		    background-repeat:no-repeat;
-    
+
     		    ">
     		    	<div class="container h-100" style="max-width: 85%;">
     	    			<div class="row m-0 p-0 h-100" style="">
@@ -161,13 +161,13 @@ console.log("here");
     				      <p class="text-white text-shadow-sm">
     				        @if( sizeof($item->categories) > 0 )
     				          @foreach($item->categories as $category)
-    				          {{$category->category->title}} 
+    				          {{$category->category->title}}
     				            @if(!$loop->last) | @endif
     				          @endforeach
     				        @endif
     				      </p>
     				      <p class="mb-0 pb-0 text-shadow-sm">{{ Str::limit($item->description, 140, $end='...')}}</p>
-    				      
+
     				      <a href="{{ route('photos.show',$item->id)}}" class="btn btn-primary mt-5"><i class="far fa-eye"></i> Go to Gallery</a>
     		   		</div>
     		   		</div>
@@ -177,7 +177,7 @@ console.log("here");
 		    @endif
 		@endforeach
 
-	    
+
 
 
 	  </div>
@@ -197,7 +197,7 @@ console.log("here");
 
 
 	</div>
-    
+
   </div>
 </div>
 </div>
