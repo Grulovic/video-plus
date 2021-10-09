@@ -13,7 +13,7 @@ class AddPlanIdToHistoriesTable extends Migration
      */
     public function up()
     {
-        Schema::table('support_messages', function (Blueprint $table) {
+        Schema::table('histories', function (Blueprint $table) {
             $table->integer('plan_id')->nullable();
 
         });
@@ -26,7 +26,7 @@ class AddPlanIdToHistoriesTable extends Migration
      */
     public function down()
     {
-        Schema::table('support_messages', function (Blueprint $table) {
+        Schema::table('histories', function (Blueprint $table) {
             $table->dropColumn('plan_id');
 
         });
