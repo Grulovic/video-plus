@@ -47,19 +47,19 @@
   </div>
   <div class="col-lg-3">
 
-         <div class="input-group pr-2  mb-2">
-            <div class="input-group-prepend">
-              <label class="input-group-text" for="vendor"><i class="fas fa-user"></i></label>
-            </div>
+{{--         <div class="input-group pr-2  mb-2">--}}
+{{--            <div class="input-group-prepend">--}}
+{{--              <label class="input-group-text" for="vendor"><i class="fas fa-user"></i></label>--}}
+{{--            </div>--}}
 
-            <select class="custom-select" id="user" name="user">
-              <option value="" {{(isset(request()->user_id)) ? "selected" : ""}}>All users</option>
-              <option disabled>------</option>
-              @foreach($users as $user)
-                <option value="{{$user->id}}" {{( request()->user == $user->id) ? "selected" : ""}}>{{$user->name}}</option>
-              @endforeach
-            </select>
-          </div>
+{{--            <select class="custom-select" id="user" name="user">--}}
+{{--              <option value="" {{(isset(request()->user_id)) ? "selected" : ""}}>All users</option>--}}
+{{--              <option disabled>------</option>--}}
+{{--              @foreach($users as $user)--}}
+{{--                <option value="{{$user->id}}" {{( request()->user == $user->id) ? "selected" : ""}}>{{$user->name}}</option>--}}
+{{--              @endforeach--}}
+{{--            </select>--}}
+{{--          </div>--}}
 </div><div class="col-lg-3">
           <div class="input-group pr-2  mb-2">
             <div class="input-group-prepend">
