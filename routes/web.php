@@ -117,7 +117,7 @@ Route::group( ['middleware' => ['auth:sanctum','is.admin'] ] ,function () {
     Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
     Route::get('/support', 'SupportController@index')->name("support.index");
-    Route::get('/support/create/{message}', 'SupportController@create')->name("support.create");
+    Route::get('/support/create/{supportMessage}', 'SupportController@create')->name("support.create");
     Route::post('/support/reply', 'SupportController@reply')->name("support.reply");
 });
 
