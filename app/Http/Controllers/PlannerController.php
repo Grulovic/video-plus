@@ -60,7 +60,7 @@ class PlannerController extends Controller
 
         $data['videos'] =  Video::select('id','name')->orderBy('created_at','desc')->limit(20)->get();
         $data['photos'] =  Gallery::select('id','name')->orderBy('created_at','desc')->limit(20)->get();
-//        $data['texts'] =  Article::select('id','title')->orderBy('created_at','desc')->limit(20)->get();
+        $data['texts'] =  Article::select('id','title')->orderBy('created_at','desc')->limit(20)->get();
         $data['lives'] =  Live::select('id','title')->orderBy('created_at','desc')->limit(20)->get();
 
         return view('plan.create',$data);
