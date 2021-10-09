@@ -21,10 +21,10 @@ class ContactUsReply extends Mailable
      */
     protected $product;
 
-    public function __construct($data)
+    public function __construct($email,$message)
     {
-        $this->email = $data['email'];
-        $this->message = $data['message'];
+        $this->email =$email;
+        $this->message = $message;
     }
 
     /**

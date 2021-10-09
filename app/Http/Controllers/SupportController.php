@@ -57,14 +57,8 @@ class SupportController extends Controller
             ]
         ];
 
-        $data = [
-            [
-                'email' => $request['email'],
-                'message' => $request['message'],
-            ]
-        ];
 
-        Mail::to( $to )->send(new ContactUsReply( $data ));
+        Mail::to( $to )->send(new ContactUsReply( $request['email'],$request['message'] ));
 
         return Redirect::back()->with('success','Message sent successfully!');
     }
