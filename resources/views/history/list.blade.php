@@ -53,9 +53,9 @@
 
               <td>
                 @if( $history->video_id)
-                  Gallery
-                @elseif($history->gallery_id)
                   Video
+                @elseif($history->gallery_id)
+                  Gallery
                 @elseif($history->plan_id)
                   Plan
                 @endif
