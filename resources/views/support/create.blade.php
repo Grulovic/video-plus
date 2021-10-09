@@ -30,8 +30,7 @@
 
     <div class="form-group col-lg-12">
         <strong>Reply Message</strong>
-        <textarea type="text" name="message" class="form-control" placeholder="Enter message" style="min-height: 200px;">
-        </textarea>
+        <textarea type="text" name="message" class="form-control" placeholder="Enter message" style="min-height: 200px;"></textarea>
         <span class="text-danger">{{ $errors->first('message') }}</span>
     </div>
 
