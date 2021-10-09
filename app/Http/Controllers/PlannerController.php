@@ -320,7 +320,7 @@ class PlannerController extends Controller
         }
         elseif(  $email_push == "all" ){
 
-            $user_ids = UserPlan::where('plan_id',$plan_id)->orderBy('id','asc')->pluck('user_id')->get();
+            $user_ids = UserPlan::where('plan_id',$plan_id)->orderBy('id','asc')->pluck('user_id');
             $users = User::whereIn('id',$user_ids)->get();
 
 //            $user_plans = UserPlan::where('plan_id',$plan_id)->orderBy('id','asc')->get();
