@@ -50,28 +50,7 @@
         </script>
     </head>
     <body class="font-sans antialiased">
-    @if (Auth::guest())
-    <script type="text/javascript">
-        $(window).on('load', function() {
-            $('#registerModal').modal('show');
-        });
-    </script>
 
-
-    <div class="modal hide fade" id="registerModal">
-        <div class="modal-header">
-            <a class="close" data-dismiss="modal">×</a>
-            <h3>Don't have an account?</h3>
-        </div>
-        <div class="modal-body">
-            <h4>Register for FREE and gain access to all of the content!</h4>
-        </div>
-        <div class="modal-footer">
-            <a href="#" class="btn">Close</a>
-            <a href="{{ route('register') }}" class="btn btn-primary">REGISTER</a>
-        </div>
-    </div>
-    @endif
 
 
 
@@ -85,6 +64,29 @@
 
             <!-- Page Content -->
             <main>
+
+                @if (Auth::guest())
+                    <script type="text/javascript">
+                        $(window).on('load', function() {
+                            $('#registerModal').modal('show');
+                        });
+                    </script>
+
+
+                    <div class="modal hide fade" id="registerModal">
+                        <div class="modal-header">
+                            <a class="close" data-dismiss="modal">×</a>
+                            <h3>Don't have an account?</h3>
+                        </div>
+                        <div class="modal-body">
+                            <h4>Register for FREE and gain access to all of the content!</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#" class="btn">Close</a>
+                            <a href="{{ route('register') }}" class="btn btn-primary">REGISTER</a>
+                        </div>
+                    </div>
+                @endif
                 {{ $slot }}
             </main>
         </div>
