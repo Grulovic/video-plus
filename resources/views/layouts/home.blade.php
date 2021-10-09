@@ -70,9 +70,8 @@
                         $(window).on('load', function() {
 
                             window.setTimeout(function (){
-                                ('#registerModal').modal('show');
+                               $('#registerModal').modal('show');
                                 }, 5000);
-                            $
                         });
                     </script>
 
