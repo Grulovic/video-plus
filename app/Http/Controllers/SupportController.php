@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\ContactUs;
 use App\Models\SupportMessage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
@@ -27,6 +28,7 @@ class SupportController extends Controller
 
     public function create(SupportMessage $supportMessage)
     {
+        Log::debug($supportMessage);
         abort_unless( auth()->user()->role == "admin",403);
 
         $data['support'] = $supportMessage;
