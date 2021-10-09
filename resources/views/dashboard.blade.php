@@ -7,7 +7,7 @@
 
     <div class="py-12" >
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8" style="margin-top:65px!important;">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg pl-1 pr-1">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg ml-2 mr-2">
                 <x-jet-welcome />
             </div>
         </div>
