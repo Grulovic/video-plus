@@ -21,7 +21,7 @@ class SupportController extends Controller
 
         abort_unless( auth()->user()->role == "admin",403);
 
-        $data['messages'] = SupportMessage::orderBy('id','desc')->get();
+        $data['messages'] = SupportMessage::orderBy('id','desc')->paginate(1);
 
         return view('support.index',$data);
     }

@@ -77,6 +77,13 @@
       <div class="col-md-1"></div>
 
 
+     <div class="col-md-1"></div>
+     <div class="col-md-10">
+         {!! $messages->appends(request()->input())->links() !!}
+     </div>
+     <div class="col-md-1"></div>
+
+
  </div>
 
 
