@@ -80,14 +80,14 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="create_modal_label">Don't have an account?</h5>
+                                    <h4 class="modal-title" id="create_modal_label">Don't have an account?</h4>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
 
                                 <div class="modal-body">
-                                    <h4>Register for FREE and gain access to all of the content!</h4>
+                                    <h5>Register for FREE and gain access to all of the content!</h5>
                                 </div>
                                 <div class="modal-footer">
                                     <a href="#" class="btn">Close</a>
