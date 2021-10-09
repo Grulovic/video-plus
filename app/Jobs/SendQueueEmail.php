@@ -26,9 +26,9 @@ class SendQueueEmail implements ShouldQueue
      */
     public function __construct($data)
     {
-        $this->mail = $mail;
-        $this->users = $users;
-        $this->data = $data;
+        $this->mail = $data['mail'];
+        $this->users = $data['users'];
+        $this->data = $data['data'];
     }
 
     /**
