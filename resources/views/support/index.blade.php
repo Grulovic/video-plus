@@ -46,7 +46,7 @@
               <td>{{ $message->email }}</td>
               <td>{{ $message->message }}</td>
                 <td class="text-center  bg-dark text-white" style="border-color:#454d55;">
-                    <a href="{{ route('support.reply',$message->id)}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Reply message">REPLY</a>
+                    <a href="{{ route('support.create',$message->id)}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Reply message">REPLY</a>
                 </td>
 
 
