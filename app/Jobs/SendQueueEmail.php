@@ -12,6 +12,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class SendQueueEmail implements ShouldQueue
@@ -37,6 +38,9 @@ class SendQueueEmail implements ShouldQueue
      */
     public function handle()
     {
+        Log::debug($this->mail);
+        Log::debug($this->data);
+        Log::debug($this->users);
         foreach ($this->users as $user){
             Mail::to( $user )->send(new $this->mail( $this->data ));
         }
