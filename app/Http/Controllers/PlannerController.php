@@ -378,11 +378,7 @@ class PlannerController extends Controller
         $plan_id = $plan->id;
         $user_id = Auth::id();
 
-        History::create([
-            'plan_id' => $plan->id
-            ,'user_id' => auth()->user()->id
-            ,'action' => "Plan Followed"
-        ]);
+
 
 
         $existing_favorite = UserPlan::where('plan_id',$plan_id)->where('user_id',$user_id)->get();
@@ -390,6 +386,12 @@ class PlannerController extends Controller
         if( sizeof($existing_favorite) > 0){
 
             $existing_favorite->first()->delete();
+
+            History::create([
+                'plan_id' => $plan->id
+                ,'user_id' => auth()->user()->id
+                ,'action' => "Plan Unfollowed"
+            ]);
 
             return Redirect::back()->with(['success'=>'Plan removed from favorites.']);
         }else{
@@ -399,6 +401,13 @@ class PlannerController extends Controller
             $user_plan_favorite->plan_id = $plan_id;
 
             $user_plan_favorite->save();
+
+            History::create([
+                'plan_id' => $plan->id
+                ,'user_id' => auth()->user()->id
+                ,'action' => "Plan Followed"
+            ]);
+
 
             return Redirect::back()->with(['success'=>'Great! Plan added to favorites.']);
         }
