@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendQueueEmail;
 use App\Mail\PlanUpdated;
 use App\Mail\VideoUploaded;
 use App\Models\Article;
@@ -308,25 +309,34 @@ class PlannerController extends Controller
 //        ]);
 
 
+
+
         $email_push = request()->email_push;
         if( $email_push == "admin" ){
             $users = User::where('role','admin')->orderBy('id','asc')->get();
-            foreach($users as $user){
-                Mail::to( $user )->send(new PlanUpdated( $plan ));
-            }
+//            foreach($users as $user){
+//                Mail::to( $user )->send(new PlanUpdated( $plan ));
+//            }
         }
         elseif(  $email_push == "all" ){
 
-            $user_plans = UserPlan::where('plan_id',$plan_id)->orderBy('id','asc')->get();
-            foreach($user_plans as $user_plan){
-                $user = $user_plan->user;
-                if($user){
-                    Mail::to( $user )->send(new PlanUpdated( $plan ));
-                }
-            }
+            $user_ids = UserPlan::where('plan_id',$plan_id)->orderBy('id','asc')->pluck('user_id')->get();
+            $users = Users::whereIn('id',$user_ids)->get();
+
+//            $user_plans = UserPlan::where('plan_id',$plan_id)->orderBy('id','asc')->get();
+
+//            foreach($user_plans as $user_plan){
+//                $user = $user_plan->user;
+//                if($user){
+//                    Mail::to( $user )->send(new PlanUpdated( $plan ));
+//                }
+//            }
 
         }else{
         }
+        $data = $plan;
+        $job = (new SendQueueEmail('PlanUpdated',$users,$data))->delay(now()->addSeconds(2));
+        dispatch($job);
 
 
         return Redirect::route('plans.index', ['date'=>$plan->date ])
