@@ -17,7 +17,7 @@
                          </td>
                       </tr>
 
-                      
+
                       <tr>
                          <td width="100%" cellpadding="0" cellspacing="0" style="box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';background-color:#edf2f7;border-bottom:1px solid #edf2f7;border-top:1px solid #edf2f7;margin:0;padding:0;width:100%">
                             <table align="center" width="570" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';background-color:#ffffff;border-color:#e8e5ef;border-radius:2px;border-width:1px;margin:0 auto;padding:0;width:570px">
@@ -25,10 +25,9 @@
                                   <tr>
                                      <td style="box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';max-width:100vw;padding:32px">
                                         <span class="im">
-                                           <h1 style="box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';color:#3d4852;font-size:18px;font-weight:bold;margin-top:0;text-align:left">Video Uploaded</h1>
+                                           <h1 style="box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';color:#3d4852;font-size:18px;font-weight:bold;margin-top:0;text-align:left">New Video Uploaded</h1>
                                            <p style="box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-size:16px;line-height:1.5em;margin-top:0;text-align:left">
 											    <hr>
-											    <br>Your video was successfylly uploaded!
                                         		<br>
                                         		<video id="{{$video->id}}" class="card-img-top bg-dark" poster="{{ url('uploads/videos/thumbs/thumb_'.$video->thumbnail.'_'. $video->file_name.'.png') }}"
     style="height: 190px; height:auto; width: 500px; display: block;" controls="true" playsinline muted  preload="none">
@@ -37,24 +36,24 @@
       <source src="{{ url('uploads/videos/previews/preview_'.$video->file_name) }}" type="{{$video->mime}}">
       Your browser does not support the video tag.
     </video>
-    
-  
+
+
       <div class="text-muted text-right w-100 pr-2"><small>{{ date('j. F Y. H:i', strtotime($video->created_at)) }}</small></div>
-    
+
       <a href="{{ route('videos.show',$video->id)}}" class="text-black"><h2 class="pb-0 mb-0">{{ $video->name }}</h2></a>
       <p class="text-muted" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
         @if(sizeof($video->categories) > 0)
           @foreach($video->categories as $category)
-          {{$category->category->title}} 
+          {{$category->category->title}}
             @if(!$loop->last) | @endif
           @endforeach
         @else
           No categories
         @endif
       </p>
-    
-    	
-    
+
+
+
 
       <p class="text-muted mb-0 pb-0" style="">{{ Str::limit($video->description, 70, $end='...')}}</p>
                                            </p>
