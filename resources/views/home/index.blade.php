@@ -29,8 +29,8 @@
 
 
     <div class="">
-    <div  class="container bg-dark2 card mt-5 no-hover " style="max-width:1920px; background-color:#484e53;">
-  	<div class="row m-0 p-0 pt-4 pb-5 text-white justify-content-center ">
+    <div  class="container bg-dark2  mt-5 no-hover " style="max-width:1920px; ">
+  	<div class="row m-0 p-0 pt-4 pb-5 text-white justify-content-center card" style="background-color:#484e53;">
 		<div class="col-lg-12 my-auto" >
 			<div class="text-center">
 				<h2>Latest Live Streams:</h2>
