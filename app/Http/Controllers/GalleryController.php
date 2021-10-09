@@ -146,7 +146,7 @@ class GalleryController extends Controller
          }
 
         $data['data'] = Gallery::where('id',$new_gallery->id)->get()->first();
-        $data['mail'] = 'App\Mail\GalleryUpdated';
+        $data['mail'] = 'App\Mail\GalleryUploaded';
         $data['users'] = $users;
 
         Log::debug($data);
