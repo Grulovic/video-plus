@@ -73,19 +73,28 @@
 {{--                    </script>--}}
 
 
-{{--                    <div class="modal hide fade" id="registerModal">--}}
-{{--                        <div class="modal-header">--}}
-{{--                            <a class="close" data-dismiss="modal">×</a>--}}
-{{--                            <h3>Don't have an account?</h3>--}}
-{{--                        </div>--}}
-{{--                        <div class="modal-body">--}}
-{{--                            <h4>Register for FREE and gain access to all of the content!</h4>--}}
-{{--                        </div>--}}
-{{--                        <div class="modal-footer">--}}
-{{--                            <a href="#" class="btn">Close</a>--}}
-{{--                            <a href="{{ route('register') }}" class="btn btn-primary">REGISTER</a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
+                    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="contact_us" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="create_modal_label">Don't have an account?</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <h4>Register for FREE and gain access to all of the content!</h4>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="#" class="btn">Close</a>
+                                    <a href="{{ route('register') }}" class="btn btn-primary">REGISTER</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
                 @endif
                 {{ $slot }}
             </main>
