@@ -65,8 +65,8 @@
 
 
                                              <div class="modal-footer">
-                                                 <button type="submit" class="btn btn-primary"><i class="fas fa-envelope"></i> Send Message</button>
-                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                 <button type="submit" class="btn btn-primary mt-2"><i class="fas fa-envelope"></i> Send Message</button>
+                                                 <button type="button" class="btn btn-secondary mt-2" data-dismiss="modal">Close</button>
 
                                              </div>
                                          </form>
