@@ -90,7 +90,9 @@
                                     <h5>Register for FREE and gain access to all of the content!</h5>
                                 </div>
                                 <div class="modal-footer">
-                                    <a href="#" class="btn">Close</a>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        Close
+                                    </button>
                                     <a href="{{ route('register') }}" class="btn btn-primary">REGISTER</a>
                                 </div>
 
