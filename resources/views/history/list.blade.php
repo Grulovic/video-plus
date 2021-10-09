@@ -42,21 +42,21 @@
               <td>{{ $history->user_id }}</td>
               <td>{{ $history->user->name }}</td>
               <td>
-                @if( $history->video_id != null )
+                @if( $history->video_id )
                   {{ $history->video_id }}
-                @elseif( $history->gallery_id != null )
+                @elseif( $history->gallery_id)
                   {{ $history->gallery_id }}
-                @elseif( $history->plan_id != null )
+                @elseif( $history->plan_id)
                       {{ $history->plan_id }}
                 @endif
               </td>
 
               <td>
-                @if( $history->video_id != null )
+                @if( $history->video_id)
                   Gallery
-                @elseif($history->gallery_id != null)
+                @elseif($history->gallery_id)
                   Video
-                @elseif($history->plan_id != null)
+                @elseif($history->plan_id)
                   Plan
                 @endif
               </td>
