@@ -4,15 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Video extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
 			'user_id',
 			// 'category_id',
-			
+
 			'name',
 			'description',
 			'mime',
@@ -29,7 +30,7 @@ class Video extends Model
 	public function history() {
 		return $this->hasMany(History::class);
 	}
-	
+
 	public function categories() {
 		return $this->hasMany(VideoCategory::class);
 	}
@@ -41,7 +42,7 @@ class Video extends Model
 	public function views() {
 		return $this->hasMany(VideoView::class);
 	}
-	
+
 	public function view_num(){
     	return $this->views()->count();
     }
