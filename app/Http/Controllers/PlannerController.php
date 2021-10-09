@@ -336,7 +336,7 @@ class PlannerController extends Controller
         }else{
         }
         $data['data'] = $plan;
-        $data['mail'] = 'PlanUpdated';
+        $data['mail'] = 'App\Mail\PlanUpdated';
         $data['users'] = $users;
 
         Log::debug($data);
