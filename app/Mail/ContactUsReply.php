@@ -38,6 +38,10 @@ class ContactUsReply extends Mailable
     public function build()
     {
         return $this->from( config('mail.from.address') )
+                    ->with([
+                        'email' => $this->email,
+                        'message' => $this->message
+                    ])
                     ->view('email.contact_us_reply');
     }
 }
