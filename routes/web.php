@@ -114,7 +114,11 @@ Route::group( ['middleware' => ['auth:sanctum'] ] ,function () {
 // Route::get('/telegram/callback', 'TelegramController@callback')->name('telegram.callback');
 
 Route::group( ['middleware' => ['auth:sanctum','is.admin'] ] ,function () {
-        Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+    Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+
+    Route::get('/support', 'SupportController@index')->name("support.index");
+    Route::post('/support/create/{message}', 'SupportController@create')->name("support.create");
+    Route::post('/support/reply', 'SupportController@reply')->name("support.reply");
 });
 
 Route::get('/about', function () {
