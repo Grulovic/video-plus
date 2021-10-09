@@ -36,6 +36,7 @@
                 <th>ID</th>
                 <th>Email</th>
                 <th>Message</th>
+                <th>Replied</th>
                 <th>Action</th>
             </tr>
          </thead>
@@ -44,7 +45,12 @@
             <tr class=" bg-white " >
                 <td class="text-center  bg-dark text-white" style="border-color:#454d55;">{{ $message->id }}</td>
               <td>{{ $message->email }}</td>
-              <td>{{ $message->message }}</td>
+                <td>{{ $message->message }}</td>
+                <td>@if($message->replied)
+                        <i class="fas fa-check text-success"></i>
+                    @else
+                        <i class="fas fa-times text-danger"></i>
+                    @endif</td>
                 <td class="text-center  bg-dark text-white" style="border-color:#454d55;">
                     <a href="{{ route('support.create',$message->id)}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Reply message">REPLY</a>
                 </td>
