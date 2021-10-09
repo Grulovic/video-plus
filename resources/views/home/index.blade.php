@@ -30,8 +30,8 @@
 
     <div class="">
     <div  class="container bg-dark2  mt-5 no-hover " style="max-width:1920px; ">
-  	<div class="row m-0 p-0 pt-4 pb-5 text-white justify-content-center card" style="background-color:#484e53;">
-		<div class="col-lg-12 my-auto p-2" >
+  	<div class="row m-0 p-0 pt-4 pb-5 text-white justify-content-center card p-2" style="background-color:#484e53;">
+		<div class="col-lg-12 my-auto " >
 			<div class="text-center">
 				<h2>Latest Live Streams:</h2>
 				<p>These are the latest lives streams.</p>
