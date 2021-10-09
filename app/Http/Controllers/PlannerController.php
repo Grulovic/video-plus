@@ -19,6 +19,7 @@ use App\Models\Video;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 
@@ -337,6 +338,9 @@ class PlannerController extends Controller
         $data['data'] = $plan;
         $data['mail'] = 'PlanUpdated';
         $data['users'] = $users;
+
+        Log::debug($data);
+
         $job = (new SendQueueEmail($data))->delay(now()->addSeconds(2));
         dispatch($job);
 
