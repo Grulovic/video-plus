@@ -169,11 +169,11 @@ class PlannerController extends Controller
             }
         }
 
-//        History::create([
-//            'gallery_id' => $id
-//            ,'user_id' => auth()->user()->id
-//            ,'action' => "Gallery Edited"
-//        ]);
+        History::create([
+            'plan_id' => $new_plan->id
+            ,'user_id' => auth()->user()->id
+            ,'action' => "Plan Created"
+        ]);
 
         return Redirect::to('planner')
             ->with('success','Great! Plan created successfully.');
@@ -303,13 +303,6 @@ class PlannerController extends Controller
             }
         }
 
-//        History::create([
-//            'gallery_id' => $id
-//            ,'user_id' => auth()->user()->id
-//            ,'action' => "Gallery Edited"
-//        ]);
-
-
 
 
         $email_push = request()->email_push;
@@ -346,6 +339,13 @@ class PlannerController extends Controller
         dispatch($job);
 
 
+        History::create([
+            'plan_id' => $plan->id
+            ,'user_id' => auth()->user()->id
+            ,'action' => "Plan Updated"
+        ]);
+
+
         return Redirect::route('plans.index', ['date'=>$plan->date ])
             ->with('success','Great! Plan updated successfully');
     }
@@ -355,17 +355,19 @@ class PlannerController extends Controller
     {
         // abort_unless( auth()->user()->role == "admin",403);
 
+        History::create([
+            'plan_id' => $plan->id
+            ,'user_id' => auth()->user()->id
+            ,'action' => "Plan Deleted"
+        ]);
+
         $plan->videoItems()->delete();
         $plan->photoItems()->delete();
         $plan->textItems()->delete();
         $plan->liveItems()->delete();
         $plan->delete();
 
-//        History::create([
-//            'gallery_id' => $id
-//            ,'user_id' => auth()->user()->id
-//            ,'action' => "Gallery Edited"
-//        ]);
+
 
         return Redirect::to('planner')->with('success','Plan deleted successfully');
     }
@@ -375,6 +377,13 @@ class PlannerController extends Controller
 
         $plan_id = $plan->id;
         $user_id = Auth::id();
+
+        History::create([
+            'plan_id' => $plan->id
+            ,'user_id' => auth()->user()->id
+            ,'action' => "Plan Followed"
+        ]);
+
 
         $existing_favorite = UserPlan::where('plan_id',$plan_id)->where('user_id',$user_id)->get();
 
