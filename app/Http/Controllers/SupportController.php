@@ -25,11 +25,11 @@ class SupportController extends Controller
         return view('support.index',$data);
     }
 
-    public function create(SupportMessage $message)
+    public function create(SupportMessage $supportMessage)
     {
         abort_unless( auth()->user()->role == "admin",403);
 
-        $data['message'] = $message;
+        $data['message'] = $supportMessage;
 
         return view('support.create',$data);
     }
@@ -53,9 +53,9 @@ class SupportController extends Controller
 
         $request = $request->all();
 
-        $support_message = SupportMessage::where('id',$request['message_id'])->first();
-        $support_message->replied = true;
-        $support_message->save();
+        $supportMessage = SupportMessage::where('id',$request['message_id'])->first();
+        $supportMessage->replied = true;
+        $supportMessage->save();
 
         $to = [
             [
