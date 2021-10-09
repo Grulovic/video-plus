@@ -22,7 +22,7 @@
 
     <div class="form-group col-lg-6">
         <strong>Email</strong>
-        <input type="text" name="email" class="form-control" placeholder="Enter email" value="{{$message->id}}}">
+        <input type="text" name="email" class="form-control" placeholder="Enter email" value="{{$message->email}}">
         <span class="text-danger">{{ $errors->first('email') }}</span>
     </div>
 
