@@ -24,10 +24,10 @@ class ContactUsReply extends Mailable
     protected $data_email;
     protected $data_message;
 
-    public function __construct($email,$message)
+    public function __construct($data_email,$data_message)
     {
-        $this->data_email = $email;
-        $this->data_message = $message;
+        $this->data_email = $data_email;
+        $this->data_message = $data_message;
     }
 
     /**
