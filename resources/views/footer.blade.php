@@ -23,12 +23,12 @@
                          <p class="mb-1">Resavska 40/1</p>
                          <p>Belgrade, Serbia</p>
                             <br><br>
-                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#contact_us">
+                         <button type="button" class="btn btn-primary mt-2" data-toggle="modal" data-target="#contact_us">
                              <i class="fas fa-envelope"></i> CONTACT US
                          </button>
                      @if (!Auth::guest())
                          @if(Auth::user()->isAdmin())
-                             <a href="{{route('support.index')}}" class="btn btn-success">
+                             <a href="{{route('support.index')}}" class="btn btn-success mt-2">
                                  REPLY TO MESSAGES
                              </a>
                          @endif
@@ -65,8 +65,8 @@
 
 
                                              <div class="modal-footer">
-                                                 <button type="submit" class="btn btn-primary mt-2"><i class="fas fa-envelope"></i> Send Message</button>
-                                                 <button type="button" class="btn btn-secondary mt-2" data-dismiss="modal">Close</button>
+                                                 <button type="submit" class="btn btn-primary"><i class="fas fa-envelope"></i> Send Message</button>
+                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
                                              </div>
                                          </form>
