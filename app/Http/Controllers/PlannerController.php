@@ -334,6 +334,7 @@ class PlannerController extends Controller
 //            }
 
         }else{
+            $users = [];
         }
         $data['data'] = $plan;
         $data['mail'] = 'App\Mail\PlanUpdated';

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendQueueEmail;
 use App\Models\Plan;
 use App\Models\PlanItem;
 use App\Models\Video;
@@ -12,6 +13,7 @@ use App\Models\VideoCategory;
 use App\Models\History;
 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\VideoUploaded;
 
@@ -162,19 +164,28 @@ class VideoController extends Controller
     // Mail::to( User::where('id',1)->get()->first() )->send(new VideoUploaded( Video::where('id',$new_video->id)->get()->first()));
         if( $email_push == "admin" ){
         	 $users = User::where('role','admin')->orderBy('id','asc')->get();
-        	foreach($users as $user){
-        		Mail::to( $user )->send(new VideoUploaded( Video::where('id',$new_video->id)->get()->first()));
-            }
+//        	foreach($users as $user){
+//        		Mail::to( $user )->send(new VideoUploaded( Video::where('id',$new_video->id)->get()->first()));
+//            }
         }
     	elseif(  $email_push == "all" ){
 
 			$users = User::where('id','>=',0)->orderBy('id','asc')->get();
-        	foreach($users as $user){
-        		Mail::to( $user )->send(new VideoUploaded( Video::where('id',$new_video->id)->get()->first()));
-            }
+//        	foreach($users as $user){
+//        		Mail::to( $user )->send(new VideoUploaded( Video::where('id',$new_video->id)->get()->first()));
+//            }
 
         }else{
         }
+
+        $data['data'] = $video;
+        $data['mail'] = 'App\Mail\VideoUpdated';
+        $data['users'] = $users;
+
+        Log::debug($data);
+
+        $job = (new SendQueueEmail($data))->delay(now()->addSeconds(2));
+        dispatch($job);
 
 
        //  return Redirect::to('videos')

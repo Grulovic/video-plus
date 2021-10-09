@@ -62,7 +62,7 @@ class LiveController extends Controller
         Live::create($request);
 
         return Redirect::to('lives')
-       ->with('success','Greate! Live created successfully.');
+       ->with('success','Great! Live created successfully.');
     }
 
 

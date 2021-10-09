@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendQueueEmail;
 use App\Models\Gallery;
 use App\Models\PlanItem;
 use Carbon\Carbon;
@@ -14,6 +15,7 @@ use App\Models\GalleryCategory;
 use App\Models\GalleryView;
 use App\Models\History;
 
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\GalleryUploaded;
 
@@ -128,18 +130,29 @@ class GalleryController extends Controller
 
 		 if( $email_push == "admin" ){
         	 $users = User::where('role','admin')->orderBy('id','asc')->get();
-        	foreach($users as $user){
-        		Mail::to( $user )->send(new GalleryUploaded( Gallery::where('id',$new_gallery->id)->get()->first()));
-            }
+//        	foreach($users as $user){
+//        		Mail::to( $user )->send(new GalleryUploaded( Gallery::where('id',$new_gallery->id)->get()->first()));
+//            }
         }
     	elseif(  $email_push == "all" ){
 
 			$users = User::where('id','>=',0)->orderBy('id','asc')->get();
-        	foreach($users as $user){
-        		Mail::to( $user )->send(new GalleryUploaded( Gallery::where('id',$new_gallery->id)->get()->first()));
-            }
+//        	foreach($users as $user){
+//        		Mail::to( $user )->send(new GalleryUploaded( Gallery::where('id',$new_gallery->id)->get()->first()));
+//            }
 
-        }else{}
+        }else{
+             $users= [];
+         }
+
+        $data['data'] = Gallery::where('id',$new_gallery->id)->get()->first();
+        $data['mail'] = 'App\Mail\GalleryUpdated';
+        $data['users'] = $users;
+
+        Log::debug($data);
+
+        $job = (new SendQueueEmail($data))->delay(now()->addSeconds(2));
+        dispatch($job);
 
        //  return Redirect::to('photos')
        // ->with('success','Greate! Gallery created successfully.');
