@@ -1,4 +1,4 @@
-<div class="container-fluid  pb-0 mb-0 justify-content-center text-muted shadow-lg" style="background-color2:#c7363d; ">
+<div class="container-fluid  pb-0 mb-0 justify-content-center text-muted shadow-lg border-top" style="background-color2:#c7363d; ">
      <footer class="max-w-7xl  mx-auto " style="">
          <div class="row justify-content-center pt-5 pb-5">
              <div class="col-11">

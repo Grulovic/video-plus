@@ -153,7 +153,7 @@
         @endif
 	</div>
 
-  <hr>
+{{--  <hr>--}}
 
 {{--	<div class="row m-0 p-0 pt-4 pb-3">--}}
 {{--		<div class="col-lg-12 my-auto">--}}
