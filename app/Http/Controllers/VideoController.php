@@ -494,18 +494,18 @@ class VideoController extends Controller
 	public function delete_video_files($file_name){
     	 	$previous_video_path = public_path().'uploads/videos/'.$file_name;
             if(file_exists ($previous_video_path)){
-            	unlink($previous_video_path);
+//            	unlink($previous_video_path);
             }
 
             $previous_preview_path = public_path().'uploads/videos/previews/preview_'.$file_name;
         	if(file_exists ($previous_preview_path)){
-            	unlink($previous_preview_path);
+//            	unlink($previous_preview_path);
             }
 
     		for ($i = 1; $i <= 3; $i++) {
             	$previous_thumbnail_path = public_path().'uploads/videos/thumbs/thumb_'.$i."_".$file_name.'.png';
         		if(file_exists ($previous_thumbnail_path)){
-                unlink($previous_thumbnail_path);
+//                unlink($previous_thumbnail_path);
             	}
 			}
 

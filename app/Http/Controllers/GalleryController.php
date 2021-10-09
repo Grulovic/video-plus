@@ -334,7 +334,7 @@ class GalleryController extends Controller
                 foreach ($gallery->get()->first()->photos as $photo) {
                     $previous_photo_path = public_path().'/uploads/photos/'.$photo->file_name;
                     if (file_exists($previous_photo_path)) {
-                        unlink($previous_photo_path);
+//                        unlink($previous_photo_path);
                     }
                 }
 
@@ -386,7 +386,7 @@ class GalleryController extends Controller
 
             $previous_photo_path = public_path().'/uploads/photos/'.$photo->file_name;
             if (file_exists($previous_photo_path)) {
-                unlink($previous_photo_path);
+//                unlink($previous_photo_path);
             }
         }
 
@@ -421,7 +421,7 @@ class GalleryController extends Controller
 
             $previous_photo_path = public_path().'/uploads/photos/'.$photo->get()->first()->file_name;
             if (file_exists($previous_photo_path)) {
-                unlink($previous_photo_path);
+//                unlink($previous_photo_path);
             }
 
             $photo->delete();
@@ -431,7 +431,7 @@ class GalleryController extends Controller
 
         $previous_photo_path = public_path().'/uploads/photos/'.$photo->get()->first()->file_name;
         if (file_exists($previous_photo_path)) {
-            unlink($previous_photo_path);
+//            unlink($previous_photo_path);
         }
 
 
