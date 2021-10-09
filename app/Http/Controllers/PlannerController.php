@@ -334,8 +334,10 @@ class PlannerController extends Controller
 
         }else{
         }
-        $data = $plan;
-        $job = (new SendQueueEmail('PlanUpdated',$users,$data))->delay(now()->addSeconds(2));
+        $data['data'] = $plan;
+        $data['mail'] = 'PlanUpdated';
+        $data['users'] = $users;
+        $job = (new SendQueueEmail($data))->delay(now()->addSeconds(2));
         dispatch($job);
 
 
