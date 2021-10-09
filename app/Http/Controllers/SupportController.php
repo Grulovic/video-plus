@@ -60,6 +60,6 @@ class SupportController extends Controller
 
         Mail::to( $to )->send(new ContactUsReply( $request['email'],$request['message'] ));
 
-        return Redirect::back()->with('success','Message sent successfully!');
+        return Redirect::to('support.index')->with('success','Message sent successfully!');
     }
 }
