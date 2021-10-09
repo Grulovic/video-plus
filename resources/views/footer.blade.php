@@ -10,7 +10,7 @@
                          <h6 class="mb-3 mb-lg-4 bold-text "><b>MENU</b></h6>
                          <ul class="list-unstyled">
                              <li><a href="{{route('home.index')}}">Home</a></li>
-                             <li><a href="{{route('videos.index')}}">Dashboard</a></li>
+                             <li><a href="{{route('dashboard')}}">Dashboard</a></li>
                              <li><a href="{{route('videos.index')}}">Videos</a></li>
                              <li><a href="{{route('photos.index')}}">Photos</a></li>
                              <li><a href="{{route('lives.index')}}">Live Streams</a></li>
