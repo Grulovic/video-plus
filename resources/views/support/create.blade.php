@@ -21,16 +21,17 @@
     {{ csrf_field() }}
     <input type="text" name="message_id"  value="{{$support->id}}" hidden>
 
-    <div class="form-group col-lg-6">
+    <div class="form-group col-lg-12">
         <strong>Email</strong>
         <input type="text" name="email" class="form-control" placeholder="Enter email" value="{{$support->email}}">
         <span class="text-danger">{{ $errors->first('email') }}</span>
     </div>
 
 
-    <div class="form-group col-lg-6">
+    <div class="form-group col-lg-12">
         <strong>Reply Message</strong>
-        <input type="text" name="message" class="form-control" placeholder="Enter message">
+        <textarea type="text" name="message" class="form-control" placeholder="Enter message" style="min-height: 200px;">
+        </textarea>
         <span class="text-danger">{{ $errors->first('message') }}</span>
     </div>
 
