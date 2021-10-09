@@ -29,7 +29,7 @@ class SupportController extends Controller
     {
         abort_unless( auth()->user()->role == "admin",403);
 
-        $data['support_message'] = $supportMessage;
+        $data['support'] = $supportMessage;
 
         return view('support.create',$data);
     }
