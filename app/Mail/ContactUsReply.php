@@ -23,7 +23,8 @@ class ContactUsReply extends Mailable
 
     public function __construct($data)
     {
-        $this->data = $data;
+        $this->email = $data['email'];
+        $this->message = $data['message'];
     }
 
     /**
@@ -35,7 +36,8 @@ class ContactUsReply extends Mailable
     {
         return $this->from( config('mail.from.address') )
                     ->with([
-                        'data' => $this->data,
+                        'email' => $this->email,
+                        'message' => $this->message
                     ])
                     ->view('email.contact_us_reply');
     }
