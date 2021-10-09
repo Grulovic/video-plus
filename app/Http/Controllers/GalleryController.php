@@ -251,7 +251,8 @@ class GalleryController extends Controller
         }
 
         // $zip->renameName($zip_file,"test");
-
+        $zip_extract_name = date('Y-m-d_H-i-s')."_".str_replace(" ","-",$gallery->name).'_'.$gallery->id;
+        $zip->extractTo($zip_extract_name);
         $zip->close();
         return response()->download($zip_file)->deleteFileAfterSend(true);
     }
