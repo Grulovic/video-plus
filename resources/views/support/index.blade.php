@@ -46,7 +46,7 @@
                 <td class="text-center  bg-dark text-white" style="border-color:#454d55;">{{ $message->id }}</td>
               <td>{{ $message->email }}</td>
                 <td>{{ $message->message }}</td>
-                <td>@if($message->replied)
+                <td class="text-center">@if($message->replied)
                         <i class="fas fa-check text-success"></i>
                     @else
                         <i class="fas fa-times text-danger"></i>
