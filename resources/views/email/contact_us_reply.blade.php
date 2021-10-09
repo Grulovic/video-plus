@@ -28,7 +28,8 @@
                                            <h1 style="box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';color:#3d4852;font-size:18px;font-weight:bold;margin-top:0;text-align:left">Contact Us Reply</h1>
                                            <p style="box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-size:16px;line-height:1.5em;margin-top:0;text-align:left">
 											    <hr>
-                                            <p>{{ $data_email }}</p>
+                                            <p>To: {{ $data_email }}</p>
+                                            <p>From: Video Plus</p>
 
                                             <p class="text-muted mb-0 pb-0" style="">{{ $data_message }}</p>
 
