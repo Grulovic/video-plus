@@ -13,8 +13,9 @@ class History extends Model
 			'user_id',
 			'video_id',
             // 'photo_id',
-			'gallery_id',
-			
+            'gallery_id',
+            'plan_id',
+
 			'action'
 		];
 
@@ -26,8 +27,8 @@ class History extends Model
         return $this->belongsTo(Video::class);
     }
 
-    public function gallery(){
-        return $this->belongsTo(Gallery::class);
+    public function plan(){
+        return $this->belongsTo(Plan::class);
     }
 
     // public function photo(){
