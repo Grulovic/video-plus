@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\Mail;
 class SendQueueEmail implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-
+    protected $data;
+    public $timeout = 7200;
     /**
      * Create a new job instance.
      *
