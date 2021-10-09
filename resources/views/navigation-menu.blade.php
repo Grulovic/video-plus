@@ -20,7 +20,7 @@
 // });
 
 </script>
-<nav id="main-nav" x-data="{ open: false }" class="bg-white border-b border-gray-100 shadow-sm fixed-top" >
+<nav id="main-nav" x-data="{ open: false }" class="bg-white border-b border-gray-100 border-bottom fixed-top" >
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
