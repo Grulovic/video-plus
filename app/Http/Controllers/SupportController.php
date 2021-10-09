@@ -28,7 +28,7 @@ class SupportController extends Controller
 
     public function create(SupportMessage $supportMessage)
     {
-        Log::debug($supportMessage);
+
         abort_unless( auth()->user()->role == "admin",403);
 
         $data['support'] = $supportMessage;
@@ -54,6 +54,7 @@ class SupportController extends Controller
 
 
         $request = $request->all();
+        Log::debug($request);
 
         $supportMessage = SupportMessage::where('id',$request['message_id'])->first();
         $supportMessage->replied = true;
