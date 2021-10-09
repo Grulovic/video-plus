@@ -52,10 +52,12 @@
               </td>
 
               <td>
-                @if( $history->video_id == null )
-                  Photo
-                @else
+                @if( $history->video_id != null )
+                  Gallery
+                @elseif($history->gallery_id != null)
                   Video
+                @elseif($history->plan_id != null)
+                  Plan
                 @endif
               </td>
 
