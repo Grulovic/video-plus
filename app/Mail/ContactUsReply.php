@@ -9,10 +9,12 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 
 class ContactUsReply extends Mailable
 {
     use Queueable, SerializesModels;
+
 
     /**
      * Create a new message instance.
@@ -23,8 +25,10 @@ class ContactUsReply extends Mailable
 
     public function __construct($email,$message)
     {
-        $this->email =$email;
+        $this->email = $email;
         $this->message = $message;
+        Log::debug($this->email);
+        Log::debug($this->message);
     }
 
     /**
