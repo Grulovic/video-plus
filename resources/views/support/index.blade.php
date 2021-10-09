@@ -37,6 +37,7 @@
                 <th>Email</th>
                 <th>Message</th>
                 <th>Replied</th>
+                <th>Reply</th>
                 <th>Action</th>
             </tr>
          </thead>
@@ -51,6 +52,7 @@
                     @else
                         <i class="fas fa-times text-danger"></i>
                     @endif</td>
+                <td>{{ $message->reply }}</td>
                 <td class="text-center  bg-dark text-white" style="border-color:#454d55;">
                     <a href="{{ route('support.create',$message->id)}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Reply message">REPLY</a>
                 </td>

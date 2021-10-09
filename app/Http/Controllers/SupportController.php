@@ -58,6 +58,7 @@ class SupportController extends Controller
 
         $supportMessage = SupportMessage::where('id',$request['message_id'])->first();
         $supportMessage->replied = true;
+        $supportMessage->reply = $request['message'];
         $supportMessage->save();
 
         $to = [
