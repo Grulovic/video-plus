@@ -26,6 +26,13 @@
                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#contact_us">
                              <i class="fas fa-envelope"></i> CONTACT US
                          </button>
+                     @if (!Auth::guest())
+                         @if(Auth::user()->isAdmin)
+                             <a href="{{route('support.index')}}" class="btn btn-success">
+                                 REPLY TO MESSAGES
+                             </a>
+                         @endif
+                     @endif
 
 
                          <!-- Modal -->
