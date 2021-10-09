@@ -19,11 +19,11 @@
 <div class="col-md-8">
 <form  class="row" action="{{ route('support.reply') }}" method="POST" name="add_category">
     {{ csrf_field() }}
-    <input type="text" name="message_id"  value="{{$support->id}}" hidden>{{$support->id}}
+    <input type="text" name="message_id"  value="{{$support->id}}" hidden>
 
     <div class="form-group col-lg-6">
         <strong>Email</strong>
-        <input type="text" name="email" class="form-control" placeholder="Enter email" value="{{$support->email}}">{{$support->email}}
+        <input type="text" name="email" class="form-control" placeholder="Enter email" value="{{$support->email}}">
         <span class="text-danger">{{ $errors->first('email') }}</span>
     </div>
 
