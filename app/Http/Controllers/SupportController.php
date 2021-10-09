@@ -41,7 +41,7 @@ class SupportController extends Controller
 
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
-            'message_id' => 'required|email',
+            'message_id' => 'required|integer',
             'message' => 'required|max:5000'
         ]);
 
