@@ -38,7 +38,7 @@
   </div>
 </div>
 
-  <div class="col-lg-3">
+  <div class="col-lg-4">
         <div class="input-group pr-2 mb-2">
           <div class="input-group-prepend">
               <label class="input-group-text" for="from_date"><i class="far fa-calendar-alt"></i></label>
@@ -46,7 +46,7 @@
           <input class="form-control" type="text" id="datepicker" name="from_date" placeholder="Chose date..." value="{{(isset(request()->from_date)) ? request()->from_date : ""}}"  autocomplete="off">
         </div>
   </div>
-  <div class="col-lg-3">
+{{--  <div class="col-lg-3">--}}
 
 {{--         <div class="input-group pr-2  mb-2">--}}
 {{--            <div class="input-group-prepend">--}}
@@ -61,7 +61,8 @@
 {{--              @endforeach--}}
 {{--            </select>--}}
 {{--          </div>--}}
-</div><div class="col-lg-3">
+{{--</div>--}}
+        <div class="col-lg-4">
           <div class="input-group pr-2  mb-2">
             <div class="input-group-prepend">
               <label class="input-group-text" for="vendor"><i class="fas fa-archive"></i></label>
@@ -77,7 +78,7 @@
           </div>
 
 
-</div><div class="col-lg-3">
+</div><div class="col-lg-4">
           <div class="input-group pr-2  mb-2">
             <div class="input-group-prepend">
               <label class="input-group-text" for="sort"><i class="fas fa-long-arrow-alt-up"></i><i class="fas fa-long-arrow-alt-down"></i></label>
