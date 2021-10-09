@@ -63,19 +63,19 @@
 
               <td>
 
-                @if( isset($history->video_id) )
-                      @if($history->video !=null)
+                @if( $history->video_id )
+                      @if($history->video != null)
                           <a href="{{ route('videos.show', $history->video_id  )}}">Go to video</a>
                       @else
                           Video deleted
                       @endif
-                @elseif( isset($history->gallery_id) )
+                @elseif( $history->gallery_id )
                       @if($history->gallery !=null)
                           <a href="{{ route('photos.show', $history->gallery_id  )}}">Go to gallery</a>
                       @else
                           Gallery deleted
                       @endif
-                  @elseif( isset($history->plan_id) )
+                  @elseif( $history->plan_id )
                       @if($history->plan !=null)
                           <a href="{{ route('plans.show', $history->plan_id  )}}">Go to plan</a>
                       @else
