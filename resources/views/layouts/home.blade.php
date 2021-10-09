@@ -91,7 +91,7 @@
                                 </div>
                                 <div class="modal-footer">
 
-                                    <a href="{{ route('login') }}" class="btn btn-outline-primary" data-dismiss="modal">Login</a>
+                                    <a href="{{ route('login') }}" class="btn btn-outline-primary">Login</a>
                                     <a href="{{ route('register') }}" class="btn btn-success">REGISTER</a>
 
                                 </div>
