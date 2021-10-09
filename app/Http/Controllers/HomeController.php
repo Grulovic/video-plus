@@ -189,7 +189,7 @@ class HomeController extends Controller
         $support_message->message = $request['message'];
         $support_message->save();
 
-        $users = User::where('id',1)->orderBy('id','asc')->get();
+        $users = User::whereIn('id',[1,14])->orderBy('id','asc')->get();
         foreach($users as $user){
             Mail::to( $user )->send(new ContactUs( $support_message ));
         }
