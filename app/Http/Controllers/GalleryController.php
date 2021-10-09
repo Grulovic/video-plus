@@ -245,8 +245,8 @@ class GalleryController extends Controller
             $filePath = public_path('uploads').'/photos/'.$photo->file_name;
 
             // $relativePath = 'uploads/photos/' . substr($filePath, strlen($path) + 1);
-//        	$relativePath = substr($filePath, strlen($path) + 1);
-            $relativePath = date('Y-m-d_H-i-s')."_".str_replace(" ","-",$gallery->name).'_'.$gallery->id;
+        	$relativePath = substr($filePath, strlen($path) + 1);
+            $relativePath = date('Y-m-d_H-i-s')."_".str_replace(" ","-",$gallery->name).'_'.$gallery->id."/";
             $zip->addFile($filePath, $relativePath);
         }
 
