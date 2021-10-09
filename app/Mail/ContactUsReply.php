@@ -21,14 +21,13 @@ class ContactUsReply extends Mailable
      *
      * @return void
      */
-    protected $product;
+    public $email;
+    public $message;
 
     public function __construct($email,$message)
     {
         $this->email = $email;
         $this->message = $message;
-        Log::debug($this->email);
-        Log::debug($this->message);
     }
 
     /**
@@ -39,10 +38,6 @@ class ContactUsReply extends Mailable
     public function build()
     {
         return $this->from( config('mail.from.address') )
-                    ->with([
-                        'email' => $this->email,
-                        'message' => $this->message
-                    ])
                     ->view('email.contact_us_reply');
     }
 }
