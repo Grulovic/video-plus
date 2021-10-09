@@ -41,6 +41,7 @@ class SupportController extends Controller
 
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
+            'message_id' => 'required|email',
             'message' => 'required|max:5000'
         ]);
 
@@ -48,7 +49,13 @@ class SupportController extends Controller
             return Redirect::back()->with('error',$validator->messages()->first());
         }
 
+
+
         $request = $request->all();
+
+        $support_message = SupportMessage::where('id',$request['message_id'])->first();
+        $support_message->replied = true;
+        $support_message->save();
 
         $to = [
             [

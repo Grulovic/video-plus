@@ -19,6 +19,7 @@
 <div class="col-md-8">
 <form  class="row" action="{{ route('support.reply') }}" method="POST" name="add_category">
     {{ csrf_field() }}
+    <input type="text" name="message_id" class="form-control" placeholder="Enter email" value="{{$message->id}}" hidden>
 
     <div class="form-group col-lg-6">
         <strong>Email</strong>
