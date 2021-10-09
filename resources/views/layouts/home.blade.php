@@ -66,11 +66,15 @@
             <main>
 
                 @if (Auth::guest())
-{{--                    <script type="text/javascript">--}}
-{{--                        $(window).on('load', function() {--}}
-{{--                            $('#registerModal').modal('show');--}}
-{{--                        });--}}
-{{--                    </script>--}}
+                    <script type="text/javascript">
+                        $(window).on('load', function() {
+
+                            window.setTimeout(function (){
+                                ('#registerModal').modal('show');
+                                }, 5000);
+                            $
+                        });
+                    </script>
 
 
                     <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="contact_us" aria-hidden="true">
