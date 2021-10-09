@@ -7,7 +7,7 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
         <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
-        
+
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
@@ -23,7 +23,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
         <script src="https://kit.fontawesome.com/64252806a4.js" crossorigin="anonymous"></script>
-        
+
         @livewireStyles
 
         <!-- Scripts -->
@@ -35,7 +35,7 @@
         /*    z-index:9;*/
         /*}*/
         </style>
-    
+
 		<script type="text/javascript" src="{{ URL::asset('js/create_view.js') }}"></script>
   <script src="{{ asset('js/additions.js') }}" defer></script>
    <link href="{{ asset('css/additions.css') }}" rel="stylesheet">
@@ -50,6 +50,32 @@
         </script>
     </head>
     <body class="font-sans antialiased">
+    @if (Auth::guest())
+    <script type="text/javascript">
+        $(window).on('load', function() {
+            $('#registerModal').modal('show');
+        });
+    </script>
+
+
+    <div class="modal hide fade" id="registerModal">
+        <div class="modal-header">
+            <a class="close" data-dismiss="modal">×</a>
+            <h3>Don't have an account?</h3>
+        </div>
+        <div class="modal-body">
+            <h4>Register for FREE and gain access to all of the content!</h4>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn">Close</a>
+            <a href="{{ route('register') }}" class="btn btn-primary">REGISTER</a>
+        </div>
+    </div>
+    @endif
+
+
+
+
         <x-jet-banner />
 
         <div class="min-h-screen bg-gray-100">
@@ -62,7 +88,7 @@
                 {{ $slot }}
             </main>
         </div>
-        
+
         @include('footer')
 
         @stack('modals')
