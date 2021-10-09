@@ -178,7 +178,7 @@ class VideoController extends Controller
         }else{
         }
 
-        $data['data'] = $video;
+        $data['data'] = Video::where('id',$new_video->id)->get()->first();
         $data['mail'] = 'App\Mail\VideoUpdated';
         $data['users'] = $users;
 
