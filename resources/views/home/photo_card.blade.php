@@ -6,7 +6,7 @@
 
   @foreach($gallery->photos as $photo)
   @if($loop->first)
-        <a href="{{ route('photos.show',$gallery->id)}}"><img src="{{ url('uploads/photos/'.$photo->file_name) }}" class="card-img-top bg-dark" style="height: 250px; min-width: 100%!important; display: block; object-fit:cover;  object-position:top;"></a>
+        <a href="{{ route('photos.show',$gallery->id)}}"><img src="{{ url('uploads/photos/compressed/'.$photo->file_name) }}" class="card-img-top bg-dark" style="height: 250px; min-width: 100%!important; display: block; object-fit:cover;  object-position:top;"></a>
   @endif
 	@endforeach
 

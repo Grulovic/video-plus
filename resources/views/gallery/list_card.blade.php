@@ -1,18 +1,18 @@
 <div class="col-lg-12 m-0 p-0">
   <div class="card shadow-sm mb-4">
     <div class="row no-gutters" style="max-height: 400px;">
-        
+
         <div class="col-lg-5 h-100 my-auto border-right" style="
         ">
-        
-        @foreach($gallery->photos as $photo)  
+
+        @foreach($gallery->photos as $photo)
   @if($loop->first)
-        <a href="{{ route('photos.show',$gallery->id)}}"><img src="{{ url('uploads/photos/'.$photo->file_name) }}" class="" style="max-height:400px; width: 100%!important; display: block; object-fit:cover;   object-position:top;"></a>
+        <a href="{{ route('photos.show',$gallery->id)}}"><img src="{{ url('uploads/photos/compressed/'.$photo->file_name) }}" class="" style="max-height:400px; width: 100%!important; display: block; object-fit:cover;   object-position:top;"></a>
   @endif
 	@endforeach
-        
 
-           
+
+
   {{--<div id="gallery{{$gallery->id}}" class="carousel slide card-img-top rounded-left shadow-sm bg-dark" data-ride="carousel" style="height: 400px; width: 100%!important; display: block;">
     <ol class="carousel-indicators">
       @foreach($gallery->photos as $photo)
@@ -32,7 +32,7 @@
       </div>
       @endforeach
 
-      
+
 
     </div>
     <a class="carousel-control-prev " href="#gallery{{$gallery->id}}" role="button" data-slide="prev">
@@ -58,7 +58,7 @@
                 <p class="text-muted">
                   @if( sizeof($gallery->categories) > 0 )
                     @foreach($gallery->categories as $category)
-                    {{$category->category->title}} 
+                    {{$category->category->title}}
                       @if(!$loop->last) | @endif
                     @endforeach
                   @else
@@ -66,7 +66,7 @@
                   @endif
                 </p>
             </div>
-          
+
 
             <div class="col-lg-5">
                 <p class="mb-0 pb-0"><strong>Video uploaded by:</strong> {{ $gallery->user->name}}</p>
@@ -85,26 +85,26 @@
             </div>
 
           	<div class="text-muted text-right w-100 pr-4 h5"><small>Views: {{$gallery->view_num()}}</small> </div>
-          
+
              <div class="col-lg-12 card-footer text-center text-lg-right w-100 align-self-end pl-1 pr-3"  style="">
               <div class="btn-group">
                 <a href="{{ route('photos.show',$gallery->id)}}" class="btn btn-sm  btn-primary"><i class="far fa-eye"></i> View</a>
                 <a href="{{ route('photos.download',$gallery->id)}}" class="btn btn-sm  btn-success"><i class="fas fa-download"></i> Download</a>
                 <button class="btn btn-sm btn-info" onclick="copyToClipboard('{{ route('photos.show',$gallery->id)}}')"><i class="far fa-share-square"></i> Copy link</button>
-                
-                
+
+
                 @if( auth()->user()->role == "admin")
-                
+
                 <a href="{{ route('photos.edit',$gallery->id)}}" class="btn btn-sm  btn-warning"><i class="far fa-edit"></i> Edit</a>
-                
+
                 <button type="button" class="btn btn-sm  btn-danger" style="border-radius: 0 0.25rem 0.25rem 0;" data-toggle="modal" data-target="#modal_{{$gallery->id}}_delete_btn"  data-toggle="tooltip" data-placement="top" title="Delete Video">
                    <i class="far fa-trash-alt"></i> Delete
                   </button>
-               
-                
-                
-                
-               
+
+
+
+
+
                 @endif
 
               </div>
@@ -144,7 +144,7 @@
                           data-toggle="tooltip" data-placement="top" title="Delete gallery">
                           <i class="far fa-trash-alt"></i> Delete Gallery</button>
                         </form>
-                        
+
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                       </div>
                     </div>

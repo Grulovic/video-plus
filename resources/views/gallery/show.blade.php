@@ -58,10 +58,10 @@
 
       @foreach($gallery->photos as $photo)
       <div class="carousel-item {{ $loop->first ? 'active':'' }} h-100 rounded-left text-center h-100 my-auto"
-        style="background-image:url({{ url('uploads/photos/'.$photo->file_name) }}); background-size:contain; background-position: center; background-repeat:no-repeat; ">
+        style="background-image:url({{ url('uploads/photos/compressed/'.$photo->file_name) }}); background-size:contain; background-position: center; background-repeat:no-repeat; ">
         <div>
         <p class="mb-0 w-100 text-white bg-secondary text-center"style="position:absolute;bottom:0px;">{{ $photo->file_name }}</p>
-        <img src="{{ url('uploads/photos/'.$photo->file_name) }}" class="d-none text-center" style="max-height: 500px; width:auto;  margin-left: auto; margin-right: auto;">
+        <img src="{{ url('uploads/photos/compressed/'.$photo->file_name) }}" class="d-none text-center" style="max-height: 500px; width:auto;  margin-left: auto; margin-right: auto;">
         </div>
       </div>
       @endforeach
