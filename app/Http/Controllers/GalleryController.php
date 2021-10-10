@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\File;
 use Response;
 use Redirect;
 use Session;
+use Spatie\LaravelImageOptimizer\Facades\ImageOptimizer;
 use URL;
 use ZipArchive;
 
@@ -111,6 +112,10 @@ class GalleryController extends Controller
 
                 $extension = $image->getClientOriginalExtension();
                 Storage::disk('photos')->put( $file_name,  File::get($image));
+
+                $imagePath = Storage::disk('photos')->path($file_name);
+                $storagePath = Storage::disk('photos_compressed')->path() . $file_name;
+                ImageOptimizer::optimize($imagePath, $storagePath);
 
                 //and add these attributes to the databse for future retrevial of image
                 $image_attributes['mime'] = $image->getClientMimeType();

@@ -21,7 +21,8 @@
         "livewire/livewire": "^2.0",
         "pbmedia/laravel-ffmpeg": "^7.5",
         "pschocke/laravel-telegram-login-widget": "^1.2",
-        "rap2hpoutre/laravel-log-viewer": "^1.7"
+        "rap2hpoutre/laravel-log-viewer": "^1.7",
+        "spatie/laravel-image-optimizer": "^1.6"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

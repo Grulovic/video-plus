@@ -60,6 +60,13 @@ return [
             'visibility' => 'public',
         ],
 
+        'photos_compressed' => [
+            'driver' => 'local',
+            'root'   => '../httpdocs/uploads/photos/compressed',
+            'url' => env('APP_URL').'/public/photos/compressed',
+            'visibility' => 'public',
+        ],
+
 
     	 'videos' => [
             'driver' => 'local',
