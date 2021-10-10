@@ -82,7 +82,7 @@ class VideoController extends Controller
         $request->validate([
             'name' => 'present|nullable',
             'category' => 'required|nullable',
-            'video' => 'required|file|max:500000|mimetypes:video/x-ms-asf,video/x-flv,video/mp4,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi,avi,flv,mp4,mpeg',
+            'video' => 'required|file|mimetypes:video/x-ms-asf,video/x-flv,video/mp4,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi,avi,flv,mp4,mpeg',
             'location' => 'present|nullable',
             'description' => 'present|nullable',
         	'session_id' => 'required',
@@ -383,7 +383,7 @@ class VideoController extends Controller
        $request->validate([
             'name' => 'present|nullable',
             'category' => 'required|nullable',
-            'video' => 'nullable|file|max:500000|mimetypes:video/x-ms-asf,video/x-flv,video/mp4,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi,avi,flv,mp4,mpeg',
+            'video' => 'nullable|file|mimetypes:video/x-ms-asf,video/x-flv,video/mp4,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi,avi,flv,mp4,mpeg',
             'location' => 'present|nullable',
             'description' => 'present|nullable',
             'thumbnail' => 'present|required',
@@ -475,8 +475,12 @@ class VideoController extends Controller
         }
 
 
+        $email_push = $request['email_push'];
 
         $video->update($request);
+
+
+
 
         History::create([
                             'video_id' => $id
