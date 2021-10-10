@@ -70,7 +70,7 @@
                           /
                       @endif
                 @elseif( $history->gallery_id )
-                      @if($history->gallery !=null)
+                      @if($history->gallery != null)
                           <a href="{{ route('photos.show', $history->gallery_id  )}}">Go to gallery</a>
                       @else
                           /

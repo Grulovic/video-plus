@@ -68,7 +68,7 @@
                     <div class="collapse mb-2 " id="plan{{ $loop->index }}videos">
                         <div class="card">
                             <div class="rounded-top bg-light border-bottom font-weight-bold p-1">Videos:</div>
-                            <div class="card-body">
+                            <div class="card-body row">
                                 @foreach( $plan->videoItems as $video )
                                     @php $video = $video->getItem @endphp
                                     @include('plan.video_card')
@@ -82,7 +82,7 @@
                     <div class="collapse mb-2 " id="plan{{ $loop->index }}photos">
                         <div class="card">
                             <div class="rounded-top bg-light border-bottom font-weight-bold p-1">Galleries:</div>
-                            <div class="card-body">
+                            <div class="card-body row">
                                 @foreach( $plan->photoItems as $gallery )
                                     @php $gallery = $gallery->getItem @endphp
                                     @include('plan.photo_card')
@@ -94,7 +94,7 @@
                     <div class="collapse mb-2" id="plan{{ $loop->index }}texts">
                         <div class="card">
                             <div class="rounded-top bg-light border-bottom font-weight-bold p-1">Articles:</div>
-                            <div class="card-body">
+                            <div class="card-body row">
                                 @foreach( $plan->textItems as $article )
                                     @php $article = $article->getItem @endphp
                                     @include('plan.text_card')
@@ -106,7 +106,7 @@
                     <div class="collapse mb-2" id="plan{{ $loop->index }}lives">
                         <div class="card">
                             <div class="rounded-top bg-light border-bottom font-weight-bold p-1">Live Streams:</div>
-                            <div class="card-body">
+                            <div class="card-body row">
                                 @foreach( $plan->liveItems as $live )
                                     @php $live = $live->getItem @endphp
                                     @include('plan.live_card')
