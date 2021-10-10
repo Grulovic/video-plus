@@ -1,9 +1,9 @@
 <x-app-layout>
     <x-slot name="header">
-   
+
 
  <div class="row  m-0 p-0">
-  
+
   <div class="col-lg-3  text-left">
     <h2>Users List:</h2>
   </div>
@@ -14,42 +14,47 @@
 
   </div>
 
-  
+
 </div>
 
 
     </x-slot>
 
  <div class="row m-0 p-0 pt-5 pb-5">
- 
+
    @include('alerts')
- 
- 
+
+
       <div class="col-md-1"></div>
 
-      <div class="col-md-10 p-0" style="padding-right: 0; overflow-x: auto;">          
+      <div class="col-md-10 p-0" style="padding-right: 0; overflow-x: auto;">
         <table class="table table-bordered sortable" id="laravel_crud">
          <thead>
             <tr class="thead-dark">
-              
+
                 <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Email verified at</th>
                 <th>Role</th>
-                
+
             </tr>
          </thead>
          <tbody>
             @foreach($users as $user)
             <tr class=" bg-white " >
-              
+
 
                <td class="text-center  bg-dark text-white" style="border-color:#454d55;">{{ $user->id }}</td>
-              <td>{{ $user->name }}</td>                
+              <td>{{ $user->name }}</td>
               <td>{{ $user->email }}</td>
-              <td>{{ $user->email_verified_at }}</td>
-              
+              <td>@if($user->email_verified_at)
+                  {{ $user->email_verified_at }}
+                    @else
+                  <i class="fas fa-times text-danger"></i>
+                      @endif
+              </td>
+
               <td class="text-center  bg-secondary text-white">
                   @if(auth()->user()->id != $user->id)
                   <form class="text-center form-inline" action="{{ route('users.update', $user->id)}}" method="post">
@@ -60,11 +65,11 @@
                           <option {{ $user->role == "admin" ? "selected":"" }} value="admin" >Admin</option>
                         </select>
                     </div>
-                    
+
                     <button type="button" class="btn btn-danger" style="max-width:250px;" data-toggle="modal" data-target="#modal_{{$user->id}}_delete_btn"  data-toggle="tooltip" data-placement="top" title="Update User Role">
                    Update role
                   </button>
-                  
+
                     <!-- Modal -->
                     <div class="modal fade text-black" id="modal_{{$user->id}}_delete_btn" tabindex="-1" role="dialog" aria-labelledby="modal_{{$user->id}}_delete_btn" aria-hidden="true">
                       <div class="modal-dialog" role="document">
@@ -80,27 +85,27 @@
                           </div>
                           <div class="modal-footer">
                              <button class="btn btn-danger" type="submit" style="max-width:50%;">Update role</button>
-                            
+
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                           </div>
                         </div>
                       </div>
                     </div>
                     <!-- End Modal -->
-                
-                    
+
+
                   </form>
                   @endif
               </td>
-              
 
 
-              
+
+
 
             </tr>
 
             @endforeach
- 
+
             @if(count($users) < 1)
               <tr class="bg-white">
                <td colspan="13" class="text-center">There are no user available yet!</td>
@@ -109,7 +114,7 @@
             @endif
          </tbody>
         </table>
-     </div> 
+     </div>
       <div class="col-md-1"></div>
 
   <div class="col-md-1"></div>
@@ -118,7 +123,7 @@
       </div>
       <div class="col-md-1"></div>
 
-     
+
 
 
  </div>
