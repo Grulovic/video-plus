@@ -7,7 +7,6 @@
   <div class="col-9  text-left">
     <h2>Support Messages List:</h2>
       <p>Current date: @php
-              date_default_timezone_set('Europe/Belgrade');
               echo date("Y/m/d h:i:sa");
           @endphp</p>
   </div>
