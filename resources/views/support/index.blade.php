@@ -21,7 +21,9 @@
 
 
     </x-slot>
-
+@php
+echo date();
+@endphp
  <div class="row m-0 p-0 pt-5 pb-5">
 
    @include('alerts')
