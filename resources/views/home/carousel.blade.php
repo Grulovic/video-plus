@@ -148,7 +148,7 @@ console.log("here");
     		    @if(sizeof($item->photos) > 0)
     		    <div class="carousel-item {{ ($loop->first)?'active':'' }}" style="
     		    background-color:rgba(0,0,0,0.3);
-    		    background-image:url({{url('uploads/photos/compressed/'.$item->photos[0]->file_name)}})!important;
+    		    background-image:url({{url('uploads/photos/'.$item->photos[0]->file_name)}})!important;
     		    background-size:cover;
     		    background-position:top;
     		    background-repeat:no-repeat;
