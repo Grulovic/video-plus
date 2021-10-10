@@ -267,7 +267,9 @@ class VideoController extends Controller
 
     	// return response()->json( Session::get('session_encoding_progress') );
     	// return response()->json( request()->session()->get('session_encoding_progress'.$id) );
-    	return response()->json( $video->progress );
+        if($video){
+            return response()->json( $video->progress );
+        }
     }
 
 
