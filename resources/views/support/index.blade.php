@@ -6,6 +6,10 @@
 
   <div class="col-9  text-left">
     <h2>Support Messages List:</h2>
+      <p>Current date: @php
+              date_default_timezone_set('Europe/Belgrade');
+              echo date("Y/m/d h:i:sa");
+          @endphp</p>
   </div>
 
 
@@ -21,10 +25,7 @@
 
 
     </x-slot>
-@php
-    date_default_timezone_set('Europe/Belgrade');
-    echo date("Y/m/d h:i:sa");
-@endphp
+
  <div class="row m-0 p-0 pt-5 pb-5">
 
    @include('alerts')
