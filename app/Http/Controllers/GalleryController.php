@@ -22,6 +22,7 @@ use App\Mail\GalleryUploaded;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Intervention\Image\Facades\Image;
 use Response;
 use Redirect;
 use Session;
@@ -115,9 +116,13 @@ class GalleryController extends Controller
 
                 $imagePath = Storage::disk('photos')->path($file_name);
                 $storagePath = Storage::disk('photos_compressed')->path('/'). $file_name;
-                Log::debug($imagePath);
-                Log::debug($storagePath);
                 ImageOptimizer::optimize($imagePath, $storagePath);
+
+                $img = Image::make($storagePath);
+                $img->resize(2000, 2000, function ($const) {
+                    $const->aspectRatio();
+                })->save($storagePath);
+
 
                 //and add these attributes to the databse for future retrevial of image
                 $image_attributes['mime'] = $image->getClientMimeType();

@@ -181,6 +181,7 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class
 
     ],
 
@@ -234,7 +235,9 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-    	'FFMpeg' => ProtoneMedia\LaravelFFMpeg\Support\FFMpeg::class
+    	'FFMpeg' => ProtoneMedia\LaravelFFMpeg\Support\FFMpeg::class,
+
+        'Image' => Intervention\Image\Facades\Image::class
 
     ],
 
