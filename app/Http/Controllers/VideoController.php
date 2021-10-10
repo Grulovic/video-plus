@@ -486,7 +486,7 @@ class VideoController extends Controller
     // return redirect(Session::get('video_edit_request_referrer'))
     //    ->with('success','Great! Video updated successfully');
 
-    return response()->json( $video->id );
+    return response()->json( $id );
 
     }
 
