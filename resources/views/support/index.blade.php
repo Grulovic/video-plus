@@ -22,7 +22,8 @@
 
     </x-slot>
 @php
-echo date("Y/m/d h:i:sa");
+    date_default_timezone_set('Europe/Belgrade');
+    echo date("Y/m/d h:i:sa");
 @endphp
  <div class="row m-0 p-0 pt-5 pb-5">
 
