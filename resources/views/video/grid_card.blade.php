@@ -27,7 +27,7 @@
 
 
 
-      <p class="text-muted mb-0 pb-0" style="">{{ Str::limit($video->description, 70, $end='...')}}</p>
+      <p class="text-muted mb-0 pb-0" style="">{{ Str::limit($video->description, 100, $end='...')}}</p>
 
     </div>
     <div class="text-muted text-right w-100 pr-2"><small>Views: {{$video->view_num()}}</small> </div>
