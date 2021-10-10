@@ -360,6 +360,15 @@ class GalleryController extends Controller
                 $extension = $image->getClientOriginalExtension();
                 Storage::disk('photos')->put( $file_name,  File::get($image));
 
+                $imagePath = Storage::disk('photos')->path($file_name);
+                $storagePath = Storage::disk('photos_compressed')->path('/'). $file_name;
+                ImageOptimizer::optimize($imagePath, $storagePath);
+
+                $img = Image::make($storagePath);
+                $img->resize(2000, 2000, function ($const) {
+                    $const->aspectRatio();
+                })->save($storagePath);
+
                 //and add these attributes to the databse for future retrevial of image
                 $image_attributes['mime'] = $image->getClientMimeType();
                 $image_attributes['original_file_name'] = $image->getClientOriginalName();
@@ -535,5 +544,23 @@ class GalleryController extends Controller
                         });
 
         return $galleries;
+    }
+
+
+    public function compress_uploaded(){
+        $photos = Photo::get();
+
+        foreach ($photos as $photo){
+            $file_name = $photo->file_name;
+
+            $imagePath = Storage::disk('photos')->path($file_name);
+            $storagePath = Storage::disk('photos_compressed')->path('/'). $file_name;
+            ImageOptimizer::optimize($imagePath, $storagePath);
+
+            $img = Image::make($storagePath);
+            $img->resize(2000, 2000, function ($const) {
+                $const->aspectRatio();
+            })->save($storagePath);
+        }
     }
 }

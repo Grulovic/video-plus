@@ -52,6 +52,8 @@ Route::delete('/photos/{photo}/destroy_photo', 'GalleryController@destroy_photo'
 Route::get('/photos/list', 'GalleryController@list')->name("photos.list");
 Route::get('/photos/{photo}/download', 'GalleryController@download')->name("photos.download");
 Route::resource('photos', GalleryController::class);
+Route::get('/gallery/compress_uploaded', 'GalleryController@compress_uploaded')->name("compress.uploaded");
+
 
 Route::resource('categories', CategoryController::class);
 
