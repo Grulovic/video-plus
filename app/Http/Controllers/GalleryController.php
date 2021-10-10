@@ -114,8 +114,10 @@ class GalleryController extends Controller
                 Storage::disk('photos')->put( $file_name,  File::get($image));
 
                 $imagePath = Storage::disk('photos')->path($file_name);
-                $storagePath = Storage::disk('photos_compressed')->path() . $file_name;
-                ImageOptimizer::optimize($imagePath, $storagePath);
+                $storagePath = storage_path('photos_compressed'). $file_name;
+                Log::debug($imagePath);
+                Log::debug($storagePath);
+//                ImageOptimizer::optimize($imagePath, $storagePath);
 
                 //and add these attributes to the databse for future retrevial of image
                 $image_attributes['mime'] = $image->getClientMimeType();
