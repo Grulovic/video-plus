@@ -114,7 +114,7 @@ class GalleryController extends Controller
                 Storage::disk('photos')->put( $file_name,  File::get($image));
 
                 $imagePath = Storage::disk('photos')->path($file_name);
-                $storagePath = storage_path('photos_compressed'). $file_name;
+                $storagePath = storage_path('photos_compressed')."/". $file_name;
                 Log::debug($imagePath);
                 Log::debug($storagePath);
                 ImageOptimizer::optimize($imagePath, $storagePath);
