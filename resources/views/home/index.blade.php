@@ -103,7 +103,7 @@
         </div>
         <div class="col-lg-6 my-auto">
             <div class="text-center text-lg-right mt-2 mb-4">
-                <a class="btn btn-outline-primary" href="{{route('videos.index')}}">Show latest videos <i class="fas fa-angle-right"></i></a>
+                <a class="btn btn-outline-primary" href="{{route('videos.index')}}">Show more videos <i class="fas fa-angle-right"></i></a>
             </div>
         </div>
 
@@ -135,7 +135,7 @@
         </div>
         <div class="col-lg-6 my-auto">
             <div class="text-center text-lg-right mt-2 mb-4">
-                <a class="btn btn-outline-primary" href="{{route('photos.index')}}">Show latest photos <i class="fas fa-angle-right"></i></a>
+                <a class="btn btn-outline-primary" href="{{route('photos.index')}}">Show more photos <i class="fas fa-angle-right"></i></a>
             </div>
         </div>
         @if($latest_photos != null)
