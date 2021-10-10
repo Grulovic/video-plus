@@ -4,7 +4,7 @@
 
       <div class="text-muted text-right w-100 pr-2"><small>{{ date('j. F Y. H:i', strtotime($live->created_at)) }}</small></div>
     <div class="card-body pt-0" style="overflow: hidden;">
-      <a href="{{ route('lives.show',$live->id)}}" class="text-black"><h5 class="pb-0 mb-0">{{ Str::limit($live->title, 35, $end='...')}}</h5></a>
+      <a href="{{ route('lives.show',$live->id)}}" class="text-black"><h5 class="pb-0 mb-0">{{ Str::limit($live->title, 70, $end='...')}}</h5></a>
 
 
 
