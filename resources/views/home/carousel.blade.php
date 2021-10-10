@@ -45,7 +45,7 @@ console.log("here");
 
   .carousel-control-prev
   ,.carousel-control-next{
-      width:6%!important;
+      width:9.5%!important;
   }
 
    .carousel-indicators li {
@@ -107,7 +107,7 @@ console.log("here");
 	  	@foreach($carausel as $item)
 	  		@if(class_basename($item) == "Video")
 		    <div class="carousel-item {{ ($loop->first)?'active':'' }}" style="">
-		    	<div class="container h-100" style="max-width: 85%;">
+		    	<div class="container h-100" style="max-width: 80%;">
 		      <div class="row m-0 p-0 h-100" style="">
 
 
