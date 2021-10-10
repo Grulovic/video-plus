@@ -45,7 +45,7 @@ console.log("here");
 
   .carousel-control-prev
   ,.carousel-control-next{
-      width:7.5%!important;
+      width:6.5%!important;
   }
 
    .carousel-indicators li {
