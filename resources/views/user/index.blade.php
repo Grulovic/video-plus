@@ -48,7 +48,7 @@
                <td class="text-center  bg-dark text-white" style="border-color:#454d55;">{{ $user->id }}</td>
               <td>{{ $user->name }}</td>
               <td>{{ $user->email }}</td>
-              <td>@if($user->email_verified_at)
+              <td class="text-center">@if($user->email_verified_at)
                   {{ $user->email_verified_at }}
                     @else
                   <i class="fas fa-times text-danger"></i>
