@@ -364,11 +364,10 @@ class VideoController extends Controller
     }
 
 
-    public function update(Request $request, Video $video)
+    public function update(Video $video, Request $request)
     {
 
        abort_unless( auth()->user()->role == "admin",403);
-
        $request->validate([
             'name' => 'present|nullable',
             'category' => 'required|nullable',
@@ -379,6 +378,12 @@ class VideoController extends Controller
         	'session_id' => 'required',
         ]);
         $request = $request->all();
+        $video->name = $request['name'];
+        $video->location = $request['location'];
+        $video->description = $request['description'];
+        $video->thumbnail = $request['thumbnail'];
+        $video->save();
+
 
         if( request()->file('video') ){
 
@@ -441,12 +446,6 @@ class VideoController extends Controller
                             ,'user_id' => Auth::id()
                             ,'action' => "Video Edited"
                         ]);
-
-        $video->name = $request['name'];
-        $video->location = $request['location'];
-        $video->description = $request['description'];
-        $video->thumbnail = $request['thumbnail'];
-        $video->save();
 
 
         return response()->json( $video->id );
