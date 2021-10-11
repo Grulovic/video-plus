@@ -48,7 +48,7 @@
          </thead>
          <tbody>
             @foreach($messages as $message)
-            <tr class=" bg-white " >
+            <tr class=" @if($loop->even)bg-ligt @else bg-white @endif" >
                 <td class="text-center  bg-dark text-white" style="border-color:#454d55;">{{ $message->id }}</td>
                 <td><a href="mailto:{{ $message->email }}">{{ $message->email }}</a></td>
                 <td>{{ $message->message }}</td>
