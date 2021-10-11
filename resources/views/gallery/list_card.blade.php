@@ -83,9 +83,11 @@
                 <p class="mb-0 pb-0">{{ Str::limit($gallery->description, 170, $end='...')}}</p>
                 <br>
             </div>
-
+              @if (!Auth::guest())
+                  @if( auth()->user()->role == "admin")
           	<div class="text-muted text-right w-100 pr-4 h5"><small>Views: {{$gallery->view_num()}}</small> </div>
-
+@endif
+              @endif
              <div class="col-lg-12 card-footer text-center text-lg-right w-100 align-self-end pl-1 pr-3"  style="">
               <div class="btn-group">
                 <a href="{{ route('photos.show',$gallery->id)}}" class="btn btn-sm  btn-primary"><i class="far fa-eye"></i> View</a>

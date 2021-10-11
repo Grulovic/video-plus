@@ -18,9 +18,11 @@
       <a href="{{ route('videos.show',$video->id)}}" class="text-black"><h5 class="pb-0 mb-0">{{ Str::limit($video->name, 70, $end='...')}}</h5></a>
       <p class="text-muted mb-0 pb-3" style="">{{ Str::limit($video->description, 100, $end='...')}}</p>
     </div>
-
+      @if (!Auth::guest())
+          @if( auth()->user()->role == "admin")
   <div class="text-muted text-right w-100 pr-2"><small>Views: {{$video->view_num()}}</small> </div>
-
+@endif
+      @endif
 
      @if (!Auth::guest())
     <div class="card-footer  text-right my-auto">

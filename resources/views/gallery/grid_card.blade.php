@@ -26,9 +26,11 @@
 
       <p class="text-muted mb-0 pb-0" style="">{{ Str::limit($gallery->description, 100, $end='...')}}</p>
     </div>
-
+        @if (!Auth::guest())
+            @if( auth()->user()->role == "admin")
   <div class="text-muted text-right w-100 pr-2"><small>Views: {{$gallery->view_num()}}</small> </div>
-
+@endif
+        @endif
     <div class="card-footer  text-right">
         <div class="btn-group ">
           <a href="{{ route('photos.show',$gallery->id)}}" class="btn btn-sm btn-primary"><i class="far fa-eye"></i> View</a>
