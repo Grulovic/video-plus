@@ -38,7 +38,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', 'MessageContr
 	Route::get('/videos/create_view/{id}', 'VideoController@create_view')->name("videos.create_view");
 
 
-	Route::resource('videos', \App\Http\Controllers\VideoController::class);
+	Route::resource('videos', VideoController::class);
 // });
 
 
@@ -51,11 +51,11 @@ Route::middleware(['auth:sanctum'])->post('/users/update/{user}', 'UserControlle
 Route::delete('/photos/{photo}/destroy_photo', 'GalleryController@destroy_photo')->name("photos.destroy_photo");
 Route::get('/photos/list', 'GalleryController@list')->name("photos.list");
 Route::get('/photos/{photo}/download', 'GalleryController@download')->name("photos.download");
-Route::resource('photos', \App\Http\Controllers\GalleryController::class);
+Route::resource('photos', GalleryController::class);
 //Route::get('/gallery/compress_uploaded', 'GalleryController@compress_uploaded')->name("compress.uploaded");
 
 
-Route::resource('categories', \App\Http\Controllers\CategoryController::class);
+Route::resource('categories', CategoryController::class);
 
 
 // LIVES
@@ -84,15 +84,15 @@ Route::group( ['middleware' => ['auth:sanctum','is.admin'] ] ,function () {
 
 
 // ARTICLES
-Route::middleware(['auth:sanctum'])->resource('articles', \App\Http\Controllers\ArticleController::class);
+Route::middleware(['auth:sanctum'])->resource('articles', ArticleController::class);
 Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
 
 
 
 Route::get('/clear-cache', function() {
-    $exitCode = \Illuminate\Support\Facades\Artisan::call('config:clear');
-    $exitCode = \Illuminate\Support\Facades\Artisan::call('cache:clear');
-    $exitCode = \Illuminate\Support\Facades\Artisan::call('config:cache');
+    $exitCode = Artisan::call('config:clear');
+    $exitCode = Artisan::call('cache:clear');
+    $exitCode = Artisan::call('config:cache');
     return 'DONE'; //Return anything
 });
 
