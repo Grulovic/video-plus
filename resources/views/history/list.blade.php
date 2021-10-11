@@ -18,17 +18,22 @@
      <div class="col-md-1"></div>
      <div class="col-md-10 mb-4">
          <div class="row m-0 p-0">
-             <div class="card col-lg-6 shadow-sm p-0">
+             <div class="col-lg-6 p-0">
+                 <div class="card shadow-sm" >
                  <div class="card-header h3">Video Downloads</div>
                  <div class="card-body">
                      <h4>{{ $video_downloads }}</h4>
                  </div>
-             </div>
-             <div class="card col-lg-6 shadow-sm p-0">
-                 <div class="card-header h3">Gallery Downloads</div>
-                 <div class="card-body">
-                     <h4>{{ $photo_downloads }}</h4>
                  </div>
+             </div>
+             <div class="col-lg-6 p-0">
+                 <div class="card shadow-sm" >
+                     <div class="card-header h3">Gallery Downloads</div>
+                     <div class="card-body">
+                         <h4>{{ $photo_downloads }}</h4>
+                     </div>
+                 </div>
+
              </div>
 
          </div>
