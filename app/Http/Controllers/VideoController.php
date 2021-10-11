@@ -377,6 +377,7 @@ class VideoController extends Controller
             'thumbnail' => 'present|required',
         	'session_id' => 'required',
         ]);
+
         $request = $request->all();
 
         $video_id = $video->id;
@@ -425,7 +426,7 @@ class VideoController extends Controller
 
         }
 
-        if( sizeof(request()->category) > 1 ){
+        if( sizeof(request()->category) >= 1 ){
             $categories = request()->category;
 
              VideoCategory::where('video_id',$video_id)->delete();
@@ -442,7 +443,7 @@ class VideoController extends Controller
              VideoCategory::where('video_id',$video_id)->delete();
         }
 
-
+        Log::debug($video_id);
         $email_push = $request['email_push'];
         History::create([
                             'video_id' => $video_id
