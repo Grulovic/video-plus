@@ -387,7 +387,9 @@ class VideoController extends Controller
         $video->location = $request['location'];
         $video->description = $request['description'];
         $video->thumbnail = $request['thumbnail'];
+        $video->save();
 
+        $video = Video::where('id',$video_id)->first();
 
 
         if( request()->file('video') ){
@@ -430,10 +432,10 @@ class VideoController extends Controller
 
 
            $this->delete_video_files($old_video_file_name );
-
+            $video->save();
         }
 
-        $video->save();
+
 
         if( sizeof(request()->category) >= 1 ){
             $categories = request()->category;
@@ -455,7 +457,7 @@ class VideoController extends Controller
 
 
         History::create([
-            'video_id' => $video->id
+            'video_id' => $video_id
             ,'user_id' => auth()->id()
             ,'action' => "Video Edited"
         ]);
