@@ -381,7 +381,7 @@ class GalleryController extends Controller
 
        //  return redirect(Session::get('gallery_edit_request_referrer'))
        // ->with('success','Great! Gallery updated successfully');
-    	 return response()->json( $gallery->get()->first()->id );
+    	 return response()->json( $id );
 
     }
 
