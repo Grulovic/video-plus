@@ -395,7 +395,7 @@ class VideoController extends Controller
 
 
         if( request()->file('video') ){
-
+            Log::debug("Video File Exists in Edit");
             $video = Video::where('id',$video_id)->first();
 
             $file = $request->file('video');
@@ -464,7 +464,8 @@ class VideoController extends Controller
         ]);
 
 
-        return response()->json( $video_id );
+//        return response()->json( $video_id );
+        return Redirect::to('videos')->with('success','Video deleted successfully');
 
     }
 
