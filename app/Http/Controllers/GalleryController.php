@@ -153,8 +153,6 @@ class GalleryController extends Controller
         $data['mail'] = 'App\Mail\GalleryUploaded';
         $data['users'] = $users;
 
-        Log::debug($data);
-
         $job = (new SendQueueEmail($data))->delay(now()->addSeconds(2));
         dispatch($job);
 

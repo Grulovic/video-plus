@@ -441,8 +441,6 @@ class VideoController extends Controller
             unset($request['user_id']);
         }
 
-        Log::debug($request);
-        Log::debug($request['thumbnail']);
         if($request['thumbnail']){
             $video = Video::where('id',$id)->first();
             $video->thumbnail = $request['thumbnail'];
