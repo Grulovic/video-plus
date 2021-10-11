@@ -40,8 +40,8 @@
                 <th>ID</th>
                 <th>Email</th>
                 <th>Message</th>
-                <th>Replied</th>
                 <th>Created At</th>
+                <th>Replied</th>
                 <th>Reply</th>
                 <th>Action</th>
             </tr>
