@@ -22,6 +22,9 @@ class HistoryController extends Controller
             $data['histories'] = History::orderBy('id','desc')->where('user_id','=',auth()->user()->id)->paginate(10);
         }
 
+        $data['video_downloads'] = History::whereNotNull('video_id')->where('action','Video Downloaded')->count();
+        $data['photo_downloads'] = History::whereNotNull('gallery_id')->where('Gallery Downloaded','')->count();
+
         return view('history.list',$data);
     }
 }

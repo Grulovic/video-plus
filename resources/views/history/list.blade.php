@@ -15,6 +15,26 @@
     </x-slot>
 
  <div class="row m-0 p-0 pt-5 pb-5">
+     <div class="col-md-1"></div>
+     <div class="col-md-10">
+         <div class="row m-0 p-0">
+             <div class="card col-lg-6 shadow-sm">
+                 <div class="card-header">Video Downloads</div>
+                 <div class="card-body">
+                     <h4>{{ $video_downloads }}</h4>
+                 </div>
+             </div>
+             <div class="card col-lg-6 shadow-sm">
+                 <div class="card-header">Gallery Downloads</div>
+                 <div class="card-body">
+                     <h4>{{ $photo_downloads }}</h4>
+                 </div>
+             </div>
+
+         </div>
+     </div>
+     <div class="col-md-1"></div>
+
       <div class="col-md-1"></div>
 
       <div class="col-md-10 p-0" style="padding-right: 0; overflow-x: auto;">
