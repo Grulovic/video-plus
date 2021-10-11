@@ -23,7 +23,7 @@ class HistoryController extends Controller
         }
 
         $data['video_downloads'] = History::whereNotNull('video_id')->where('action','Video Downloaded')->count();
-        $data['photo_downloads'] = History::whereNotNull('gallery_id')->where('Gallery Downloaded','')->count();
+        $data['photo_downloads'] = History::whereNotNull('gallery_id')->where('action','Gallery Downloaded')->count();
 
         return view('history.list',$data);
     }
