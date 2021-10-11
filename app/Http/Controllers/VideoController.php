@@ -452,6 +452,9 @@ class VideoController extends Controller
         $history->action = "Video Edited";
         $history->save();
 
+        Log::debug($history);
+
+
 //        History::create([
 //                            'video_id' => $video_id
 //                            ,'user_id' => Auth::id()
