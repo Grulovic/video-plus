@@ -454,6 +454,7 @@ class VideoController extends Controller
         }
 
         Log::debug($request);
+        Log::debug($request['thumbnail']);
 
         if( sizeof(request()->category) > 1 ){
             $categories = request()->category;
