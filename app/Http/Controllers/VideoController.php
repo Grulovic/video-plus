@@ -328,10 +328,6 @@ class VideoController extends Controller
     public function download(Video $video)
     {
 
-
-        $where = array('id' => $video->id);
-        $video = $video;
-
     	if($video == null){
         	return Redirect::to('videos')
        		->with('error','No such video found!');

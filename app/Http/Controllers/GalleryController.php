@@ -322,6 +322,8 @@ class GalleryController extends Controller
                                         ,'category_id' => $category
                                     ]);
             }
+        }else{
+            GalleryCategory::where('gallery_id',$id)->delete();
         }
 
         $image_attributes['gallery_id'] = $id;
