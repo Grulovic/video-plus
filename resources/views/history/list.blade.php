@@ -20,17 +20,21 @@
          <div class="row m-0 p-0">
              <div class="col-lg-6">
                  <div class="card shadow-sm" >
-                 <div class="card-header h3">Video Downloads</div>
+                 <div class="card-header h3">Video Stats</div>
                  <div class="card-body">
-                     <h4>{{ $video_downloads }}</h4>
+                     <h4>Downloads: <strong>{{ $video_downloads }}</strong></h4>
+                     <h4>Uploads: <strong>{{ $video_uploads }}</strong></h4>
+                     <h4>Average: <strong>{{ $video_average }}</strong></h4>
                  </div>
                  </div>
              </div>
              <div class="col-lg-6">
                  <div class="card shadow-sm" >
-                     <div class="card-header h3">Gallery Downloads</div>
+                     <div class="card-header h3">Gallery stats</div>
                      <div class="card-body">
-                         <h4>{{ $photo_downloads }}</h4>
+                         <h4>Downloads: <strong>{{ $photo_downloads }}</strong></h4>
+                         <h4>Uploads: <strong>{{ $photo_uploads }}</strong></h4>
+                         <h4>Average: <strong>{{ $photo_average }}</strong></h4>
                      </div>
                  </div>
 

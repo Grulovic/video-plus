@@ -25,6 +25,13 @@ class HistoryController extends Controller
         $data['video_downloads'] = History::whereNotNull('video_id')->where('action','Video Downloaded')->count();
         $data['photo_downloads'] = History::whereNotNull('gallery_id')->where('action','Gallery Downloaded')->count();
 
+        $data['video_uploads'] = History::whereNotNull('video_id')->where('action','Video Uploaded')->count();
+        $data['photo_uploads'] = History::whereNotNull('gallery_id')->where('action','Gallery Uploaded')->count();
+
+        $data['video_average'] = round($data['photo_downloads'] / $data['video_uploads']);
+        $data['photo_average'] = round($data['photo_downloads'] / $data['video_uploads']);
+
+
         return view('history.list',$data);
     }
 }
