@@ -18,7 +18,7 @@
      <div class="col-md-1"></div>
      <div class="col-md-10 mb-4">
          <div class="row m-0 p-0">
-             <div class="col-lg-6 p-0">
+             <div class="col-lg-6">
                  <div class="card shadow-sm" >
                  <div class="card-header h3">Video Downloads</div>
                  <div class="card-body">
@@ -26,7 +26,7 @@
                  </div>
                  </div>
              </div>
-             <div class="col-lg-6 p-0">
+             <div class="col-lg-6">
                  <div class="card shadow-sm" >
                      <div class="card-header h3">Gallery Downloads</div>
                      <div class="card-body">
