@@ -41,6 +41,7 @@
                 <th>Email</th>
                 <th>Message</th>
                 <th>Replied</th>
+                <th>Created At</th>
                 <th>Reply</th>
                 <th>Action</th>
             </tr>
@@ -51,6 +52,8 @@
                 <td class="text-center  bg-dark text-white" style="border-color:#454d55;">{{ $message->id }}</td>
               <td>{{ $message->email }}</td>
                 <td>{{ $message->message }}</td>
+
+                <td>{{ $message->created_at }}</td>
                 <td class="text-center">@if($message->replied)
                         <i class="fas fa-check text-success"></i>
                     @else
