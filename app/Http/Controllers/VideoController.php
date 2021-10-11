@@ -378,20 +378,7 @@ class VideoController extends Controller
         	'session_id' => 'required',
         ]);
 
-        $request = $request->all();
-        $session_id = $request['session_id'];
-
-        Log::debug($request);
-        Log::debug($video);
-
         $video_id = $video->id;
-
-        $video->name = $request['name'];
-        $video->location = $request['location'];
-        $video->description = $request['description'];
-        $video->thumbnail = $request['thumbnail'];
-        $video->save();
-
 
 
         if( request()->file('video') ){
@@ -436,7 +423,17 @@ class VideoController extends Controller
             $video->save();
         }
 
+        $request = $request->all();
+        $session_id = $request['session_id'];
 
+        Log::debug($request);
+        Log::debug($video);
+
+        $video->name = $request['name'];
+        $video->location = $request['location'];
+        $video->description = $request['description'];
+        $video->thumbnail = $request['thumbnail'];
+        $video->save();
 
         if( sizeof(request()->category) >= 1 ){
             $categories = request()->category;
