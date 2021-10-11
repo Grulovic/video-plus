@@ -284,12 +284,12 @@ $( document ).ready(function() {
               // alert('Done! Thumbnail and preview version created! ');
 
                setTimeout(function() {
-                window.location.href = "/photos/" + response;
+                window.location.href = "/photos/{{$gallery->id}}";
                }, 10000);
 
 
             }else{
-            	window.location.href = "/photos/" + response;
+            	window.location.href = "/photos/{{$gallery->id}}";
             }
             }
           });
