@@ -176,11 +176,13 @@ class VideoController extends Controller
 //            }
 
         }else{
+            $users= [];
         }
 
-        $data['data'] = Video::where('id',$new_video->id)->get()->first();
-        $data['mail'] = 'App\Mail\VideoUploaded';
-        $data['users'] = $users;
+            $data['data'] = Video::where('id',$new_video->id)->get()->first();
+            $data['mail'] = 'App\Mail\VideoUploaded';
+            $data['users'] = $users;
+
 
         Log::debug($data);
 
