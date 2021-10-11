@@ -445,11 +445,18 @@ class VideoController extends Controller
 
         Log::debug($video_id);
         $email_push = $request['email_push'];
-        History::create([
-                            'video_id' => $video_id
-                            ,'user_id' => Auth::id()
-                            ,'action' => "Video Edited"
-                        ]);
+
+        $history = new History();
+        $history->video_id = $video_id;
+        $history->user_id = Auth::id();
+        $history->action = "Video Edited";
+        $history->save();
+
+//        History::create([
+//                            'video_id' => $video_id
+//                            ,'user_id' => Auth::id()
+//                            ,'action' => "Video Edited"
+//                        ]);
 
 
         return response()->json( $video_id );
