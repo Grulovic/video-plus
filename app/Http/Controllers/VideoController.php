@@ -453,6 +453,8 @@ class VideoController extends Controller
             unset($request['user_id']);
         }
 
+        Log::debug($request);
+
         if( sizeof(request()->category) > 1 ){
             $categories = request()->category;
 
