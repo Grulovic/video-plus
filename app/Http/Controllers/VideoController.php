@@ -378,6 +378,9 @@ class VideoController extends Controller
         	'session_id' => 'required',
         ]);
         $request = $request->all();
+
+        $video_id = $video->id;
+
         $video->name = $request['name'];
         $video->location = $request['location'];
         $video->description = $request['description'];
@@ -425,30 +428,30 @@ class VideoController extends Controller
         if( sizeof(request()->category) > 1 ){
             $categories = request()->category;
 
-             VideoCategory::where('video_id',$video->id)->delete();
+             VideoCategory::where('video_id',$video_id)->delete();
 
             foreach ($categories as $category) {
                 if($category!=null){
                 VideoCategory::create([
-                                        'video_id' => $video->id
+                                        'video_id' => $video_id
                                         ,'category_id' => $category
                                     ]);
                 }
             }
         }else{
-             VideoCategory::where('video_id',$video->id)->delete();
+             VideoCategory::where('video_id',$video_id)->delete();
         }
 
 
         $email_push = $request['email_push'];
         History::create([
-                            'video_id' => $video->id
+                            'video_id' => $video_id
                             ,'user_id' => Auth::id()
                             ,'action' => "Video Edited"
                         ]);
 
 
-        return response()->json( $video->id );
+        return response()->json( $video_id );
 
     }
 
