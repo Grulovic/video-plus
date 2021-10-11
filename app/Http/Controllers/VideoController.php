@@ -455,6 +455,13 @@ class VideoController extends Controller
 
         Log::debug($request);
         Log::debug($request['thumbnail']);
+        if($request['thumbnail']){
+            $video = Video::where('id',$id)->first();
+            $video->thumbnail = $request['thumbnail'];
+            $video->save();
+            $video = Video::where('id',$id)->first();
+
+        }
 
         if( sizeof(request()->category) > 1 ){
             $categories = request()->category;
