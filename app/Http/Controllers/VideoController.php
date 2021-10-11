@@ -457,8 +457,8 @@ class VideoController extends Controller
         ]);
 
 
-//        return response()->json( $video_id );
-        return Redirect::to('videos')->with('success','Video deleted successfully');
+        return response()->json( $video_id );
+//        return Redirect::to('videos')->with('success','Video deleted successfully');
 
     }
 
