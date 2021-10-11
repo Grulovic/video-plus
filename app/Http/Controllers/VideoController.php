@@ -13,6 +13,7 @@ use App\Models\VideoCategory;
 use App\Models\History;
 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\VideoUploaded;
@@ -363,7 +364,7 @@ class VideoController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Video $video)
     {
 
        abort_unless( auth()->user()->role == "admin",403);
@@ -377,34 +378,28 @@ class VideoController extends Controller
             'thumbnail' => 'present|required',
         	'session_id' => 'required',
         ]);
-
+        $request = $request->all();
 
         if( request()->file('video') ){
 
             $file = $request->file('video');
 
-            //  if( $user_details_object->file_name != null){
-            //     $image_path = public_path().'/uploads/'.$user_details_object->file_name;
-            //     unlink($image_path);
-            // }
-            $request = $request->all();
 
         	$session_id = $request['session_id'];
 
-            $video = request()->video;
+            $video_file = request()->video;
             $extension = $video->getClientOriginalExtension();
-            $file_name = date('Y-m-d_H-i-s')."_".str_replace(" ","-",$video->getClientOriginalName());
+            $file_name = date('Y-m-d_H-i-s')."_".str_replace(" ","-",$video_file->getClientOriginalName());
 
-            Storage::disk('videos')->put($file_name,  File::get($video));
+            Storage::disk('videos')->put($file_name,  File::get($video_file));
 
             $this->create_preview($file_name, $session_id );
             $this->create_thumbnail($file_name);
 
-            // $file->storeAs(public_path('vid'), $file_name);
 
-            $request['mime'] = $video->getClientMimeType();
+            $request['mime'] = $video_file->getClientMimeType();
 
-            $size = $video->getSize();
+            $size = $video_file->getSize();
             $precision = 2;
             $base = log($size, 1024);
             $suffixes = array('', 'kb', 'mb', 'gb', 'tb');
@@ -413,88 +408,48 @@ class VideoController extends Controller
             $request['size'] = $size;
 
 
-            $request['original_file_name'] = $video->getClientOriginalName();
+            $request['original_file_name'] = $video_file->getClientOriginalName();
             $request['file_name'] = $file_name;
             $request['runtime'] = 123.456;
 
 
-            unset($request['file']);
-            unset($request['video']);
-            unset($request['_token']);
-            unset($request['_method']);
-            unset($request['user_id']);
+           $this->delete_video_files( $video->file_name );
 
-            $video = Video::where('id',$id);
-
-           $this->delete_video_files( $video->latest()->first()->file_name );
-
-        }else{
-
-            $video = Video::where('id',$id);
-
-            $request = $request->all();
-
-            unset($request['file']);
-            unset($request['video']);
-            unset($request['_token']);
-            unset($request['_method']);
-            unset($request['user_id']);
-        }
-
-        if($request['thumbnail']){
-            $video = Video::where('id',$id)->first();
-            $video->thumbnail = $request['thumbnail'];
-            $video->save();
-            $video = Video::where('id',$id)->first();
-        }
-
-        if($request['name']){
-            $video = Video::where('id',$id)->first();
-            $video->name = $request['name'];
-            $video->save();
-            $video = Video::where('id',$id)->first();
         }
 
         if( sizeof(request()->category) > 1 ){
             $categories = request()->category;
 
-             VideoCategory::where('video_id',$id)->delete();
+             VideoCategory::where('video_id',$video->id)->delete();
 
             foreach ($categories as $category) {
                 if($category!=null){
                 VideoCategory::create([
-                                        'video_id' => $id
+                                        'video_id' => $video->id
                                         ,'category_id' => $category
                                     ]);
                 }
             }
-
-            unset($request['category']);
-
         }else{
-             VideoCategory::where('video_id',$id)->delete();
-             unset($request['category']);
+             VideoCategory::where('video_id',$video->id)->delete();
         }
 
 
         $email_push = $request['email_push'];
-
-        $video->update($request);
-
-
-
-
         History::create([
-                            'video_id' => $id
-                            ,'user_id' => auth()->user()->id
+                            'video_id' => $video->id
+                            ,'user_id' => Auth::id()
                             ,'action' => "Video Edited"
                         ]);
 
-        // return Redirect::to('videos')
-    // return redirect(Session::get('video_edit_request_referrer'))
-    //    ->with('success','Great! Video updated successfully');
+        $video->name = $request['name'];
+        $video->location = $request['location'];
+        $video->description = $request['description'];
+        $video->thumbnail = $request['thumbnail'];
+        $video->save();
 
-    return response()->json( $id );
+
+        return response()->json( $video->id );
 
     }
 
