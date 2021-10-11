@@ -61,7 +61,9 @@
                     @endif</td>
                 <td>{{ $message->reply }}</td>
                 <td class="text-center  bg-dark text-white" style="border-color:#454d55;">
+                    @if(!$message->replied)
                     <a href="{{ route('support.create',$message->id)}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Reply message">REPLY</a>
+                    @endif
                 </td>
 
 
