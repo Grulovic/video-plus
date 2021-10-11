@@ -364,7 +364,7 @@ class VideoController extends Controller
     }
 
 
-    public function update(Video $video, Request $request)
+    public function update(Request $request, Video $video)
     {
 
        abort_unless( auth()->user()->role == "admin",403);
