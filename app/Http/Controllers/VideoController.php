@@ -382,13 +382,13 @@ class VideoController extends Controller
 
 
         if( request()->file('video') ){
+            $session_id = request()->input('session_id');
             Log::debug("Video File Exists in Edit");
             $video = Video::where('id',$video_id)->first();
 
             $file = $request->file('video');
 
             $video_file = request()->video;
-            $extension = $video->getClientOriginalExtension();
             $file_name = date('Y-m-d_H-i-s')."_".str_replace(" ","-",$video_file->getClientOriginalName());
 
             Storage::disk('videos')->put($file_name,  File::get($video_file));
