@@ -50,7 +50,7 @@
             @foreach($messages as $message)
             <tr class=" bg-white " >
                 <td class="text-center  bg-dark text-white" style="border-color:#454d55;">{{ $message->id }}</td>
-              <td>{{ $message->email }}</td>
+                <td><a href="mailto:{{ $message->email }}">{{ $message->email }}</a></td>
                 <td>{{ $message->message }}</td>
 
                 <td>{{ $message->created_at }}</td>
