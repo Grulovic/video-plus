@@ -379,9 +379,10 @@ class VideoController extends Controller
         ]);
 
         $request = $request->all();
-        $email_push = $request['email_push'];
 
-       dd($video);
+        Log::debug($request);
+
+        $email_push = $request['email_push'];
 
         $video_id = $video->id;
 
