@@ -54,13 +54,13 @@
                 <td>{{ $message->message }}</td>
 
                 <td>{{ $message->created_at }}</td>
-                <td class="text-center">@if($message->replied)
+                <td class="text-center my-auto">@if($message->replied)
                         <i class="fas fa-check text-success"></i>
                     @else
                         <i class="fas fa-times text-danger"></i>
                     @endif</td>
                 <td>{{ $message->reply }}</td>
-                <td class="text-center  bg-dark text-white" style="border-color:#454d55;">
+                <td class="text-center  bg-dark text-white  my-auto" style="border-color:#454d55;">
                     @if(!$message->replied)
                     <a href="{{ route('support.create',$message->id)}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Reply message">REPLY</a>
                     @endif
