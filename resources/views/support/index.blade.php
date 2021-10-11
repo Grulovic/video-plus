@@ -54,7 +54,7 @@
                 <td>{{ $message->message }}</td>
 
                 <td>{{ $message->created_at }}</td>
-                <td class="text-center align-middle">@if($message->replied)
+                <td class="text-center">@if($message->replied)
                         <i class="fas fa-check text-success"></i>
                     @else
                         <i class="fas fa-times text-danger"></i>
