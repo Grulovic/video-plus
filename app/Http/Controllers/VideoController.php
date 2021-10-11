@@ -379,6 +379,7 @@ class VideoController extends Controller
         ]);
 
         $request = $request->all();
+        $email_push = $request['email_push'];
 
         $video_id = $video->id;
 
@@ -386,7 +387,7 @@ class VideoController extends Controller
         $video->location = $request['location'];
         $video->description = $request['description'];
         $video->thumbnail = $request['thumbnail'];
-        $video->save();
+
 
 
         if( request()->file('video') ){
@@ -406,7 +407,8 @@ class VideoController extends Controller
             $this->create_thumbnail($file_name);
 
 
-            $request['mime'] = $video_file->getClientMimeType();
+//            $request['mime'] = $video_file->getClientMimeType();
+            $video->mime = $request['mime'];
 
             $size = $video_file->getSize();
             $precision = 2;
@@ -417,14 +419,21 @@ class VideoController extends Controller
             $request['size'] = $size;
 
 
-            $request['original_file_name'] = $video_file->getClientOriginalName();
-            $request['file_name'] = $file_name;
-            $request['runtime'] = 123.456;
+//            $request['original_file_name'] = $video_file->getClientOriginalName();
+//            $request['file_name'] = $file_name;
+//            $request['runtime'] = 123.456;
+            $old_video_file_name = $video->file_name;
+
+            $video->original_file_name = $video_file->getClientOriginalName();
+            $video->file_name = $file_name;
+            $video->runtime = 123.456;
 
 
-           $this->delete_video_files( $video->file_name );
+           $this->delete_video_files($old_video_file_name );
 
         }
+
+        $video->save();
 
         if( sizeof(request()->category) >= 1 ){
             $categories = request()->category;
@@ -443,23 +452,13 @@ class VideoController extends Controller
              VideoCategory::where('video_id',$video_id)->delete();
         }
 
-        Log::debug($video_id);
-        $email_push = $request['email_push'];
-
-        $history = new History();
-        $history->video_id = $video_id;
-        $history->user_id = Auth::id();
-        $history->action = "Video Edited";
-        $history->save();
-
-        Log::debug($history);
 
 
-//        History::create([
-//                            'video_id' => $video_id
-//                            ,'user_id' => Auth::id()
-//                            ,'action' => "Video Edited"
-//                        ]);
+        History::create([
+            'video_id' => $video->id
+            ,'user_id' => auth()->id()
+            ,'action' => "Video Edited"
+        ]);
 
 
         return response()->json( $video_id );
