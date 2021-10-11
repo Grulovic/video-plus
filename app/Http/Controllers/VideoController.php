@@ -459,7 +459,7 @@ class VideoController extends Controller
             $video = Video::where('id',$id)->first();
             $video->thumbnail = $request['thumbnail'];
             $video->save();
-            $video = Video::where('id',$id)->first();
+            $video = Video::where('id',$id);
 
         }
 
