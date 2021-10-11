@@ -379,6 +379,7 @@ class VideoController extends Controller
         ]);
 
         $request = $request->all();
+        $session_id = $request['session_id'];
 
         Log::debug($request);
         Log::debug($video);
@@ -391,15 +392,13 @@ class VideoController extends Controller
         $video->thumbnail = $request['thumbnail'];
         $video->save();
 
-        $video = Video::where('id',$video_id)->first();
 
 
         if( request()->file('video') ){
 
+            $video = Video::where('id',$video_id)->first();
+
             $file = $request->file('video');
-
-
-        	$session_id = $request['session_id'];
 
             $video_file = request()->video;
             $extension = $video->getClientOriginalExtension();
@@ -412,7 +411,7 @@ class VideoController extends Controller
 
 
 //            $request['mime'] = $video_file->getClientMimeType();
-            $video->mime = $request['mime'];
+            $video->mime = $video_file->getClientMimeType();
 
             $size = $video_file->getSize();
             $precision = 2;
