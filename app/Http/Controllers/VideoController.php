@@ -459,8 +459,14 @@ class VideoController extends Controller
             $video = Video::where('id',$id)->first();
             $video->thumbnail = $request['thumbnail'];
             $video->save();
-            $video = Video::where('id',$id);
+            $video = Video::where('id',$id)->first();
+        }
 
+        if($request['name']){
+            $video = Video::where('id',$id)->first();
+            $video->name = $request['name'];
+            $video->save();
+            $video = Video::where('id',$id)->first();
         }
 
         if( sizeof(request()->category) > 1 ){
