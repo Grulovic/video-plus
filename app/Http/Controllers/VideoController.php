@@ -161,31 +161,17 @@ class VideoController extends Controller
                         ]);
 
 
-    // Mail::to( User::where('id',1)->get()->first() )->send(new VideoUploaded( Video::where('id',$new_video->id)->get()->first()));
         if( $email_push == "admin" ){
         	 $users = User::where('role','admin')->orderBy('id','asc')->get();
-//        	foreach($users as $user){
-//        		Mail::to( $user )->send(new VideoUploaded( Video::where('id',$new_video->id)->get()->first()));
-//            }
         }
     	elseif(  $email_push == "all" ){
-
 			$users = User::where('id','>=',0)->orderBy('id','asc')->get();
-//        	foreach($users as $user){
-//        		Mail::to( $user )->send(new VideoUploaded( Video::where('id',$new_video->id)->get()->first()));
-//            }
-
         }else{
             $users= [];
         }
-
             $data['data'] = Video::where('id',$new_video->id)->get()->first();
             $data['mail'] = 'App\Mail\VideoUploaded';
             $data['users'] = $users;
-
-
-        Log::debug($data);
-
         $job = (new SendQueueEmail($data))->delay(now()->addSeconds(2));
         dispatch($job);
 

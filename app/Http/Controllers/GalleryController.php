@@ -142,17 +142,9 @@ class GalleryController extends Controller
 
 		 if( $email_push == "admin" ){
         	 $users = User::where('role','admin')->orderBy('id','asc')->get();
-//        	foreach($users as $user){
-//        		Mail::to( $user )->send(new GalleryUploaded( Gallery::where('id',$new_gallery->id)->get()->first()));
-//            }
         }
     	elseif(  $email_push == "all" ){
-
 			$users = User::where('id','>=',0)->orderBy('id','asc')->get();
-//        	foreach($users as $user){
-//        		Mail::to( $user )->send(new GalleryUploaded( Gallery::where('id',$new_gallery->id)->get()->first()));
-//            }
-
         }else{
              $users= [];
          }
