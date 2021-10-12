@@ -37,6 +37,7 @@
 				<p>These are the latest lives streams.</p>
 			</div>
 		</div>
+        <div class="row m-0 p-0">
 		@foreach($lives as $live)
     		<div class="col-lg-{{  sizeof($lives) <= 4 && sizeof($lives) > 2 ? 12/sizeof($lives) : 4  }}" style="">
     		<div class="card shadow-lg bg-secondary">
@@ -45,7 +46,7 @@
     		</div>
     		</div>
 		@endforeach
-
+        </div>
         @if($plans != null)
             @if( sizeof($plans) == 0 )
                 <div class="alert alert-secondary shadow-sm w-100" role="alert" style="">
