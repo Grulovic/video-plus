@@ -37,7 +37,7 @@ class HistoryController extends Controller
         $data['photo_views'] = GalleryView::count();
 
         $data['video_views_average'] = $data['video_views'] / $data['video_uploads'];
-        $data['video_views_average'] = $data['photo_views'] / $data['photo_average'];
+        $data['photo_views_average'] = $data['photo_views'] / $data['photo_average'];
 
 
         return view('history.list',$data);
