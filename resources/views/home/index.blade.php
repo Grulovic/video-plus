@@ -39,7 +39,7 @@
 		</div>
         <div class="row m-0 p-0">
 		@foreach($lives as $live)
-    		<div class="col-lg-{{  sizeof($lives) <= 4 && sizeof($lives) > 2 ? 12/sizeof($lives) : 4  }} mb-2" style="">
+    		<div class="col-lg-{{  sizeof($lives) <= 4 && sizeof($lives) > 2 ? 12/sizeof($lives) : 4  }} mb-2 d-flex align-items-stretch" style="">
     		<div class="card shadow-lg bg-secondary">
     		    <div class="card-header text-center h4">{{$live->title}}</div>
     			<iframe  class="card-img" style="min-height:300px;" src="{{$live->url}}?autoplay=false"></iframe>
