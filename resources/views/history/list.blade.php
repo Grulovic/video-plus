@@ -25,6 +25,8 @@
                      <h4>Downloads: <strong>{{ $video_downloads }}</strong></h4>
                      <h4>Uploads: <strong>{{ $video_uploads }}</strong></h4>
                      <h4>Average: <strong>{{ $video_average }}</strong></h4>
+                     <h4>Total Unique Views: <strong>{{ $video_views }}</strong></h4>
+                     <h4>Average Unique Views: <strong>{{ $video_views_average }}</strong></h4>
                  </div>
                  </div>
              </div>
@@ -35,6 +37,8 @@
                          <h4>Downloads: <strong>{{ $photo_downloads }}</strong></h4>
                          <h4>Uploads: <strong>{{ $photo_uploads }}</strong></h4>
                          <h4>Average: <strong>{{ $photo_average }}</strong></h4>
+                         <h4>Total Unique Views: <strong>{{ $photo_views }}</strong></h4>
+                         <h4>Average Unique Views: <strong>{{ $photo_views_average }}</strong></h4>
                      </div>
                  </div>
 

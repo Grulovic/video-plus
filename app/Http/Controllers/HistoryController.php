@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\GalleryView;
 use App\Models\History;
+use App\Models\VideoView;
 use Illuminate\Http\Request;
 
 class HistoryController extends Controller
@@ -30,6 +32,12 @@ class HistoryController extends Controller
 
         $data['video_average'] = round($data['video_downloads'] / $data['video_uploads']);
         $data['photo_average'] = round($data['photo_downloads'] / $data['photo_uploads']);
+
+        $data['video_views'] = VideoView::count();
+        $data['photo_views'] = GalleryView::count();
+
+        $data['video_views_average'] = $data['video_views'] / $data['video_uploads'];
+        $data['video_views_average'] = $data['photo_views'] / $data['photo_average'];
 
 
         return view('history.list',$data);
