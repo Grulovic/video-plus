@@ -38,7 +38,7 @@ class HomeController extends Controller
 {
     public function index(){
 
-        $date = Carbon::now()->subHour();
+        $date = Carbon::now()->subHours(5);
         $date_after = Carbon::now()->addDays(1)->toDateString();
 
         $data['plans'] = Plan::
