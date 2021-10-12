@@ -18,7 +18,7 @@
      <div class="col-md-1"></div>
      <div class="col-md-10 mb-4">
          <div class="row m-0 p-0">
-             <div class="col-lg-4">
+             <div class="col-lg-4 d-flex align-items-stretch">
                  <div class="card shadow-sm" >
                  <div class="card-header h3">Video Stats</div>
                  <div class="card-body">
@@ -30,7 +30,7 @@
                  </div>
                  </div>
              </div>
-             <div class="col-lg-4">
+             <div class="col-lg-4 d-flex align-items-stretch">
                  <div class="card shadow-sm" >
                      <div class="card-header h3">Gallery stats</div>
                      <div class="card-body">
@@ -43,7 +43,7 @@
                  </div>
 
              </div>
-             <div class="col-lg-4">
+             <div class="col-lg-4 d-flex align-items-stretch">
                  <div class="card shadow-sm" >
                      <div class="card-header h3">Other stats</div>
                      <div class="card-body">
