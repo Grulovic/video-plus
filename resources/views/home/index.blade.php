@@ -47,8 +47,8 @@
     		</div>
 		@endforeach
         </div>
-        @if($plans != null)
-            @if( sizeof($plans) == 0 )
+        @if($lives != null)
+            @if( sizeof($lives) == 0 )
                 <div class="alert alert-secondary shadow-sm w-100" role="alert" style="">
                     There are no live streams at the moment!
                 </div>
