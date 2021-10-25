@@ -40,14 +40,14 @@ return [
             // 'root' => storage_path('app/public'),
             // 'url' => env('APP_URL').'/storage',
             // 'root'   => public_path() . '/uploads',
-            'root'   => '../httpdocs/uploads',
+            'root'   => '../video-plus/uploads',
             'url' => env('APP_URL').'/public',
             'visibility' => 'public',
         ],
 
     	 'articles' => [
             'driver' => 'local',
-            'root'   => '../httpdocs/uploads/articles',
+            'root'   => '../video-plus/uploads/articles',
             'url' => env('APP_URL').'/public/articles',
             'visibility' => 'public',
         ],
@@ -55,14 +55,14 @@ return [
 
         'photos' => [
             'driver' => 'local',
-            'root'   => '../httpdocs/uploads/photos',
+            'root'   => '../video-plus/uploads/photos',
             'url' => env('APP_URL').'/public/photos',
             'visibility' => 'public',
         ],
 
         'photos_compressed' => [
             'driver' => 'local',
-            'root'   => '../httpdocs/uploads/photos/compressed',
+            'root'   => '../video-plus/uploads/photos/compressed',
             'url' => env('APP_URL').'/public/photos/compressed',
             'visibility' => 'public',
         ],
@@ -70,21 +70,21 @@ return [
 
     	 'videos' => [
             'driver' => 'local',
-            'root'   => '../httpdocs/uploads/videos',
+            'root'   => '../video-plus/uploads/videos',
             'url' => env('APP_URL').'/public/videos',
             'visibility' => 'public',
         ],
 
     	'previews' => [
             'driver' => 'local',
-            'root'   => '../httpdocs/uploads/videos/previews',
+            'root'   => '../video-plus/uploads/videos/previews',
             'url' => env('APP_URL').'/public/videos/previews',
             'visibility' => 'public',
         ],
 
    		 'thumbs' => [
             'driver' => 'local',
-            'root'   => '../httpdocs/uploads/videos/thumbs',
+            'root'   => '../video-plus/uploads/videos/thumbs',
             'url' => env('APP_URL').'/public/videos/thumbs',
             'visibility' => 'public',
         ],
