@@ -28,7 +28,7 @@
 	</div>--}}
 
 
-    <div class="">
+    <div class="mt-5">
     <div  class="container bg-dark2  mt-5 no-hover " style="max-width:1920px; ">
   	<div class="row m-0 p-0 pt-4 pb-5 text-white justify-content-center card p-2" style="background-color:#484e53;">
 		<div class="col-lg-12 my-auto " >
