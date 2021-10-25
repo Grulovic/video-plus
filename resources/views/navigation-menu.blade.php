@@ -42,13 +42,13 @@
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('videos.index') }}" :active="request()->routeIs(['videos.index','videos.list','videos.create','videos.edit','videos.show'])">
-                        {{ __('Videos') }}
-                    </x-jet-nav-link>
+{{--                    <x-jet-nav-link href="{{ route('videos.index') }}" :active="request()->routeIs(['videos.index','videos.list','videos.create','videos.edit','videos.show'])">--}}
+{{--                        {{ __('Videos') }}--}}
+{{--                    </x-jet-nav-link>--}}
 
-                     <x-jet-nav-link href="{{ route('photos.index') }}" :active="request()->routeIs(['photos.index','photos.list','photos.create','photos.edit','photos.show'])">
-                        {{ __('Photos') }}
-                    </x-jet-nav-link>
+{{--                     <x-jet-nav-link href="{{ route('photos.index') }}" :active="request()->routeIs(['photos.index','photos.list','photos.create','photos.edit','photos.show'])">--}}
+{{--                        {{ __('Photos') }}--}}
+{{--                    </x-jet-nav-link>--}}
 
 {{--                	<x-jet-nav-link href="{{ route('articles.index') }}" :active="request()->routeIs(['articles.index','articles.create','articles.edit','articles.show'])">--}}
 {{--                        {{ __('Articles') }}--}}
@@ -213,13 +213,13 @@
                         {{ __('Dashboard') }}
                     </x-jet-responsive-nav-link>
 
-                    <x-jet-responsive-nav-link href="{{ route('videos.index') }}" :active="request()->routeIs(['videos.index','videos.list','videos.create','videos.edit','videos.show'])">
-                        {{ __('Videos') }}
-                    </x-jet-responsive-nav-link>
+{{--                    <x-jet-responsive-nav-link href="{{ route('videos.index') }}" :active="request()->routeIs(['videos.index','videos.list','videos.create','videos.edit','videos.show'])">--}}
+{{--                        {{ __('Videos') }}--}}
+{{--                    </x-jet-responsive-nav-link>--}}
 
-                     <x-jet-responsive-nav-link href="{{ route('photos.index') }}" :active="request()->routeIs(['photos.index','photos.list','photos.create','photos.edit','photos.show'])">
-                        {{ __('Photos') }}
-                    </x-jet-responsive-nav-link>
+{{--                     <x-jet-responsive-nav-link href="{{ route('photos.index') }}" :active="request()->routeIs(['photos.index','photos.list','photos.create','photos.edit','photos.show'])">--}}
+{{--                        {{ __('Photos') }}--}}
+{{--                    </x-jet-responsive-nav-link>--}}
 
 {{--        			<x-jet-responsive-nav-link href="{{ route('articles.index') }}" :active="request()->routeIs(['articles.index','articles.create','articles.edit','articles.show'])">--}}
 {{--                        {{ __('Articles') }}--}}

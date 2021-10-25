@@ -11,8 +11,8 @@
                          <ul class="list-unstyled">
                              <li><a href="{{route('home.index')}}">Home</a></li>
                              <li><a href="{{route('dashboard')}}">Dashboard</a></li>
-                             <li><a href="{{route('videos.index')}}">Videos</a></li>
-                             <li><a href="{{route('photos.index')}}">Photos</a></li>
+{{--                             <li><a href="{{route('videos.index')}}">Videos</a></li>--}}
+{{--                             <li><a href="{{route('photos.index')}}">Photos</a></li>--}}
                              <li><a href="{{route('lives.index')}}">Live Streams</a></li>
                              <li><a href="{{route('plans.index')}}">Planner</a></li>
                              <li><a href="{{route('about')}}">About Us</a></li>
