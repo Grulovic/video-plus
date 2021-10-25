@@ -24,21 +24,21 @@
             </div>
         </div>
 
-        <div class="p-6 border" >
-            <div class="flex items-center">
+{{--        <div class="p-6 border" >--}}
+{{--            <div class="flex items-center">--}}
 
-                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/videos">
-                    <i class="fas fa-video" style="width:60px!important; text-align:center!important;"></i> Videos</a></div>
-            </div>
-        </div>
+{{--                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/videos">--}}
+{{--                    <i class="fas fa-video" style="width:60px!important; text-align:center!important;"></i> Videos</a></div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
-        <div class="p-6 border" >
-            <div class="flex items-center">
+{{--        <div class="p-6 border" >--}}
+{{--            <div class="flex items-center">--}}
 
-                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/photos">
-                    <i class="fas fa-image" style="width:60px!important; text-align:center!important;"></i> Photos</a></div>
-            </div>
-        </div>
+{{--                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/photos">--}}
+{{--                    <i class="fas fa-image" style="width:60px!important; text-align:center!important;"></i> Photos</a></div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
         <div class="p-6 border">
             <div class="flex items-center">
