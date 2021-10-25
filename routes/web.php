@@ -126,3 +126,10 @@ Route::group( ['middleware' => ['auth:sanctum','is.admin'] ] ,function () {
 Route::get('/about', function () {
     return view('about');
 })->name('about');
+
+
+
+// PLANNER
+Route::group( ['middleware' => ['auth:sanctum'] ] ,function () {
+    Route::get('/settings', 'SettingsController@index')->name("settings.index");
+});
