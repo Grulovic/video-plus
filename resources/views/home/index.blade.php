@@ -91,68 +91,68 @@
     </div>
 
 
-    <hr>
+{{--    <hr>--}}
 
 
 
-	<div class="row m-0 p-0 pt-4 pb-3">
-        <div class="col-lg-6 my-auto">
-            <div class="text-center text-lg-left">
-                <h2>Latest Videos:</h2>
-                <p>These are the latest videos uploaded.</p>
-            </div>
-        </div>
-        <div class="col-lg-6 my-auto">
-            <div class="text-center text-lg-right mt-2 mb-4">
-                <a class="btn btn-outline-primary" href="{{route('videos.index')}}">Show more videos <i class="fas fa-angle-right"></i></a>
-            </div>
-        </div>
+{{--	<div class="row m-0 p-0 pt-4 pb-3">--}}
+{{--        <div class="col-lg-6 my-auto">--}}
+{{--            <div class="text-center text-lg-left">--}}
+{{--                <h2>Latest Videos:</h2>--}}
+{{--                <p>These are the latest videos uploaded.</p>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class="col-lg-6 my-auto">--}}
+{{--            <div class="text-center text-lg-right mt-2 mb-4">--}}
+{{--                <a class="btn btn-outline-primary" href="{{route('videos.index')}}">Show more videos <i class="fas fa-angle-right"></i></a>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
-        @if($latest_videos != null)
-			@foreach($latest_videos as $video)
-				@include('home.video_card')
-			@endforeach
-        @endif
+{{--        @if($latest_videos != null)--}}
+{{--			@foreach($latest_videos as $video)--}}
+{{--				@include('home.video_card')--}}
+{{--			@endforeach--}}
+{{--        @endif--}}
 
-        @if($latest_videos != null)
-            @if( sizeof($latest_videos) == 0 )
-                <div class="alert alert-secondary shadow-sm w-100" role="alert" style="">
-                    There are no videos at the moment!
-                </div>
-            @endif
-        @endif
-	</div>
-
-
-<hr>
+{{--        @if($latest_videos != null)--}}
+{{--            @if( sizeof($latest_videos) == 0 )--}}
+{{--                <div class="alert alert-secondary shadow-sm w-100" role="alert" style="">--}}
+{{--                    There are no videos at the moment!--}}
+{{--                </div>--}}
+{{--            @endif--}}
+{{--        @endif--}}
+{{--	</div>--}}
 
 
-	<div class="row m-0 p-0 pt-4 pb-3">
-        <div class="col-lg-6 my-auto">
-            <div class="text-center text-lg-left">
-                <h2>Latest Photos:</h2>
-                <p>These are the latest photo galleries uploaded.</p>
-            </div>
-        </div>
-        <div class="col-lg-6 my-auto">
-            <div class="text-center text-lg-right mt-2 mb-4">
-                <a class="btn btn-outline-primary" href="{{route('photos.index')}}">Show more photos <i class="fas fa-angle-right"></i></a>
-            </div>
-        </div>
-        @if($latest_photos != null)
-            @foreach($latest_photos as $gallery)
-                @include('home.photo_card')
-            @endforeach
-        @endif
+{{--<hr>--}}
 
-        @if($latest_photos != null)
-            @if( sizeof($latest_photos) == 0 )
-                <div class="alert alert-secondary shadow-sm w-100" role="alert" style="">
-                    There are no photos at the moment!
-                </div>
-            @endif
-        @endif
-	</div>
+
+{{--	<div class="row m-0 p-0 pt-4 pb-3">--}}
+{{--        <div class="col-lg-6 my-auto">--}}
+{{--            <div class="text-center text-lg-left">--}}
+{{--                <h2>Latest Photos:</h2>--}}
+{{--                <p>These are the latest photo galleries uploaded.</p>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class="col-lg-6 my-auto">--}}
+{{--            <div class="text-center text-lg-right mt-2 mb-4">--}}
+{{--                <a class="btn btn-outline-primary" href="{{route('photos.index')}}">Show more photos <i class="fas fa-angle-right"></i></a>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        @if($latest_photos != null)--}}
+{{--            @foreach($latest_photos as $gallery)--}}
+{{--                @include('home.photo_card')--}}
+{{--            @endforeach--}}
+{{--        @endif--}}
+
+{{--        @if($latest_photos != null)--}}
+{{--            @if( sizeof($latest_photos) == 0 )--}}
+{{--                <div class="alert alert-secondary shadow-sm w-100" role="alert" style="">--}}
+{{--                    There are no photos at the moment!--}}
+{{--                </div>--}}
+{{--            @endif--}}
+{{--        @endif--}}
+{{--	</div>--}}
 
 {{--  <hr>--}}
 
