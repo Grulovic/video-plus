@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\GlobalSettings;
 use App\Models\Live;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,8 @@ class SettingsController extends Controller
     }
 
     public function index(){
-        return view('settings.index');
+        $data['settings'] = GlobalSettings::first();
+        return view('settings.index',$data);
     }
 
     public function update(Request $request, Live $live)
