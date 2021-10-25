@@ -1,6 +1,6 @@
 <x-home-layout>
 
-    @include('home.carousel')
+{{--    @include('home.carousel')--}}
 
 
 	{{--<div class="row m-0 p-0 pt-4 pb-3">
