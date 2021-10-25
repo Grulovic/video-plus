@@ -31,15 +31,26 @@ class HistoryController extends Controller
         $data['video_uploads'] = History::whereNotNull('video_id')->where('action','Video Uploaded')->count();
         $data['photo_uploads'] = History::whereNotNull('gallery_id')->where('action','Gallery Uploaded')->count();
 
-        $data['video_average'] = round($data['video_downloads'] / $data['video_uploads']);
-        $data['photo_average'] = round($data['photo_downloads'] / $data['photo_uploads']);
-
         $data['video_views'] = VideoView::count();
         $data['photo_views'] = GalleryView::count();
 
-        $data['video_views_average'] = round($data['video_views'] / $data['video_uploads']);
-        $data['photo_views_average'] = round($data['photo_views'] / $data['photo_average']);
+        if( $data['video_downloads'] != null && $data['photo_downloads'] != null && $data['video_uploads'] != null && $data['photo_uploads'] != null){
 
+            $data['video_average'] = round($data['video_downloads'] / $data['video_uploads']);
+            $data['photo_average'] = round($data['photo_downloads'] / $data['photo_uploads']);
+
+
+            $data['video_views_average'] = round($data['video_views'] / $data['video_uploads']);
+            $data['photo_views_average'] = round($data['photo_views'] / $data['photo_average']);
+
+        }else{
+
+            $data['video_average'] = 0;
+            $data['photo_average'] = 0;
+
+            $data['video_views_average'] = 0;
+            $data['photo_views_average'] = 0;
+        }
 
         $data['user_count'] = User::count();
 
