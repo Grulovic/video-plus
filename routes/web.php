@@ -132,4 +132,5 @@ Route::get('/about', function () {
 // PLANNER
 Route::group( ['middleware' => ['auth:sanctum'] ] ,function () {
     Route::get('/settings', 'SettingsController@index')->name("settings.index");
+    Route::post('/settings/update', 'SettingsController@update')->name("settings.update");
 });

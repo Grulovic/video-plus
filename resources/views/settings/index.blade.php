@@ -18,54 +18,72 @@
     <div class="row m-0 p-0 pt-5 pb-5">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <form class="row" action="{{ route('lives.update', $live->id) }}" method="POST" name="update_live">
+            <form class="row" action="{{ route('settings.update') }}" method="POST" name="update_settings">
                 {{ csrf_field() }}
-                @method('PATCH')
+                @method('POST')
 
 
                 <div class="form-group col-lg-4">
-                    <strong>Title</strong>
-                    <input live="text" name="title" class="form-control" placeholder="Enter title" value="{{ $live->title }}" required>
-                    <span class="text-danger">{{ $errors->first('title') }}</span>
+                    <strong>Logo</strong>
+                    <input type="text" name="title" class="form-control" placeholder="Enter title" value="{{ $settings->logo }}" required>
+                    <span class="text-danger">{{ $errors->first('logo') }}</span>
+                </div>
+
+                <div class="form-group col-lg-4">
+                    <strong>Logo Footer</strong>
+                    <input type="text" name="title" class="form-control" placeholder="Enter title" value="{{ $settings->logo_footer }}" required>
+                    <span class="text-danger">{{ $errors->first('logo') }}</span>
                 </div>
 
 
-
-
                 <div class="form-group col-lg-4">
-                    <strong>Featured</strong><br>
+                    <strong>Hide Videos</strong><br>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="featured" id="featured0" value="0"  {{ $live->featured == 0 ? "checked" : "" }}>
+                        <input class="form-check-input" type="radio" name="hide_videos" id="hide_videos0" value="0"  {{ $settings->hide_videos == 0 ? "checked" : "" }}>
                         <label class="form-check-label" for="featured0">Don't show</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="featured" id="featured1" value="1" {{ $live->featured == 1 ? "checked" : "" }}>
+                        <input class="form-check-input" type="radio" name="hide_videos" id="hide_videos1" value="1" {{ $settings->hide_videos == 1 ? "checked" : "" }}>
                         <label class="form-check-label" for="featured1">Show on Homepage</label>
                     </div>
                 </div>
 
 
                 <div class="form-group col-lg-4">
-                    <strong>Try to extract Youtube ID</strong><br>
+                    <strong>Hide photos</strong><br>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="youtube" id="featured0" value="0" checked>
-                        <label class="form-check-label" for="featured0">No</label>
+                        <input class="form-check-input" type="radio" name="hide_photos" id="hide_photos0" value="0"  {{ $settings->hide_photos == 0 ? "checked" : "" }}>
+                        <label class="form-check-label" for="featured0">Don't show</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="youtube" id="featured1" value="1">
-                        <label class="form-check-label" for="featured1">Yes</label>
+                        <input class="form-check-input" type="radio" name="hide_photos" id="hide_photos1" value="1" {{ $settings->hide_photos == 1 ? "checked" : "" }}>
+                        <label class="form-check-label" for="featured1">Show on Homepage</label>
                     </div>
                 </div>
 
-                <div class="form-group col-lg-12">
-                    <strong>Description</strong>
-                    <textarea type="text" name="description" class="form-control" placeholder="Enter description" style="min-height:200px;">{{ $live->description }}</textarea>
-                    <span class="text-danger">{{ $errors->first('description') }}</span>
+                <div class="form-group col-lg-4">
+                    <strong>Hide lives</strong><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="hide_lives" id="hide_lives0" value="0"  {{ $settings->hide_lives == 0 ? "checked" : "" }}>
+                        <label class="form-check-label" for="featured0">Don't show</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="hide_lives" id="hide_lives1" value="1" {{ $settings->hide_lives == 1 ? "checked" : "" }}>
+                        <label class="form-check-label" for="featured1">Show on Homepage</label>
+                    </div>
                 </div>
-                <div class="form-group col-12">
-                    <strong>URL</strong>
-                    <input type="text" name="url" class="form-control" placeholder="Enter url" value="{{ $live->url }}" required>
-                    <span class="text-danger">{{ $errors->first('url') }}</span>
+
+
+                <div class="form-group col-lg-4">
+                    <strong>Hide articles</strong><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="hide_articles" id="hide_articles0" value="0"  {{ $settings->hide_articles == 0 ? "checked" : "" }}>
+                        <label class="form-check-label" for="featured0">Don't show</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="hide_articles" id="hide_articles1" value="1" {{ $settings->hide_articles == 1 ? "checked" : "" }}>
+                        <label class="form-check-label" for="featured1">Show on Homepage</label>
+                    </div>
                 </div>
 
 
@@ -76,25 +94,25 @@
                     <div class="w-50 float-left p-1">
 
 
-                        <button type="button" class="btn btn-primary w-100" data-toggle="modal" data-target="#modal_{{$live->id}}_delete_btn"  data-toggle="tooltip" data-placement="top" title="Edit Live">
+                        <button type="button" class="btn btn-primary w-100" data-toggle="modal" data-target="#modal_delete_btn"  data-toggle="tooltip" data-placement="top" title="Edit Live">
                             <i class="far fa-edit"></i> Edit Live
                         </button>
 
                         <!-- Modal -->
-                        <div class="modal fade text-black" id="modal_{{$live->id}}_delete_btn" tabindex="-1" role="dialog" aria-labelledby="modal_{{$live->id}}_delete_btn" aria-hidden="true">
+                        <div class="modal fade text-black" id="modal_delete_btn" tabindex="-1" role="dialog" aria-labelledby="modal_delete_btn" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Editing Live</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Editing Global Settings</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body text-left">
-                                        Are you sure you want to edit <strong>{{ $live->title }}</strong>?
+                                        Are you sure you want to edit global settings?
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="submit" class="btn btn-primary"><i class="far fa-edit"></i> Edit live</button>
+                                        <button type="submit" class="btn btn-primary"><i class="far fa-edit"></i> Edit Settings</button>
 
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                     </div>
@@ -107,7 +125,7 @@
                     </div>
 
                     <div class="w-50 float-left p-1">
-                        <a href="{{ route('lives.index') }}" class="btn btn-danger w-100"><i class="fas fa-ban"></i> Cancel edit</a>
+                        <a href="{{ route('settings.index') }}" class="btn btn-danger w-100"><i class="fas fa-ban"></i> Cancel edit</a>
                     </div>
                 </div>
 
