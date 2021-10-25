@@ -92,7 +92,7 @@
 
 
                         <button type="button" class="btn btn-primary w-100" data-toggle="modal" data-target="#modal_delete_btn"  data-toggle="tooltip" data-placement="top" title="Edit Live">
-                            <i class="far fa-edit"></i> Edit Live
+                            <i class="far fa-edit"></i> Edit Global Settings
                         </button>
 
                         <!-- Modal -->
