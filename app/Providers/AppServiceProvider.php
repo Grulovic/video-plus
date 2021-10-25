@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
     {
 
         $this->app->bind('path.public', function() {
-            return base_path().'/../video-plus/';
+            return base_path().'/../video-plus-public/';
         });
 
 
