@@ -43,10 +43,12 @@
                             {{ __('Live') }}
                         </x-jet-nav-link>
                     @endif
+                    @if(!settings()->get('hide_planner'))
 
                     <x-jet-nav-link href="{{ route('plans.index') }}" :active="request()->routeIs(['plans.index','plans.create','plans.edit','plans.show'])">
                         {{ __('Planner') }}
                     </x-jet-nav-link>
+                    @endif
 
                     @auth
                     @if( auth()->user()->role == "admin")
@@ -204,10 +206,12 @@
                     {{ __('Live') }}
                 </x-jet-responsive-nav-link>
             @endif
+            @if(!settings()->get('hide_planner'))
 
                     <x-jet-responsive-nav-link href="{{ route('plans.index') }}" :active="request()->routeIs(['plans.index','plans.create','plans.edit','plans.show'])">
                         {{ __('Planner') }}
                     </x-jet-responsive-nav-link>
+            @endif
 
                     @auth
                     @if( auth()->user()->role == "admin")

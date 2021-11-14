@@ -27,6 +27,7 @@ class SettingsController extends Controller
             'hide_articles' => 'required|integer',
             'hide_photos' => 'required|integer',
             'hide_lives' => 'required|integer',
+            'hide_planner' => 'required|integer',
             'logo' => 'required',
             'logo_footer' => 'required',
         ]);
@@ -37,6 +38,7 @@ class SettingsController extends Controller
         $settings->put('hide_articles', $request['hide_articles']);
         $settings->put('hide_photos', $request['hide_photos']);
         $settings->put('hide_lives', $request['hide_lives']);
+        $settings->put('hide_planner', $request['hide_planner']);
         $settings->put('logo', $request['logo']);
         $settings->put('logo_footer', $request['logo_footer']);
 
