@@ -24,13 +24,13 @@
 
                 <div class="form-group col-lg-6">
                     <strong>Logo</strong>
-                    <input type="text" name="title" class="form-control" placeholder="Enter title" value="{{ $settings->logo }}" required>
+                    <input type="text" name="title" class="form-control" placeholder="Enter title" value="{{ settings()->get('logo') }}" required>
                     <span class="text-danger">{{ $errors->first('logo') }}</span>
                 </div>
 
                 <div class="form-group col-lg-6">
                     <strong>Logo Footer</strong>
-                    <input type="text" name="title" class="form-control" placeholder="Enter title" value="{{ $settings->logo_footer }}" required>
+                    <input type="text" name="title" class="form-control" placeholder="Enter title" value="{{ settings()->get('logo_footer') }}" required>
                     <span class="text-danger">{{ $errors->first('logo') }}</span>
                 </div>
 
@@ -38,11 +38,11 @@
                 <div class="form-group col-lg-3">
                     <strong>Hide Videos</strong><br>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="hide_videos" id="hide_videos0" value="0"  {{ $settings->hide_videos == 0 ? "checked" : "" }}>
+                        <input class="form-check-input" type="radio" name="hide_videos" id="hide_videos0" value="0"  {{ settings()->get('hide_videos') == 0 ? "checked" : "" }}>
                         <label class="form-check-label" for="featured0">No</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="hide_videos" id="hide_videos1" value="1" {{ $settings->hide_videos == 1 ? "checked" : "" }}>
+                        <input class="form-check-input" type="radio" name="hide_videos" id="hide_videos1" value="1" {{ settings()->get('hide_videos') == 1 ? "checked" : "" }}>
                         <label class="form-check-label" for="featured1">Hide</label>
                     </div>
                 </div>
@@ -51,11 +51,11 @@
                 <div class="form-group col-lg-3">
                     <strong>Hide photos</strong><br>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="hide_photos" id="hide_photos0" value="0"  {{ $settings->hide_photos == 0 ? "checked" : "" }}>
+                        <input class="form-check-input" type="radio" name="hide_photos" id="hide_photos0" value="0"  {{ settings()->get('hide_photos') == 0 ? "checked" : "" }}>
                         <label class="form-check-label" for="featured0">No</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="hide_photos" id="hide_photos1" value="1" {{ $settings->hide_photos == 1 ? "checked" : "" }}>
+                        <input class="form-check-input" type="radio" name="hide_photos" id="hide_photos1" value="1" {{ settings()->get('hide_photos') == 1 ? "checked" : "" }}>
                         <label class="form-check-label" for="featured1">Hide</label>
                     </div>
                 </div>
@@ -63,13 +63,13 @@
                 <div class="form-group col-lg-3">
                     <strong>Hide lives</strong><br>
                     <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="hide_lives" id="hide_lives0" value="0"  {{ $settings->hide_lives == 0 ? "checked" : "" }}>
+                    <input class="form-check-input" type="radio" name="hide_lives" id="hide_lives0" value="0"  {{ settings()->get('hide_lives') == 0 ? "checked" : "" }}>
                     <label class="form-check-label" for="featured0">No</label>
                 </div>
 
 
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="hide_lives" id="hide_lives1" value="1" {{ $settings->hide_lives == 1 ? "checked" : "" }}>
+            <input class="form-check-input" type="radio" name="hide_lives" id="hide_lives1" value="1" {{ settings()->get('hide_lives') == 1 ? "checked" : "" }}>
             <label class="form-check-label" for="featured1">Hide</label>
         </div>
     </div>
@@ -78,11 +78,11 @@
     <div class="form-group col-lg-3">
         <strong>Hide articles</strong><br>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="hide_articles" id="hide_articles0" value="0"  {{ $settings->hide_articles == 0 ? "checked" : "" }}>
+            <input class="form-check-input" type="radio" name="hide_articles" id="hide_articles0" value="0"  {{ settings()->get('hide_articles') == 0 ? "checked" : "" }}>
             <label class="form-check-label" for="featured0">No</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="hide_articles" id="hide_articles1" value="1" {{ $settings->hide_articles == 1 ? "checked" : "" }}>
+            <input class="form-check-input" type="radio" name="hide_articles" id="hide_articles1" value="1" {{ settings()->get('hide_articles') == 1 ? "checked" : "" }}>
             <label class="form-check-label" for="featured1">Hide</label>
         </div>
     </div>
