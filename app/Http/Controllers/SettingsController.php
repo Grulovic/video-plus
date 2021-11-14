@@ -6,6 +6,7 @@ use App\Models\Live;
 use App\Settings;
 use Hamcrest\Core\Set;
 use Illuminate\Http\Request;
+use Spatie\Valuestore\Valuestore;
 
 class SettingsController extends Controller
 {
@@ -14,6 +15,9 @@ class SettingsController extends Controller
     }
 
     public function index(Settings $settings){
+
+        $settings = Valuestore::make(storage_path('app/settings.json'));
+
         $data['settings'] = $settings;
 
         return view('settings.index',$data);
