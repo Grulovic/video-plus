@@ -37,7 +37,7 @@ return [
 
         'settings' => [
             'driver' => 'local',
-            'root'   => '../video-plus/settings',
+            'root'   => '../video-plus/uploads/settings',
             'url' => env('APP_URL').'/public/settings',
             'visibility' => 'public',
         ],
