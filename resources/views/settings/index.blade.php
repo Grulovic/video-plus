@@ -31,7 +31,13 @@
                 <div class="form-group col-lg-6">
                     <strong>Logo Footer</strong>
                     <input type="text" name="logo_footer" class="form-control" placeholder="Enter title" value="{{ settings()->get('logo_footer') }}" required>
-                    <span class="text-danger">{{ $errors->first('logo') }}</span>
+                    <span class="text-danger">{{ $errors->first('logo_footer') }}</span>
+                </div>
+
+                <div class="form-group col-lg-12">
+                    <strong>Dashboard Description</strong>
+                    <input type="text" name="dashboard_description" class="form-control" placeholder="Enter dashboard description" value="{{ settings()->get('dashboard_description') }}" required>
+                    <span class="text-danger">{{ $errors->first('dashboard_description') }}</span>
                 </div>
 
 

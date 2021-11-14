@@ -30,6 +30,7 @@ class SettingsController extends Controller
             'hide_planner' => 'required|integer',
             'logo' => 'required',
             'logo_footer' => 'required',
+            'dashboard_description' => 'required',
         ]);
 
         $request = $request->all();
@@ -41,6 +42,7 @@ class SettingsController extends Controller
         $settings->put('hide_planner', $request['hide_planner']);
         $settings->put('logo', $request['logo']);
         $settings->put('logo_footer', $request['logo_footer']);
+        $settings->put('dashboard_description', $request['dashboard_description']);
 
 
 
