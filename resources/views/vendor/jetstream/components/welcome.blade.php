@@ -9,8 +9,7 @@
         </div>
 
         <div class="mt-6 text-gray-500">
-            {{ config('app.name') }} is a specialised pool service that provides non-aligned, yet related, audiovisual material for media professionals.
-            You can download news items such as live feeds, video files, stock shots and photography.
+            {{ settings()->get('dashboard_description')  }}
         </div>
     </div>
 
