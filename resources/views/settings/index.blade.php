@@ -66,13 +66,23 @@
                     <input class="form-check-input" type="radio" name="hide_lives" id="hide_lives0" value="0"  {{ settings()->get('hide_lives') == 0 ? "checked" : "" }}>
                     <label class="form-check-label" for="featured0">No</label>
                 </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="hide_lives" id="hide_lives1" value="1" {{ settings()->get('hide_lives') == 1 ? "checked" : "" }}>
+                        <label class="form-check-label" for="featured1">Hide</label>
+                    </div>
+                </div>
 
-
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="hide_lives" id="hide_lives1" value="1" {{ settings()->get('hide_lives') == 1 ? "checked" : "" }}>
-            <label class="form-check-label" for="featured1">Hide</label>
-        </div>
-    </div>
+                <div class="form-group col-lg-3">
+                    <strong>Hide planner</strong><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="hide_planner" id="hide_planner0" value="0"  {{ settings()->get('hide_planner') == 0 ? "checked" : "" }}>
+                        <label class="form-check-label" for="featured0">No</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="hide_planner" id="hide_planner1" value="1" {{ settings()->get('hide_planner') == 1 ? "checked" : "" }}>
+                        <label class="form-check-label" for="featured1">Hide</label>
+                    </div>
+                </div>
 
 
     <div class="form-group col-lg-3">
