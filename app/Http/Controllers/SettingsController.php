@@ -19,7 +19,7 @@ class SettingsController extends Controller
         $settings = Valuestore::make(storage_path('app/settings.json'));
 
         $data['settings'] = $settings;
-        dd($settings);
+        dd($settings->get('hide_videos'));
 //        return view('settings.index',$data);
     }
 
