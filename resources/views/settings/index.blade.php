@@ -63,9 +63,11 @@
                 <div class="form-group col-lg-3">
                     <strong>Hide lives</strong><br>
                     <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="hide_lives" id="hide_lives0" value="0"  {{ $settings->hide_lives == 0 ? "checked" : "" }}>
-                <label class="form-check-label" for="featured0">No</label>
-        </div>
+                    <input class="form-check-input" type="radio" name="hide_lives" id="hide_lives0" value="0"  {{ $settings->hide_lives == 0 ? "checked" : "" }}>
+                    <label class="form-check-label" for="featured0">No</label>
+                </div>
+
+
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="hide_lives" id="hide_lives1" value="1" {{ $settings->hide_lives == 1 ? "checked" : "" }}>
             <label class="form-check-label" for="featured1">Hide</label>

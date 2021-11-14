@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\GlobalSettings;
 use App\Models\Live;
+use App\Settings;
+use Hamcrest\Core\Set;
 use Illuminate\Http\Request;
 
 class SettingsController extends Controller
@@ -13,11 +14,10 @@ class SettingsController extends Controller
     }
 
     public function index(){
-        $data['settings'] = GlobalSettings::first();
-        return view('settings.index',$data);
+        return view('settings.index');
     }
 
-    public function update(Request $request, Live $live)
+    public function update(Request $request, Settings $settings)
     {
 
         $request->validate([
@@ -29,6 +29,13 @@ class SettingsController extends Controller
             'logo_footer' => 'required',
         ]);
 
+
+        $settings->put('hide_videos', $request->hide_videos);
+        $settings->put('hide_articles', $request->hide_articles);
+        $settings->put('hide_photos', $request->hide_photos);
+        $settings->put('hide_live', $request->hide_live);
+        $settings->put('logo', $request->logo);
+        $settings->put('logo_footer', $request->logo_footer);
 
 
 
