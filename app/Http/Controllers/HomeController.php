@@ -38,19 +38,12 @@ class HomeController extends Controller
 {
     public function index(){
 
-        $date = Carbon::now()->subHours(3);
-        $date_after = Carbon::now()->addDays(1)->toDateString();
+        $date = Carbon::now();
 
         $data['plans'] = Plan::
-            where(function ($q) use ($date,$date_after) {
-                // Nested OR condition
-                $q->where('date',">=",$date)->where('date',"<",$date_after);
-            })->orWhere(function ($q) use ($date,$date_after)  {
-                // Nested OR condition
-                $q->where('end_date',">=",$date)->where('end_date',"<",$date_after);
-            })
-       ->orderBy('date','asc')->
-        take(4)->get();
+            where('date',"<=",$date)->where('end_date',">=",$date)
+            ->orderBy('date','asc')
+            ->take(4)->get();
 
 
         $list_of_files = scandir(public_path()."/uploads/videos/");
