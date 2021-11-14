@@ -19,9 +19,8 @@ class SettingsController extends Controller
         return view('settings.index');
     }
 
-    public function update(Request $request)
+    public function update(Request $request, Settings $settings)
     {
-        $settings = settings();
 
         $request->validate([
             'hide_videos' => 'required|integer',
