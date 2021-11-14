@@ -22,7 +22,7 @@
                 {{ csrf_field() }}
                 @method('POST')
 
-                <img src="{{ url('uploads/settings/'.$photo->file_name) }}">
+                <img src="{{ url('uploads/settings/'.settings()->get('logo')) }}">
 
                 <div class="form-group col-lg-6">
                     <strong>Logo</strong>
