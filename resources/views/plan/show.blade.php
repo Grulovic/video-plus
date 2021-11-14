@@ -28,8 +28,8 @@
 
                 <div class="row mt-3">
                     <div class="col-lg-2">
-                        <div class="text-left w-100 pr-2">Start: {{ date('j. F Y.', strtotime($plan->date)) }} <strong>{{ date('H:i', strtotime($plan->date)) }}</strong></div>
-                        <div class="text-left w-100 pr-2">End: {{ date('j. F Y.', strtotime($plan->end_date)) }} <strong>{{ date('H:i', strtotime($plan->end_date)) }}</strong></div>
+                        <div class="text-left w-100 pr-2"><strong>Start:</strong> {{ date('j. F Y.', strtotime($plan->date)) }} <strong>{{ date('H:i', strtotime($plan->date)) }}</div>
+                        <div class="text-left w-100 pr-2"><strong>End:</strong> {{ date('j. F Y.', strtotime($plan->end_date)) }} <strong>{{ date('H:i', strtotime($plan->end_date)) }}</div>
                     </div>
                     <div class="col-lg-6">
                         <p class="text-muted" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
