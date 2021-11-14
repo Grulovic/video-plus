@@ -40,7 +40,7 @@ class UserController extends Controller
 
         // dd($request);
 
-        $roles = array("admin","user");
+        $roles = array("admin","user","editor");
         if (!in_array($request['role'], $roles )) {
            abort(403);
         }

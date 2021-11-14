@@ -17,10 +17,10 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
 
-            $table->enum('role', ['admin', 'user'])->default('user');
+            $table->enum('role', ['admin', 'user', 'editor'])->default('user');
 
             $table->string('email')->unique();
-            
+
             $table->string('telegram_chat_id')->nullable();
 
 

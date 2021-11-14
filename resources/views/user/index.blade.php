@@ -62,7 +62,8 @@
                     <div class="form-group mr-2">
                         <select class="form-control w-50" style="min-width:150px; max-width:50%;" name="role">
                           <option {{ $user->role == "user" ? "selected":"" }} value="user" >User</option>
-                          <option {{ $user->role == "admin" ? "selected":"" }} value="admin" >Admin</option>
+                            <option {{ $user->role == "admin" ? "selected":"" }} value="admin" >Admin</option>
+                            <option {{ $user->role == "editor" ? "selected":"" }} value="editor" >Editor</option>
                         </select>
                     </div>
 
