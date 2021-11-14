@@ -9,9 +9,9 @@ use Illuminate\Auth\Access\HandlesAuthorization;
 class LivePolicy
 {
     use HandlesAuthorization;
-	
+
 	public function before($user, $ability){
-    	if($user->isAdmin()){
+    	if($user->isAdmin() || $user->isEditor() ){
         	return true;
         }
     }
@@ -47,7 +47,7 @@ class LivePolicy
      */
     public function create(User $user)
     {
-         return $user->isAdmin();
+         return $user->isAdmin() || $user->isEditor() ;
     }
 
     /**
@@ -59,7 +59,7 @@ class LivePolicy
      */
     public function update(User $user, Live $live)
     {
-         return $user->isAdmin();
+         return $user->isAdmin() || $user->isEditor() ;
     }
 
     /**
@@ -71,7 +71,7 @@ class LivePolicy
      */
     public function delete(User $user, Live $live)
     {
-         return $user->isAdmin();
+         return $user->isAdmin() || $user->isEditor() ;
     }
 
     /**
@@ -83,7 +83,7 @@ class LivePolicy
      */
     public function restore(User $user, Live $live)
     {
-         return $user->isAdmin();
+         return $user->isAdmin() || $user->isEditor() ;
     }
 
     /**
@@ -95,6 +95,6 @@ class LivePolicy
      */
     public function forceDelete(User $user, Live $live)
     {
-         return $user->isAdmin();
+         return $user->isAdmin() || $user->isEditor() ;
     }
 }
