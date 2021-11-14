@@ -31,9 +31,18 @@
                 </div>
 
                 <div class="form-group col-lg-6">
+{{--                    <strong>Logo</strong>--}}
+{{--                    <input type="text" name="logo" class="form-control" placeholder="Enter title" value="{{ settings()->get('logo') }}" required>--}}
+{{--                    <span class="text-danger">{{ $errors->first('logo') }}</span>--}}
+
                     <strong>Logo</strong>
-                    <input type="text" name="logo" class="form-control" placeholder="Enter title" value="{{ settings()->get('logo') }}" required>
+
+                    <div class="custom-file mb-2">
+                        <input type="file" name="logo" id="logo" class="custom-file-input">
+                        <label class="custom-file-label" for="gallery">Select logo image...</label>
+                    </div>
                     <span class="text-danger">{{ $errors->first('logo') }}</span>
+
                 </div>
 
                 <div class="form-group col-lg-6">
