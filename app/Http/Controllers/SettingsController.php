@@ -6,6 +6,7 @@ use App\Models\Live;
 use App\Models\Settings;
 use Hamcrest\Core\Set;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Spatie\Valuestore\Valuestore;
 
 class SettingsController extends Controller
