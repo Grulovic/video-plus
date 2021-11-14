@@ -36,7 +36,7 @@
 
                 <div class="form-group col-lg-12">
                     <strong>Dashboard Description</strong>
-                    <input type="text" name="dashboard_description" class="form-control" placeholder="Enter dashboard description" value="{{ settings()->get('dashboard_description') }}" required>
+                    <input type="text" name="dashboard_description" class="form-control" placeholder="Enter dashboard description" value="{{ settings()->get('dashboard_description') }}">
                     <span class="text-danger">{{ $errors->first('dashboard_description') }}</span>
                 </div>
 
