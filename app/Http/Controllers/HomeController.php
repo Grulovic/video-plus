@@ -42,7 +42,14 @@ class HomeController extends Controller
         $date_after = Carbon::now()->addDays(1)->toDateString();
 
         $data['plans'] = Plan::
-        where('date',">=",$date)->where('date',"<",$date_after)->orderBy('date','asc')->
+            where(function ($q) use ($date,$date_after) {
+                // Nested OR condition
+                $q->where('date',">=",$date)->where('date',"<",$date_after);
+            })->orWhere(function ($q) use ($date,$date_after)  {
+                // Nested OR condition
+                $q->where('end_date',">=",$date)->where('end_date',"<",$date_after);
+            })
+       ->orderBy('date','asc')->
         take(4)->get();
 
 
