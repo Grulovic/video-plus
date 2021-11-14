@@ -21,6 +21,7 @@ class SettingsController extends Controller
     public function update(Request $request)
     {
         $settings = settings();
+
         $request->validate([
             'hide_videos' => 'required',
             'hide_articles' => 'required',
@@ -30,8 +31,6 @@ class SettingsController extends Controller
             'logo_footer' => 'required',
         ]);
 
-
-        $request = $request->all();
 
         dd($request);
 
