@@ -31,12 +31,15 @@ class SettingsController extends Controller
         ]);
 
 
-        $settings->put('hide_videos', $request->hide_videos);
-        $settings->put('hide_articles', $request->hide_articles);
-        $settings->put('hide_photos', $request->hide_photos);
-        $settings->put('hide_live', $request->hide_live);
-        $settings->put('logo', $request->logo);
-        $settings->put('logo_footer', $request->logo_footer);
+        $request = $request->all();
+
+
+        $settings->put('hide_videos', $request['hide_videos']);
+        $settings->put('hide_articles', $request['hide_articles']);
+        $settings->put('hide_photos', $request['hide_photos']);
+        $settings->put('hide_live', $request['hide_live']);
+        $settings->put('logo', $request['logo']);
+        $settings->put('logo_footer', $request['logo_footer']);
 
 
 
