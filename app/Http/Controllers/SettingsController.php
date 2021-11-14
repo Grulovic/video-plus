@@ -50,24 +50,12 @@ class SettingsController extends Controller
                 $image = request()->file('logo');
 
                 //store the images
-                $file_name = date('Y-m-d_H-i-s')."_".str_replace(" ","-",$image->getClientOriginalName());
+                $file_name = date('Y-m-d-H-i-s')."-".str_replace(" ","-",$image->getClientOriginalName());
 
-                Storage::disk('photos')->put( $file_name,  File::get($image));
+                Storage::disk('settings')->put( $file_name,  File::get($image));
 
-                $imagePath = Storage::disk('photos')->path($file_name);
-                $storagePath = Storage::disk('photos_compressed')->path('/'). $file_name;
-                ImageOptimizer::optimize($imagePath, $storagePath);
+                $imagePath = Storage::disk('settings')->path($file_name);
 
-                $img = Image::make($storagePath);
-                $img->resize(2000, 2000, function ($const) {
-                    $const->aspectRatio();
-                })->save($storagePath);
-
-
-                //and add these attributes to the databse for future retrevial of image
-                $image_attributes['mime'] = $image->getClientMimeType();
-                $image_attributes['original_file_name'] = $image->getClientOriginalName();
-                $image_attributes['file_name'] = $file_name;
 
                 $settings->put('logo', $file_name);
         }
@@ -77,24 +65,12 @@ class SettingsController extends Controller
             $image = request()->file('logo_footer');
 
             //store the images
-            $file_name = date('Y-m-d_H-i-s')."_".str_replace(" ","-",$image->getClientOriginalName());
+            $file_name = date('Y-m-d-H-i-s')."-".str_replace(" ","-",$image->getClientOriginalName());
 
-            Storage::disk('photos')->put( $file_name,  File::get($image));
+            Storage::disk('settings')->put( $file_name,  File::get($image));
 
-            $imagePath = Storage::disk('photos')->path($file_name);
-            $storagePath = Storage::disk('photos_compressed')->path('/'). $file_name;
-            ImageOptimizer::optimize($imagePath, $storagePath);
+            $imagePath = Storage::disk('settings')->path($file_name);
 
-            $img = Image::make($storagePath);
-            $img->resize(2000, 2000, function ($const) {
-                $const->aspectRatio();
-            })->save($storagePath);
-
-
-            //and add these attributes to the databse for future retrevial of image
-            $image_attributes['mime'] = $image->getClientMimeType();
-            $image_attributes['original_file_name'] = $image->getClientOriginalName();
-            $image_attributes['file_name'] = $file_name;
 
             $settings->put('logo_footer', $file_name);
         }
