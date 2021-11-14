@@ -18,7 +18,7 @@
     <div class="row m-0 p-0 pt-5 pb-5">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <form class="row" action="{{ route('settings.update') }}" method="POST" name="update_settings">
+            <form class="row" action="{{ route('settings.update') }}" method="POST" name="update_settings" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 @method('POST')
 
