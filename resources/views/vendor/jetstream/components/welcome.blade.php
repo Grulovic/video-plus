@@ -23,22 +23,27 @@
             </div>
         </div>
 
-{{--        <div class="p-6 border" >--}}
-{{--            <div class="flex items-center">--}}
+        @if(!settings()->get('hide_videos'))
+        <div class="p-6 border" >
+            <div class="flex items-center">
 
-{{--                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/videos">--}}
-{{--                    <i class="fas fa-video" style="width:60px!important; text-align:center!important;"></i> Videos</a></div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
+                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/videos">
+                    <i class="fas fa-video" style="width:60px!important; text-align:center!important;"></i> Videos</a></div>
+            </div>
+        </div>
+        @endif
 
-{{--        <div class="p-6 border" >--}}
-{{--            <div class="flex items-center">--}}
+        @if(!settings()->get('hide_photos'))
+        <div class="p-6 border" >
+            <div class="flex items-center">
 
-{{--                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/photos">--}}
-{{--                    <i class="fas fa-image" style="width:60px!important; text-align:center!important;"></i> Photos</a></div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
+                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/photos">
+                    <i class="fas fa-image" style="width:60px!important; text-align:center!important;"></i> Photos</a></div>
+            </div>
+        </div>
+            @endif
 
+        @if(!settings()->get('hide_lives'))
         <div class="p-6 border">
             <div class="flex items-center">
 
@@ -46,20 +51,25 @@
                         <i class="fas fa-satellite-dish" style="width:60px!important; text-align:center!important;"></i> Live Streams</a></div>
             </div>
         </div>
+                @endif
 
-{{--        <div class="p-6 border">--}}
-{{--            <div class="flex items-center">--}}
-{{--                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/articles">--}}
-{{--                        <i class="fas fa-file-alt" style="width:60px!important; text-align:center!important;"></i> Articles</a></div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
+        @if(!settings()->get('hide_articles'))
+        <div class="p-6 border">
+            <div class="flex items-center">
+                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/articles">
+                        <i class="fas fa-file-alt" style="width:60px!important; text-align:center!important;"></i> Articles</a></div>
+            </div>
+        </div>
+                    @endif
 
+        @if(!settings()->get('hide_planner'))
         <div class="p-6 border">
             <div class="flex items-center">
                 <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/planner">
                         <i class="fas fa-calendar-alt" style="width:60px!important; text-align:center!important;"></i> Planner</a></div>
             </div>
         </div>
+        @endif
 
 @if( auth()->user()->role == "admin" )
         <div class="p-6 border-gray-200 border">
