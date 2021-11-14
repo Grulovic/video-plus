@@ -48,10 +48,9 @@ class SettingsController extends Controller
         if(request()->file('logo')){
 
                 $image = request()->file('logo');
-                dd($image);
+
                 //store the images
                 $file_name = date('Y-m-d-H-i-s')."-".str_replace(" ","-",$image->getClientOriginalName());
-
 
                 Storage::disk('settings')->put( $file_name,  File::get($image));
 
