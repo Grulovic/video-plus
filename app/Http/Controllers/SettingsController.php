@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Live;
-use App\Settings;
+use App\Models\Settings;
 use Hamcrest\Core\Set;
 use Illuminate\Http\Request;
 use Spatie\Valuestore\Valuestore;

@@ -2,7 +2,7 @@
 
 function settings($key = null, $default = null) {
     if ($key === null) {
-        return app(App\Settings::class);
+        return app(App\Models\Settings::class);
     }
-    return app(App\Settings::class)->get($key, $default);
+    return app(App\Models\Settings::class)->get($key, $default);
 }
