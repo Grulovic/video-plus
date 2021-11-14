@@ -17,6 +17,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(Settings::class, function () {
             return Settings::make(storage_path('app/settings.json'));
         });
+
+        $this->app->instance('path.storage', '../video-plus-public/');
     }
 
     /**
