@@ -30,7 +30,7 @@ class SettingsController extends Controller
             'hide_planner' => 'required|integer',
             'logo' => 'required',
             'logo_footer' => 'required',
-            'dashboard_description' => 'required',
+            'dashboard_description' => 'present|nullable',
         ]);
 
         $request = $request->all();
