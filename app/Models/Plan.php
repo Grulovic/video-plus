@@ -15,6 +15,7 @@ class Plan extends Model
         'user_id',
         'title',
         'date',
+        'end_date',
         'description',
         'location',
         'video',
