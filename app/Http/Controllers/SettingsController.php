@@ -35,8 +35,8 @@ class SettingsController extends Controller
             'hide_planner' => 'required|integer',
 //            'logo' => 'required',
 //            'logo_footer' => 'required',
-            'logo' => 'required|file|max:500000|mimes:jpeg,png,jpg,gif,svg',
-            'logo_footer' => 'required|file|max:500000|mimes:jpeg,png,jpg,gif,svg',
+            'logo' => 'nullable|file|max:500000|mimes:jpeg,png,jpg,gif,svg',
+            'logo_footer' => 'nullable|file|max:500000|mimes:jpeg,png,jpg,gif,svg',
 
             'dashboard_description' => 'present|nullable',
         ]);
