@@ -38,8 +38,7 @@
                     <strong>Logo</strong>
 
                     <div class="custom-file mb-2">
-                        <input type="file" name="logo" id="logo" class="custom-file-input">
-                        <label class="custom-file-label" for="gallery">Select logo image...</label>
+                        <input type="file" class="form-control-file" name="logo" id="logo" >
                     </div>
                     <span class="text-danger">{{ $errors->first('logo') }}</span>
 
@@ -49,8 +48,7 @@
                     <strong>Logo Footer</strong>
 
                     <div class="custom-file mb-2">
-                        <input type="file" name="logo_footer" id="logo_footer" class="custom-file-input">
-                        <label class="custom-file-label" for="gallery">Select footer logo image...</label>
+                        <input type="file" class="form-control-file" name="logo_footer" id="logo_footer" >
                     </div>
                     <span class="text-danger">{{ $errors->first('logo_footer') }}</span>
                 </div>
