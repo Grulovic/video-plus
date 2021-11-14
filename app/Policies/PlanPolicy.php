@@ -11,7 +11,7 @@ class PlanPolicy
     use HandlesAuthorization;
 
 	public function before($user, $ability){
-    	if($user->isAdmin()){
+    	if($user->isAdmin() || $user->isEditor() ){
         	return true;
         }
     }
@@ -47,7 +47,7 @@ class PlanPolicy
      */
     public function create(User $user)
     {
-         return $user->isAdmin();
+         return $user->isAdmin()|| $user->isEditor();
     }
 
     /**
@@ -59,7 +59,7 @@ class PlanPolicy
      */
     public function update(User $user, Plan $plan)
     {
-         return $user->isAdmin();
+         return $user->isAdmin()|| $user->isEditor();
     }
 
     /**
@@ -71,7 +71,7 @@ class PlanPolicy
      */
     public function delete(User $user, Plan $plan)
     {
-         return $user->isAdmin();
+         return $user->isAdmin() || $user->isEditor();
     }
 
     /**
@@ -83,7 +83,7 @@ class PlanPolicy
      */
     public function restore(User $user, Plan $plan)
     {
-         return $user->isAdmin();
+         return $user->isAdmin() || $user->isEditor();
     }
 
     /**
@@ -95,6 +95,6 @@ class PlanPolicy
      */
     public function forceDelete(User $user, Plan $plan)
     {
-         return $user->isAdmin();
+         return $user->isAdmin() || $user->isEditor();
     }
 }
