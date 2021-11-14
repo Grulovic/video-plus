@@ -3,10 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Live;
+use App\Models\Photo;
 use App\Models\Settings;
 use Hamcrest\Core\Set;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+use Spatie\LaravelImageOptimizer\Facades\ImageOptimizer;
 use Spatie\Valuestore\Valuestore;
 
 class SettingsController extends Controller
@@ -28,20 +33,79 @@ class SettingsController extends Controller
             'hide_photos' => 'required|integer',
             'hide_lives' => 'required|integer',
             'hide_planner' => 'required|integer',
-            'logo' => 'required',
-            'logo_footer' => 'required',
+//            'logo' => 'required',
+//            'logo_footer' => 'required',
+            'logo' => 'required|file|max:500000|mimes:jpeg,png,jpg,gif,svg',
+            'logo_footer' => 'required|file|max:500000|mimes:jpeg,png,jpg,gif,svg',
+
             'dashboard_description' => 'present|nullable',
         ]);
 
         $request = $request->all();
+
+
+
+        if(request()->file('logo')){
+
+                $image = request()->file('logo');
+
+                //store the images
+                $file_name = date('Y-m-d_H-i-s')."_".str_replace(" ","-",$image->getClientOriginalName());
+
+                Storage::disk('photos')->put( $file_name,  File::get($image));
+
+                $imagePath = Storage::disk('photos')->path($file_name);
+                $storagePath = Storage::disk('photos_compressed')->path('/'). $file_name;
+                ImageOptimizer::optimize($imagePath, $storagePath);
+
+                $img = Image::make($storagePath);
+                $img->resize(2000, 2000, function ($const) {
+                    $const->aspectRatio();
+                })->save($storagePath);
+
+
+                //and add these attributes to the databse for future retrevial of image
+                $image_attributes['mime'] = $image->getClientMimeType();
+                $image_attributes['original_file_name'] = $image->getClientOriginalName();
+                $image_attributes['file_name'] = $file_name;
+
+                $settings->put('logo', $file_name);
+        }
+
+        if(request()->file('logo_footer')){
+
+            $image = request()->file('logo_footer');
+
+            //store the images
+            $file_name = date('Y-m-d_H-i-s')."_".str_replace(" ","-",$image->getClientOriginalName());
+
+            Storage::disk('photos')->put( $file_name,  File::get($image));
+
+            $imagePath = Storage::disk('photos')->path($file_name);
+            $storagePath = Storage::disk('photos_compressed')->path('/'). $file_name;
+            ImageOptimizer::optimize($imagePath, $storagePath);
+
+            $img = Image::make($storagePath);
+            $img->resize(2000, 2000, function ($const) {
+                $const->aspectRatio();
+            })->save($storagePath);
+
+
+            //and add these attributes to the databse for future retrevial of image
+            $image_attributes['mime'] = $image->getClientMimeType();
+            $image_attributes['original_file_name'] = $image->getClientOriginalName();
+            $image_attributes['file_name'] = $file_name;
+
+            $settings->put('logo_footer', $file_name);
+        }
 
         $settings->put('hide_videos', $request['hide_videos']);
         $settings->put('hide_articles', $request['hide_articles']);
         $settings->put('hide_photos', $request['hide_photos']);
         $settings->put('hide_lives', $request['hide_lives']);
         $settings->put('hide_planner', $request['hide_planner']);
-        $settings->put('logo', $request['logo']);
-        $settings->put('logo_footer', $request['logo_footer']);
+//        $settings->put('logo', $request['logo']);
+//        $settings->put('logo_footer', $request['logo_footer']);
         $settings->put('dashboard_description', $request['dashboard_description']);
 
 

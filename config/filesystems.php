@@ -35,6 +35,13 @@ return [
             'root' => storage_path('app'),
         ],
 
+        'settings' => [
+            'driver' => 'local',
+            'root'   => '../video-plus/settings',
+            'url' => env('APP_URL').'/public/settings',
+            'visibility' => 'public',
+        ],
+
         'public' => [
             'driver' => 'local',
             // 'root' => storage_path('app/public'),
