@@ -52,6 +52,8 @@ class SettingsController extends Controller
                 //store the images
                 $file_name = date('Y-m-d-H-i-s')."-".str_replace(" ","-",$image->getClientOriginalName());
 
+                dd($file_name);
+
                 Storage::disk('settings')->put( $file_name,  File::get($image));
 
                 $imagePath = Storage::disk('settings')->path($file_name);
