@@ -20,6 +20,7 @@ class CreatePlansTable extends Migration
             $table->string('description');
             $table->string('location');
             $table->dateTime('date');
+            $table->dateTime('end_date');
 
             $table->boolean('video');
             $table->boolean('photo');

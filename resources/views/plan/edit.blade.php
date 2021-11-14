@@ -88,6 +88,18 @@
                     dropdown: true,
                     scrollbar: true
                 });
+
+                $('#end_timepicker').timepicker({
+                    timeFormat: 'HH:mm',
+                    interval: 5,
+                    minTime: '0',
+                    maxTime: '11:59pm',
+                    defaultTime: '{{ date_format(date_create($plan->end_date),'G:i') }}',
+                    startTime: '10:00',
+                    dynamic: true,
+                    dropdown: true,
+                    scrollbar: true
+                });
             });
         </script>
 
@@ -113,13 +125,13 @@
   @method('PATCH')
 
 
-  <div class="form-group col-lg-3">
+  <div class="form-group col-lg-6">
         <strong>Title</strong>
         <input plan="text" name="title" class="form-control" placeholder="Enter title" value="{{ $plan->title }}">
         <span class="text-danger">{{ $errors->first('title') }}</span>
     </div>
 
-    <div class="form-group col-lg-3">
+    <div class="form-group col-lg-6">
         <strong>Location</strong>
         <input type="text" name="location" class="form-control" placeholder="Enter location" value="{{ $plan->location }}">
         <span class="text-danger">{{ $errors->first('location') }}</span>
@@ -136,9 +148,26 @@
 
     <div class="form-group col-lg-3">
         <strong>Time</strong>
-        <input id="timepicker" type="text" name="time" class="form-control" placeholder="Enter date" value="{{date_format(date_create($plan->date),'G:i')}}"  autocomplete="off">
+        <input id="timepicker" type="text" name="time" class="form-control" placeholder="Enter time" value="{{date_format(date_create($plan->date),'G:i')}}"  autocomplete="off">
 
         <span class="text-danger">{{ $errors->first('time') }}</span>
+    </div>
+
+
+    <div class="form-group col-lg-3">
+        <strong>End Date</strong>
+
+        {{--        <input type="datetime-local" name="date" class="form-control" placeholder="Enter date" value="{{ date_format(date_create($plan->date),'Y-m-d')."T".date_format(date_create($plan->date),'h:i:s') }}">--}}
+        <input id="end_datepicker" type="text" name="end_date" class="form-control" placeholder="Enter end date" value="{{ date_format(date_create($plan->end_date),'Y-m-d') }}"  autocomplete="off">
+        <span class="text-danger">{{ $errors->first('end_date') }}</span>
+    </div>
+
+
+    <div class="form-group col-lg-3">
+        <strong>End Time</strong>
+        <input id="end_timepicker" type="text" name="end_time" class="form-control" placeholder="Enter end time" value="{{date_format(date_create($plan->end_date),'G:i')}}"  autocomplete="off">
+
+        <span class="text-danger">{{ $errors->first('end_time') }}</span>
     </div>
 
 

@@ -89,6 +89,18 @@
                     dropdown: true,
                     scrollbar: true
                 });
+
+                $('#end_timepicker').timepicker({
+                    timeFormat: 'HH:mm',
+                    interval: 5,
+                    minTime: '0',
+                    maxTime: '11:59pm',
+                    defaultTime: '12',
+                    startTime: '10:00',
+                    dynamic: true,
+                    dropdown: true,
+                    scrollbar: true
+                });
             });
         </script>
 
@@ -111,13 +123,13 @@
     {{ csrf_field() }}
     <input type="text" name="user_id" hidden="" value="{{ auth()->user()->id }}">
 
-    <div class="form-group col-lg-3">
+    <div class="form-group col-lg-6">
         <strong>Title</strong>
         <input type="text" name="title" class="form-control" placeholder="Enter title" required>
         <span class="text-danger">{{ $errors->first('title') }}</span>
     </div>
 
-    <div class="form-group col-lg-3">
+    <div class="form-group col-lg-6">
         <strong>Location</strong>
         <input type="text" name="location" class="form-control" placeholder="Enter location" required>
         <span class="text-danger">{{ $errors->first('location') }}</span>
@@ -133,6 +145,19 @@
     <div class="form-group col-lg-3">
         <strong>Time</strong>
         <input id="timepicker" type="text" name="time" class="form-control" placeholder="Enter time"  required  autocomplete="off">
+        <span class="text-danger">{{ $errors->first('time') }}</span>
+    </div>
+
+    <div class="form-group col-lg-3">
+        <strong>End Date</strong>
+        <input id="end_datepicker" type="text" name="end_date" class="form-control" placeholder="Enter end date" required  autocomplete="off">
+        <span class="text-danger">{{ $errors->first('date') }}</span>
+    </div>
+
+
+    <div class="form-group col-lg-3">
+        <strong>End Time</strong>
+        <input id="end_timepicker" type="text" name="end_time" class="form-control" placeholder="Enter end time"  required  autocomplete="off">
         <span class="text-danger">{{ $errors->first('time') }}</span>
     </div>
 

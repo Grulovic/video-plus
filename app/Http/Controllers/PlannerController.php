@@ -86,8 +86,12 @@ class PlannerController extends Controller
             'title' => 'required',
             'description' => 'required',
             'location' => 'required',
+
             'date' => 'required',
             'time' => 'required',
+            'end_date' => 'required',
+            'end_time' => 'required',
+
             'category' => 'present',
 
             'video' => 'required',
@@ -103,7 +107,9 @@ class PlannerController extends Controller
 
         $request = $request->all();
         $request['date'] = $request['date']." ".$request['time'];
+        $request['end_date'] = $request['end_date']." ".$request['end_time'];
         unset($request['time']);
+        unset($request['end_time']);
         unset($request['_token']);
         unset($request['_method']);
         $request['user_id'] = Auth::id();
@@ -205,8 +211,12 @@ class PlannerController extends Controller
             'title' => 'required',
             'description' => 'required',
             'location' => 'required',
+
             'date' => 'required',
             'time' => 'required',
+            'end_date' => 'required',
+            'end_time' => 'required',
+
             'category' => 'present|nullable',
 
             'video' => 'present|nullable',
@@ -225,7 +235,9 @@ class PlannerController extends Controller
 
         $request = $request->all();
         $request['date'] = $request['date']." ".$request['time'];
+        $request['end_date'] = $request['end_date']." ".$request['end_time'];
         unset($request['time']);
+        unset($request['end_time']);
         unset($request['_token']);
         unset($request['_method']);
         // $update = ['title' => $request->title, 'description' => $request->description];

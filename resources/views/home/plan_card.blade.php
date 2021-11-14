@@ -6,7 +6,8 @@
 
         <div class="row mt-3">
             <div class="col-lg-12">
-                <div class="text-left w-100 pr-2">{{ date('j. F Y.', strtotime($plan->date)) }} <strong>{{ date('H:i', strtotime($plan->date)) }}</strong></div>
+                <div class="text-left w-100 pr-2">Start: {{ date('j. F Y.', strtotime($plan->date)) }} <strong>{{ date('H:i', strtotime($plan->date)) }}</strong></div>
+                <div class="text-left w-100 pr-2">End: {{ date('j. F Y.', strtotime($plan->end_date)) }} <strong>{{ date('H:i', strtotime($plan->end_date)) }}</strong></div>
             </div>
 
             <div class="col-lg-12">
