@@ -16,8 +16,6 @@ class SettingsController extends Controller
 
     public function index(Settings $settings){
 
-        $settings = Valuestore::make(storage_path('app/settings.json'));
-
         $data['settings'] = $settings;
         dd($settings->get('logo'));
 //        return view('settings.index',$data);
