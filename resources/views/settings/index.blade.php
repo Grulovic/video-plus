@@ -47,7 +47,11 @@
 
                 <div class="form-group col-lg-6">
                     <strong>Logo Footer</strong>
-                    <input type="text" name="logo_footer" class="form-control" placeholder="Enter title" value="{{ settings()->get('logo_footer') }}" required>
+
+                    <div class="custom-file mb-2">
+                        <input type="file" name="logo_footer" id="logo_footer" class="custom-file-input">
+                        <label class="custom-file-label" for="gallery">Select footer logo image...</label>
+                    </div>
                     <span class="text-danger">{{ $errors->first('logo_footer') }}</span>
                 </div>
 
