@@ -20,8 +20,8 @@ class CreateGlobalSettingsTable extends Migration
             $table->boolean('hide_articles')->default(0);
             $table->boolean('hide_photos')->default(0);
             $table->boolean('hide_live')->default(0);
-            $table->string('logo')->default(asset('logo.png'));
-            $table->string('logo_footer')->default(asset('video-plus-logo.png'));
+            $table->string('logo');
+            $table->string('logo_footer');
 
             $table->timestamps();
         });
