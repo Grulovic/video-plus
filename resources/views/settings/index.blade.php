@@ -24,13 +24,13 @@
 
                 <div class="form-group col-lg-6">
                     <strong>Logo</strong>
-                    <input type="text" name="title" class="form-control" placeholder="Enter title" value="{{ settings()->get('logo') }}" required>
+                    <input type="text" name="logo" class="form-control" placeholder="Enter title" value="{{ settings()->get('logo') }}" required>
                     <span class="text-danger">{{ $errors->first('logo') }}</span>
                 </div>
 
                 <div class="form-group col-lg-6">
                     <strong>Logo Footer</strong>
-                    <input type="text" name="title" class="form-control" placeholder="Enter title" value="{{ settings()->get('logo_footer') }}" required>
+                    <input type="text" name="logo_footer" class="form-control" placeholder="Enter title" value="{{ settings()->get('logo_footer') }}" required>
                     <span class="text-danger">{{ $errors->first('logo') }}</span>
                 </div>
 
