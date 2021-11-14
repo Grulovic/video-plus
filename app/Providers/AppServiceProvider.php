@@ -18,7 +18,6 @@ class AppServiceProvider extends ServiceProvider
             return Settings::make(storage_path('app/settings.json'));
         });
 
-        $this->app->instance('path.storage', '../video-plus-public/');
     }
 
     /**
