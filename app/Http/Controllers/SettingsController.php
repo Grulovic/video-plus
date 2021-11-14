@@ -22,14 +22,14 @@ class SettingsController extends Controller
     {
         $settings = settings();
 
-//        $request->validate([
-//            'hide_videos' => 'required',
-//            'hide_articles' => 'required',
-//            'hide_photos' => 'required',
-//            'hide_live' => 'required',
-//            'logo' => 'required',
-//            'logo_footer' => 'required',
-//        ]);
+        $request->validate([
+            'hide_videos' => 'required',
+            'hide_articles' => 'required',
+            'hide_photos' => 'required',
+            'hide_lives' => 'required',
+            'logo' => 'required',
+            'logo_footer' => 'required',
+        ]);
 
         $request = $request->all();
         dd($request);
