@@ -32,7 +32,6 @@ class SettingsController extends Controller
         ]);
 
         $request = $request->all();
-        dd($request);
 
         $settings->put('hide_videos', $request['hide_videos']);
         $settings->put('hide_articles', $request['hide_articles']);
