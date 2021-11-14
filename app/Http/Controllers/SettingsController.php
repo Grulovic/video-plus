@@ -13,8 +13,10 @@ class SettingsController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(){
-        return view('settings.index');
+    public function index(Settings $settings){
+        $data['settings'] = $settings;
+
+        return view('settings.index',$data);
     }
 
     public function update(Request $request, Settings $settings)
