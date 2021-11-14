@@ -11,7 +11,7 @@ class LivePolicy
     use HandlesAuthorization;
 
 	public function before($user, $ability){
-    	if($user->isAdmin() || $user->isEditor() ){
+    	if($user->isAdmin()){
         	return true;
         }
     }
@@ -47,7 +47,7 @@ class LivePolicy
      */
     public function create(User $user)
     {
-         return $user->isAdmin() || $user->isEditor() ;
+         return $user->isAdmin();
     }
 
     /**
@@ -59,7 +59,7 @@ class LivePolicy
      */
     public function update(User $user, Live $live)
     {
-         return $user->isAdmin() || $user->isEditor() ;
+         return $user->isAdmin();
     }
 
     /**
@@ -71,7 +71,7 @@ class LivePolicy
      */
     public function delete(User $user, Live $live)
     {
-         return $user->isAdmin() || $user->isEditor() ;
+         return $user->isAdmin();
     }
 
     /**
@@ -83,7 +83,7 @@ class LivePolicy
      */
     public function restore(User $user, Live $live)
     {
-         return $user->isAdmin() || $user->isEditor() ;
+         return $user->isAdmin();
     }
 
     /**
@@ -95,6 +95,6 @@ class LivePolicy
      */
     public function forceDelete(User $user, Live $live)
     {
-         return $user->isAdmin() || $user->isEditor() ;
+         return $user->isAdmin();
     }
 }
