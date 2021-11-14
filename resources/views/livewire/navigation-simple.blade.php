@@ -62,6 +62,10 @@
                     <x-jet-nav-link href="{{ route('users.index') }}" :active="request()->routeIs(['users.index'])">
                         {{ __('Users') }}
                     </x-jet-nav-link>
+
+                    <x-jet-nav-link href="{{ route('settings.index') }}" :active="request()->routeIs(['settings.index'])">
+                        {{ __('Settings') }}
+                    </x-jet-nav-link>
                     @endif
                     @endauth
 
@@ -217,6 +221,10 @@
 
                     <x-jet-responsive-nav-link href="{{ route('users.index') }}" :active="request()->routeIs(['users.index'])">
                         {{ __('Users') }}
+                    </x-jet-responsive-nav-link>
+
+                    <x-jet-responsive-nav-link href="{{ route('settings.index') }}" :active="request()->routeIs(['settings.index'])">
+                        {{ __('Settings') }}
                     </x-jet-responsive-nav-link>
                     @endif
                     @endauth
