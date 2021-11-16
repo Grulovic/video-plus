@@ -64,27 +64,27 @@ class HomeController extends Controller
         $data['lives'] = Live::where('featured',1)->orderBy('id', 'desc')->get();
 
 
-//        $most_articles_id = ArticleCategory::groupBy('category_id')->select('category_id', DB::raw('count(*) as total'))->orderBy('total','desc')->get()->first();
-//        if($most_articles_id != null ){
-//            $most_articles_id = $most_articles_id->category_id;
-//
-//            $data['most_articles_category'] = Category::where('id', $most_articles_id)->get()->first();
-//
-//            $data['most_articles'] = Article::orderBy('id', 'desc')
-//                ->where(function($query) use ($most_articles_id){
-//                    $query
-//                        ->whereHas('categories', function($query) use ($most_articles_id){
-//                            $query->where('category_id', $most_articles_id);
-//                        });
-//                })
-//                ->take(4)->get();
-//        }else{
-//            $most_articles_category = new stdClass();
-//            $most_articles_category->title = 'No Category at the moment.';
-//            $most_articles_category->id = 0;
-//            $data['most_articles_category'] = $most_articles_category;
-//            $data['most_articles'] = null;
-//        }
+        $most_articles_id = ArticleCategory::groupBy('category_id')->select('category_id', DB::raw('count(*) as total'))->orderBy('total','desc')->get()->first();
+        if($most_articles_id != null ){
+            $most_articles_id = $most_articles_id->category_id;
+
+            $data['most_articles_category'] = Category::where('id', $most_articles_id)->get()->first();
+
+            $data['most_articles'] = Article::orderBy('id', 'desc')
+                ->where(function($query) use ($most_articles_id){
+                    $query
+                        ->whereHas('categories', function($query) use ($most_articles_id){
+                            $query->where('category_id', $most_articles_id);
+                        });
+                })
+                ->take(4)->get();
+        }else{
+            $most_articles_category = new stdClass();
+            $most_articles_category->title = 'No Category at the moment.';
+            $most_articles_category->id = 0;
+            $data['most_articles_category'] = $most_articles_category;
+            $data['most_articles'] = null;
+        }
 
 
 
@@ -138,20 +138,20 @@ class HomeController extends Controller
 
 
 
-        $video_id_available = Video::where('id' ,'>' ,0)->pluck('id')->toArray();
-        $most_downloaded_videos = History::whereNull('gallery_id')->where('action','Video Downloaded')->whereIn('video_id',$video_id_available)->groupBy('video_id')->select('video_id', DB::raw('count(*) as total'))->orderBy('total','desc')->take(4)->get();
-        $data['most_downloaded_videos'] = null;
-        foreach($most_downloaded_videos as $key => $video){
-            $data['most_downloaded_videos'][$key] = $video->video;
-        }
-
-
-        $photo_id_available = Gallery::where('id' ,'>' ,0)->pluck('id')->toArray();
-        $most_downloaded_photos = History::whereNull('video_id')->where('action','Gallery Downloaded')->whereIn('gallery_id',$photo_id_available)->groupBy('gallery_id')->select('gallery_id', DB::raw('count(*) as total'))->orderBy('total','desc')->take(4)->get();
-        $data['most_downloaded_photos'] = null;
-        foreach($most_downloaded_photos as $key => $photo){
-            $data['most_downloaded_photos'][$key] = $photo->gallery;
-        }
+//        $video_id_available = Video::where('id' ,'>' ,0)->pluck('id')->toArray();
+//        $most_downloaded_videos = History::whereNull('gallery_id')->where('action','Video Downloaded')->whereIn('video_id',$video_id_available)->groupBy('video_id')->select('video_id', DB::raw('count(*) as total'))->orderBy('total','desc')->take(4)->get();
+//        $data['most_downloaded_videos'] = null;
+//        foreach($most_downloaded_videos as $key => $video){
+//            $data['most_downloaded_videos'][$key] = $video->video;
+//        }
+//
+//
+//        $photo_id_available = Gallery::where('id' ,'>' ,0)->pluck('id')->toArray();
+//        $most_downloaded_photos = History::whereNull('video_id')->where('action','Gallery Downloaded')->whereIn('gallery_id',$photo_id_available)->groupBy('gallery_id')->select('gallery_id', DB::raw('count(*) as total'))->orderBy('total','desc')->take(4)->get();
+//        $data['most_downloaded_photos'] = null;
+//        foreach($most_downloaded_photos as $key => $photo){
+//            $data['most_downloaded_photos'][$key] = $photo->gallery;
+//        }
 
 
 //        $most_viewed_articles = ArticleView::groupBy('article_id')->select('article_id', DB::raw('count(*) as total'))->orderBy('total','desc')->take(4)->get();
