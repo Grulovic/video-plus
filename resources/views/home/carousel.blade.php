@@ -106,7 +106,8 @@ console.log("here");
 
 	  	@foreach($carausel as $item)
 	  		@if(class_basename($item) == "Video")
-                @if(!settings()->get('hide_videos'))
+
+                  @if(!settings()->get('hide_videos'))
 		    <div class="carousel-item {{ ($loop->first)?'active':'' }}" style="">
 		    	<div class="container h-100" style="max-width: 80%;">
 		      <div class="row m-0 p-0 h-100" style="">
@@ -144,10 +145,10 @@ console.log("here");
 		      </div>
 		      </div>
 		    </div>
-                  @endif
-              @endif
+                      @endif
 		    @else
-                @if(!settings()->get('hide_photos'))
+
+                  @if(!settings()->get('hide_photos'))
     		    @if(sizeof($item->photos) > 0)
     		    <div class="carousel-item {{ ($loop->first)?'active':'' }}" style="
     		    background-color:rgba(0,0,0,0.3);
@@ -176,7 +177,8 @@ console.log("here");
     		   		</div>
     		   		</div>
     		   </div>
-                  @endif
+    		    @endif
+                      @endif
 		    @endif
 		@endforeach
 
