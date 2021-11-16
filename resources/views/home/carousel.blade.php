@@ -176,7 +176,6 @@ console.log("here");
     		   		</div>
     		   		</div>
     		   </div>
-                      @endif
                   @endif
 		    @endif
 		@endforeach
