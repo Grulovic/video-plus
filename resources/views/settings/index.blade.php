@@ -186,7 +186,7 @@
 <div class="container">
     <div class="row m-0 p-0">
 
-        <div class="col-lg-4 btn btn-secondary mr-2 ml-2  shadow-sm mt-2 mb-2 " >
+        <div class="col-lg-4 btn btn-secondary text-white shadow-sm mt-2 mb-2 " >
             <div class="flex items-center">
 
                 <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="{{route('home.index')}}">
@@ -194,7 +194,7 @@
             </div>
         </div>
 
-        <div class="col-lg-4 btn btn-secondary mr-2 ml-2  shadow-sm mt-2 mb-2  " >
+        <div class="col-lg-4 btn btn-secondary text-white shadow-sm mt-2 mb-2  " >
             <div class="flex items-center">
 
                 <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/videos">
@@ -202,7 +202,7 @@
             </div>
         </div>
 
-        <div class="col-lg-4 btn btn-secondary mr-2 ml-2  shadow-sm mt-2 mb-2 " >
+        <div class="col-lg-4 btn btn-secondary text-white shadow-sm mt-2 mb-2 " >
             <div class="flex items-center">
 
                 <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/photos">
@@ -210,7 +210,7 @@
             </div>
         </div>
 
-        <div class="col-lg-4 btn btn-secondary mr-2 ml-2  shadow-sm mt-2 mb-2 ">
+        <div class="col-lg-4 btn btn-secondary text-white shadow-sm mt-2 mb-2 ">
             <div class="flex items-center">
 
                 <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/lives">
@@ -218,21 +218,21 @@
             </div>
         </div>
 
-        <div class="col-lg-4 btn btn-secondary mr-2 ml-2  shadow-sm mt-2 mb-2 ">
+        <div class="col-lg-4 btn btn-secondary text-white shadow-sm mt-2 mb-2 ">
             <div class="flex items-center">
                 <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/articles">
                         <i class="fas fa-file-alt" style="width:60px!important; text-align:center!important;"></i> Articles</a></div>
             </div>
         </div>
 
-        <div class="col-lg-4 btn btn-secondary mr-2 ml-2  shadow-sm mt-2 mb-2 ">
+        <div class="col-lg-4 btn btn-secondary text-white shadow-sm mt-2 mb-2 ">
             <div class="flex items-center">
                 <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/planner">
                         <i class="fas fa-calendar-alt" style="width:60px!important; text-align:center!important;"></i> Planner</a></div>
             </div>
         </div>
 
-        <div class="col-lg-4 btn btn-secondary mr-2 ml-2  shadow-sm mt-2 mb-2  ">
+        <div class="col-lg-4 btn btn-secondary text-white shadow-sm mt-2 mb-2  ">
             <div class="flex items-center">
 
                 <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/categories">
@@ -240,7 +240,7 @@
             </div>
         </div>
 
-        <div class="col-lg-4 btn btn-secondary mr-2 ml-2  shadow-sm mt-2 mb-2    ">
+        <div class="col-lg-4 btn btn-secondary text-white shadow-sm mt-2 mb-2    ">
             <div class="flex items-center">
                 <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/users">
 
@@ -248,7 +248,7 @@
             </div>
         </div>
 
-        <div class="col-lg-4 btn btn-secondary mr-2 ml-2  shadow-sm mt-2 mb-2   ">
+        <div class="col-lg-4 btn btn-secondary text-white shadow-sm mt-2 mb-2   ">
             <div class="flex items-center">
                 <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/history">
 
@@ -257,7 +257,7 @@
         </div>
 
 
-        <div class="col-lg-4 btn btn-secondary mr-2 ml-2  shadow-sm mt-2 mb-2    ">
+        <div class="col-lg-4 btn btn-secondary text-white shadow-sm mt-2 mb-2    ">
             <div class="flex items-center">
                 <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/user/profile">
 
