@@ -183,4 +183,90 @@
 
     </div>
 
+
+    <div class="row m-0 p-0">
+
+        <div class="col-lg-6" >
+            <div class="flex items-center">
+
+                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="{{route('home.index')}}">
+                        <i class="fas fa-home" style="width:60px!important; text-align:center!important;"></i> Home</a></div>
+            </div>
+        </div>
+
+        <div class="col-lg-6" >
+            <div class="flex items-center">
+
+                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/videos">
+                        <i class="fas fa-video" style="width:60px!important; text-align:center!important;"></i> Videos</a></div>
+            </div>
+        </div>
+
+        <div class="col-lg-6" >
+            <div class="flex items-center">
+
+                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/photos">
+                        <i class="fas fa-image" style="width:60px!important; text-align:center!important;"></i> Photos</a></div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="flex items-center">
+
+                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/lives">
+                        <i class="fas fa-satellite-dish" style="width:60px!important; text-align:center!important;"></i> Live Streams</a></div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="flex items-center">
+                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/articles">
+                        <i class="fas fa-file-alt" style="width:60px!important; text-align:center!important;"></i> Articles</a></div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="flex items-center">
+                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/planner">
+                        <i class="fas fa-calendar-alt" style="width:60px!important; text-align:center!important;"></i> Planner</a></div>
+            </div>
+        </div>
+
+        <div class="col-lg-6-gray-200 border">
+            <div class="flex items-center">
+
+                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/categories">
+                        <i class="fas fa-boxes" style="width:60px!important; text-align:center!important;"></i> Categories</a></div>
+            </div>
+        </div>
+
+        <div class="col-lg-6  border-gray-200">
+            <div class="flex items-center">
+                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/users">
+
+                        <i class="fas fa-users" style="width:60px!important; text-align:center!important;"></i> Users</a></div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 border-gray-200">
+            <div class="flex items-center">
+                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/history">
+
+                        <i class="fas fa-history" style="width:60px!important; text-align:center!important;"></i> History</a></div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-6  border-gray-200">
+            <div class="flex items-center">
+                <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/user/profile">
+
+                        <i class="fas fa-user" style="width:60px!important; text-align:center!important;"></i>My Profile</a></div>
+            </div>
+        </div>
+
+
+
+    </div>
+
 </x-app-layout>
