@@ -14,7 +14,14 @@
 
     </x-slot>
 
-
+    <style>
+        label{
+            font-size: 20px;
+        }
+        .form-group strong{
+            font-size: 20px;
+        }
+    </style>
     <div class="row m-0 p-0 pt-5 pb-5">
         <div class="col-md-2"></div>
         <div class="col-md-8">
