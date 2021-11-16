@@ -30,15 +30,15 @@
                 {{ csrf_field() }}
                 @method('POST')
 
-                <div class="form-group col-lg-6">
+                <div class="form-group col-lg-4">
                     <img src="{{ url('uploads/settings/'.settings()->get('logo')) }}">
                 </div>
 
-                <div class="form-group col-lg-6">
+                <div class="form-group col-lg-4">
                     <img src="{{ url('uploads/settings/'.settings()->get('logo_footer')) }}">
                 </div>
 
-                <div class="form-group col-lg-6">
+                <div class="form-group col-lg-4">
 {{--                    <strong>Logo</strong>--}}
 {{--                    <input type="text" name="logo" class="form-control" placeholder="Enter title" value="{{ settings()->get('logo') }}" required>--}}
 {{--                    <span class="text-danger">{{ $errors->first('logo') }}</span>--}}
@@ -52,7 +52,7 @@
 
                 </div>
 
-                <div class="form-group col-lg-6">
+                <div class="form-group col-lg-4">
                     <strong>Logo Footer</strong>
 
                     <div class="custom-file mb-2">
@@ -183,10 +183,10 @@
 
     </div>
 
-
+<div class="container">
     <div class="row m-0 p-0">
 
-        <div class="col-lg-6" >
+        <div class="col-lg-4" >
             <div class="flex items-center">
 
                 <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="{{route('home.index')}}">
@@ -194,7 +194,7 @@
             </div>
         </div>
 
-        <div class="col-lg-6" >
+        <div class="col-lg-4" >
             <div class="flex items-center">
 
                 <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/videos">
@@ -202,7 +202,7 @@
             </div>
         </div>
 
-        <div class="col-lg-6" >
+        <div class="col-lg-4" >
             <div class="flex items-center">
 
                 <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/photos">
@@ -210,7 +210,7 @@
             </div>
         </div>
 
-        <div class="col-lg-6">
+        <div class="col-lg-4">
             <div class="flex items-center">
 
                 <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/lives">
@@ -218,21 +218,21 @@
             </div>
         </div>
 
-        <div class="col-lg-6">
+        <div class="col-lg-4">
             <div class="flex items-center">
                 <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/articles">
                         <i class="fas fa-file-alt" style="width:60px!important; text-align:center!important;"></i> Articles</a></div>
             </div>
         </div>
 
-        <div class="col-lg-6">
+        <div class="col-lg-4">
             <div class="flex items-center">
                 <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/planner">
                         <i class="fas fa-calendar-alt" style="width:60px!important; text-align:center!important;"></i> Planner</a></div>
             </div>
         </div>
 
-        <div class="col-lg-6-gray-200 border">
+        <div class="col-lg-4 ">
             <div class="flex items-center">
 
                 <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/categories">
@@ -240,7 +240,7 @@
             </div>
         </div>
 
-        <div class="col-lg-6  border-gray-200">
+        <div class="col-lg-4   ">
             <div class="flex items-center">
                 <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/users">
 
@@ -248,7 +248,7 @@
             </div>
         </div>
 
-        <div class="col-lg-6 border-gray-200">
+        <div class="col-lg-4  ">
             <div class="flex items-center">
                 <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/history">
 
@@ -257,7 +257,7 @@
         </div>
 
 
-        <div class="col-lg-6  border-gray-200">
+        <div class="col-lg-4   ">
             <div class="flex items-center">
                 <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold" style="font-size: 40px;"><a href="/user/profile">
 
@@ -268,5 +268,7 @@
 
 
     </div>
+</div>
+
 
 </x-app-layout>
