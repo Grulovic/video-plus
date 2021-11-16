@@ -144,7 +144,8 @@ console.log("here");
 		      </div>
 		      </div>
 		    </div>
-                    @endif
+                  @endif
+              @endif
 		    @else
                 @if(!settings()->get('hide_photos'))
     		    @if(sizeof($item->photos) > 0)
