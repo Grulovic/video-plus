@@ -180,73 +180,73 @@
 	</div>
 @endif
 
-    @if( !settings()->get('hide_videos'))
-  <hr>
+{{--    @if( !settings()->get('hide_videos'))--}}
+{{--  <hr>--}}
 
-  	<div class="row m-0 p-0 pt-4 pb-3">
-		<div class="col-lg-12 my-auto">
-			<div class="float-left">
-				<h2>{{ $most_videos_category->title }} Videos:</h2>
-				<p>This is the most used category for videos.</p>
-			</div>
-            @if( $most_videos_category->id != 0)
-			<div class="float-right mt-2">
-				<a class="btn btn-outline-primary" href="{{route('videos.index')}}?category={{$most_videos_category->id}}">Show more {{ $most_videos_category->title }} videos <i class="fas fa-angle-right"></i></a>
-			</div>
-            @endif
-		</div>
-        @if($most_videos != null)
-            @foreach($most_videos as $video)
-				@include('home.video_card')
-			@endforeach
-        @endif
-	</div>
-@endif
+{{--  	<div class="row m-0 p-0 pt-4 pb-3">--}}
+{{--		<div class="col-lg-12 my-auto">--}}
+{{--			<div class="float-left">--}}
+{{--				<h2>{{ $most_videos_category->title }} Videos:</h2>--}}
+{{--				<p>This is the most used category for videos.</p>--}}
+{{--			</div>--}}
+{{--            @if( $most_videos_category->id != 0)--}}
+{{--			<div class="float-right mt-2">--}}
+{{--				<a class="btn btn-outline-primary" href="{{route('videos.index')}}?category={{$most_videos_category->id}}">Show more {{ $most_videos_category->title }} videos <i class="fas fa-angle-right"></i></a>--}}
+{{--			</div>--}}
+{{--            @endif--}}
+{{--		</div>--}}
+{{--        @if($most_videos != null)--}}
+{{--            @foreach($most_videos as $video)--}}
+{{--				@include('home.video_card')--}}
+{{--			@endforeach--}}
+{{--        @endif--}}
+{{--	</div>--}}
+{{--@endif--}}
 
-    @if( !settings()->get('hide_photos'))
-<hr>
-	<div class="row m-0 p-0 pt-4 pb-3">
-		<div class="col-lg-12 my-auto">
-			<div class="float-left">
-				<h2>{{ $most_photos_category->title }} Photos:</h2>
-				<p>This is the most used category for photos.</p>
-			</div>
-            @if( $most_photos_category->id != 0)
-			<div class="float-right mt-2">
-				<a class="btn btn-outline-primary" href="{{route('photos.index')}}?category={{$most_photos_category->id}}">Show  more {{ $most_photos_category->title }} photos <i class="fas fa-angle-right"></i></a>
-			</div>
-            @endif
-		</div>
-        @if($most_photos != null)
-            @foreach($most_photos as $gallery)
-				@include('home.photo_card')
-			@endforeach
-        @endif
-	</div>
-@endif
+{{--    @if( !settings()->get('hide_photos'))--}}
+{{--<hr>--}}
+{{--	<div class="row m-0 p-0 pt-4 pb-3">--}}
+{{--		<div class="col-lg-12 my-auto">--}}
+{{--			<div class="float-left">--}}
+{{--				<h2>{{ $most_photos_category->title }} Photos:</h2>--}}
+{{--				<p>This is the most used category for photos.</p>--}}
+{{--			</div>--}}
+{{--            @if( $most_photos_category->id != 0)--}}
+{{--			<div class="float-right mt-2">--}}
+{{--				<a class="btn btn-outline-primary" href="{{route('photos.index')}}?category={{$most_photos_category->id}}">Show  more {{ $most_photos_category->title }} photos <i class="fas fa-angle-right"></i></a>--}}
+{{--			</div>--}}
+{{--            @endif--}}
+{{--		</div>--}}
+{{--        @if($most_photos != null)--}}
+{{--            @foreach($most_photos as $gallery)--}}
+{{--				@include('home.photo_card')--}}
+{{--			@endforeach--}}
+{{--        @endif--}}
+{{--	</div>--}}
+{{--@endif--}}
 
-    @if( !settings()->get('hide_articles'))
-  <hr>
+{{--    @if( !settings()->get('hide_articles'))--}}
+{{--  <hr>--}}
 
-	<div class="row m-0 p-0 pt-4 pb-3">
-		<div class="col-lg-12 my-auto">
-			<div class="float-left">
-				<h2>{{ $most_articles_category->title }} Articles:</h2>
-				<p>This is the most used category for articles.</p>
-			</div>
-            @if( $most_articles_category->id != 0)
-			<div class="float-right mt-2">
-				<a class="btn btn-outline-primary" href="{{route('articles.index')}}?category={{$most_articles_category->id}}">Show  more {{ $most_articles_category->title }} articles <i class="fas fa-angle-right"></i></a>
-			</div>
-            @endif
-		</div>
-        @if($most_articles != null)
-            @foreach($most_articles as $article)
-				@include('article.card')
-			@endforeach
-        @endif
-	</div>
-@endif
+{{--	<div class="row m-0 p-0 pt-4 pb-3">--}}
+{{--		<div class="col-lg-12 my-auto">--}}
+{{--			<div class="float-left">--}}
+{{--				<h2>{{ $most_articles_category->title }} Articles:</h2>--}}
+{{--				<p>This is the most used category for articles.</p>--}}
+{{--			</div>--}}
+{{--            @if( $most_articles_category->id != 0)--}}
+{{--			<div class="float-right mt-2">--}}
+{{--				<a class="btn btn-outline-primary" href="{{route('articles.index')}}?category={{$most_articles_category->id}}">Show  more {{ $most_articles_category->title }} articles <i class="fas fa-angle-right"></i></a>--}}
+{{--			</div>--}}
+{{--            @endif--}}
+{{--		</div>--}}
+{{--        @if($most_articles != null)--}}
+{{--            @foreach($most_articles as $article)--}}
+{{--				@include('article.card')--}}
+{{--			@endforeach--}}
+{{--        @endif--}}
+{{--	</div>--}}
+{{--@endif--}}
 
 {{--  <hr>--}}
 
