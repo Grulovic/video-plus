@@ -31,6 +31,14 @@
                 @method('POST')
 
                 <div class="form-group col-lg-6">
+                    <strong>Logo</strong>
+                </div>
+
+                <div class="form-group col-lg-6">
+                    <strong>Logo Footer</strong>
+                </div>
+
+                <div class="form-group col-lg-6">
                     <img src="{{ url('uploads/settings/'.settings()->get('logo')) }}">
                 </div>
 
