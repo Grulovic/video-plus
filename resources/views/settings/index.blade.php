@@ -30,15 +30,15 @@
                 {{ csrf_field() }}
                 @method('POST')
 
-                <div class="form-group col-lg-4">
+                <div class="form-group col-lg-6">
                     <img src="{{ url('uploads/settings/'.settings()->get('logo')) }}">
                 </div>
 
-                <div class="form-group col-lg-4">
+                <div class="form-group col-lg-6">
                     <img src="{{ url('uploads/settings/'.settings()->get('logo_footer')) }}">
                 </div>
 
-                <div class="form-group col-lg-4">
+                <div class="form-group col-lg-6">
 {{--                    <strong>Logo</strong>--}}
 {{--                    <input type="text" name="logo" class="form-control" placeholder="Enter title" value="{{ settings()->get('logo') }}" required>--}}
 {{--                    <span class="text-danger">{{ $errors->first('logo') }}</span>--}}
@@ -52,7 +52,7 @@
 
                 </div>
 
-                <div class="form-group col-lg-4">
+                <div class="form-group col-lg-6">
                     <strong>Logo Footer</strong>
 
                     <div class="custom-file mb-2">
