@@ -62,7 +62,7 @@
 
                 <div class="form-group col-lg-3">
                     <strong>Hide Videos</strong><br>
-                    <div class="form-check form-check-inline">
+                    <div class="form-check form-check-inline btn btn-success">
                         <input class="form-check-input" type="radio" name="hide_videos" id="hide_videos0" value="0"  {{ settings()->get('hide_videos') == 0 ? "checked" : "" }}>
                         <label class="form-check-label" for="featured0">Show</label>
                     </div>
