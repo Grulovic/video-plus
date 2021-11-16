@@ -77,6 +77,10 @@
 
 
 
+                <div class="form-group col-lg-12">
+                    <strong>Hide/Show Features:</strong>
+                </div>
+
             <div class="col-lg-12">
                 <div class="row m-0 p-0 bg-white p-1 border rounded">
 
