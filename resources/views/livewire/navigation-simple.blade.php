@@ -183,7 +183,11 @@
                         {{ __('Dashboard') }}
                     </x-jet-responsive-nav-link>
 
-            @if( !settings()->get('hide_videos'))
+            @if( auth()->user() ? auth()->user()->role == "admin" : false)
+                <x-jet-responsive-nav-link href="{{ route('videos.index') }}" :active="request()->routeIs(['videos.index','videos.list','videos.create','videos.edit','videos.show'])">
+                    {{ __('Videos') }}
+                </x-jet-responsive-nav-link>
+            @elseif( !settings()->get('hide_videos'))
                 <x-jet-responsive-nav-link href="{{ route('videos.index') }}" :active="request()->routeIs(['videos.index','videos.list','videos.create','videos.edit','videos.show'])">
                     {{ __('Videos') }}
                 </x-jet-responsive-nav-link>
