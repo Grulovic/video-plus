@@ -1,6 +1,6 @@
 <x-home-layout>
 
-    @if( !settings()->get('hide_videos') && !settings()->get('hide_photos') )
+    @if( !settings()->get('hide_videos') || !settings()->get('hide_photos') )
         @include('home.carousel')
     @endif
 
