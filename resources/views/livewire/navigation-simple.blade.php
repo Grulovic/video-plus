@@ -20,30 +20,30 @@
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
 
-                    @if(auth()->user()->role == "admin" || !settings()->get('hide_videos'))
+                    @if(!settings()->get('hide_videos'))
                         <x-jet-nav-link href="{{ route('videos.index') }}" :active="request()->routeIs(['videos.index','videos.list','videos.create','videos.edit','videos.show'])">
                             {{ __('Videos') }}
                         </x-jet-nav-link>
                     @endif
 
-                    @if(auth()->user()->role == "admin" || !settings()->get('hide_photos'))
+                    @if(!settings()->get('hide_photos'))
                         <x-jet-nav-link href="{{ route('photos.index') }}" :active="request()->routeIs(['photos.index','photos.list','photos.create','photos.edit','photos.show'])">
                             {{ __('Photos') }}
                         </x-jet-nav-link>
                     @endif
 
-                    @if(auth()->user()->role == "admin" || !settings()->get('hide_articles'))
+                    @if(!settings()->get('hide_articles'))
                         <x-jet-nav-link href="{{ route('articles.index') }}" :active="request()->routeIs(['articles.index','articles.create','articles.edit','articles.show'])">
                             {{ __('Articles') }}
                         </x-jet-nav-link>
                     @endif
 
-                    @if(auth()->user()->role == "admin" || !settings()->get('hide_lives'))
+                    @if(!settings()->get('hide_lives'))
                         <x-jet-nav-link href="{{ route('lives.index') }}" :active="request()->routeIs(['lives.index','lives.create','lives.edit','lives.show'])">
                             {{ __('Live') }}
                         </x-jet-nav-link>
                     @endif
-                    @if(auth()->user()->role == "admin" || !settings()->get('hide_planner'))
+                    @if(!settings()->get('hide_planner'))
 
                     <x-jet-nav-link href="{{ route('plans.index') }}" :active="request()->routeIs(['plans.index','plans.create','plans.edit','plans.show'])">
                         {{ __('Planner') }}
@@ -183,30 +183,30 @@
                         {{ __('Dashboard') }}
                     </x-jet-responsive-nav-link>
 
-            @if(auth()->user()->role == "admin" || !settings()->get('hide_videos'))
+            @if(!settings()->get('hide_videos'))
                 <x-jet-responsive-nav-link href="{{ route('videos.index') }}" :active="request()->routeIs(['videos.index','videos.list','videos.create','videos.edit','videos.show'])">
                     {{ __('Videos') }}
                 </x-jet-responsive-nav-link>
             @endif
 
-            @if(auth()->user()->role == "admin" || !settings()->get('hide_photos'))
+            @if(!settings()->get('hide_photos'))
                 <x-jet-responsive-nav-link href="{{ route('photos.index') }}" :active="request()->routeIs(['photos.index','photos.list','photos.create','photos.edit','photos.show'])">
                     {{ __('Photos') }}
                 </x-jet-responsive-nav-link>
             @endif
 
-            @if(auth()->user()->role == "admin" || !settings()->get('hide_articles'))
+            @if(!settings()->get('hide_articles'))
                 <x-jet-responsive-nav-link href="{{ route('articles.index') }}" :active="request()->routeIs(['articles.index','articles.create','articles.edit','articles.show'])">
                     {{ __('Articles') }}
                 </x-jet-responsive-nav-link>
             @endif
 
-            @if(auth()->user()->role == "admin" || !settings()->get('hide_lives'))
+            @if(!settings()->get('hide_lives'))
                 <x-jet-responsive-nav-link href="{{ route('lives.index') }}" :active="request()->routeIs(['lives.index','lives.create','lives.edit','lives.show'])">
                     {{ __('Live') }}
                 </x-jet-responsive-nav-link>
             @endif
-            @if(auth()->user()->role == "admin" || !settings()->get('hide_planner'))
+            @if(!settings()->get('hide_planner'))
 
                     <x-jet-responsive-nav-link href="{{ route('plans.index') }}" :active="request()->routeIs(['plans.index','plans.create','plans.edit','plans.show'])">
                         {{ __('Planner') }}
