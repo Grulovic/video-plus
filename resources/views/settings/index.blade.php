@@ -64,7 +64,7 @@
 
 
 
-                <div class="form-group col-lg-4">
+                <div class="form-group col-lg-3">
                     <strong><i class="fas fa-video" ></i> Videos</strong><br>
                     <div class="form-check form-check-inline btn btn-success">
                         <input class="form-check-input" type="radio" name="hide_videos" id="hide_videos0" value="0"  {{ settings()->get('hide_videos') == 0 ? "checked" : "" }}>
@@ -77,7 +77,7 @@
                 </div>
 
 
-                <div class="form-group col-lg-4">
+                <div class="form-group col-lg-3">
                     <strong> <i class="fas fa-image" ></i> Photos</strong><br>
                     <div class="form-check form-check-inline  btn btn-success">
                         <input class="form-check-input" type="radio" name="hide_photos" id="hide_photos0" value="0"  {{ settings()->get('hide_photos') == 0 ? "checked" : "" }}>
@@ -89,8 +89,8 @@
                     </div>
                 </div>
 
-                <div class="form-group col-lg-4">
-                    <strong> <i class="fas fa-satellite-d"></i> Lives</strong><br>
+                <div class="form-group col-lg-3">
+                    <strong> <i class="fas fa-satellite-dish"></i> Lives</strong><br>
                     <div class="form-check form-check-inline btn btn-success">
                     <input class="form-check-input" type="radio" name="hide_lives" id="hide_lives0" value="0"  {{ settings()->get('hide_lives') == 0 ? "checked" : "" }}>
                     <label class="form-check-label" for="hide_lives0">Show</label>
@@ -101,7 +101,7 @@
                     </div>
                 </div>
 
-                <div class="form-group col-lg-4">
+                <div class="form-group col-lg-3">
                     <strong><i class="fas fa-calendar-alt"></i> Planner</strong><br>
                     <div class="form-check form-check-inline btn btn-success">
                         <input class="form-check-input" type="radio" name="hide_planner" id="hide_planner0" value="0"  {{ settings()->get('hide_planner') == 0 ? "checked" : "" }}>
@@ -114,8 +114,8 @@
                 </div>
 
 
-    <div class="form-group col-lg-4">
-        <strong><i class="fas fa-file-a"></i> Articles</strong><br>
+    <div class="form-group col-lg-3">
+        <strong><i class="fas fa-file-alt"></i> Articles</strong><br>
         <div class="form-check form-check-inline  btn btn-success">
             <input class="form-check-input" type="radio" name="hide_articles" id="hide_articles0" value="0"  {{ settings()->get('hide_articles') == 0 ? "checked" : "" }}>
             <label class="form-check-label" for="hide_articles0">Show</label>
