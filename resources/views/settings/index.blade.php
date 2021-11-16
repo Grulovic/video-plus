@@ -16,12 +16,12 @@
 
     <style>
         label{
-            font-size: 20px;
+            font-size: 15px;
         }
         .form-group strong{
             font-size: 20px;
         }
-        input[type="radio"]:checked+label{ font-weight: bold; }
+        input[type="radio"]:checked+label{ font-weight: bold; font-size: 20px;}
     </style>
     <div class="row m-0 p-0 pt-5 pb-5">
         <div class="col-md-2"></div>
