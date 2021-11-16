@@ -91,7 +91,7 @@
 
 
                     <x-jet-nav-link href="{{ route('settings.index') }}" :active="request()->routeIs(['settings.index'])">
-                        {{ __('Settings') }}
+                        {{ __('Global Settings') }}
                     </x-jet-nav-link>
                     @endif
                     @endauth
@@ -279,7 +279,7 @@
 
 
                     <x-jet-responsive-nav-link href="{{ route('settings.index') }}" :active="request()->routeIs(['settings.index'])">
-                        {{ __('Settings') }}
+                        {{ __('Global Settings') }}
                     </x-jet-responsive-nav-link>
                     @endif
                     @endauth
