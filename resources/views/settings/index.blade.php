@@ -186,70 +186,70 @@
 <div class="container">
     <div class="row m-0 p-0">
 
-        <div class="col-lg-4 " >
-            <div class="flex items-center btn btn-secondary text-white shadow-sm mt-2 mb-2">
+        <div class="col-lg-4 pr-2 pl-2 " >
+            <div class="flex items-center w-100 btn btn-secondary text-white shadow-sm mt-2 mb-2">
 
                 <div class="ml-4 text-lg" style="font-size: 40px;"><a  style="color:white!important;" href="{{route('home.index')}}">
                         <i class="fas fa-home" style="width:60px!important; text-align:center!important;"></i> Home</a></div>
             </div>
         </div>
 
-        <div class="col-lg-4  " >
-            <div class="flex items-center btn btn-secondary text-white shadow-sm mt-2 mb-2">
+        <div class="col-lg-4 pr-2 pl-2  " >
+            <div class="flex items-center w-100 btn btn-secondary text-white shadow-sm mt-2 mb-2">
 
                 <div class="ml-4 text-lg" style="font-size: 40px;"><a style="color:white!important;"  href="/videos">
                         <i class="fas fa-video" style="width:60px!important; text-align:center!important;"></i> Videos</a></div>
             </div>
         </div>
 
-        <div class="col-lg-4 " >
-            <div class="flex items-center btn btn-secondary text-white shadow-sm mt-2 mb-2">
+        <div class="col-lg-4 pr-2 pl-2 " >
+            <div class="flex items-center w-100 btn btn-secondary text-white shadow-sm mt-2 mb-2">
 
                 <div class="ml-4 text-lg" style="font-size: 40px;"><a style="color:white!important;"  href="/photos">
                         <i class="fas fa-image" style="width:60px!important; text-align:center!important;"></i> Photos</a></div>
             </div>
         </div>
 
-        <div class="col-lg-4 ">
-            <div class="flex items-center btn btn-secondary text-white shadow-sm mt-2 mb-2">
+        <div class="col-lg-4 pr-2 pl-2 ">
+            <div class="flex items-center w-100 btn btn-secondary text-white shadow-sm mt-2 mb-2">
 
                 <div class="ml-4 text-lg" style="font-size: 40px;"><a style="color:white!important;"  href="/lives">
                         <i class="fas fa-satellite-dish" style="width:60px!important; text-align:center!important;"></i> Live Streams</a></div>
             </div>
         </div>
 
-        <div class="col-lg-4 ">
-            <div class="flex items-center btn btn-secondary text-white shadow-sm mt-2 mb-2">
+        <div class="col-lg-4 pr-2 pl-2 ">
+            <div class="flex items-center w-100 btn btn-secondary text-white shadow-sm mt-2 mb-2">
                 <div class="ml-4 text-lg" style="font-size: 40px;"><a style="color:white!important;"  href="/articles">
                         <i class="fas fa-file-alt" style="width:60px!important; text-align:center!important;"></i> Articles</a></div>
             </div>
         </div>
 
-        <div class="col-lg-4 ">
-            <div class="flex items-center btn btn-secondary text-white shadow-sm mt-2 mb-2">
+        <div class="col-lg-4 pr-2 pl-2 ">
+            <div class="flex items-center w-100 btn btn-secondary text-white shadow-sm mt-2 mb-2">
                 <div class="ml-4 text-lg" style="font-size: 40px;"><a  style="color:white!important;" href="/planner">
                         <i class="fas fa-calendar-alt" style="width:60px!important; text-align:center!important;"></i> Planner</a></div>
             </div>
         </div>
 
-        <div class="col-lg-4  ">
-            <div class="flex items-center btn btn-secondary text-white shadow-sm mt-2 mb-2">
+        <div class="col-lg-4 pr-2 pl-2  ">
+            <div class="flex items-center w-100 btn btn-secondary text-white shadow-sm mt-2 mb-2">
 
                 <div class="ml-4 text-lg" style="font-size: 40px;"><a  style="color:white!important;" href="/categories">
                         <i class="fas fa-boxes" style="width:60px!important; text-align:center!important;"></i> Categories</a></div>
             </div>
         </div>
 
-        <div class="col-lg-4    ">
-            <div class="flex items-center btn btn-secondary text-white shadow-sm mt-2 mb-2">
+        <div class="col-lg-4 pr-2 pl-2    ">
+            <div class="flex items-center w-100 btn btn-secondary text-white shadow-sm mt-2 mb-2">
                 <div class="ml-4 text-lg" style="font-size: 40px;"><a  style="color:white!important;" href="/users">
 
                         <i class="fas fa-users" style="width:60px!important; text-align:center!important;"></i> Users</a></div>
             </div>
         </div>
 
-        <div class="col-lg-4   ">
-            <div class="flex items-center btn btn-secondary text-white shadow-sm mt-2 mb-2">
+        <div class="col-lg-4 pr-2 pl-2   ">
+            <div class="flex items-center w-100 btn btn-secondary text-white shadow-sm mt-2 mb-2">
                 <div class="ml-4 text-lg" style="font-size: 40px;"><a  style="color:white!important;" href="/history">
 
                         <i class="fas fa-history" style="width:60px!important; text-align:center!important;"></i> History</a></div>
@@ -257,8 +257,8 @@
         </div>
 
 
-        <div class="col-lg-4    ">
-            <div class="flex items-center btn btn-secondary text-white shadow-sm mt-2 mb-2">
+        <div class="col-lg-4 pr-2 pl-2    ">
+            <div class="flex items-center w-100 btn btn-secondary text-white shadow-sm mt-2 mb-2">
                 <div class="ml-4 text-lg" style="font-size: 40px;"><a  style="color:white!important;" href="/user/profile">
 
                         <i class="fas fa-user" style="width:60px!important; text-align:center!important;"></i>My Profile</a></div>
