@@ -77,6 +77,8 @@
 
 
 
+            <div class="col-lg-12">
+                <div class="row m-0 p-0 bg-white p-1 border rounded">
 
 
 
@@ -142,6 +144,8 @@
         </div>
     </div>
 
+                </div>
+            </div>
 
 
                 <div class="col-12 pt-3">
