@@ -64,6 +64,7 @@
 
 <div  class="container" style="max-width:1920px;">
 
+    @if( !settings()->get('hide_planner'))
     <div class="row m-0 p-0 pt-4 pb-3">
         <div class="col-lg-6 my-auto">
             <div class="text-center text-lg-left">
@@ -90,6 +91,7 @@
         @endif
         @endif
     </div>
+        @if( !settings()->get('hide_videos'))
 
 
 @if( !settings()->get('hide_videos'))
