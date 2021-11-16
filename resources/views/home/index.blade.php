@@ -91,7 +91,7 @@
         @endif
         @endif
     </div>
-        @if( !settings()->get('hide_videos'))
+        @endif
 
 
 @if( !settings()->get('hide_videos'))
