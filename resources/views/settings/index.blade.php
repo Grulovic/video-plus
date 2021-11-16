@@ -21,7 +21,7 @@
         .form-group strong{
             font-size: 20px;
         }
-        input[type="radio"]:checked+label{ font-weight: bold; font-size: 20px;}
+        input[type="radio"]:checked+label{ font-weight: bold; font-size: 20px; text-decoration: underline;}
     </style>
     <div class="row m-0 p-0 pt-5 pb-5">
         <div class="col-md-2"></div>
