@@ -53,7 +53,7 @@
 
                     <strong>Logo</strong>
 
-                    <div class="custom-file mb-2 bg-white rounded p-1">
+                    <div class="custom-file mb-2 bg-white rounded p-1 border">
                         <input type="file" class="form-control-file" name="logo" id="logo" >
                     </div>
                     <span class="text-danger">{{ $errors->first('logo') }}</span>
@@ -63,7 +63,7 @@
                 <div class="form-group col-lg-6">
                     <strong>Logo Footer</strong>
 
-                    <div class="custom-file mb-2  bg-white rounded p-1">
+                    <div class="custom-file mb-2  bg-white rounded p-1  border">
                         <input type="file" class="form-control-file" name="logo_footer" id="logo_footer" >
                     </div>
                     <span class="text-danger">{{ $errors->first('logo_footer') }}</span>
