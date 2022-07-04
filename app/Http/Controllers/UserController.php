@@ -35,7 +35,11 @@ class UserController extends Controller
         ]);
 
         $user->role = $request->get('role') ?? $user->role;
-        $user->active = $request->get('active') ?? $user->active;
+        if($request->get('role') == 'admin'){
+            $user->active = 1;
+        }else{
+            $user->active = $request->get('active') ?? $user->active;
+        }
         $user->save();
 
         return Redirect::to('users')
