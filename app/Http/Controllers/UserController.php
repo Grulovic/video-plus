@@ -34,12 +34,14 @@ class UserController extends Controller
             'active' => ['nullable','in:0,1'],
         ]);
 
+        dd($request->get('active'));
+
         $user->role = $request->get('role') ?? $user->role;
         $user->active = $request->get('active') ?? $user->active;
         $user->save();
 
         return Redirect::to('users')
-        ->with('success','Great! User role updated successfully');
+        ->with('success','Great! User updated successfully');
     }
 
 
