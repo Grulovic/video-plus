@@ -58,6 +58,7 @@
 
                 {{--START USER ACTIVE--}}
                 <td class="text-center  bg-secondary text-white">
+                    {{$user->active}}
                     @if(auth()->user()->id != $user->id)
                         <form class="text-center form-inline" action="{{ route('users.update', $user->id)}}" method="post">
                             {{ csrf_field() }}
