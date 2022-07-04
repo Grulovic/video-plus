@@ -56,15 +56,55 @@
                       @endif
               </td>
 
+                {{--START USER ACTIVE--}}
+                <td class="text-center  bg-secondary text-white">
+                    @if(auth()->user()->id != $user->id)
+                        <form class="text-center form-inline" action="{{ route('users.update', $user->id)}}" method="post">
+                            {{ csrf_field() }}
+                            <div class="form-group mr-2">
+                                <select class="form-control w-50" style="min-width:150px; max-width:50%;" name="active">
+                                    <option {{ $user->role == "user" ? "selected":"" }} value="user" >Active <i class="fa-solid fa-check text-success"></i></option>
+                                    <option {{ $user->role == "admin" ? "selected":"" }} value="admin" >Inactive <i class="fas fa-times text-danger"></i></option>
+                                </select>
+                            </div>
 
-                <td class="text-center">
-                    @if($user->active == 1)
-                        <i class="fa-solid fa-check text-success"></i>
-                    @else
-                        <i class="fas fa-times text-danger"></i>
+                            <button type="button" class="btn btn-danger" style="max-width:250px;" data-toggle="modal" data-target="#modal_{{$user->id}}_user_active"  data-toggle="tooltip" data-placement="top" title="Update User Active">
+                                Update role
+                            </button>
+
+                            <!-- Modal (ACTIVE) -->
+                            <div class="modal fade text-black" id="modal_{{$user->id}}_user_actove" tabindex="-1" role="dialog" aria-labelledby="modal_{{$user->id}}_user_active" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Updating User Active</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body text-left">
+                                            Are you sure you want to update <strong>{{ $user->name }}</strong> active?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-danger" type="submit" style="max-width:50%;">Update active</button>
+
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Modal (ACTIVE)-->
+
+
+                        </form>
                     @endif
                 </td>
+                {{--END USER ACTIVE--}}
 
+
+
+
+                {{--END USER ROLE--}}
               <td class="text-center  bg-secondary text-white">
                   @if(auth()->user()->id != $user->id)
                   <form class="text-center form-inline" action="{{ route('users.update', $user->id)}}" method="post">
@@ -108,6 +148,7 @@
                   </form>
                   @endif
               </td>
+                {{--END USER ACTIVE--}}
 
 
 

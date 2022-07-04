@@ -25,30 +25,18 @@ class UserController extends Controller
 
 
 
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
         abort_unless( auth()->user()->role == "admin",403);
 
         $request->validate([
-            'role' => 'required'
+            'role' => ['nullable','in:admin,user,editor'],
+            'active' => ['nullable','in:0,1'],
         ]);
 
-        $request = $request->all();
-
-        // dd($request);
-
-        $roles = array("admin","user","editor");
-        if (!in_array($request['role'], $roles )) {
-           abort(403);
-        }
-
-
-        unset($request['_token']);
-        unset($request['_method']);
-
-        $user = User::where('id',$id);
-
-        $user->update($request);
+        $user->role = $request->get('role') ?? $user->role;
+        $user->active = $request->get('active') ?? $user->active;
+        $user->save();
 
         return Redirect::to('users')
         ->with('success','Great! User role updated successfully');
