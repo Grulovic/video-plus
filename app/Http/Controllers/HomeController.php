@@ -49,10 +49,11 @@ class HomeController extends Controller
         $list_of_files = scandir(public_path()."/uploads/videos/");
         // ->whereIn('file_name', $list_of_files);
 
-    	$videos_carausel = Video::orderBy('id', 'desc')->whereIn('file_name', $list_of_files)->take(3)->get();
-    	$photos_carausel = Gallery::orderBy('id', 'desc')->has('photos', '>' , 0)->take(3)->get();
-    	$merged = $videos_carausel->merge($photos_carausel);
-        $data['carausel'] = $merged->shuffle();
+    	$videos_carausel = Video::orderBy('id', 'desc')->whereIn('file_name', $list_of_files)->take(5)->get();
+//    	$photos_carausel = Gallery::orderBy('id', 'desc')->has('photos', '>' , 0)->take(3)->get();
+//    	$merged = $videos_carausel->merge($photos_carausel);
+//        $data['carausel'] = $merged->shuffle();
+        $data['carausel'] = $videos_carausel->shuffle();
 
         // dd(class_basename($data['carausel'][0]->photos[0]->file_name));
 
