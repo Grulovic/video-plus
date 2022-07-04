@@ -36,6 +36,7 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Email verified at</th>
+                <th>Active</th>
                 <th>Role</th>
 
             </tr>
@@ -54,6 +55,15 @@
                   <i class="fas fa-times text-danger"></i>
                       @endif
               </td>
+
+
+                <td class="text-center">
+                    @if($user->active == 1)
+                        <i class="fa-solid fa-check text-success"></i>
+                    @else
+                        <i class="fas fa-times text-danger"></i>
+                    @endif
+                </td>
 
               <td class="text-center  bg-secondary text-white">
                   @if(auth()->user()->id != $user->id)
