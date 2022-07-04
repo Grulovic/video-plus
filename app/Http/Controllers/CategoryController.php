@@ -66,7 +66,7 @@ class CategoryController extends Controller
         $where = array('id' => $id);
         $data['category'] = Category::where($where)->first();
 
-        if( auth()->user()->type != "admin" ){
+        if( auth()->user()->role != "admin" ){
             abort_unless( auth()->user()->id == $data['category']->user_id,403);
         }
 
@@ -81,7 +81,7 @@ class CategoryController extends Controller
         $where = array('id' => $id);
         $data['category'] = Category::where($where)->first();
 
-        if( auth()->user()->type != "admin" ){
+        if( auth()->user()->role != "admin" ){
             abort_unless( auth()->user()->id == $data['category']->user_id,403);
         }
 
@@ -106,7 +106,7 @@ class CategoryController extends Controller
         // $update = ['title' => $request->title, 'description' => $request->description];
         $category = Category::where('id',$id);
 
-        if( auth()->user()->type != "admin" ){
+        if( auth()->user()->role != "admin" ){
             abort_unless( auth()->user()->id == $category->first()->user_id,403);
         }
 
@@ -125,7 +125,7 @@ class CategoryController extends Controller
 
         $category = Category::where('id',$id);
 
-        if( auth()->user()->type != "admin" ){
+        if( auth()->user()->role != "admin" ){
             abort_unless( auth()->user()->id == $category->first()->user_id,403);
         }
 
