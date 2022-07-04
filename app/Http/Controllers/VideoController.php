@@ -35,11 +35,6 @@ use URL;
 
 class VideoController extends Controller
 {
-    public function __construct(){
-        $this->middleware('auth',['except' => [
-            'create_view'
-        ]]);
-    }
 
     public function index()
     {

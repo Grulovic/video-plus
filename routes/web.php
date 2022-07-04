@@ -30,14 +30,15 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', 'MessageContr
 
 
 // VIDEOS
- Route::group( ['middleware' => ['isActiveUser'] ] ,function () {
+ Route::group( ['middleware' => ['auth:sanctum','isActiveUser'] ] ,function () {
 	Route::get('/videos/list', 'VideoController@list')->name("videos.list");
 	Route::get('/videos/{video}/download', 'VideoController@download')->name("videos.download");
 	Route::post('/videos/encoding_progress', 'VideoController@get_session_encoding_progress')->name("videos.encoding_progress");
+ });
 
-	Route::get('/videos/create_view/{id}', 'VideoController@create_view')->name("videos.create_view");
+ Route::get('/videos/create_view/{id}', 'VideoController@create_view')->name("videos.create_view");
 
-
+ Route::group( ['middleware' => ['auth:sanctum','isActiveUser'] ] ,function () {
 	Route::resource('videos', VideoController::class);
  });
 
