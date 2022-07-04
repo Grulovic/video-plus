@@ -47,7 +47,7 @@
 
 
                <td class="text-center  bg-dark text-white" style="border-color:#454d55;">{{ $user->id }}</td>
-              <td>{{ $user->name }}</td>
+              <td>{{ $user->name }} ({{$user->active}})</td>
               <td>{{ $user->email }}</td>
               <td class="text-center">@if($user->email_verified_at)
                   {{ $user->email_verified_at }}
@@ -58,7 +58,7 @@
 
                 {{--START USER ACTIVE--}}
                 <td class="text-center  bg-secondary text-white">
-                    {{$user->active}}
+
                     @if(auth()->user()->id != $user->id)
                         <form class="text-center form-inline" action="{{ route('users.update', $user->id)}}" method="post">
                             {{ csrf_field() }}
