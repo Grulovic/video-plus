@@ -115,9 +115,9 @@
                     <div class="form-group mr-2">
                         <select class="form-control w-50" style="min-width:150px; max-width:50%;
 
-                            {{ $user->role == "user" ?:"background-color:#bddcff;" }}
-                            {{ $user->role == "editor" ?:"background-color:#fff7bd;" }}
-                            {{ $user->role == "admin" ?:"background-color:#ffbdbd;" }}
+                            {{ $user->role == "user" ?: "background-color:#fff7bd;"}}
+                            {{ $user->role == "editor" ?:"background-color:#ffbdbd;" }}
+                            {{ $user->role == "admin" ?:"background-color:#bddcff;" }}
                          " name="role">
                           <option {{ $user->role == "user" ? "selected":"" }} value="user" >User</option>
                             <option {{ $user->role == "admin" ? "selected":"" }} value="admin" >Admin</option>
