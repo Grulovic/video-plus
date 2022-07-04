@@ -61,7 +61,7 @@ Route::resource('categories', CategoryController::class);
 // LIVES
 
 // Route::middleware(['auth:sanctum'])->resource('lives', LiveController::class);
-Route::group( ['middleware' => ['auth:sanctum'] ] ,function () {
+Route::group( ['middleware' => ['auth:sanctum','isActiveUser'] ] ,function () {
 	Route::get('/lives', 'LiveController@index')->name("lives.index");
 	Route::get('/lives/create', 'LiveController@create')->name("lives.create");
 	Route::get('/lives/{live}','LiveController@show')->name("lives.show");
@@ -84,7 +84,7 @@ Route::group( ['middleware' => ['auth:sanctum','is.admin'] ] ,function () {
 
 
 // ARTICLES
-Route::middleware(['auth:sanctum'])->resource('articles', ArticleController::class);
+Route::middleware(['auth:sanctum','isActiveUser'])->resource('articles', ArticleController::class);
 Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
 
 
@@ -100,7 +100,7 @@ Route::get('/clear-cache', function() {
 
 
 // PLANNER
-Route::group( ['middleware' => ['auth:sanctum'] ] ,function () {
+Route::group( ['middleware' => ['auth:sanctum','isActiveUser'] ] ,function () {
     Route::get('/planner', 'PlannerController@index')->name("plans.index");
     Route::get('/planner/create', 'PlannerController@create')->name("plans.create");
     Route::post('/planner', 'PlannerController@store')->name("plans.store");
@@ -130,7 +130,7 @@ Route::get('/about', function () {
 
 
 // PLANNER
-Route::group( ['middleware' => ['auth:sanctum'] ] ,function () {
+Route::group( ['middleware' => ['auth:sanctum','isActiveUser'] ] ,function () {
     Route::get('/settings', 'SettingsController@index')->name("settings.index");
     Route::post('/settings/update', 'SettingsController@update')->name("settings.update");
 });
