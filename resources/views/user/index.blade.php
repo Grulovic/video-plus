@@ -73,7 +73,7 @@
                             </button>
 
                             <!-- Modal (ACTIVE) -->
-                            <div class="modal fade text-black" id="modal_{{$user->id}}_user_actove" tabindex="-1" role="dialog" aria-labelledby="modal_{{$user->id}}_user_active" aria-hidden="true">
+                            <div class="modal fade text-black" id="modal_{{$user->id}}_user_active" tabindex="-1" role="dialog" aria-labelledby="modal_{{$user->id}}_user_active" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
