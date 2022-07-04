@@ -71,7 +71,7 @@ class HomeController extends Controller
         foreach ($data['categories'] as $category){
             $data['category_videos'][$category->id] = Video::whereHas('categories', function($q) use ($category){
                 $q->where('category_id',  $category->id);
-            })->limit(4)->get();
+            })->orderBy('id','desc')->limit(4)->get();
         }
 
 
