@@ -113,7 +113,12 @@
                   <form class="text-center form-inline" action="{{ route('users.update', $user->id)}}" method="post">
                     {{ csrf_field() }}
                     <div class="form-group mr-2">
-                        <select class="form-control w-50" style="min-width:150px; max-width:50%;" name="role">
+                        <select class="form-control w-50" style="min-width:150px; max-width:50%;
+
+                            {{ $user->role == "user" ?:"background-color:#bddcff;" }}
+                            {{ $user->role == "editor" ?:"background-color:#fff7bd;" }}
+                            {{ $user->role == "admin" ?:"background-color:#ffbdbd;" }}
+                         " name="role">
                           <option {{ $user->role == "user" ? "selected":"" }} value="user" >User</option>
                             <option {{ $user->role == "admin" ? "selected":"" }} value="admin" >Admin</option>
                             <option {{ $user->role == "editor" ? "selected":"" }} value="editor" >Editor</option>
