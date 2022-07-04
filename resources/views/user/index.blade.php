@@ -68,8 +68,8 @@
                                 </select>
                             </div>
 
-                            <button type="button" class="btn btn-danger" style="max-width:250px;" data-toggle="modal" data-target="#modal_{{$user->id}}_user_active"  data-toggle="tooltip" data-placement="top" title="Update User Active">
-                                Update role
+                            <button type="button" class="btn btn-warning" style="max-width:250px;" data-toggle="modal" data-target="#modal_{{$user->id}}_user_active"  data-toggle="tooltip" data-placement="top" title="Update User Active">
+                                Update active
                             </button>
 
                             <!-- Modal (ACTIVE) -->
@@ -86,7 +86,7 @@
                                             Are you sure you want to update <strong>{{ $user->name }}</strong> active?
                                         </div>
                                         <div class="modal-footer">
-                                            <button class="btn btn-danger" type="submit" style="max-width:50%;">Update active</button>
+                                            <button class="btn btn-warning" type="submit" style="max-width:50%;">Update active</button>
 
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                         </div>
