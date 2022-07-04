@@ -35,7 +35,7 @@ class UserController extends Controller
         ]);
 
         $user->role = $request->get('role') ?? $user->role;
-        if($request->get('role') == 'admin'){
+        if($request->get('role') == 'admin' || $request->get('role') == 'editor'){
             $user->active = 1;
         }else{
             $user->active = $request->get('active') ?? $user->active;
