@@ -1,8 +1,8 @@
 <x-home-layout>
 
-    @if( !settings()->get('hide_videos') && !settings()->get('hide_photos') )
+{{--    @if( !settings()->get('hide_videos') && !settings()->get('hide_photos') )--}}
         @include('home.carousel')
-    @endif
+{{--    @endif--}}
 
 	{{--<div class="row m-0 p-0 pt-4 pb-3">
 		<div class="col-lg-12 my-auto">
