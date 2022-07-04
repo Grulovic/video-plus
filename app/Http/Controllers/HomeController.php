@@ -65,75 +65,75 @@ class HomeController extends Controller
         $data['lives'] = Live::where('featured',1)->orderBy('id', 'desc')->get();
 
 
-        $most_articles_id = ArticleCategory::groupBy('category_id')->select('category_id', DB::raw('count(*) as total'))->orderBy('total','desc')->get()->first();
-        if($most_articles_id != null ){
-            $most_articles_id = $most_articles_id->category_id;
-
-            $data['most_articles_category'] = Category::where('id', $most_articles_id)->get()->first();
-
-            $data['most_articles'] = Article::orderBy('id', 'desc')
-                ->where(function($query) use ($most_articles_id){
-                    $query
-                        ->whereHas('categories', function($query) use ($most_articles_id){
-                            $query->where('category_id', $most_articles_id);
-                        });
-                })
-                ->take(4)->get();
-        }else{
-            $most_articles_category = new stdClass();
-            $most_articles_category->title = 'No Category at the moment.';
-            $most_articles_category->id = 0;
-            $data['most_articles_category'] = $most_articles_category;
-            $data['most_articles'] = null;
-        }
-
-
-
-        $most_videos_id = VideoCategory::groupBy('category_id')->select('category_id', DB::raw('count(*) as total'))->orderBy('total','desc')->get()->first();
-
-        if($most_videos_id != null){
-            $most_videos_id = $most_videos_id->category_id;
-
-            $data['most_videos_category'] = Category::where('id', $most_videos_id)->get()->first();
-
-            $data['most_videos'] = Video::orderBy('id', 'desc')
-                ->where(function($query) use ($most_videos_id){
-                    $query
-                        ->whereHas('categories', function($query) use ($most_videos_id){
-                            $query->where('category_id', $most_videos_id);
-                        });
-                })
-                ->take(4)->get();
-        }else{
-            $most_videos_category = new stdClass();
-            $most_videos_category->title = 'No Category at the moment.';
-            $most_videos_category->id = 0;
-            $data['most_videos_category'] = $most_videos_category;
-            $data['most_videos'] = null;
-        }
-
-
-        $most_photos_id = GalleryCategory::groupBy('category_id')->select('category_id', DB::raw('count(*) as total'))->orderBy('total','desc')->get()->first();
-        if( $most_photos_id != null ){
-            $most_photos_id = $most_photos_id->category_id;
-
-            $data['most_photos_category'] = Category::where('id', $most_photos_id)->get()->first();
-            $data['most_photos'] = Gallery::orderBy('id', 'desc')
-                ->where(function($query) use ($most_photos_id){
-                    $query
-                        ->whereHas('categories', function($query) use ($most_photos_id){
-                            $query->where('category_id', $most_photos_id);
-                        });
-                })
-                ->take(4)->get();
-        }else{
-            $most_photos_category = new stdClass();
-            $most_photos_category->title = 'No Category at the moment.';
-            $most_photos_category->id = 0;
-
-            $data['most_photos_category'] = $most_photos_category;
-            $data['most_photos'] = null;
-        }
+//        $most_articles_id = ArticleCategory::groupBy('category_id')->select('category_id', DB::raw('count(*) as total'))->orderBy('total','desc')->get()->first();
+//        if($most_articles_id != null ){
+//            $most_articles_id = $most_articles_id->category_id;
+//
+//            $data['most_articles_category'] = Category::where('id', $most_articles_id)->get()->first();
+//
+//            $data['most_articles'] = Article::orderBy('id', 'desc')
+//                ->where(function($query) use ($most_articles_id){
+//                    $query
+//                        ->whereHas('categories', function($query) use ($most_articles_id){
+//                            $query->where('category_id', $most_articles_id);
+//                        });
+//                })
+//                ->take(4)->get();
+//        }else{
+//            $most_articles_category = new stdClass();
+//            $most_articles_category->title = 'No Category at the moment.';
+//            $most_articles_category->id = 0;
+//            $data['most_articles_category'] = $most_articles_category;
+//            $data['most_articles'] = null;
+//        }
+//
+//
+//
+//        $most_videos_id = VideoCategory::groupBy('category_id')->select('category_id', DB::raw('count(*) as total'))->orderBy('total','desc')->get()->first();
+//
+//        if($most_videos_id != null){
+//            $most_videos_id = $most_videos_id->category_id;
+//
+//            $data['most_videos_category'] = Category::where('id', $most_videos_id)->get()->first();
+//
+//            $data['most_videos'] = Video::orderBy('id', 'desc')
+//                ->where(function($query) use ($most_videos_id){
+//                    $query
+//                        ->whereHas('categories', function($query) use ($most_videos_id){
+//                            $query->where('category_id', $most_videos_id);
+//                        });
+//                })
+//                ->take(4)->get();
+//        }else{
+//            $most_videos_category = new stdClass();
+//            $most_videos_category->title = 'No Category at the moment.';
+//            $most_videos_category->id = 0;
+//            $data['most_videos_category'] = $most_videos_category;
+//            $data['most_videos'] = null;
+//        }
+//
+//
+//        $most_photos_id = GalleryCategory::groupBy('category_id')->select('category_id', DB::raw('count(*) as total'))->orderBy('total','desc')->get()->first();
+//        if( $most_photos_id != null ){
+//            $most_photos_id = $most_photos_id->category_id;
+//
+//            $data['most_photos_category'] = Category::where('id', $most_photos_id)->get()->first();
+//            $data['most_photos'] = Gallery::orderBy('id', 'desc')
+//                ->where(function($query) use ($most_photos_id){
+//                    $query
+//                        ->whereHas('categories', function($query) use ($most_photos_id){
+//                            $query->where('category_id', $most_photos_id);
+//                        });
+//                })
+//                ->take(4)->get();
+//        }else{
+//            $most_photos_category = new stdClass();
+//            $most_photos_category->title = 'No Category at the moment.';
+//            $most_photos_category->id = 0;
+//
+//            $data['most_photos_category'] = $most_photos_category;
+//            $data['most_photos'] = null;
+//        }
 
 
 
