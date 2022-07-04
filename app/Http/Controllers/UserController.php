@@ -27,9 +27,6 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
-
-
-
         abort_unless( auth()->user()->role == "admin",403);
 
         $request->validate([
