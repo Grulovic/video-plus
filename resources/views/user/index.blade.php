@@ -63,8 +63,8 @@
                             {{ csrf_field() }}
                             <div class="form-group mr-2">
                                 <select class="form-control w-50" style="min-width:150px; max-width:50%;" name="active">
-                                    <option {{ $user->role == "user" ? "selected":"" }} value="user" >Active <i class="fa-solid fa-check text-success"></i></option>
-                                    <option {{ $user->role == "admin" ? "selected":"" }} value="admin" >Inactive <i class="fas fa-times text-danger"></i></option>
+                                    <option {{ $user->active == 1 ? "selected":"" }} value="user" >Active ✓</option>
+                                    <option {{ $user->active == 0 ? "selected":"" }} value="admin" >Inactive ✗</option>
                                 </select>
                             </div>
 
