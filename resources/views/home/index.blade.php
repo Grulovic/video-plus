@@ -124,7 +124,48 @@
             @endif
         @endif
 	</div>
-@endif
+
+
+
+
+{{--        CATEGORY VIDEO LOOP--}}
+        @foreach($categories as $category)
+            <hr>
+
+            <div class="row m-0 p-0 pt-4 pb-3">
+                <div class="col-lg-6 my-auto">
+                    <div class="text-center text-lg-left">
+                        <h2>Latest {{$category->name}} Videos:</h2>
+                        <p>These are the latest videos uploaded for {{$category->name}} category.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 my-auto">
+                    <div class="text-center text-lg-right mt-2 mb-4">
+                        <a class="btn btn-outline-primary" href="{{route('videos.index',['category'=>$category->id])}}">Show more videos <i class="fas fa-angle-right"></i></a>
+                    </div>
+                </div>
+
+                @if(isset($category_videos[$category->id]))
+                    @foreach($latest_videos as $video)
+                        @include('home.video_card')
+                    @endforeach
+                @endif
+
+                @if(isset($category_videos[$category->id]))
+                    @if( sizeof($category_videos[$category->id]) == 0 )
+                        <div class="alert alert-secondary shadow-sm w-100" role="alert" style="">
+                            There are no videos at the moment!
+                        </div>
+                    @endif
+                @endif
+            </div>
+
+        @endforeach
+{{--  END      CATEGORY VIDEO LOOP--}}
+
+
+
+        @endif
 
 
 

@@ -65,6 +65,18 @@ class HomeController extends Controller
         $data['lives'] = Live::where('featured',1)->orderBy('id', 'desc')->get();
 
 
+
+        $data['categories'] = Category::all();
+
+        foreach ($data['categories'] as $category){
+            $data['category_videos'][$category->id] = Video::whereHas('categories', function($q) use ($category){
+                $q->where('category_id',  $category->id);
+            })->get();
+        }
+
+
+
+
 //        $most_articles_id = ArticleCategory::groupBy('category_id')->select('category_id', DB::raw('count(*) as total'))->orderBy('total','desc')->get()->first();
 //        if($most_articles_id != null ){
 //            $most_articles_id = $most_articles_id->category_id;
