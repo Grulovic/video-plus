@@ -135,8 +135,8 @@
             <div class="row m-0 p-0 pt-4 pb-3">
                 <div class="col-lg-6 my-auto">
                     <div class="text-center text-lg-left">
-                        <h2>Latest {{$category->name}} Videos:</h2>
-                        <p>These are the latest videos uploaded for {{$category->name}} category.</p>
+                        <h2>Latest {{$category->title}} Videos:</h2>
+                        <p>These are the latest videos uploaded for {{$category->title}} category.</p>
                     </div>
                 </div>
                 <div class="col-lg-6 my-auto">
@@ -146,7 +146,7 @@
                 </div>
 
                 @if(isset($category_videos[$category->id]))
-                    @foreach($latest_videos as $video)
+                    @foreach($category_videos[$category->id] as $video)
                         @include('home.video_card')
                     @endforeach
                 @endif
