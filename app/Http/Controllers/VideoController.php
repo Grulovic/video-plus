@@ -70,7 +70,6 @@ class VideoController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
         abort_unless( auth()->user()->role == "admin",403);
 
                     // dd(request()->category);
