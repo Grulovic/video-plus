@@ -161,7 +161,7 @@ class VideoController extends Controller
         }
     	elseif(  $email_push == "all" ){
             Log::debug('Sending email to everyone');
-			$users = User::where('id','>=',0)->orderBy('id','asc')->get();
+			$users = User::where('id','>=',0)->where('active',1)->orderBy('id','asc')->get();
             Log::debug(json_encode($users->pluck('id')->toArray()));
         }else{
             $users= [];
