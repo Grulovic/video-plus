@@ -93,7 +93,7 @@
       </script>
       <div class="collapse" id="show_more_{{$video->id}}">
           <div class="">
-            {{ $video->description}}
+            {!!  $video->description !!}
           </div>
         </div>
 
