@@ -50,11 +50,11 @@ class Video extends Model
 	public function viewed_before()
 	{
     	if(auth()->id()==null){
-        	return $this->views()
+        	return $this->views
         	->where('ip', '=',  request()->ip())->exists();
     	}
 
-    	return $this->views()
+    	return $this->views
         	->where('user_id', '=', (auth()->user()->id) )->exists();
     }
 }
