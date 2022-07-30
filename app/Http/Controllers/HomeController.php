@@ -47,9 +47,13 @@ class HomeController extends Controller
 
 
         $list_of_files = scandir(public_path()."/uploads/videos/");
-        // ->whereIn('file_name', $list_of_files);
 
-    	$videos_carausel = Video::with(['history','categories','categories.category','user','views'])->orderBy('id', 'desc')->whereIn('file_name', $list_of_files)->take(5)->get();
+
+        $latest_videos = Video::with(['history','categories','categories.category','user','views'])->orderBy('id', 'desc')->whereIn('file_name', $list_of_files)->take(5)->get();
+
+
+
+    	$videos_carausel = $latest_videos;
 //    	$photos_carausel = Gallery::orderBy('id', 'desc')->has('photos', '>' , 0)->take(3)->get();
 //    	$merged = $videos_carausel->merge($photos_carausel);
 //        $data['carausel'] = $merged->shuffle();
@@ -58,7 +62,7 @@ class HomeController extends Controller
         // dd(class_basename($data['carausel'][0]->photos[0]->file_name));
 
 
-        $data['latest_videos'] = Video::with(['history','categories','categories.category','user','views'])->orderBy('id', 'desc')->whereIn('file_name', $list_of_files)->take(4)->get();
+        $data['latest_videos'] = $latest_videos->take(4);
         $data['latest_photos'] = Gallery::orderBy('id', 'desc')->has('photos', '>' , 0)->take(4)->get();
         $data['latest_articles'] = Article::orderBy('id', 'desc')->take(4)->get();
 
