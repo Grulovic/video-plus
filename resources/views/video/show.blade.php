@@ -103,7 +103,7 @@
 
       <br>
       @else
-      <p class="mb-0 pb-0">{{ $video->description}}</p>
+      <p class="mb-0 pb-0">{!! $video->description !!}</p>
 
 
       @endif
