@@ -93,17 +93,17 @@
       </script>
       <div class="collapse" id="show_more_{{$video->id}}">
           <div class="">
-            {!!  $video->description !!}
+            {!!  nl2br(e($video->description)) !!}
           </div>
         </div>
 
-      <p class="short-description mb-0 pb-0">{!! Str::limit($video->description, 140, $end='...') !!}</p>
+      <p class="short-description mb-0 pb-0">{{ Str::limit($video->description, 140, $end='...') }}</p>
 
       <a class="show-more-btn btn btn-sm btn-outline-primary" data-toggle="collapse" href="#show_more_{{$video->id}}" role="button" aria-expanded="false" aria-controls="show_more_{{$video->id}}">Show more</a>
 
       <br>
       @else
-      <p class="mb-0 pb-0">{!! $video->description !!}</p>
+      <p class="mb-0 pb-0">{!! nl2br(e($video->description)) !!}</p>
 
 
       @endif
