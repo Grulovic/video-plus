@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Settings;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -27,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
+        Log::debug(base_path().'/../video-plus-public/');
         $this->app->bind('path.public', function() {
             return base_path().'/../video-plus-public/';
         });
