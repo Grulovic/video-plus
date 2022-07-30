@@ -44,7 +44,7 @@ class Video extends Model
 	}
 
 	public function view_num(){
-    	return $this->views()->count();
+    	return $this->views->count();
     }
 
 	public function viewed_before()
