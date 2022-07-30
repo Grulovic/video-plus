@@ -72,9 +72,6 @@ class VideoController extends Controller
     {
         abort_unless( auth()->user()->role == "admin",403);
 
-                    // dd(request()->category);
-
-
         $request->validate([
             'name' => 'present|nullable',
             'category' => 'required|nullable',

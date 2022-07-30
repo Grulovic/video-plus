@@ -37,8 +37,6 @@ class SendQueueEmail implements ShouldQueue
      */
     public function handle()
     {
-        Log::debug($this->data);
-
         foreach ($this->data['users'] as $user){
             try{
                 Mail::to( $user )->send(new $this->data['mail']( $this->data['data'] ));
