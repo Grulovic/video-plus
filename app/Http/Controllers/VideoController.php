@@ -513,7 +513,7 @@ class VideoController extends Controller
             $videos = Video::orderBy('id','asc');
         }
 
-
+        $videos = $videos->with(['history','categories','user','views']);
 
         if(isset(request()->search)){
             // var_dump(request()->search);
