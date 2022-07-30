@@ -158,10 +158,14 @@ class VideoController extends Controller
 
 
         if( $email_push == "admin" ){
+            Log::debug('Sending email to admins only');
         	 $users = User::where('role','admin')->orderBy('id','asc')->get();
+            Log::debug(json_encode($users->pluck('id')->toArray()));
         }
     	elseif(  $email_push == "all" ){
+            Log::debug('Sending email to everyone');
 			$users = User::where('id','>=',0)->orderBy('id','asc')->get();
+            Log::debug(json_encode($users->pluck('id')->toArray()));
         }else{
             $users= [];
         }
