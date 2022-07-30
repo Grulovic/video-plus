@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9b214d35d4323f66cd26ca90691a9d73",
+    "content-hash": "01d430b4d35e8f6a53aecd91e57a6e32",
     "packages": [
         {
             "name": "alchemy/binary-driver",
@@ -2020,30 +2020,34 @@
         },
         {
             "name": "laravel/telescope",
-            "version": "v4.6.5",
+            "version": "v4.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/telescope.git",
-                "reference": "06ce2890dd9f1f6aab218a922746161e6870a29a"
+                "reference": "93d6a2f7b7e39407389a505abdfeceda09709f71"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/telescope/zipball/06ce2890dd9f1f6aab218a922746161e6870a29a",
-                "reference": "06ce2890dd9f1f6aab218a922746161e6870a29a",
+                "url": "https://api.github.com/repos/laravel/telescope/zipball/93d6a2f7b7e39407389a505abdfeceda09709f71",
+                "reference": "93d6a2f7b7e39407389a505abdfeceda09709f71",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "laravel/framework": "^8.29",
+                "laravel/framework": "^8.37|^9.0",
                 "php": "^7.3|^8.0",
-                "symfony/var-dumper": "^5.0"
+                "symfony/var-dumper": "^5.0|^6.0"
             },
             "require-dev": {
                 "ext-gd": "*",
-                "orchestra/testbench": "^6.0"
+                "guzzlehttp/guzzle": "^6.0|^7.0",
+                "orchestra/testbench": "^6.0|^7.0"
             },
             "type": "library",
             "extra": {
+                "branch-alias": {
+                    "dev-master": "4.x-dev"
+                },
                 "laravel": {
                     "providers": [
                         "Laravel\\Telescope\\TelescopeServiceProvider"
@@ -2078,9 +2082,9 @@
             ],
             "support": {
                 "issues": "https://github.com/laravel/telescope/issues",
-                "source": "https://github.com/laravel/telescope/tree/v4.6.5"
+                "source": "https://github.com/laravel/telescope/tree/v4.9.1"
             },
-            "time": "2021-10-05T19:06:40+00:00"
+            "time": "2022-07-18T14:49:11+00:00"
         },
         {
             "name": "laravel/tinker",
