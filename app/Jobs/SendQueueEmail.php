@@ -40,8 +40,11 @@ class SendQueueEmail implements ShouldQueue
         Log::debug($this->data);
 
         foreach ($this->data['users'] as $user){
-            Log::debug('Sending email to: '.$user->email);
-            Mail::to( $user )->send(new $this->data['mail']( $this->data['data'] ));
+            try{
+                Mail::to( $user )->send(new $this->data['mail']( $this->data['data'] ));
+            }catch (\Exception $exception){
+                Log::debug('Failed to send email to: '.$user->email);
+            }
         }
     }
 }
