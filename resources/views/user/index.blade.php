@@ -36,6 +36,7 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Email verified at</th>
+                <th>Mail Notifications</th>
                 <th>Active</th>
                 <th>Role</th>
 
@@ -55,6 +56,54 @@
                   <i class="fas fa-times text-danger"></i>
                       @endif
               </td>
+
+                {{--START MAIL NOTIFICATIONS--}}
+                <td class="text-center  bg-secondary text-white">
+
+                    @if(auth()->user()->id != $user->id)
+                        <form class="text-center form-inline" action="{{ route('users.update', $user->id)}}" method="post">
+                            {{ csrf_field() }}
+                            <div class="form-group mr-2">
+                                <select class="form-control w-50" style="min-width:150px; max-width:50%;
+                                {{ $user->active == 1 ? "background-color:#beffbd;":"background-color:#ffbdbd;" }}
+                                    " name="mail_notifications">
+                                    <option {{ $user->mail_notifications == 1 ? "selected":"" }} value="1" >Active ✓</option>
+                                    <option {{ $user->mail_notifications == 0 ? "selected":"" }} value="0" >Inactive ✗</option>
+                                </select>
+                            </div>
+
+                            <button type="button" class="btn btn-warning" style="max-width:250px;" data-toggle="modal" data-target="#modal_{{$user->id}}_user_mail_notifications"  data-toggle="tooltip" data-placement="top" title="Update Mail Notifications">
+                                Update active
+                            </button>
+
+                            <!-- Modal (mail_notifications) -->
+                            <div class="modal fade text-black" id="modal_{{$user->id}}_user_mail_notifications" tabindex="-1" role="dialog" aria-labelledby="modal_{{$user->id}}_mail_notifications" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Updating User Mail Notifications</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body text-left">
+                                            Are you sure you want to update <strong>{{ $user->name }}</strong> mail notifications?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-warning" type="submit" style="max-width:50%;">Update mail notifications</button>
+
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Modal (mail_notifications)-->
+
+
+                        </form>
+                    @endif
+                </td>
+                {{--END MAIL NOTIFICATIONS--}}
 
                 {{--START USER ACTIVE--}}
                 <td class="text-center  bg-secondary text-white">
