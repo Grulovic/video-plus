@@ -64,7 +64,7 @@
                             {{ csrf_field() }}
                             <div class="form-group mr-2">
                                 <select class="form-control w-50" style="min-width:150px; max-width:50%;
-                                {{ $user->active == 1 ? "background-color:#beffbd;":"background-color:#ffbdbd;" }}
+                                {{ $user->mail_notifications == 1 ? "background-color:#beffbd;":"background-color:#ffbdbd;" }}
                                     " name="mail_notifications">
                                     <option {{ $user->mail_notifications == 1 ? "selected":"" }} value="1" >On ✓</option>
                                     <option {{ $user->mail_notifications == 0 ? "selected":"" }} value="0" >Off ✗</option>
