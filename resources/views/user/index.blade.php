@@ -25,9 +25,8 @@
    @include('alerts')
 
 
-      <div class="col-md-1"></div>
 
-      <div class="col-md-10 p-0" style="padding-right: 0; overflow-x: auto;">
+      <div class="col-md-12 p-0" style="padding-right: 0; overflow-x: auto;">
         <table class="table table-bordered sortable" id="laravel_crud">
          <thead>
             <tr class="thead-dark">
@@ -224,7 +223,6 @@
          </tbody>
         </table>
      </div>
-      <div class="col-md-1"></div>
 
   <div class="col-md-1"></div>
       <div class="col-md-10">
