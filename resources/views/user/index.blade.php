@@ -66,13 +66,13 @@
                                 <select class="form-control w-50" style="min-width:150px; max-width:50%;
                                 {{ $user->active == 1 ? "background-color:#beffbd;":"background-color:#ffbdbd;" }}
                                     " name="mail_notifications">
-                                    <option {{ $user->mail_notifications == 1 ? "selected":"" }} value="1" >Active ✓</option>
-                                    <option {{ $user->mail_notifications == 0 ? "selected":"" }} value="0" >Inactive ✗</option>
+                                    <option {{ $user->mail_notifications == 1 ? "selected":"" }} value="1" >On ✓</option>
+                                    <option {{ $user->mail_notifications == 0 ? "selected":"" }} value="0" >Off ✗</option>
                                 </select>
                             </div>
 
                             <button type="button" class="btn btn-warning" style="max-width:250px;" data-toggle="modal" data-target="#modal_{{$user->id}}_user_mail_notifications"  data-toggle="tooltip" data-placement="top" title="Update Mail Notifications">
-                                Update active
+                                Update
                             </button>
 
                             <!-- Modal (mail_notifications) -->
@@ -120,7 +120,7 @@
                             </div>
 
                             <button type="button" class="btn btn-warning" style="max-width:250px;" data-toggle="modal" data-target="#modal_{{$user->id}}_user_active"  data-toggle="tooltip" data-placement="top" title="Update User Active">
-                                Update active
+                                Update
                             </button>
 
                             <!-- Modal (ACTIVE) -->
@@ -174,7 +174,7 @@
                     </div>
 
                     <button type="button" class="btn btn-danger" style="max-width:250px;" data-toggle="modal" data-target="#modal_{{$user->id}}_delete_btn"  data-toggle="tooltip" data-placement="top" title="Update User Role">
-                   Update role
+                   Update
                   </button>
 
                     <!-- Modal -->
