@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class TestController extends Controller
 {
     public function sendTestEmail(){
-        $data['data'] = Video::all()->first();
+        $data['data'] = Video::where('id',1467)->first();
         $data['mail'] = 'App\Mail\VideoUploaded';
         $data['users'] = [Auth::user()];
         $job = (new SendQueueEmail($data))->delay(now()->addSeconds(2));
