@@ -41,7 +41,8 @@ class SendQueueEmail implements ShouldQueue
             try{
                 Mail::to( $user )->send(new $this->data['mail']( $this->data['data'] ));
             }catch (\Exception $exception){
-                Log::debug('Failed to send email to: '.$user->email);
+                Log::error('Failed to send email to: '.$user->email);
+                Log::error($exception->getMessage());
             }
         }
     }
