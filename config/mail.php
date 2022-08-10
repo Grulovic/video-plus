@@ -35,10 +35,10 @@ return [
 
     'mailers' => [
         'smtp' => [
-            'transport' => 'tls',
+            'transport' => 'smtp',
             'host' => env('MAIL_HOST'),
             'port' => env('MAIL_PORT'),
-            'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+//            'encryption' => env('MAIL_ENCRYPTION', 'ssl'),
             'username' => env('MAIL_USERNAME'),
             'password' => env('MAIL_PASSWORD'),
             'timeout' => null,
