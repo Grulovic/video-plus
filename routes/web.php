@@ -31,6 +31,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', 'MessageContr
 
 // VIDEOS
  Route::group( ['middleware' => ['auth:sanctum','isActiveUser'] ] ,function () {
+
+	Route::get('/sendTestEmail', 'TestController@sendTestEmail');//TESTING
+
 	Route::get('/videos/list', 'VideoController@list')->name("videos.list");
 	Route::get('/videos/{video}/download', 'VideoController@download')->name("videos.download");
 	Route::post('/videos/encoding_progress', 'VideoController@get_session_encoding_progress')->name("videos.encoding_progress");
