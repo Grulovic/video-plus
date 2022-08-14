@@ -60,6 +60,7 @@
                                 BLOCK
                             </button>
 
+
                             <!-- Modal -->
                             <div class="modal fade text-black" id="modal_{{$block->id}}_unblock_btn" tabindex="-1" role="dialog" aria-labelledby="modal_{{$block->id}}_unblock_btn" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
