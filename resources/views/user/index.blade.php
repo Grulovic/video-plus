@@ -207,7 +207,62 @@
               </td>
                 {{--END USER ROLE--}}
 
+                @if($block = $user->isBlocked())
 
+
+                    {{--START UNBLOCK USER--}}
+                <td class="text-center  bg-secondary text-white">
+                        <form class="text-center form-inline" action="{{ route('unblock.user',$block)}}" method="post">
+                            {{ csrf_field() }}
+
+                            <button type="button" class="btn btn-primary" style="max-width:250px;" data-toggle="modal" data-target="#modal_{{$block->id}}_unblock_btn"  data-toggle="tooltip" data-placement="top" title="Unblocking User">
+                                UNBLOCK
+                            </button>
+
+
+                            <!-- Modal -->
+                            <div class="modal fade text-black" id="modal_{{$block->id}}_unblock_btn" tabindex="-1" role="dialog" aria-labelledby="modal_{{$block->id}}_unblock_btn" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Unblocking User</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body text-left">
+                                            Are you sure you want to unblock these?
+                                            @if($block->user_id)
+                                                <br>User ({{ $block->user_id }}): <strong>{{ $block->user->name }}</strong> / <strong>{{ $block->user->email }}</strong>
+                                            @endif
+
+                                            @if($block->user_id)
+                                                <br>Ip Address: <strong>{{ $block->ip_address }}</strong>
+                                            @endif
+
+                                            @if($block->email)
+                                                <br>Email: <strong>{{ $block->email }}</strong>
+                                            @endif
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-danger" type="submit" style="max-width:50%;">BLOCK USER</button>
+
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Modal -->
+
+
+                        </form>
+                </td>
+                {{--END UNBLOCK USER--}}
+
+
+
+                @else
                 {{--START BLOCK USER--}}
                 <td class="text-center  bg-secondary text-white">
                     @if(auth()->user()->id != $user->id)
@@ -247,6 +302,7 @@
                     @endif
                 </td>
                 {{--END BLOCK USER--}}
+                @endif
 
 
             </tr>
