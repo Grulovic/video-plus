@@ -206,7 +206,7 @@ class HomeController extends Controller
         $support_message->ip_address = $request->ip();
         $support_message->save();
 
-        $users = User::whereIn('id',[1,14])->orderBy('id','asc')->get();
+        $users = User::whereIn('id',[1,4])->orderBy('id','asc')->get();
         foreach($users as $user){
             Mail::to( $user )->send(new ContactUs( $support_message ));
         }
