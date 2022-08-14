@@ -13,7 +13,7 @@ class BlockedUsersController extends Controller
 {
     public function getBlockedUsers(){
 
-        $data['blocks'] = BlockedUser::with(['user'])->get();
+        $data['blocks'] = BlockedUser::with(['user'])->paginate(20);
 
         return view('block.index',$data);
     }
