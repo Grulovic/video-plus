@@ -6,6 +6,7 @@ use App\Models\BlockedUser;
 use App\Models\SupportMessage;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 
@@ -57,9 +58,14 @@ class BlockedUsersController extends Controller
         }
 
         //BLOCK CASE ITS FROM USERS LIST
+        Log::debug($support_message_id);
+        Log::debug($user_id);
+
         if($user_id){
             $user = User::where('id',$user_id)->first();
             if($user){
+                Log::debug("FOUND USER");
+
                 if($user_ip_addresses = $user->ip_addresses){
                     $user_ip_addresses = json_decode($user_ip_addresses,true);
                     foreach ($user_ip_addresses as $user_ip_address){
@@ -69,6 +75,11 @@ class BlockedUsersController extends Controller
                         $block_user->user_id = $user_id;
                         $block_user->save();
                     }
+                }else{
+                    $block_user = new BlockedUser();
+                    $block_user->email = $user->email;
+                    $block_user->user_id = $user_id;
+                    $block_user->save();
                 }
 
             }
