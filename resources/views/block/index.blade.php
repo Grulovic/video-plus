@@ -44,9 +44,10 @@
             <tr class=" bg-white " >
 
 
-               <td class="text-center  bg-dark text-white" style="border-color:#454d55;">{{ $block->user_id }}</td>
-              <td>{{ $block->ip_address }}</td>
-              <td>{{ $block->email }}</td>
+               <td class="text-center  bg-dark text-white" style="border-color:#454d55;">{{ $block->id }}</td>
+                <td>{{ $block->user_id }}</td>
+                <td>{{ $block->ip_address }}</td>
+                <td>{{ $block->email }}</td>
 
 
                 {{--START BLOCK USER--}}
