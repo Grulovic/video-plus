@@ -52,6 +52,8 @@ class BlockedUsersController extends Controller
             $block_user->email = $email;
             $block_user->user_id = $user_id;
             $block_user->save();
+
+            $support_message->delete();
         }
 
         //BLOCK CASE ITS FROM USERS LIST
