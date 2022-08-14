@@ -246,7 +246,7 @@
 
                                         </div>
                                         <div class="modal-footer">
-                                            <button class="btn btn-danger" type="submit" style="max-width:50%;">BLOCK USER</button>
+                                            <button class="btn btn-primary" type="submit" style="max-width:50%;">UNBLOCK USER</button>
 
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                         </div>
