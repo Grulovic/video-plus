@@ -78,6 +78,10 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Photo::class);
     }
 
+    public function blocks() {
+        return $this->hasMany(BlockedUser::class);
+    }
+
 	public function isAdmin(){
       return $this->role == "admin" ? true:false;
     }
@@ -86,7 +90,34 @@ class User extends Authenticatable implements MustVerifyEmail
       return $this->role == "user" ? true:false;
     }
 
-    public function isEditor(){
-        return $this->role == "editor" ? true:false;
+    public function isBlocked(){
+        $block_exists = BlockedUser::where('user_id',$this->id)
+            ->orWhere('email',$this->email);
+
+        if($this->ip_addresses){
+            $block_exists = $block_exists->orWhereIn('ip_address', $this->ip_addresses ? [] : json_decode($this->ip_addresses,true) );
+        }
+
+        return $block_exists->first();
+    }
+
+    public function addIpAddress($ip_address){
+
+        //get current ip addresses
+        $current_ip_addresses = $this->ip_addresses;
+
+        //convert them to collection if no addresses create empty collection
+        $new_ip_addresses = !$current_ip_addresses ? collect() : collect(json_decode($current_ip_addresses,true));
+
+        //add new address if doesnt exist
+        if(!$new_ip_addresses->contains($ip_address)){
+            $new_ip_addresses->add($ip_address);
+        }
+
+        //save
+        $this->ip_addresses = $new_ip_addresses;
+        $this->save();
+
+        return  $this;
     }
 }

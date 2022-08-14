@@ -155,7 +155,7 @@
 
 
 
-                {{--END USER ROLE--}}
+                {{--START USER ROLE--}}
               <td class="text-center  bg-secondary text-white">
                   @if(auth()->user()->id != $user->id)
                   <form class="text-center form-inline" action="{{ route('users.update', $user->id)}}" method="post">
@@ -204,10 +204,48 @@
                   </form>
                   @endif
               </td>
-                {{--END USER ACTIVE--}}
+                {{--END USER ROLE--}}
 
 
+                {{--START BLOCK USER--}}
+                <td class="text-center  bg-secondary text-white">
+                    @if(auth()->user()->id != $user->id)
+                        <form class="text-center form-inline" action="{{ route('block.user')}}" method="post">
+                            {{ csrf_field() }}
+                            <input type="number" value="{{$user->id}}" name="user_id" hidden>
 
+                            <button type="button" class="btn btn-danger" style="max-width:250px;" data-toggle="modal" data-target="#modal_{{$user->id}}_block_btn"  data-toggle="tooltip" data-placement="top" title="Blocking User">
+                                Update
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade text-black" id="modal_{{$user->id}}_block_btn" tabindex="-1" role="dialog" aria-labelledby="modal_{{$user->id}}_block_btn" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Blocking User</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body text-left">
+                                            Are you sure you want to block <strong>{{ $user->name }}</strong> from using the app?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-danger" type="submit" style="max-width:50%;">BLOCK USER</button>
+
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Modal -->
+
+
+                        </form>
+                    @endif
+                </td>
+                {{--END BLOCK USER--}}
 
 
             </tr>

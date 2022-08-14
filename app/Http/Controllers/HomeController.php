@@ -199,11 +199,11 @@ class HomeController extends Controller
             return Redirect::back()->with('error',$validator->messages()->first());
         }
 
-        $request = $request->all();
 
         $support_message = new SupportMessage();
-        $support_message->email = $request['email'];
-        $support_message->message = $request['message'];
+        $support_message->email = $request->get('email');
+        $support_message->message = $request->get('message');
+        $support_message->ip_address = $request->ip();
         $support_message->save();
 
         $users = User::whereIn('id',[1,14])->orderBy('id','asc')->get();
