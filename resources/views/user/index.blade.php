@@ -38,6 +38,7 @@
                 <th>Mail Notifications</th>
                 <th>Active</th>
                 <th>Role</th>
+                <th>Block</th>
 
             </tr>
          </thead>
@@ -215,7 +216,7 @@
                             <input type="number" value="{{$user->id}}" name="user_id" hidden>
 
                             <button type="button" class="btn btn-danger" style="max-width:250px;" data-toggle="modal" data-target="#modal_{{$user->id}}_block_btn"  data-toggle="tooltip" data-placement="top" title="Blocking User">
-                                Update
+                                BLOCK
                             </button>
 
                             <!-- Modal -->
