@@ -12,14 +12,16 @@ use Illuminate\Support\Facades\Validator;
 
 class BlockedUsersController extends Controller
 {
-    public function getBlockedUsers(){
+    public function getBlockedUsers()
+    {
 
         $data['blocks'] = BlockedUser::with(['user'])->paginate(20);
 
-        return view('block.index',$data);
+        return view('block.index', $data);
     }
 
-    public function blockUser(Request $request){
+    public function blockUser(Request $request)
+    {
 
         $validator = Validator::make($request->all(), [
             'support_message_id' => ['nullable'],
@@ -27,22 +29,22 @@ class BlockedUsersController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return Redirect::back()->with('error',$validator->messages()->first());
+            return Redirect::back()->with('error', $validator->messages()->first());
         }
 
         $support_message_id = $request->get('support_message_id');
         $user_id = $request->get('user_id');
 
         //BLOCK CASE ITS FROM SUPPORT MESSAGE
-        if($support_message_id){
-            $support_message = SupportMessage::where('id',$support_message_id)->first();
-            if($support_message){
+        if ($support_message_id) {
+            $support_message = SupportMessage::where('id', $support_message_id)->first();
+            if ($support_message) {
                 $ip_address = $support_message->ip_address;
                 $email = $support_message->email;
 
-                if($email){
-                    $user = User::where('id',$email)->first();
-                    if($user){
+                if ($email) {
+                    $user = User::where('id', $email)->first();
+                    if ($user) {
                         $user_id = $user->id;
                     }
                 }
@@ -61,21 +63,21 @@ class BlockedUsersController extends Controller
         Log::debug($support_message_id);
         Log::debug($user_id);
 
-        if($user_id){
-            $user = User::where('id',$user_id)->first();
-            if($user){
+        if ($user_id) {
+            $user = User::where('id', $user_id)->first();
+            if ($user) {
                 Log::debug("FOUND USER");
 
-                if($user_ip_addresses = $user->ip_addresses){
-                    $user_ip_addresses = json_decode($user_ip_addresses,true);
-                    foreach ($user_ip_addresses as $user_ip_address){
+                if ($user_ip_addresses = $user->ip_addresses) {
+                    $user_ip_addresses = json_decode($user_ip_addresses, true);
+                    foreach ($user_ip_addresses as $user_ip_address) {
                         $block_user = new BlockedUser();
                         $block_user->ip_address = $user_ip_address;
                         $block_user->email = $user->email;
                         $block_user->user_id = $user_id;
                         $block_user->save();
                     }
-                }else{
+                } else {
                     $block_user = new BlockedUser();
                     $block_user->email = $user->email;
                     $block_user->user_id = $user_id;
@@ -86,22 +88,30 @@ class BlockedUsersController extends Controller
         }
 
 
-        return Redirect::back()->with('success','User blocked successfully');
+        return Redirect::back()->with('success', 'User blocked successfully');
     }
 
 
-    public function unblockUser(BlockedUser $block){
+    public function unblockUser(BlockedUser $block)
+    {
 
         $ip_address = $block->ip_address;
         $email = $block->email;
         $user_id = $block->user_id;
 
-        BlockedUser::where('ip_address',$ip_address)
-            ->orWhere('email',$email)
-            ->orWhere('user_id',$user_id)
-            ->delete();
+        $blocks = BlockedUser::orderBy('id', 'desc');
+        if ($ip_address) {
+            $blocks = $blocks->where('ip_address', $ip_address);
+        }
+        if ($email) {
+            $blocks = $blocks->orWhere('email', $email);
+        }
+        if ($user_id) {
+            $blocks = $blocks->orWhere('user_id', $user_id);
+        }
+        $blocks->delete();
 
-        return Redirect::back()->with('success','User unblocked successfully');
+        return Redirect::back()->with('success', 'User unblocked successfully');
     }
 
 
