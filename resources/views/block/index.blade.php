@@ -51,10 +51,8 @@
 
                 {{--START BLOCK USER--}}
                 <td class="text-center  bg-secondary text-white">
-                    @if(auth()->user()->id != $user->id)
                         <form class="text-center form-inline" action="{{ route('unblock.user',$block)}}" method="post">
                             {{ csrf_field() }}
-                            <input type="number" value="{{$user->id}}" name="user_id" hidden>
 
                             <button type="button" class="btn btn-danger" style="max-width:250px;" data-toggle="modal" data-target="#modal_{{$block->id}}_unblock_btn"  data-toggle="tooltip" data-placement="top" title="Unblocking User">
                                 BLOCK
@@ -98,7 +96,6 @@
 
 
                         </form>
-                    @endif
                 </td>
                 {{--END BLOCK USER--}}
 
@@ -107,9 +104,9 @@
 
             @endforeach
 
-            @if(count($users) < 1)
+            @if(count($blocks) < 1)
               <tr class="bg-white">
-               <td colspan="13" class="text-center">There are no user available yet!</td>
+               <td colspan="13" class="text-center">There are no blocks!</td>
               </td>
             </tr>
             @endif
@@ -119,7 +116,7 @@
 
   <div class="col-md-1"></div>
       <div class="col-md-10">
-          {!! $users->appends(request()->input())->links() !!}
+          {!! $blocks->appends(request()->input())->links() !!}
       </div>
       <div class="col-md-1"></div>
 
