@@ -111,9 +111,7 @@ class User extends Authenticatable implements MustVerifyEmail
         $new_ip_addresses = !$current_ip_addresses ? collect() : collect(json_decode($current_ip_addresses,true));
 
         //add new address if doesnt exist
-        Log::debug($new_ip_addresses->toArray());
         if(!$new_ip_addresses->contains($ip_address)){
-            Log::debug('doesnt contain');
             $new_ip_addresses->add($ip_address);
             $this->ip_addresses = $new_ip_addresses;
             $this->save();
