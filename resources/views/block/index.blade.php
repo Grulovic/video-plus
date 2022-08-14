@@ -57,7 +57,7 @@
                             <input type="number" value="{{$user->id}}" name="user_id" hidden>
 
                             <button type="button" class="btn btn-danger" style="max-width:250px;" data-toggle="modal" data-target="#modal_{{$block->id}}_unblock_btn"  data-toggle="tooltip" data-placement="top" title="Unblocking User">
-                                Update
+                                BLOCK
                             </button>
 
                             <!-- Modal -->
