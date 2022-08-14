@@ -55,8 +55,8 @@
                         <form class="text-center form-inline" action="{{ route('unblock.user',$block)}}" method="post">
                             {{ csrf_field() }}
 
-                            <button type="button" class="btn btn-danger" style="max-width:250px;" data-toggle="modal" data-target="#modal_{{$block->id}}_unblock_btn"  data-toggle="tooltip" data-placement="top" title="Unblocking User">
-                                BLOCK
+                            <button type="button" class="btn btn-primary" style="max-width:250px;" data-toggle="modal" data-target="#modal_{{$block->id}}_unblock_btn"  data-toggle="tooltip" data-placement="top" title="Unblocking User">
+                                UNBLOCK
                             </button>
 
 
