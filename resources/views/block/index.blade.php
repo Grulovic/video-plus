@@ -6,6 +6,8 @@
 
   <div class="col-lg-3  text-left">
     <h2>Blocked Users List:</h2>
+      <a href="{{route('users.index')}}" class="btn btn-primary">USERS LIST</a>
+
   </div>
 
 

@@ -46,9 +46,11 @@ Route::group(['middleware' => ['blockedUser','saveIp']], function () {
     });
 
 
+    Route::group(['middleware' => ['is.admin']], function () {
 // USERS
-    Route::middleware(['auth:sanctum'])->get('/users', 'UserController@index')->name("users.index");
-    Route::middleware(['auth:sanctum'])->post('/users/update/{user}', 'UserController@update')->name("users.update");
+        Route::middleware(['auth:sanctum'])->get('/users', 'UserController@index')->name("users.index");
+        Route::middleware(['auth:sanctum'])->post('/users/update/{user}', 'UserController@update')->name("users.update");
+    });
 
 
 // PHOTOS
