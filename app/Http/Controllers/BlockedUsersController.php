@@ -13,7 +13,7 @@ class BlockedUsersController extends Controller
 {
     public function getBlockedUsers(){
 
-        $data['blocked_users'] = BlockedUser::with(['user'])->get();
+        $data['blocks'] = BlockedUser::with(['user'])->get();
 
         return view('block.index',$data);
     }
