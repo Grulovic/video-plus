@@ -54,7 +54,7 @@
                 <td class="text-center  bg-secondary text-white">
                         <form class="text-center form-inline" action="{{ route('unblock.user',$block)}}" method="post">
                             {{ csrf_field() }}
-
+                            @method('delete')
                             <button type="button" class="btn btn-primary" style="max-width:250px;" data-toggle="modal" data-target="#modal_{{$block->id}}_unblock_btn"  data-toggle="tooltip" data-placement="top" title="Unblocking User">
                                 UNBLOCK
                             </button>
