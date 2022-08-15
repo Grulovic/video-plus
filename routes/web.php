@@ -14,13 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', 'HomeController@index')->name("home.index");
 
-Route::group(['middleware' => ['blockedUser','saveIp']], function () {
+Route::group(['middleware' => ['blockedUser', 'saveIp']], function () {
     Route::post('/contact', 'HomeController@contactUs')->name("contact");
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //     return view('dashboard');
 // })->name('dashboard');
-
 
 //MESSAGES
     Route::post('/messages/store', 'MessageController@store')->name("messages.store");
@@ -32,7 +31,7 @@ Route::group(['middleware' => ['blockedUser','saveIp']], function () {
 // VIDEOS
     Route::group(['middleware' => ['auth:sanctum', 'isActiveUser']], function () {
 
-        Route::get('/sendTestEmail', 'TestController@sendTestEmail');//TESTING
+//        Route::get('/sendTestEmail', 'TestController@sendTestEmail');//TESTING
 
         Route::get('/videos/list', 'VideoController@list')->name("videos.list");
         Route::get('/videos/{video}/download', 'VideoController@download')->name("videos.download");
@@ -43,13 +42,6 @@ Route::group(['middleware' => ['blockedUser','saveIp']], function () {
 
     Route::group(['middleware' => ['auth:sanctum', 'isActiveUser']], function () {
         Route::resource('videos', VideoController::class);
-    });
-
-
-    Route::group(['middleware' => ['is.admin']], function () {
-// USERS
-        Route::middleware(['auth:sanctum'])->get('/users', 'UserController@index')->name("users.index");
-        Route::middleware(['auth:sanctum'])->post('/users/update/{user}', 'UserController@update')->name("users.update");
     });
 
 
@@ -80,25 +72,11 @@ Route::group(['middleware' => ['blockedUser','saveIp']], function () {
 
     });
 
-
-    Route::group(['middleware' => ['auth:sanctum', 'is.admin']], function () {
-        Route::get('/history', 'HistoryController@index')->name("history.index");
-    });
 // Route::resource('histories', HistoryController::class);
-
 
 // ARTICLES
     Route::middleware(['auth:sanctum', 'isActiveUser'])->resource('articles', ArticleController::class);
     Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
-
-
-    Route::get('/clear-cache', function () {
-        $exitCode = Artisan::call('config:clear');
-        $exitCode = Artisan::call('cache:clear');
-        $exitCode = Artisan::call('config:cache');
-        return 'DONE'; //Return anything
-    });
-
 
 // PLANNER
     Route::group(['middleware' => ['auth:sanctum', 'isActiveUser']], function () {
@@ -112,17 +90,8 @@ Route::group(['middleware' => ['blockedUser','saveIp']], function () {
         Route::get('/planner/favorite/{plan}', 'PlannerController@addToFavorites')->name("plans.favorite");
     });
 
-
 // Route::get('/telegram/connect', 'TelegramController@connect')->name('telegram.connect');
 // Route::get('/telegram/callback', 'TelegramController@callback')->name('telegram.callback');
-
-    Route::group(['middleware' => ['auth:sanctum', 'is.admin']], function () {
-        Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
-
-        Route::get('/support', 'SupportController@index')->name("support.index");
-        Route::get('/support/create/{supportMessage}', 'SupportController@create')->name("support.create");
-        Route::post('/support/reply', 'SupportController@reply')->name("support.reply");
-    });
 
     Route::get('/about', function () {
         return view('about');
@@ -135,12 +104,42 @@ Route::group(['middleware' => ['blockedUser','saveIp']], function () {
         Route::post('/settings/update', 'SettingsController@update')->name("settings.update");
     });
 
+});
 
-    //BLOCKED USERS
-    Route::group(['middleware' => ['auth:sanctum', 'is.admin']], function () {
-        Route::get('/blocked/list', 'BlockedUsersController@getBlockedUsers')->name("blocked.users");
-        Route::post('/block', 'BlockedUsersController@blockUser')->name("block.user");
-        Route::delete('/block/{block}', 'BlockedUsersController@unblockUser')->name("unblock.user");
-    });
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ADMIN ROUTES
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Route::get('/clear-cache', function () {
+    $exitCode = Artisan::call('config:clear');
+    $exitCode = Artisan::call('cache:clear');
+    $exitCode = Artisan::call('config:cache');
+    return 'DONE'; //Return anything
+});
+
+Route::group(['middleware' => ['auth:sanctum', 'is.admin']], function () {
+    Route::get('/history', 'HistoryController@index')->name("history.index");
+});
+
+
+Route::group(['middleware' => ['auth:sanctum', 'is.admin']], function () {
+    Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+
+    Route::get('/support', 'SupportController@index')->name("support.index");
+    Route::get('/support/create/{supportMessage}', 'SupportController@create')->name("support.create");
+    Route::post('/support/reply', 'SupportController@reply')->name("support.reply");
+});
+
+Route::group(['middleware' => ['is.admin']], function () {
+// USERS
+    Route::middleware(['auth:sanctum'])->get('/users', 'UserController@index')->name("users.index");
+    Route::middleware(['auth:sanctum'])->post('/users/update/{user}', 'UserController@update')->name("users.update");
+});
+
+//BLOCKED USERS
+Route::group(['middleware' => ['auth:sanctum', 'is.admin']], function () {
+    Route::get('/blocked/list', 'BlockedUsersController@getBlockedUsers')->name("blocked.users");
+    Route::post('/block', 'BlockedUsersController@blockUser')->name("block.user");
+    Route::delete('/block/{block}', 'BlockedUsersController@unblockUser')->name("unblock.user");
 });
