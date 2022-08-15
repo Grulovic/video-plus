@@ -136,6 +136,22 @@ class BlockedUsersController extends Controller
             return Redirect::back()->with('error', 'All fields are empty!');
         }
 
+        $exists = BlockedUser::orderBy('id', 'desc');
+        if ($ip_address) {
+            $exists = $exists->where('ip_address', $ip_address);
+        }
+        if ($email) {
+            $exists = $exists->orWhere('email', $email);
+        }
+        if ($user_id) {
+            $exists = $exists->orWhere('user_id', $user_id);
+        }
+        $exists = $exists->first();
+
+        if($exists){
+            return Redirect::back()->with('error', 'Block already exists!');
+        }
+
         $block_user = new BlockedUser();
         $block_user->ip_address = $ip_address ?? null;
         $block_user->email = $emai ?? null;
