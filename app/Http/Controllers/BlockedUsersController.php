@@ -138,7 +138,7 @@ class BlockedUsersController extends Controller
 
         $block_user = new BlockedUser();
         $block_user->ip_address = $ip_address ?? null;
-        $block_user->email = $emai ?? nulll;
+        $block_user->email = $emai ?? null;
         $block_user->user_id = $user_id ?? null;
         $block_user->save();
 
