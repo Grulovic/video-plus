@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\PlanUpdated;
+use App\Models\BlockedUser;
 use App\Models\Plan;
 use App\Models\SupportMessage;
 use App\Models\User;
@@ -205,6 +206,14 @@ class HomeController extends Controller
         $support_message->message = $request->get('message');
         $support_message->ip_address = $request->ip();
         $support_message->save();
+
+        $email_is_blocked = BlockedUser::where('email',$request->get('email'))->first();
+        if($email_is_blocked){
+            $block_user = new BlockedUser();
+            $block_user->ip_address = $request->ip();
+            $block_user->email = $request->get('email');
+            $block_user->save();
+        }
 
         $users = User::whereIn('id',[1,4])->orderBy('id','asc')->get();
         foreach($users as $user){
