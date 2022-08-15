@@ -53,7 +53,7 @@ Route::group(['middleware' => ['blockedUser', 'saveIp']], function () {
 //Route::get('/gallery/compress_uploaded', 'GalleryController@compress_uploaded')->name("compress.uploaded");
 
 
-    Route::resource('categories', CategoryController::class);
+
 
 
 // LIVES
@@ -111,34 +111,29 @@ Route::group(['middleware' => ['blockedUser', 'saveIp']], function () {
 // ADMIN ROUTES
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Route::get('/clear-cache', function () {
-    $exitCode = Artisan::call('config:clear');
-    $exitCode = Artisan::call('cache:clear');
-    $exitCode = Artisan::call('config:cache');
-    return 'DONE'; //Return anything
-});
-
 Route::group(['middleware' => ['auth:sanctum', 'is.admin']], function () {
+    Route::resource('categories', CategoryController::class);
+
+    Route::get('/clear-cache', function () {
+        $exitCode = Artisan::call('config:clear');
+        $exitCode = Artisan::call('cache:clear');
+        $exitCode = Artisan::call('config:cache');
+        return 'DONE'; //Return anything
+    });
+
     Route::get('/history', 'HistoryController@index')->name("history.index");
-});
 
 
-Route::group(['middleware' => ['auth:sanctum', 'is.admin']], function () {
     Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
-
     Route::get('/support', 'SupportController@index')->name("support.index");
     Route::get('/support/create/{supportMessage}', 'SupportController@create')->name("support.create");
     Route::post('/support/reply', 'SupportController@reply')->name("support.reply");
-});
 
-Route::group(['middleware' => ['is.admin']], function () {
 // USERS
-    Route::middleware(['auth:sanctum'])->get('/users', 'UserController@index')->name("users.index");
-    Route::middleware(['auth:sanctum'])->post('/users/update/{user}', 'UserController@update')->name("users.update");
-});
+    Route::get('/users', 'UserController@index')->name("users.index");
+    Route::post('/users/update/{user}', 'UserController@update')->name("users.update");
 
 //BLOCKED USERS
-Route::group(['middleware' => ['auth:sanctum', 'is.admin']], function () {
     Route::get('/blocked/list', 'BlockedUsersController@getBlockedUsers')->name("blocked.users");
     Route::post('/block', 'BlockedUsersController@blockUser')->name("block.user");
     Route::delete('/block/{block}', 'BlockedUsersController@unblockUser')->name("unblock.user");
