@@ -137,4 +137,11 @@ Route::group(['middleware' => ['auth:sanctum', 'is.admin']], function () {
     Route::get('/blocked/list', 'BlockedUsersController@getBlockedUsers')->name("blocked.users");
     Route::post('/block', 'BlockedUsersController@blockUser')->name("block.user");
     Route::delete('/block/{block}', 'BlockedUsersController@unblockUser')->name("unblock.user");
+
+
+    Route::get('/blocked/create', 'BlockedUsersController@createBlockView')->name("blocked.create.view");
+    Route::post('/blocked/create', 'BlockedUsersController@createBlock')->name("block.store");
+
+
+
 });

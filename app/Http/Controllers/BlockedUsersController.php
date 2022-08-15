@@ -114,5 +114,37 @@ class BlockedUsersController extends Controller
         return Redirect::back()->with('success', 'User unblocked successfully');
     }
 
+    public function createBlockView(){
+        return view('block.create');
+    }
+    public function createBlock(Request $request){
+        $validator = Validator::make($request->all(), [
+            'ip_address' => ['nullable','string'],
+            'email' => ['nullable','string','email'],
+            'user_id' => ['nullable','numeric'],
+        ]);
+
+        if ($validator->fails()) {
+            return Redirect::back()->with('error', $validator->messages()->first());
+        }
+
+        $ip_address = $request->get('ip_address');
+        $email = $request->get('email');
+        $user_id = $request->get('user_id');
+
+        if(!isset($ip_address) && !isset($email) && !isset($user_id)){
+            return Redirect::back()->with('error', 'All fields are empty!');
+        }
+
+        $block_user = new BlockedUser();
+        $block_user->ip_address = $ip_address ?? null;
+        $block_user->email = $emai ?? nulll;
+        $block_user->user_id = $user_id ?? null;
+        $block_user->save();
+
+        return Redirect::back()->with('success', 'Block created successfully successfully');
+
+    }
+
 
 }
