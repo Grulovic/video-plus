@@ -74,7 +74,7 @@
                                         </div>
                                         <div class="modal-body text-left">
                                             Are you sure you want to unblock these?
-                                            @if($block->user_id)
+                                            @if($block->user_id && $block->user)
                                                 <br>User ({{ $block->user_id }}): <strong>{{ $block->user->name }}</strong> / <strong>{{ $block->user->email }}</strong>
                                             @endif
 
