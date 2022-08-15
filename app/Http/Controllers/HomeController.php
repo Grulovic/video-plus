@@ -201,11 +201,7 @@ class HomeController extends Controller
         }
 
 
-        $support_message = new SupportMessage();
-        $support_message->email = $request->get('email');
-        $support_message->message = $request->get('message');
-        $support_message->ip_address = $request->ip();
-        $support_message->save();
+
 
         $email_is_blocked = BlockedUser::where('email',$request->get('email'))->first();
         if($email_is_blocked){
@@ -213,12 +209,20 @@ class HomeController extends Controller
             $block_user->ip_address = $request->ip();
             $block_user->email = $request->get('email');
             $block_user->save();
+        }else{
+            $support_message = new SupportMessage();
+            $support_message->email = $request->get('email');
+            $support_message->message = $request->get('message');
+            $support_message->ip_address = $request->ip();
+            $support_message->save();
+
+            $users = User::whereIn('id',[1,4])->orderBy('id','asc')->get();
+            foreach($users as $user){
+                Mail::to( $user )->send(new ContactUs( $support_message ));
+            }
         }
 
-        $users = User::whereIn('id',[1,4])->orderBy('id','asc')->get();
-        foreach($users as $user){
-            Mail::to( $user )->send(new ContactUs( $support_message ));
-        }
+
 
         return Redirect::back()->with('success','Message sent successfully!');
     }
