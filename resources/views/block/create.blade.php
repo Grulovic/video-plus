@@ -17,7 +17,7 @@
 <div class="row m-0 p-0 pt-5 pb-5">
 <div class="col-md-2"></div>
 <div class="col-md-8">
-<form  class="row" action="{{ route('blocked.store') }}" method="POST" name="add_category">
+<form  class="row" action="{{ route('block.store') }}" method="POST" name="add_category">
     {{ csrf_field() }}
     <input type="text" name="user_id" hidden="" value="{{ auth()->user()->id }}">
 
