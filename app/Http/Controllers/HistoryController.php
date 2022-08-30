@@ -62,6 +62,7 @@ class HistoryController extends Controller
         LEFT JOIN users ON histories.user_id = users.id
         GROUP BY user_id) c
         WHERE c.num_of_downloads > 0
+        ORDER BY c.num_of_downloads DESC
         ');
 
 

@@ -58,7 +58,7 @@
                      <div class="card-header h3">User Downloads</div>
                      <div class="card-body">
                          @foreach($user_downloads_count as $user )
-                         <p>{{$user->name}}: <strong>{{ $user->num_of_downloads }}</strong></p>
+                         <span>{{$user->name}}: <strong>{{ $user->num_of_downloads }}</strong></span><br>
                          @endforeach
                      </div>
                  </div>
