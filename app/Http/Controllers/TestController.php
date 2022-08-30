@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Jobs\SendQueueEmail;
+use App\Models\FtpGovFile;
 use App\Models\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -40,19 +41,23 @@ class TestController extends Controller
 
                 // Get file & directory list of current directory
                 $file_list = ftp_nlist($ftp_connection, ".");
+                $new_uploads = collect();
                 //output the array stored in $file_list using foreach loop
-                foreach($file_list as $dat) {
-                    echo '<hr>';
-                    echo "FOLDER: ".$dat."<hr><br>";
+                foreach($file_list as $folder) {
+                    $sub_file_list = ftp_nlist($ftp_connection, $folder);
+                    foreach($sub_file_list as $key=>$file_path) {
+                        $file_exists = FtpGovFile::where('folder',$folder)->where('file_path',$file_path)->first();
+                        if(!$file_exists){
+                            $new_file = new FtpGovFile();
+                            $new_file->folder = $folder;
+                            $new_file->file_path = $file_path;
+                            $new_file->save();
 
-                    $sub_file_list = ftp_nlist($ftp_connection, $dat);
-                    echo '<hr><p>CONTENTS:</p><hr>';
-                    foreach($sub_file_list as $key=>$dat) {
-                        echo $key.") ".$dat."<br>";
+                            $new_uploads->add($new_file);
+                        }
                     }
-                    echo '<hr>';
-
                 }
+                dd($new_uploads);
 
 
 
