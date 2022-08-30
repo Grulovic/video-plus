@@ -47,6 +47,7 @@ class TestController extends Controller
                     $sub_file_list = ftp_nlist($ftp_connection, $folder);
                     foreach($sub_file_list as $key=>$file_path) {
                         $file_exists = FtpGovFile::where('folder',$folder)->where('file_path',$file_path)->first();
+                        echo $folder.') '.$file_path;
                         if(!$file_exists){
                             $new_file = new FtpGovFile();
                             $new_file->folder = $folder;
