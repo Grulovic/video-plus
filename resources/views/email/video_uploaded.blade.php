@@ -25,7 +25,7 @@
                                   <tr>
                                      <td style="box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';max-width:100vw;padding:32px">
                                         <span class="im">
-                                           <h1 style="box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';color:#3d4852;font-size:18px;font-weight:bold;margin-top:0;text-align:left">New Video Uploaded</h1>
+                                            <a href="{{ route('videos.show',$video->id)}}" class="text-black"><h1 style="box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';color:#3d4852;font-size:18px;font-weight:bold;margin-top:0;text-align:left">{{ $video->name }}</h1></a>
                                            <p style="box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-size:16px;line-height:1.5em;margin-top:0;text-align:left">
 											    <hr>
                                         		<br>
@@ -33,14 +33,12 @@
     style="height: 190px; height:auto; width: 500px; display: block;" controls="true" playsinline muted  preload="none">
       <!-- preload="none" -->
 
-      <source src="{{ url('uploads/videos/previews/preview_'.$video->file_name) }}" type="{{$video->mime}}">
-      Your browser does not support the video tag.
-    </video>
+      <source src="{{ url('uploads/videos/previews/preview_'.$video->file_name) }}" type="{{$video->mime}}"></video>
 
 
       <div class="text-muted text-right w-100 pr-2"><small>{{ date('j. F Y. H:i', strtotime($video->created_at)) }}</small></div>
 
-      <a href="{{ route('videos.show',$video->id)}}" class="text-black"><h2 class="pb-0 mb-0">{{ $video->name }}</h2></a>
+{{--      <a href="{{ route('videos.show',$video->id)}}" class="text-black"><h2 class="pb-0 mb-0">{{ $video->name }}</h2></a>--}}
       <p class="text-muted" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
         @if(sizeof($video->categories) > 0)
           @foreach($video->categories as $category)
@@ -69,7 +67,7 @@
                                                                       <tbody>
                                                                          <tr>
                                                                             <td style="box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol'">
-                                                                               <a href ="{{ route('videos.show', $video->id ) }}" style="box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';border-radius:4px;color:#fff;display:inline-block;overflow:hidden;text-decoration:none;background-color:#2d3748;border-bottom:8px solid #2d3748;border-left:18px solid #2d3748;border-right:18px solid #2d3748;border-top:8px solid #2d3748" target="_blank"> Show Video</a>
+                                                                               <a href ="{{ route('videos.show', $video->id ) }}" style="box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';border-radius:4px;color:#fff;display:inline-block;overflow:hidden;text-decoration:none;background-color:#2d3748;border-bottom:8px solid #2d3748;border-left:18px solid #2d3748;border-right:18px solid #2d3748;border-top:8px solid #2d3748" target="_blank"> GO TO VIDEO</a>
                                                                             </td>
                                                                          </tr>
                                                                       </tbody>

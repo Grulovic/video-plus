@@ -31,7 +31,7 @@ Route::group(['middleware' => ['blockedUser', 'saveIp']], function () {
 // VIDEOS
     Route::group(['middleware' => ['auth:sanctum', 'isActiveUser']], function () {
 
-//        Route::get('/sendTestEmail', 'TestController@sendTestEmail');//TESTING
+        Route::get('/sendTestEmail', 'TestController@sendTestEmail');//TESTING
 
         Route::get('/videos/list', 'VideoController@list')->name("videos.list");
         Route::get('/videos/{video}/download', 'VideoController@download')->name("videos.download");
