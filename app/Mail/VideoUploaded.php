@@ -33,7 +33,7 @@ class VideoUploaded extends Mailable
     public function build()
     {
         return $this->from( $email = config('mail.from.address'), $name = 'VideoPlus.rs' )
-                    ->subject(substr($this->video->name,0,30).'...')
+                    ->subject('New Video: '.substr($this->video->name,0,30).'...')
                     ->with([
                         'video' => $this->video
                     ])
