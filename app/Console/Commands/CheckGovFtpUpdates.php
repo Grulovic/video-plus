@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Jobs\SendQueueEmail;
+use App\Mail\GovFtpUpdate;
 use App\Models\FtpGovFile;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Auth;
@@ -92,9 +93,7 @@ class CheckGovFtpUpdates extends Command
 //                    $job = (new SendQueueEmail($data))->delay(now()->addSeconds(2));
 //                    dispatch($job);
 
-                    Mail::send($data['mail'], $data['data'], function ($message) {
-                        $message->to('stefan.grulovic@gmail.com');
-                    });
+                    Mail::to('stefan.grulovic@gmail.com')->send(new GovFtpUpdate($data['data']));
                 }else{
                     $this->info("There are no updates!");
                 }
