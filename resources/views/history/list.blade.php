@@ -52,6 +52,18 @@
                  </div>
 
              </div>
+
+             <div class="col-lg-4 d-flex align-items-stretch">
+                 <div class="card shadow-sm w-100" >
+                     <div class="card-header h3">User Downloads</div>
+                     <div class="card-body">
+                         @foreach($user_downloads_count as $user )
+                         <p>{{$user->name}}: <strong>{{ $user->num_of_downloads }}</strong></p>
+                         @endforeach
+                     </div>
+                 </div>
+
+             </div>
          </div>
      </div>
      <div class="col-md-1"></div>

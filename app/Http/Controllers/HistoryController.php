@@ -7,6 +7,7 @@ use App\Models\History;
 use App\Models\User;
 use App\Models\VideoView;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HistoryController extends Controller
 {
@@ -53,6 +54,16 @@ class HistoryController extends Controller
             $data['photo_average'] = 0;
             $data['photo_views_average'] = 0;
         }
+
+        //DOWLOAD PER USER
+        $data['user_downloads_count'] = DB::select('
+        SELECT * FROM (SELECT users.email as email, users.name as name,histories.user_id as user_id, count(histories.id) as num_of_downloads
+        FROM histories
+        LEFT JOIN users ON histories.user_id = users.id
+        GROUP BY user_id) c
+        WHERE c.num_of_downloads > 0
+        ');
+
 
         $data['user_count'] = User::count();
 
