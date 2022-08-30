@@ -41,12 +41,14 @@ class TestController extends Controller
                 // Get file & directory list of current directory
                 $file_list = ftp_nlist($ftp_connection, ".");
                 //output the array stored in $file_list using foreach loop
-                foreach($file_list as $key=>$dat) {
+                foreach($file_list as $dat) {
                     echo '<hr>';
-                    echo $key."=>".$dat."<br>";
+                    echo "FOLDER: ".$dat."<hr><br>";
+
                     $sub_file_list = ftp_nlist($ftp_connection, $dat);
+                    echo '<hr><p>CONTENTS:</p><hr>';
                     foreach($sub_file_list as $key=>$dat) {
-                        echo $key."=>".$dat."<br>";
+                        echo $key.") ".$dat."<br>";
                     }
                     echo '<hr>';
 
