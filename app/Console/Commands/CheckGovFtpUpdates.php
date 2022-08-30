@@ -6,6 +6,7 @@ use App\Jobs\SendQueueEmail;
 use App\Models\FtpGovFile;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class CheckGovFtpUpdates extends Command
 {
@@ -88,8 +89,12 @@ class CheckGovFtpUpdates extends Command
                     $data['data'] = $new_uploads;
                     $data['mail'] = 'App\Mail\GovFtpUpdate';
                     $data['users'] = [Auth::user()];
-                    $job = (new SendQueueEmail($data))->delay(now()->addSeconds(2));
-                    dispatch($job);
+//                    $job = (new SendQueueEmail($data))->delay(now()->addSeconds(2));
+//                    dispatch($job);
+
+                    Mail::send($data['mail'], $data['data'], function ($message) {
+                        $message->to('stefan.grulovic@gmail.com');
+                    });
                 }else{
                     $this->info("There are no updates!");
                 }
