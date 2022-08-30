@@ -61,6 +61,15 @@ class TestController extends Controller
                         }
                     }
                 }
+                if(sizeof($new_uploads) > 0){
+                    $data['data'] = $new_uploads;
+                    $data['mail'] = 'App\Mail\GovFtpUpdate';
+                    $data['users'] = [Auth::user()];
+                    $job = (new SendQueueEmail($data))->delay(now()->addSeconds(2));
+                    dispatch($job);
+                }
+
+
                 dd($new_uploads);
 
 
