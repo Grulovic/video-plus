@@ -36,12 +36,12 @@ class HistoryController extends Controller
 
         if( $data['video_downloads'] != null && $data['photo_downloads'] != null && $data['video_uploads'] != null && $data['photo_uploads'] != null){
 
-            $data['video_average'] = round($data['video_downloads'] / $data['video_uploads']);
-            $data['photo_average'] = round($data['photo_downloads'] / $data['photo_uploads']);
+            $data['video_average'] = isset($data['video_downloads']) && isset($data['video_uploads']) ? round($data['video_downloads'] / $data['video_uploads']) : 0;
+            $data['photo_average'] = isset($data['photo_downloads']) && isset($data['photo_uploads']) ? round($data['photo_downloads'] / $data['photo_uploads']) : 0;
 
 
-            $data['video_views_average'] = round($data['video_views'] / $data['video_uploads']);
-            $data['photo_views_average'] = round($data['photo_views'] / $data['photo_average']);
+            $data['video_views_average'] = isset($data['video_views']) && isset($data['video_uploads']) ? round($data['video_views'] / $data['video_uploads']) : 0;
+            $data['photo_views_average'] = isset($data['photo_views']) && isset($data['photo_average']) ? round($data['photo_views'] / $data['photo_average']) : 0;
 
         }else{
 
