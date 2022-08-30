@@ -18,15 +18,9 @@ class TestController extends Controller
     }
 
     public function getFtpContents(){
-        // Connect to FTP server
-        // Use a correct ftp server
+        //FTP server credentials
         $ftp_server = "ftp.pr.mod.gov.rs";
-
-        // Use correct ftp username
         $ftp_username="b92";
-
-        // Use correct ftp password corresponding
-        // to the ftp username
         $ftp_userpass="1389#Bd3v3T#9831";
 
 
@@ -42,17 +36,26 @@ class TestController extends Controller
             $login = ftp_login($ftp_connection, $ftp_username, $ftp_userpass);
 
             if($login){
-
-                // Checking whether logged in successfully or not
                 echo "<br>logged in successfully!";
 
                 // Get file & directory list of current directory
                 $file_list = ftp_nlist($ftp_connection, ".");
-
                 //output the array stored in $file_list using foreach loop
                 foreach($file_list as $key=>$dat) {
+                    echo '<hr>';
                     echo $key."=>".$dat."<br>";
+                    $sub_file_list = ftp_nlist($ftp_connection, $dat);
+                    foreach($sub_file_list as $key=>$dat) {
+                        echo $key."=>".$dat."<br>";
+                    }
+                    echo '<hr>';
+
                 }
+
+
+
+
+
             }
             else {
                 echo "<br>login failed!";
