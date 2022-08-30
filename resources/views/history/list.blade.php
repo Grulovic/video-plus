@@ -18,7 +18,7 @@
      <div class="col-md-1"></div>
      <div class="col-md-10 mb-4">
          <div class="row m-0 p-0">
-             <div class="col-lg-4 d-flex align-items-center">
+             <div class="col-lg-4 d-flex ">
                  <div class="card shadow-sm w-100 mt-2" >
                  <div class="card-header h3">Video Stats</div>
                  <div class="card-body">
