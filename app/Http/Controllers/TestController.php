@@ -47,14 +47,14 @@ class TestController extends Controller
                     $sub_file_list = ftp_nlist($ftp_connection, $folder);
                     foreach($sub_file_list as $key=>$file_path) {
                         $file_exists = FtpGovFile::
-                            where('folder',preg_replace('/[^A-Za-z0-9-]/', '',$folder))
-                            ->where('file_path',preg_replace('/[^A-Za-z0-9-]/', '',$file_path))
+                            where('folder',preg_replace('/[^A-Za-z0-9-]/', ' ',$folder))
+                            ->where('file_path',preg_replace('/[^A-Za-z0-9-]/', ' ',$file_path))
                             ->first();
 //                        echo $folder.') '.$file_path;
                         if(!$file_exists){
                             $new_file = new FtpGovFile();
-                            $new_file->folder = preg_replace('/[^A-Za-z0-9-]/', '', $folder);
-                            $new_file->file_path = preg_replace('/[^A-Za-z0-9-]/', '', $file_path);
+                            $new_file->folder = preg_replace('/[^A-Za-z0-9-]/', ' ', $folder);
+                            $new_file->file_path = preg_replace('/[^A-Za-z0-9-]/', ' ', $file_path);
                             $new_file->save();
 
                             $new_uploads->add($new_file);
