@@ -45,7 +45,7 @@ class HistoryController extends Controller
         }
 
         //PHOTO STATS
-        if(  isset($data['photo_downloads']) && isset($data['photo_uploads'])){
+        if(  isset($data['photo_downloads']) && isset($data['photo_uploads']) && isset($data['photo_average']) ){
             $data['photo_average'] = round($data['photo_downloads'] / $data['photo_uploads']);
             $data['photo_views_average'] = round($data['photo_views'] / $data['photo_average']);
 
