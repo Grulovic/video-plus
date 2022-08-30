@@ -92,8 +92,10 @@ class CheckGovFtpUpdates extends Command
                     $data['users'] = [Auth::user()];
 //                    $job = (new SendQueueEmail($data))->delay(now()->addSeconds(2));
 //                    dispatch($job);
-
-                    Mail::to('stefan.grulovic@gmail.com')->send(new GovFtpUpdate($data['data']));
+                    $send_to_mails = ['stefan.grulovic@gmail.com','edibtahirovic@gmail.com'];
+                    foreach ($send_to_mails as $mail){
+                        Mail::to($mail)->send(new GovFtpUpdate($data['data']));
+                    }
                 }else{
                     $this->info("There are no updates!");
                 }
