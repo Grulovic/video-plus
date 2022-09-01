@@ -60,7 +60,7 @@ class CheckGovFtpUpdates extends Command
             $login = ftp_login($ftp_connection, $ftp_username, $ftp_userpass);
 
             if($login){
-                $this->info( "logged in successfully!");
+                $this->info( "logged in successfully, starting check!");
 
                 // Get file & directory list of current directory
                 $file_list = ftp_nlist($ftp_connection, ".");
