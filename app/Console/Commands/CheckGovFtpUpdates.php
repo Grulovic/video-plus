@@ -92,7 +92,13 @@ class CheckGovFtpUpdates extends Command
                     $data['users'] = [Auth::user()];
 //                    $job = (new SendQueueEmail($data))->delay(now()->addSeconds(2));
 //                    dispatch($job);
-                    $send_to_mails = ['stefan.grulovic@gmail.com','edibtahirovic@gmail.com'];
+                    $send_to_mails = [
+                        'stefan.grulovic@gmail.com',
+                        'elcorovic@gmail.com',
+                        'randda13@gmail.com',
+                        'desk.videoplus@gmail.com',
+                        'fedja.grulovic@gmail.com'
+                    ];
                     foreach ($send_to_mails as $mail){
                         Mail::to($mail)->send(new GovFtpUpdate($data['data']));
                     }
