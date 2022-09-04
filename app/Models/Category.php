@@ -20,10 +20,6 @@ class Category extends Model
 		return $this->hasMany(VideoCategory::class);
 	}
 
-    public function latest4Videos(){
-        return $this->videos()->with(['history','categories','categories.category','user','views'])->limit(4);
-    }
-
 	public function galleries() {
 		return $this->hasMany(GalleryCategory::class);
 	}
