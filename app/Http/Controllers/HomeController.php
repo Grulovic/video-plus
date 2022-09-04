@@ -73,7 +73,7 @@ class HomeController extends Controller
 
 
 
-        $data['categories'] = Category::with('latest4Videos')->get();
+        $data['categories'] = Category::all();
 
         foreach ($data['categories'] as $category){
             $data['category_videos'][$category->id] =
