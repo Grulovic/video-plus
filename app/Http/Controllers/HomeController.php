@@ -47,10 +47,12 @@ class HomeController extends Controller
             ->take(4)->get();
 
 
-        $list_of_files = scandir(public_path()."/uploads/videos/");
+//        $list_of_files = scandir(public_path()."/uploads/videos/");
 
 
-        $latest_videos = Video::with(['history','categories','categories.category','user','views'])->orderBy('id', 'desc')->whereIn('file_name', $list_of_files)->take(5)->get();
+        $latest_videos = Video::with(['history','categories','categories.category','user','views'])->orderBy('id', 'desc')
+//            ->whereIn('file_name', $list_of_files)
+            ->take(5)->get();
 
 
 
@@ -76,7 +78,9 @@ class HomeController extends Controller
         foreach ($data['categories'] as $category){
             $data['category_videos'][$category->id] = Video::with(['history','categories','categories.category','user','views'])->whereHas('categories', function($q) use ($category){
                 $q->where('category_id',  $category->id);
-            })->whereIn('file_name', $list_of_files)->orderBy('id','desc')->limit(4)->get();
+            })
+//                ->whereIn('file_name', $list_of_files)
+                ->orderBy('id','desc')->limit(4)->get();
         }
 
 
