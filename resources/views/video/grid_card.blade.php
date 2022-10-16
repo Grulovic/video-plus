@@ -9,7 +9,7 @@
         padding: 0;
         background: #dc3545;
         color:white;
-        padding:12px 0;
+        padding:2px 0;
         position: absolute;
         top:0;
         right:0;
