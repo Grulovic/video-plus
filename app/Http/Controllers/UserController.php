@@ -17,7 +17,7 @@ class UserController extends Controller
         abort_unless( auth()->user()->role == "admin",403);
         abort_unless( auth()->user()->email == "edibtahirovic@gmail.com" || auth()->user()->id == 1,403);
 
-        $data['users'] =  User::where('id','!=',1)->orderBy('id','desc')->paginate(20);
+        $data['users'] =  User::orderBy('id','desc')->paginate(20);
 
         return view('user.index',$data);
     }
