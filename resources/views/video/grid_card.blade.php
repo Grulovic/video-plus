@@ -7,14 +7,16 @@
     .ribbon {
         margin: 0;
         padding: 0;
-        background: rebeccapurple;
+        background: #dc3545;
         color:white;
-        padding:1em 0;
+        padding:12px 0;
         position: absolute;
         top:0;
         right:0;
         transform: translateX(30%) translateY(0%) rotate(45deg);
         transform-origin: top left;
+        font-weight: bold;
+        font-size: 14px;
     }
     .ribbon:before,
     .ribbon:after {
@@ -24,7 +26,7 @@
         margin: 0 -1px; /* tweak */
         width: 100%;
         height: 100%;
-        background: rebeccapurple;
+        background: #dc3545;
     }
     .ribbon:before {
         right:100%;
