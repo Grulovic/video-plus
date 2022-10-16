@@ -182,8 +182,8 @@ class VideoController extends Controller
             $data['data'] = Video::where('id',$new_video->id)->get()->first();
             $data['mail'] = 'App\Mail\VideoUploaded';
             $data['users'] = $users;
-//        $job = (new SendQueueEmail($data))->delay(now()->addSeconds(2));
-//        dispatch($job);
+        $job = (new SendQueueEmail($data))->delay(now()->addSeconds(2));
+        dispatch($job);
 
 
        //  return Redirect::to('videos')
