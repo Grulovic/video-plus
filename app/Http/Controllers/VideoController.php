@@ -166,10 +166,7 @@ class VideoController extends Controller
 
             $has_breaking_category = false;
             if( sizeof(request()->category) >0 ){
-                Log::debug('Request has categories');
                 $has_breaking_category = in_array(Consts::BreakingNewsCategory,request()->category);
-
-                Log::debug($has_breaking_category?'has breaking':'doesnt have breaking');
             }
 
             if(!$has_breaking_category){

@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use App\Consts;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Log;
 
 class Video extends Model
 {
@@ -56,5 +58,17 @@ class Video extends Model
 
     	return (bool) $this->views
         	->where('user_id', '=', (auth()->user()->id) )->first();
+    }
+
+
+    public function getIsBreakingNewsAttribute() : bool
+    {
+        $has_breaking_category = false;
+        $categories = $this->categories;
+        if( sizeof($categories) > 0 ){
+            $has_breaking_category = $categories->where('id',Consts::BreakingNewsCategory)->first();
+        }
+
+        return (bool) $has_breaking_category;
     }
 }
