@@ -1,40 +1,5 @@
 <style>
-    .video-card {
-        overflow: hidden; /* required */
-        position: relative; /* required  for demo*/
-    }
 
-    .ribbon {
-        margin: 0;
-        padding: 0;
-        background: #dc3545;
-        color:white;
-        padding:2px 0;
-        position: absolute;
-        top:0;
-        right:0;
-        transform: translateX(30%) translateY(0%) rotate(45deg);
-        transform-origin: top left;
-        font-weight: bold;
-        font-size: 14px;
-    }
-    .ribbon:before,
-    .ribbon:after {
-        content: '';
-        position: absolute;
-        top:0;
-        margin: 0 -1px; /* tweak */
-        width: 100%;
-        height: 100%;
-        background: #dc3545;
-    }
-    .ribbon:before {
-        right:100%;
-    }
-
-    .ribbon:after {
-        left:100%;
-    }
 </style>
 <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 d-flex align-items-stretch p-1">
   <div class="card mb-4 w-100 shadow-sm video-card">
