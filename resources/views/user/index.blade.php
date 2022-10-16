@@ -37,7 +37,7 @@
                 <th>Email</th>
                 <th>Email verified at</th>
                 <th>Mail Notifications</th>
-                <th>Re</th>
+                <th>Receive Only Breaking</th>
                 <th>Active</th>
                 <th>Role</th>
                 <th>Block</th>
