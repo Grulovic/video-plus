@@ -1,6 +1,3 @@
-<style>
-
-</style>
 <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 d-flex align-items-stretch p-1">
   <div class="card mb-4 w-100 shadow-sm video-card">
 

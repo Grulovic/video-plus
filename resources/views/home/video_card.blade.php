@@ -1,6 +1,9 @@
 <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 d-flex align-items-stretch p-1">
-  <div class="card mb-4 w-100 shadow-sm">
 
+  <div class="card mb-4 w-100 shadow-sm video-card">
+      @if($video->isBreakingNews)
+          <div class="ribbon">BREAKING NEWS</div>
+      @endif
       <div class="p-2 bg-light text-primary" style="position:absolute; top:0; left:0; border-radius: 0.2rem 0 0.2rem 0; opacity:1; padding-top:2px!important; padding-bottom:2px!important;  ">
           <i class="fas fa-video"></i>
       </div>
