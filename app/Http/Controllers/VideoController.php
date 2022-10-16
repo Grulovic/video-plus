@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Consts;
 use App\Jobs\SendQueueEmail;
 use App\Models\Plan;
 use App\Models\PlanItem;
@@ -161,7 +162,19 @@ class VideoController extends Controller
         }
     	elseif(  $email_push == "all" ){
             Log::debug('Sending email to everyone');
-			$users = User::where('id','>=',0)->where('mail_notifications',1)->where('active',1)->orderBy('id','asc')->get();
+			$users = User::where('id','>=',0)->where('mail_notifications',1)->where('active',1)->orderBy('id','asc');
+
+            $has_breaking_category = false;
+            if( sizeof(request()->category) >0 ){
+                $has_breaking_category = collect(request()->category)->contains(Consts::BreakingNewsCategory);
+            }
+
+            if(!$has_breaking_category){
+                $users = $users->where('receive_only_breaking',0);
+            }
+            $users = $users->get();
+
+
             Log::debug(json_encode($users->pluck('id')->toArray()));
         }else{
             $users= [];
@@ -169,8 +182,8 @@ class VideoController extends Controller
             $data['data'] = Video::where('id',$new_video->id)->get()->first();
             $data['mail'] = 'App\Mail\VideoUploaded';
             $data['users'] = $users;
-        $job = (new SendQueueEmail($data))->delay(now()->addSeconds(2));
-        dispatch($job);
+//        $job = (new SendQueueEmail($data))->delay(now()->addSeconds(2));
+//        dispatch($job);
 
 
        //  return Redirect::to('videos')

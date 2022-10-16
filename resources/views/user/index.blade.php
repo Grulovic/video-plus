@@ -37,6 +37,7 @@
                 <th>Email</th>
                 <th>Email verified at</th>
                 <th>Mail Notifications</th>
+                <th>Re</th>
                 <th>Active</th>
                 <th>Role</th>
                 <th>Block</th>
@@ -105,6 +106,54 @@
                     @endif
                 </td>
                 {{--END MAIL NOTIFICATIONS--}}
+
+                {{--START RECEIVE_ONLY_BREAKING NOTIFICATIONS--}}
+                <td class="text-center  bg-secondary text-white">
+
+                    @if(auth()->user()->id != $user->id)
+                        <form class="text-center form-inline" action="{{ route('users.update', $user->id)}}" method="post">
+                            {{ csrf_field() }}
+                            <div class="form-group mr-2">
+                                <select class="form-control w-50" style="min-width:150px; max-width:50%;
+                                {{ $user->mail_notifications == 1 ? "background-color:#beffbd;":"background-color:#ffbdbd;" }}
+                                    " name="receive_only_breaking">
+                                    <option {{ $user->receive_only_breaking == 1 ? "selected":"" }} value="1" >On ✓</option>
+                                    <option {{ $user->receive_only_breaking == 0 ? "selected":"" }} value="0" >Off ✗</option>
+                                </select>
+                            </div>
+
+                            <button type="button" class="btn btn-warning" style="max-width:250px;" data-toggle="modal" data-target="#modal_{{$user->id}}_receive_only_breaking"  data-toggle="tooltip" data-placement="top" title="Update Receive Only Breaking">
+                                Update
+                            </button>
+
+                            <!-- Modal (mail_notifications) -->
+                            <div class="modal fade text-black" id="modal_{{$user->id}}_receive_only_breaking" tabindex="-1" role="dialog" aria-labelledby="modal_{{$user->id}}_receive_only_breaking" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Updating Receive Only Breaking Mail Notifications</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body text-left">
+                                            Are you sure you want to update <strong>{{ $user->name }}</strong> receive only breaking mail notifications?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-warning" type="submit" style="max-width:50%;">Update receive only breaking mail notifications</button>
+
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Modal (mail_notifications)-->
+
+
+                        </form>
+                    @endif
+                </td>
+                {{--END RECEIVE_ONLY_BREAKING NOTIFICATIONS--}}
 
                 {{--START USER ACTIVE--}}
                 <td class="text-center  bg-secondary text-white">

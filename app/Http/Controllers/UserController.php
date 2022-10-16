@@ -33,10 +33,12 @@ class UserController extends Controller
             'role' => ['nullable','in:admin,user,editor'],
             'active' => ['nullable','in:0,1'],
             'mail_notifications' => ['nullable','in:0,1'],
+            'receive_only_breaking' => ['nullable','in:0,1'],
         ]);
 
         $user->role = $request->get('role') ?? $user->role;
         $user->mail_notifications = $request->get('mail_notifications') ?? $user->mail_notifications;
+        $user->receive_only_breaking = $request->get('receive_only_breaking') ?? $user->receive_only_breaking;
         if($request->get('role') == 'admin' || $request->get('role') == 'editor'){
             $user->active = 1;
         }else{
