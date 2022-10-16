@@ -209,12 +209,12 @@ class VideoController extends Controller
             	// open the uploaded video from the right disk...
                 $coversion = FFMpeg::fromDisk("videos")
                     ->open( $file_name)
-    //                        ->addWatermark(function(WatermarkFactory $watermark) {
-    //     $watermark->fromDisk('public')
-    //         ->open('watermark.png')
-    //         ->left(25)
-    //         ->bottom(25);
-    // })
+                            ->addWatermark(function(WatermarkFactory $watermark) {
+                             $watermark->fromDisk('public')
+                                 ->open('video-plus-logo-watermark.png')
+                                 ->left(25)
+                                 ->bottom(25);
+                         })
 
                     ->addFilter(function ($filters) {
                         $filters->resize(new Dimension(640, 360));
