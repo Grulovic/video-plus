@@ -66,7 +66,7 @@ class Video extends Model
         $has_breaking_category = false;
         $categories = $this->categories;
         if( sizeof($categories) > 0 ){
-            $has_breaking_category = $categories->where('id',Consts::BreakingNewsCategory)->first();
+            $has_breaking_category = $categories->where('category_id',Consts::BreakingNewsCategory)->first();
         }
 
         return (bool) $has_breaking_category;
