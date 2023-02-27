@@ -93,7 +93,7 @@ class CheckGovFtpUpdates extends Command
 //                    $job = (new SendQueueEmail($data))->delay(now()->addSeconds(2));
 //                    dispatch($job);
                     $send_to_mails = [
-                        'stefan.grulovic@gmail.com',
+//                        'stefan.grulovic@gmail.com',
                         'elcorovic@gmail.com',
                         'randda13@gmail.com',
                         'desk.videoplus@gmail.com',
