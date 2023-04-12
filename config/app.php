@@ -181,7 +181,8 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class
+        Intervention\Image\ImageServiceProvider::class,
+        Dawson\Youtube\YoutubeServiceProvider::class,
 
     ],
 
@@ -237,7 +238,9 @@ return [
 
     	'FFMpeg' => ProtoneMedia\LaravelFFMpeg\Support\FFMpeg::class,
 
-        'Image' => Intervention\Image\Facades\Image::class
+        'Image' => Intervention\Image\Facades\Image::class,
+
+        'Youtube' => Dawson\Youtube\Facades\Youtube::class,
 
     ],
 
