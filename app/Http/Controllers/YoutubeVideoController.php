@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Video;
-use Dawson\Youtube\Youtube;
+use Youtube;
 use Illuminate\Http\Request;
 
 class YoutubeVideoController extends Controller
