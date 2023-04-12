@@ -583,8 +583,8 @@ class VideoController extends Controller
                     ;
         }
         // dd(public_path()."/uploads/");
-        $list_of_files = scandir(public_path()."uploads/videos");
-        $videos->whereIn('file_name', $list_of_files);
+//        $list_of_files = scandir(public_path()."uploads/videos");
+//        $videos->whereIn('file_name', $list_of_files);
 
         return $videos;
     }
