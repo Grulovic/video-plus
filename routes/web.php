@@ -146,3 +146,7 @@ Route::group(['middleware' => ['auth:sanctum', 'is.admin']], function () {
 
 
 });
+
+
+
+Route::resource('youtube', \App\Http\Controllers\YoutubeVideoController::class);
