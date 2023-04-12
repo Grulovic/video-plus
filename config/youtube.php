@@ -26,11 +26,11 @@ return [
      */
     'routes' => [
 
-        /** 
+        /**
          * Determine if the Routes should be disabled.
          * Note: We recommend this to be set to "false" immediately after authentication.
          */
-        'enabled' => false,
+        'enabled' => true,
 
         /**
          * The prefix for the below URI's
