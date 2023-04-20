@@ -52,15 +52,15 @@ class CheckGovFtpUpdates extends Command
         $ftp_connection = ftp_connect($ftp_server)
         or die("Could not connect to $ftp_server");
 
-        ftp_set_option($ftp_connection, FTP_USEPASVADDRESS, false); // set ftp option
-        ftp_pasv($ftp_connection, true); //make connection to passive mode
-
         if($ftp_connection) {
             $this->info( "successfully connected to the ftp server!");
 
             // Logging in to established connection
             // with ftp username password
             $login = ftp_login($ftp_connection, $ftp_username, $ftp_userpass);
+
+            ftp_set_option($ftp_connection, FTP_USEPASVADDRESS, false); // set ftp option
+            ftp_pasv($ftp_connection, true); //make connection to passive mode
 
             if($login){
                 $this->info( "logged in successfully, starting check!");
