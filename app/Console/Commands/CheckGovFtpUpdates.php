@@ -63,7 +63,7 @@ class CheckGovFtpUpdates extends Command
                 $this->info( "logged in successfully, starting check!");
 
                 // Get file & directory list of current directory
-                $file_list = ftp_nlist($ftp_connection, ".");
+                $file_list = ftp_nlist($ftp_connection, "/");
                 $this->info( "directory: ".json_encode($file_list));
 
                 $new_uploads = collect();
