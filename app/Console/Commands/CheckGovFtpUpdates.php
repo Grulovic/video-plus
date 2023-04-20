@@ -64,6 +64,8 @@ class CheckGovFtpUpdates extends Command
 
                 // Get file & directory list of current directory
                 $file_list = ftp_nlist($ftp_connection, ".");
+                $this->info( "directory: ".json_encode($file_list));
+
                 $new_uploads = collect();
                 //output the array stored in $file_list using foreach loop
                 foreach($file_list as $folder) {
