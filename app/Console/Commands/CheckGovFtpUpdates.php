@@ -52,6 +52,9 @@ class CheckGovFtpUpdates extends Command
         $ftp_connection = ftp_connect($ftp_server)
         or die("Could not connect to $ftp_server");
 
+        ftp_set_option($ftp_connection, FTP_USEPASVADDRESS, false); // set ftp option
+        ftp_pasv($ftp_connection, true); //make connection to passive mode
+
         if($ftp_connection) {
             $this->info( "successfully connected to the ftp server!");
 
@@ -63,7 +66,7 @@ class CheckGovFtpUpdates extends Command
                 $this->info( "logged in successfully, starting check!");
 
                 // Get file & directory list of current directory
-                $file_list = ftp_nlist($ftp_connection, "/");
+                $file_list = ftp_nlist($ftp_connection, ".");
                 $this->info( "directory: ".json_encode($file_list));
 
                 $new_uploads = collect();
