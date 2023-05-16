@@ -225,7 +225,7 @@ class VideoController extends Controller
                                  ->open('video-plus-logo-watermark.png')
 //                                 ->left(25)
 //                                 ->bottom(25);
-                                >horizontalAlignment(WatermarkFactory::CENTER, 25)
+                                ->horizontalAlignment(WatermarkFactory::CENTER, 25)
                                 ->verticalAlignment(WatermarkFactory::CENTER, 25)
                                 ;
                          })
