@@ -185,6 +185,18 @@ class VideoController extends Controller
         $job = (new SendQueueEmail($data))->delay(now()->addSeconds(2));
         dispatch($job);
 
+        try {
+            Youtube::upload(public_path('uploads/videos/previews/preview_'.$new_video->file_name), [
+                'title'       => $new_video->name,
+                'description' => $new_video->description,
+            ]);
+        }catch(Exception $e) {
+            Log::debug('Message: ' .$e->getMessage());
+        }
+
+
+
+
 
        //  return Redirect::to('videos')
        // ->with('success','Greate! Video created successfully.');
