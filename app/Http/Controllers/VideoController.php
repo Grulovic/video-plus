@@ -223,8 +223,11 @@ class VideoController extends Controller
                             ->addWatermark(function(WatermarkFactory $watermark) {
                              $watermark->fromDisk('public')
                                  ->open('video-plus-logo-watermark.png')
-                                 ->left(25)
-                                 ->bottom(25);
+//                                 ->left(25)
+//                                 ->bottom(25);
+                                >horizontalAlignment(WatermarkFactory::CENTER, 25)
+                                ->verticalAlignment(WatermarkFactory::CENTER, 25)
+                                ;
                          })
 
                     ->addFilter(function ($filters) {
