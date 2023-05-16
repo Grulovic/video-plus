@@ -33,7 +33,7 @@ use Response;
 use Redirect;
 use Session;
 use URL;
-
+use Youtube;
 class VideoController extends Controller
 {
 
