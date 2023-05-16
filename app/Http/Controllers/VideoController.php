@@ -197,7 +197,6 @@ class VideoController extends Controller
 
 
 
-
        //  return Redirect::to('videos')
        // ->with('success','Greate! Video created successfully.');
     	return response()->json( $new_video->id );
