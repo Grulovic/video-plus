@@ -14,6 +14,7 @@ use App\Models\VideoCategory;
 use App\Models\History;
 
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
@@ -193,8 +194,6 @@ class VideoController extends Controller
         }catch(Exception $e) {
             Log::debug('Message: ' .$e->getMessage());
         }
-
-
 
 
        //  return Redirect::to('videos')
