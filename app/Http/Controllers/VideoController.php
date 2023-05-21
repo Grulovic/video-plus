@@ -103,8 +103,8 @@ class VideoController extends Controller
 
 
             $request = $request->all();
-            $email_push = $request['email_push'];
-            $youtube_upload = $request['youtube_upload'];
+            $email_push = $request['email_push'] ?? null;
+            $youtube_upload = $request['youtube_upload'] ?? null;
             unset($request['email_push']);
 
         	$session_id = $request['session_id'];
