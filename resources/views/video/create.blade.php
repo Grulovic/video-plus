@@ -147,6 +147,30 @@ $( document ).ready(function() {
           </div>
 	</div>
 
+
+    <div class="col-lg-12">
+        <strong>Upload To Youtube: </strong>
+        <div class="input-group  mb-2">
+
+            <div class="form-check  form-check-inline mt-3">
+                <input class="form-check-input" type="radio" name="youtube_upload" id="email_push_admin" value="0" checked="">
+                <label class="form-check-label video-thumbnail" for="email_push_admin">
+                    No
+                </label>
+            </div>
+
+            <div class="form-check  form-check-inline mt-3">
+                <input class="form-check-input" type="radio" name="youtube_upload" id="email_push_all" value="1">
+                <label class="form-check-label video-thumbnail" for="email_push_admin">
+                    Yes
+                </label>
+            </div>
+        </div>
+    </div>
+
+
+
+
     <div class="col-6 mt-3">
         <button type="submit" class="btn btn-primary w-100"><i class="fas fa-upload"></i> Upload video</button>
     </div>
