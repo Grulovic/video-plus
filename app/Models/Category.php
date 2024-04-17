@@ -16,7 +16,14 @@ class Category extends Model
 	];
 
     public function latestVideos() {
-        return $this->belongsToMany(Video::class,VideoCategory::class,'category_id','video_id')
+        return $this->belongsToMany(
+            Video::class,
+            VideoCategory::class,
+            'video_id', // Foreign key on the types table...
+            'category_id', // Foreign key on the items table...
+            'id', // Local key on the users table...
+            'id' // Local key on the categories table...
+        )
             ->orderBy('id', 'desc')->with(['history','categories','categories.category','user','views'])->limit(4);
     }
 
