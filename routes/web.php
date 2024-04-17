@@ -12,6 +12,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/test', function(){
+  dd(\App\Models\Category::find(23)->latestVideos);
+});
+
+
+
 Route::get('/', 'HomeController@index')->name("home.index");
 
 Route::group(['middleware' => ['blockedUser', 'saveIp']], function () {
