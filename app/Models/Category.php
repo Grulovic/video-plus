@@ -16,7 +16,8 @@ class Category extends Model
 	];
 
     public function latestVideos() {
-        return $this->hasMany(VideoCategory::class)->orderBy('id', 'desc')->with(['history','categories','categories.category','user','views'])->limit(4);
+        return $this->belongsToMany(Video::class,VideoCategory::class)
+            ->orderBy('id', 'desc')->with(['history','categories','categories.category','user','views'])->limit(4);
     }
 
     public function videos() {
