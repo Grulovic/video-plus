@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/test', function(){
-  dd(\App\Models\Category::find(23)->latestVideos);
+  dd(\App\Models\Category::find(29)->latestVideos);
 });
 
 
