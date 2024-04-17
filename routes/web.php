@@ -13,22 +13,24 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['middleware' => ['auth:sanctum', 'isActiveUser']], function () {
 
-Route::get('/test', function(){
-    $data['categories'] = Category::with(['latestVideos'])->get();
+    Route::get('/test', function(){
+        $data['categories'] = Category::with(['latestVideos'])->get();
 
-    foreach ($data['categories'] as $category){
-        $data['category_videos'][$category->id] = $category->latestVideos;
+        foreach ($data['categories'] as $category){
+            $data['category_videos'][$category->id] = $category->latestVideos;
 
-//                Video::with(['history','categories','categories.category','user','views'])
-//                    ->whereHas('categories', function($q) use ($category){
-//                        $q->where('category_id',  $category->id);
-//                    })
-////                ->whereIn('file_name', $list_of_files)
-//                    ->orderBy('id','desc')->limit(4)->get();
-    }
+    //                Video::with(['history','categories','categories.category','user','views'])
+    //                    ->whereHas('categories', function($q) use ($category){
+    //                        $q->where('category_id',  $category->id);
+    //                    })
+    ////                ->whereIn('file_name', $list_of_files)
+    //                    ->orderBy('id','desc')->limit(4)->get();
+        }
 
-  dd($data);
+      dd($data);
+    });
 });
 
 
