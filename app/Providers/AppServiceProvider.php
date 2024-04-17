@@ -6,6 +6,7 @@ use App\Models\Settings;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
 
+use Illuminate\Support\Facades\URL;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -28,6 +29,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        URL::forceScheme('https');
+
         $this->app->bind('path.public', function() {
             return base_path().'/../video-plus-public/';
         });
