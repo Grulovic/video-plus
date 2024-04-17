@@ -43,7 +43,7 @@ class VideoController extends Controller
 
         $data['videos'] = $this->search()->paginate(12);
 
-        $data['users'] =  User::select('id','name')->orderBy('id','asc')->get();
+//        $data['users'] =  User::select('id','name')->orderBy('id','asc')->get();
         $data['categories'] =  Category::select('id','title')->orderBy('title','asc')->get();
 
         return view('video.grid',$data);
@@ -52,7 +52,7 @@ class VideoController extends Controller
     public function list()
     {
         $data['videos'] = $this->search()->paginate(12);
-        $data['users'] =  User::select('id','name')->orderBy('id','asc')->get();
+//        $data['users'] =  User::select('id','name')->orderBy('id','asc')->get();
         $data['categories'] =  Category::select('id','title')->orderBy('title','asc')->get();
 
         return view('video.list',$data);
