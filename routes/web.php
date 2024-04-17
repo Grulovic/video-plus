@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/test', function(){
-    $data['categories'] = Category::all();
+    $data['categories'] = Category::with(['latestVideos'])->get();
 
     foreach ($data['categories'] as $category){
         $data['category_videos'][$category->id] = $category->latestVideos;
