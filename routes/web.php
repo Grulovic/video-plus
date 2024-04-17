@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/test', function(){
-  dd(\App\Models\Category::find(29)->latestVideos);
+    $data['categories'] = Category::with(['latestVideos'])->get();
+
+    foreach ($data['categories'] as $category){
+        $data['category_videos'][$category->id] = $category->latestVideos;
+
+//                Video::with(['history','categories','categories.category','user','views'])
+//                    ->whereHas('categories', function($q) use ($category){
+//                        $q->where('category_id',  $category->id);
+//                    })
+////                ->whereIn('file_name', $list_of_files)
+//                    ->orderBy('id','desc')->limit(4)->get();
+    }
+
+  dd($data);
 });
 
 
