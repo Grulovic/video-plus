@@ -26,6 +26,11 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
                 return true;
             }
 
+            $recordUsers = [1];
+            if (auth()->check() && auth()->user() != null &&  in_array(auth()->id(),$recordUsers)) {
+                return true;
+            }
+
             return $entry->isReportableException() ||
                 $entry->isFailedRequest() ||
                 $entry->isFailedJob() ||
