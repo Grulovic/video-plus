@@ -24,7 +24,7 @@ class Category extends Model
             'id', // Local key on the users table...
             'id' // Local key on the categories table...
         )
-            ->orderBy('id', 'desc')->with(['history','categories','categories.category','user','views'])->limit(4);
+            ->orderBy('id', 'desc')->with(['history','categories','categories.category','user','views']);
     }
 
     public function videos() {

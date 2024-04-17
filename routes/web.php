@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => ['auth:sanctum', 'isActiveUser']], function () {
 
     Route::get('/test', function(){
-        $data['categories'] = Category::with(['latestVideos'])->get();
+        $data['categories'] = Category::with(['latestVideos' => function ($query) {
+            return $query->take(4);
+        }])->get();
 
         foreach ($data['categories'] as $category){
             $data['category_videos'][$category->id] = $category->latestVideos;
