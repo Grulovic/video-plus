@@ -321,7 +321,7 @@ class VideoController extends Controller
                                     $q->whereIn('category_id', $current_video_tags);
                                 })
         						->where('id', '!=' , $video->id)
-        						->whereIn('file_name', $list_of_files)
+//        						->whereIn('file_name', $list_of_files)
                                 ->orderBy('created_at','desc')->take(4)->get();
         }else{
 
