@@ -76,14 +76,14 @@ class HomeController extends Controller
         $data['categories'] = Category::all();
 
         foreach ($data['categories'] as $category){
-            $data['category_videos'][$category->id] =
+            $data['category_videos'][$category->id] = $category->latestVideos;
 
-                Video::with(['history','categories','categories.category','user','views'])
-                    ->whereHas('categories', function($q) use ($category){
-                        $q->where('category_id',  $category->id);
-                    })
-//                ->whereIn('file_name', $list_of_files)
-                    ->orderBy('id','desc')->limit(4)->get();
+//                Video::with(['history','categories','categories.category','user','views'])
+//                    ->whereHas('categories', function($q) use ($category){
+//                        $q->where('category_id',  $category->id);
+//                    })
+////                ->whereIn('file_name', $list_of_files)
+//                    ->orderBy('id','desc')->limit(4)->get();
         }
 
 
