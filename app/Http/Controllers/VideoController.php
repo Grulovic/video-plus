@@ -375,15 +375,14 @@ class VideoController extends Controller
         }elseif($disk == 'remote-sftp'){
             $disk = 'remote-sftp';
 
-            $localPath = public_path().'temp/'.$fileName;
+            $stream = Storage::disk($disk)->readStream($fileName);
 
-            Log::info('Local path in sftp donwload: '.$localPath);
-
-            $contents = Storage::disk($disk)->get($fileName);
-            return response()->streamDownload(function () use ($contents) {
-                echo $contents;
-            }, $localPath);
-
+            return response()->stream(function () use ($stream) {
+                fpassthru($stream);
+            }, 200, [
+                'Content-Type' => $this->getMimeType($stream, $fileName),
+                'Content-Disposition' => 'attachment; filename="' . basename($fileName) . '"',
+            ]);
         }else{
             abort(404);
         }
@@ -395,6 +394,26 @@ class VideoController extends Controller
 
         return response()->download(Storage::disk($disk)->path($fileName));
 //        return Response::download(public_path()."uploads/videos/".$video->file_name);
+    }
+
+
+    /**
+     * Get MIME type of the file.
+     *
+     * @param resource $stream
+     * @param string $filePath
+     * @return string
+     */
+    protected function getMimeType($stream, string $filePath): string
+    {
+        $finfo = finfo_open(FILEINFO_MIME_TYPE);
+        $mimeType = finfo_buffer($finfo, stream_get_contents($stream, -1, 0));
+        finfo_close($finfo);
+
+        // Reset the pointer of the stream
+        rewind($stream);
+
+        return $mimeType ?: 'application/octet-stream';
     }
 
 
