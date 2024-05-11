@@ -114,7 +114,7 @@ return [
             'visibility' => 'public',
             'permPublic' => 0766, /// <- this one did the trick
             // 'port' => 22,
-            'root' => '/mnt/video_plus_external_storage',
+            'root' => '/video_plus_external_storage',
             // 'timeout' => 30,
         ],
 
