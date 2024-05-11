@@ -45,7 +45,7 @@ class MoveVideosToExternalStorage extends Command
      */
     public function handle()
     {
-        Video::where('id','<=',26611)->where('disk','locale')->orderBy('id','desc')->chunk(100, function ($videos) {
+        Video::where('id','<=',26611)->where('disk','local')->orderBy('id','desc')->chunk(100, function ($videos) {
             foreach ($videos as $video) {
                 $this->info('---------------------------------------');
                 $this->info('Moving video: ' . $video->id);
