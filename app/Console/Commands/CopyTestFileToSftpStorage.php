@@ -62,7 +62,7 @@ class CopyTestFileToSftpStorage extends Command
 //            }
 //        }
 
-        $video = Video::where('id',608)->first();
+        $video = Video::where('id',32690)->first();
 
         $fileName = $video->file_name;
 
