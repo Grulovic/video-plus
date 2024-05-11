@@ -46,6 +46,10 @@ Route::group(['middleware' => ['blockedUser', 'saveIp']], function () {
 
     Route::get('/videos/create_view/{id}', 'VideoController@create_view')->name("videos.create_view");
 
+    Route::get('/videos/{video}/move', 'VideoController@moveVideoToRemote');
+
+
+
     Route::group(['middleware' => ['auth:sanctum', 'isActiveUser']], function () {
         Route::resource('videos', VideoController::class);
     });
