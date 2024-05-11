@@ -677,6 +677,9 @@ class VideoController extends Controller
             Log::info("Copy done");
 
             $video->update(['disk' => 'remote-sftp']);
+
+            //remove local file
+            Storage::disk('videos')->delete($fileName);
         }
 
         return 'Moved successfully';
