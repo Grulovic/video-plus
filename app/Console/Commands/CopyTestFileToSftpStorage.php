@@ -66,7 +66,10 @@ class CopyTestFileToSftpStorage extends Command
 
         $fileName = $video->file_name;
 
+        Log::info("File Name: " . $fileName);
+
         if (Storage::disk('videos')->exists($fileName)) {
+            Log::info("File exists");
             // Get a stream for the file on the local disk
             $stream = Storage::disk('videos')->readStream($fileName);
 
@@ -77,6 +80,9 @@ class CopyTestFileToSftpStorage extends Command
             if (is_resource($stream)) {
                 fclose($stream);
             }
+
+            Log::info("Copy done");
+
         }
     }
 }
