@@ -42,6 +42,16 @@ return [
             'visibility' => 'public',
         ],
 
+        'public_root' => [
+            'driver' => 'local',
+            // 'root' => storage_path('app/public'),
+            // 'url' => env('APP_URL').'/storage',
+            // 'root'   => public_path() . '/uploads',
+            'root'   => '../video-plus-public',
+            'url' => env('APP_URL'),
+            'visibility' => 'public',
+        ],
+
         'public' => [
             'driver' => 'local',
             // 'root' => storage_path('app/public'),
