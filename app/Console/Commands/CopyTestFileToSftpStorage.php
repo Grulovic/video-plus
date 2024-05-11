@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Jobs\SendQueueEmail;
 use App\Mail\GovFtpUpdate;
 use App\Models\FtpGovFile;
+use App\Models\Video;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -46,14 +47,31 @@ class CopyTestFileToSftpStorage extends Command
     {
         Log::info("Copy Test File To Sftp Storage");
 
-        $filePath = 'copy_test.txt';
+//        $filePath = 'copy_test.txt';
+//
+//        if (Storage::disk('public_root')->exists('copy_test.txt')) {
+//            // Get a stream for the file on the local disk
+//            $stream = Storage::disk('public_root')->readStream($filePath);
+//
+//            // Use the stream to write to the destination disk
+//            Storage::disk('remote-sftp')->writeStream($filePath, $stream);
+//
+//            // Close the stream
+//            if (is_resource($stream)) {
+//                fclose($stream);
+//            }
+//        }
 
-        if (Storage::disk('public_root')->exists('copy_test.txt')) {
+        $video = Video::where('id',608)->first();
+
+        $fileName = $video->file_name;
+
+        if (Storage::disk('videos')->exists($fileName)) {
             // Get a stream for the file on the local disk
-            $stream = Storage::disk('public_root')->readStream($filePath);
+            $stream = Storage::disk('videos')->readStream($fileName);
 
             // Use the stream to write to the destination disk
-            Storage::disk('remote-sftp')->writeStream($filePath, $stream);
+            Storage::disk('remote-sftp')->writeStream($fileName, $stream);
 
             // Close the stream
             if (is_resource($stream)) {
