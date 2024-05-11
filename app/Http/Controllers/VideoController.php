@@ -368,16 +368,24 @@ class VideoController extends Controller
                         ]);
 
         $disk = $video->disk;
+        $fileName = $video->file_name;
 
         if($disk == 'local'){
             $disk = 'videos';
         }elseif($disk == 'remote-sftp'){
             $disk = 'remote-sftp';
+
+            $localPath = public_path().'temp/'.$fileName;
+
+            $contents = Storage::disk($disk)->get($fileName);
+            return response()->streamDownload(function () use ($contents) {
+                echo $contents;
+            }, $localPath);
+
         }else{
             abort(404);
         }
 
-        $fileName = $video->file_name;
 
         if (!Storage::disk($disk)->exists($fileName)) {
             return 'File not found';
