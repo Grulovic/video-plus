@@ -377,6 +377,8 @@ class VideoController extends Controller
 
             $localPath = public_path().'temp/'.$fileName;
 
+            Log::info('Local path in sftp donwload: '.$localPath);
+
             $contents = Storage::disk($disk)->get($fileName);
             return response()->streamDownload(function () use ($contents) {
                 echo $contents;
