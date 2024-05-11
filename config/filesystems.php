@@ -116,6 +116,7 @@ return [
             // 'port' => 22,
             'root' => '/var/www/html/files',
             // 'timeout' => 30,
+            'url' => env('SFTP_STORAGE_HOST').':'.env('SFTP_STORAGE_URL_PORT').'/files',
         ],
 
         's3' => [
