@@ -367,7 +367,18 @@ class VideoController extends Controller
                             ,'action' => "Video Downloaded"
                         ]);
 
-        return response()->download(Storage::disk('videos')->path($video->file_name));
+        $disk = $video->disk;
+
+        if($disk == 'local'){
+            $disk = 'videos';
+        }elseif($disk == 'remote-sftp'){
+            $disk = 'remote-sftp';
+        }else{
+            abort(404);
+        }
+
+
+        return response()->download(Storage::disk($disk)->path($video->file_name));
 //        return Response::download(public_path()."uploads/videos/".$video->file_name);
     }
 
