@@ -377,8 +377,13 @@ class VideoController extends Controller
             abort(404);
         }
 
+        $fileName = $video->file_name;
 
-        return response()->download(Storage::disk($disk)->path($video->file_name));
+        if (!Storage::disk($disk)->exists($fileName)) {
+            return 'File not found';
+        }
+
+        return response()->download(Storage::disk($disk)->path($fileName));
 //        return Response::download(public_path()."uploads/videos/".$video->file_name);
     }
 
