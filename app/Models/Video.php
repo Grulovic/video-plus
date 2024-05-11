@@ -26,7 +26,8 @@ class Video extends Model
 			'thumbnail',
 			'session_id',
 			'progress',
-			'runtime'
+            'runtime',
+            'disk',
 		];
 
 	public function history() {

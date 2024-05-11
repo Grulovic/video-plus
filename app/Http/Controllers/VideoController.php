@@ -367,7 +367,8 @@ class VideoController extends Controller
                             ,'action' => "Video Downloaded"
                         ]);
 
-        return Response::download(public_path()."uploads/videos/".$video->file_name);
+        return response()->download(Storage::disk('videos')->path($video->file_name));
+//        return Response::download(public_path()."uploads/videos/".$video->file_name);
     }
 
 
