@@ -96,6 +96,17 @@ return [
             'visibility' => 'public',
         ],
 
+        'remote-sftp' => [
+            'driver' => 'sftp',
+            'host' => env('SFTP_STORAGE_HOST'),
+            'username' => env('SFTP_STORAGE_USERNAME'),
+            'password' => env('SFTP_STORAGE_PASSWORD'),
+            'visibility' => 'public',
+            'permPublic' => 0766, /// <- this one did the trick
+            // 'port' => 22,
+            'root' => '/mnt/video_plus_external_storage',
+            // 'timeout' => 30,
+        ],
 
         's3' => [
             'driver' => 's3',
