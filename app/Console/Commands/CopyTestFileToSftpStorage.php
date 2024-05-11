@@ -83,6 +83,7 @@ class CopyTestFileToSftpStorage extends Command
 
             Log::info("Copy done");
 
+//            $video->update(['disk' => 'remote-sftp']);
         }
     }
 }

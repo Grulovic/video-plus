@@ -621,5 +621,30 @@ class VideoController extends Controller
 
 
 
+    public function moveVideoToRemote(Video $video){
 
+        $fileName = $video->file_name;
+
+        Log::info("File Name: " . $fileName);
+
+        if (Storage::disk('videos')->exists($fileName)) {
+            Log::info("File exists");
+            // Get a stream for the file on the local disk
+            $stream = Storage::disk('videos')->readStream($fileName);
+
+            // Use the stream to write to the destination disk
+            Storage::disk('remote-sftp')->writeStream($fileName, $stream);
+
+            // Close the stream
+            if (is_resource($stream)) {
+                fclose($stream);
+            }
+
+            Log::info("Copy done");
+
+            $video->update(['disk' => 'remote-sftp']);
+        }
+
+        return 'Moved successfully';
+    }
 }
