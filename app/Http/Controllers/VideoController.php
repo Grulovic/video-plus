@@ -34,7 +34,6 @@ use Response;
 use Redirect;
 use Session;
 use URL;
-use Youtube;
 class VideoController extends Controller
 {
 
@@ -104,7 +103,6 @@ class VideoController extends Controller
 
             $request = $request->all();
             $email_push = $request['email_push'] ?? null;
-            $youtube_upload = $request['youtube_upload'] ?? null;
             unset($request['email_push']);
 
         	$session_id = $request['session_id'];
@@ -187,18 +185,6 @@ class VideoController extends Controller
         $job = (new SendQueueEmail($data))->delay(now()->addSeconds(2));
         dispatch($job);
 
-        Log::debug('$youtube_upload: '.$youtube_upload);
-        if($youtube_upload){
-            Log::debug('Uploading to youtube');
-            try {
-                Youtube::upload(public_path('uploads/videos/previews/preview_'.$new_video->file_name), [
-                    'title'       => $new_video->name,
-                    'description' => $new_video->description,
-                ]);
-            }catch(Exception $e) {
-                Log::debug('Message: ' .$e->getMessage());
-            }
-        }
 
 
        //  return Redirect::to('videos')

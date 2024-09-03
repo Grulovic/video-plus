@@ -182,7 +182,7 @@ return [
         App\Providers\JetstreamServiceProvider::class,
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-        Dawson\Youtube\YoutubeServiceProvider::class,
+//        Dawson\Youtube\YoutubeServiceProvider::class,
 
     ],
 
