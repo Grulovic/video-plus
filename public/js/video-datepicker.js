@@ -42,6 +42,10 @@
         $( "#datepicker" ).datepicker({ 
           dateFormat: 'yy-mm-dd' 
         });
+    
+        $( "#end_datepicker" ).datepicker({ 
+          dateFormat: 'yy-mm-dd' 
+        });
 
 
         
