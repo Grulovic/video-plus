@@ -22,7 +22,7 @@
            @if (Storage::disk('public_root')->exists('uploads/videos/previews/preview_'.$video->file_name))
                <source src="{{ url('uploads/videos/previews/preview_'.$video->file_name) }}" type="{{$video->mime}}">
            @else
-               <p>Preview not available.</p>
+               <source src="{{ url(Storage::disk($video->disk)->path($video->file_name)) }}" type="{{$video->mime}}">
            @endif
 
 
