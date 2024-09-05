@@ -1,0 +1,85 @@
+    .ui-widget-content,
+    .ui-widget-content,
+    .ui-datepicker .ui-datepicker-header,
+    .ui-datepicker .ui-datepicker-title,
+    .ui-datepicker .ui-datepicker-title,
+    .ui-datepicker .ui-datepicker-prev,
+    .ui-datepicker .ui-datepicker-next,
+    .ui-datepicker table,
+    .ui-state-default,
+    .ui-widget-content .ui-state-default,
+    .ui-widget-header .ui-state-default,
+    .ui-state-default {
+      background: #f7f7f7 url('none');
+    }
+
+    .ui-datepicker-inline {
+      padding: 0;
+    }
+
+    .ui-widget-header {
+      border: none;
+    }
+
+    .ui-datepicker .ui-datepicker-header {
+      padding: 1.2em 0;
+    }
+
+    .ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
+      top: 23px;
+    }
+
+    .ui-icon,
+    .ui-datepicker-month,
+    .ui-datepicker-year {
+      color: #ff9f0a;
+    }
+
+    a.ui-state-default,
+    .ui-datepicker th {
+      color: #000000 !important;
+      border: none !important;
+      text-align: center !important;
+    }
+
+    .ui-datepicker {
+      width: 18em;
+      text-transform: uppercase;
+      border-radius:0.25rem;
+    }
+
+    .ui-datepicker td {
+      padding: 5px;
+      border: 1px solid transparent;
+      width:45px;
+      height:45px;
+    }
+
+    /*.ui-datepicker td:hover{
+      background-color:#dedede;
+      border-radius:0.25rem;
+    }*/
+    .ui-datepicker td:hover .ui-state-default{
+     background-color:#dedede;
+     /*padding:5px;*/
+     color:#000000;
+      border-radius:0.25rem;
+    }
+
+    .ui-state-active,
+    .ui-widget-content .ui-state-active,
+    .ui-widget-header .ui-state-active {
+      background-color: #28a745;
+      color: #ffffff !important;
+      padding: 5px;
+      border-radius:0.25rem;
+    }
+
+    .ui-state-highlight:not(.ui-state-active),
+    .ui-widget-content .ui-state-highlight:not(.ui-state-active),
+    .ui-widget-header .ui-state-highlight:not(.ui-state-active) {
+      background-color: #007bff;
+      color: #ffffff !important;
+      padding: 5px;
+      border-radius:0.25rem;
+    }
