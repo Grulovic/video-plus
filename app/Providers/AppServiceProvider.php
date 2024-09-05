@@ -32,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
 //        URL::forceScheme('https');
 
         $this->app->bind('path.public', function() {
-            return base_path().'/../video-plus-public/';
+            return base_path().'/public/';
         });
 
 
