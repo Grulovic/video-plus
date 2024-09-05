@@ -19,13 +19,7 @@
     style="height: 190px; height:auto; min-width: 100%!important; display: block;" controls="true" playsinline muted  preload="none">
       <!-- preload="none" -->
 
-           @if (Storage::disk('public_root')->exists('uploads/videos/previews/preview_'.$video->file_name))
-               <source src="{{ url('uploads/videos/previews/preview_'.$video->file_name) }}" type="{{$video->mime}}">
-           @else
-               <source src="{{ url(Storage::disk($video->disk)->path($video->file_name)) }}" type="{{$video->mime}}">
-           @endif
-
-
+      <source src="{{ url('uploads/videos/previews/preview_'.$video->file_name) }}" type="{{$video->mime}}">
       Your browser does not support the video tag.
     </video>
 
