@@ -19,7 +19,7 @@
     style="height: 190px; height:auto; min-width: 100%!important; display: block;" controls="true" playsinline muted  preload="none">
       <!-- preload="none" -->
 
-           @if (Storage::disk('public_root')->exists($filePath))
+           @if (Storage::disk('public_root')->exists('uploads/videos/previews/preview_'.$video->file_name))
                <source src="{{ url('uploads/videos/previews/preview_'.$video->file_name) }}" type="{{$video->mime}}">
            @else
                <p>Preview not available.</p>
