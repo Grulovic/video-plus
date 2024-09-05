@@ -37,7 +37,7 @@ return [
 
         'settings' => [
             'driver' => 'local',
-            'root'   => '/public/uploads/settings',
+            'root'   => public_path().'/uploads/settings',
             'url' => env('APP_URL').'/public/settings',
             'visibility' => 'public',
         ],
@@ -47,7 +47,7 @@ return [
             // 'root' => storage_path('app/public'),
             // 'url' => env('APP_URL').'/storage',
             // 'root'   => public_path() . '/uploads',
-            'root'   => '/public',
+            'root'   => public_path(),
             'url' => env('APP_URL'),
             'visibility' => 'public',
         ],
@@ -57,14 +57,14 @@ return [
             // 'root' => storage_path('app/public'),
             // 'url' => env('APP_URL').'/storage',
             // 'root'   => public_path() . '/uploads',
-            'root'   => '/public/uploads',
+            'root'   => public_path().'/uploads',
             'url' => env('APP_URL').'/public',
             'visibility' => 'public',
         ],
 
     	 'articles' => [
             'driver' => 'local',
-            'root'   => '/public/uploads/articles',
+            'root'   => public_path().'/uploads/articles',
             'url' => env('APP_URL').'/public/articles',
             'visibility' => 'public',
         ],
@@ -72,14 +72,14 @@ return [
 
         'photos' => [
             'driver' => 'local',
-            'root'   => '/public/uploads/photos',
+            'root'   => public_path().'/uploads/photos',
             'url' => env('APP_URL').'/public/photos',
             'visibility' => 'public',
         ],
 
         'photos_compressed' => [
             'driver' => 'local',
-            'root'   => '/public/uploads/photos/compressed',
+            'root'   => public_path().'/uploads/photos/compressed',
             'url' => env('APP_URL').'/public/photos/compressed',
             'visibility' => 'public',
         ],
@@ -87,21 +87,21 @@ return [
 
     	 'videos' => [
             'driver' => 'local',
-            'root'   => '/public/uploads/videos',
+            'root'   => public_path().'/uploads/videos',
             'url' => env('APP_URL').'/public/videos',
             'visibility' => 'public',
         ],
 
     	'previews' => [
             'driver' => 'local',
-            'root'   => '/public/uploads/videos/previews',
+            'root'   => public_path().'/uploads/videos/previews',
             'url' => env('APP_URL').'/public/videos/previews',
             'visibility' => 'public',
         ],
 
    		 'thumbs' => [
             'driver' => 'local',
-            'root'   => '/public/uploads/videos/thumbs',
+            'root'   => public_path().'/uploads/videos/thumbs',
             'url' => env('APP_URL').'/public/videos/thumbs',
             'visibility' => 'public',
         ],
