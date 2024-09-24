@@ -29,7 +29,7 @@
     <script src="{{ asset('js/additions.js') }}" defer></script>
 
 
-        <script src="https://kit.fontawesome.com/64252806a4.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/ec8cde6984.js" crossorigin="anonymous"></script>
 
         @livewireStyles
 
