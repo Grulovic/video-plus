@@ -37,7 +37,7 @@ return [
 
         'settings' => [
             'driver' => 'local',
-            'root'   => public_path().'/uploads/settings',
+            'root'   => '../video-plus-public/uploads/settings',
             'url' => env('APP_URL').'/public/settings',
             'visibility' => 'public',
         ],
@@ -47,7 +47,7 @@ return [
             // 'root' => storage_path('app/public'),
             // 'url' => env('APP_URL').'/storage',
             // 'root'   => public_path() . '/uploads',
-            'root'   => public_path(),
+            'root'   => '../video-plus-public',
             'url' => env('APP_URL'),
             'visibility' => 'public',
         ],
@@ -57,14 +57,14 @@ return [
             // 'root' => storage_path('app/public'),
             // 'url' => env('APP_URL').'/storage',
             // 'root'   => public_path() . '/uploads',
-            'root'   => public_path().'/uploads',
+            'root'   => '../video-plus-public/uploads',
             'url' => env('APP_URL').'/public',
             'visibility' => 'public',
         ],
 
-    	 'articles' => [
+        'articles' => [
             'driver' => 'local',
-            'root'   => public_path().'/uploads/articles',
+            'root'   => '../video-plus-public/uploads/articles',
             'url' => env('APP_URL').'/public/articles',
             'visibility' => 'public',
         ],
@@ -72,36 +72,36 @@ return [
 
         'photos' => [
             'driver' => 'local',
-            'root'   => public_path().'/uploads/photos',
+            'root'   => '../video-plus-public/uploads/photos',
             'url' => env('APP_URL').'/public/photos',
             'visibility' => 'public',
         ],
 
         'photos_compressed' => [
             'driver' => 'local',
-            'root'   => public_path().'/uploads/photos/compressed',
+            'root'   => '../video-plus-public/uploads/photos/compressed',
             'url' => env('APP_URL').'/public/photos/compressed',
             'visibility' => 'public',
         ],
 
 
-    	 'videos' => [
+        'videos' => [
             'driver' => 'local',
-            'root'   => public_path().'/uploads/videos',
+            'root'   => '../video-plus-public/uploads/videos',
             'url' => env('APP_URL').'/public/videos',
             'visibility' => 'public',
         ],
 
-    	'previews' => [
+        'previews' => [
             'driver' => 'local',
-            'root'   => public_path().'/uploads/videos/previews',
+            'root'   => '../video-plus-public/uploads/videos/previews',
             'url' => env('APP_URL').'/public/videos/previews',
             'visibility' => 'public',
         ],
 
-   		 'thumbs' => [
+        'thumbs' => [
             'driver' => 'local',
-            'root'   => public_path().'/uploads/videos/thumbs',
+            'root'   => '../video-plus-public/uploads/videos/thumbs',
             'url' => env('APP_URL').'/public/videos/thumbs',
             'visibility' => 'public',
         ],
