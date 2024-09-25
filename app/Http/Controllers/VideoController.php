@@ -181,11 +181,20 @@ class VideoController extends Controller
         }else{
             $users= [];
         }
-            $data['data'] = Video::where('id',$new_video->id)->get()->first();
-            $data['mail'] = 'App\Mail\VideoUploaded';
-            $data['users'] = $users;
-        $job = (new SendQueueEmail($data))->delay(now()->addSeconds(2));
-        dispatch($job);
+        try{
+            if($new_video){
+                $data['data'] = $new_video;
+                $data['mail'] = 'App\Mail\VideoUploaded';
+                $data['users'] = $users;
+                $job = (new SendQueueEmail($data))->delay(now()->addSeconds(2));
+                dispatch($job);
+            }
+        }catch (Exception $e){
+            Log::error('Error sending email: '.$e->getMessage());
+
+        }
+
+
 
         Log::debug('$youtube_upload: '.$youtube_upload);
         if($youtube_upload){
