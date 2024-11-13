@@ -45,38 +45,47 @@ class MoveVideosToExternalStorage extends Command
      */
     public function handle()
     {
-        Video::where('disk','local')->orderBy('id','desc')->chunk(100, function ($videos) {
+        Video::where('disk', 'local')->orderBy('id', 'desc')->chunk(100, function ($videos) {
             foreach ($videos as $video) {
                 $this->info('---------------------------------------');
                 $this->info('Moving video: ' . $video->id);
 
                 $fileName = $video->file_name;
-
                 $this->info("File Name: " . $fileName);
 
                 if (Storage::disk('videos')->exists($fileName)) {
                     $this->info("File exists");
-                    // Get a stream for the file on the local disk
+
                     $stream = Storage::disk('videos')->readStream($fileName);
 
-                    // Use the stream to write to the destination disk
-                    Storage::disk('remote-sftp')->writeStream($fileName, $stream);
+                    try {
+                        // Attempt to write to the destination disk
+                        if (Storage::disk('remote-sftp')->writeStream($fileName, $stream)) {
+                            $this->info("Copy done");
 
-                    // Close the stream
-                    if (is_resource($stream)) {
-                        fclose($stream);
+                            $video->update(['disk' => 'remote-sftp']);
+
+                            // Remove the local file only if the write operation was successful
+                            Storage::disk('videos')->delete($fileName);
+                            $this->info("Delete done");
+                        } else {
+                            $this->error("Failed to copy to remote-sftp: Not enough space or other error.");
+                        }
+                    } catch (\Exception $e) {
+                        $this->error("Error copying file: " . $e->getMessage());
+                    } finally {
+                        // Close the stream if it's open
+                        if (is_resource($stream)) {
+                            fclose($stream);
+                        }
                     }
-
-                    $this->info("Copy done");
-
-                    $video->update(['disk' => 'remote-sftp']);
-
-                    //remove local file
-                    Storage::disk('videos')->delete($fileName);
-                    $this->info("Delete done");
+                } else {
+                    $this->warning("File does not exist on local storage.");
                 }
+
+                $this->info('---------------------------------------');
             }
-            $this->info('---------------------------------------');
-        });;
+        });
     }
+
 }
