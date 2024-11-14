@@ -2,15 +2,7 @@
   <div class="card mb-4 w-100 shadow-sm video-card" style="overflow: hidden;">
 
       @if($video->isBreakingNews)
-      <div class="ribbon" style="    position: absolute;
-    right: -60px;
-    top: 45px;
-    background: red;
-    color: white;
-    font-weight: bold;
-    padding: 5px 50px;
-    transform: rotate(45deg);
-    ">BREAKING NEWS</div>
+      <div class="ribbon">BREAKING NEWS</div>
       @endif
 
     <video id="{{$video->id}}" class="card-img-top bg-dark" poster="{{ url('uploads/videos/thumbs/thumb_'.$video->thumbnail.'_'. $video->file_name.'.png') }}"

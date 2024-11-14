@@ -2,14 +2,7 @@
 
   <div class="card mb-4 w-100 shadow-sm video-card" style="overflow: hidden;">
       @if($video->isBreakingNews)
-          <div class="ribbon" style="    position: absolute;
-    right: -60px;
-    top: 45px;
-    background: red;
-    color: white;
-    font-weight: bold;
-    padding: 5px 50px;
-    transform: rotate(45deg);">BREAKING NEWS</div>
+          <div class="ribbon">BREAKING NEWS</div>
       @endif
       <div class="p-2 bg-light text-primary" style="position:absolute; top:0; left:0; border-radius: 0.2rem 0 0.2rem 0; opacity:1; padding-top:2px!important; padding-bottom:2px!important;  ">
           <i class="fas fa-video"></i>
