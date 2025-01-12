@@ -64,11 +64,10 @@ class MoveVideosToExternalStorage extends Command
                         if (Storage::disk('remote-sftp')->writeStream($fileName, $stream)) {
                             $this->info("Copy done");
 
-//                            $video->update(['disk' => 'remote-sftp']);
-//
+                            $video->update(['disk' => 'remote-sftp']);
 //                            // Remove the local file only if the write operation was successful
-//                            Storage::disk('videos')->delete($fileName);
-//                            $this->info("Delete done");
+                            Storage::disk('videos')->delete($fileName);
+                            $this->info("Delete done");
                         } else {
                             $this->error("Failed to copy to remote-sftp: Not enough space or other error.");
                         }
