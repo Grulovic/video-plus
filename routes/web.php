@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::get('/timezone', function (){
+    dd(config('app.timezone'), now()->toDateTimeString());
+});
 
 
 Route::get('/', 'HomeController@index')->name("home.index");
