@@ -19,7 +19,7 @@
         <div class="col-lg-7 bg-white">
           <div class="row m-0 p-0  h-100">
             <div class="col-12 pt-2 " >
-              <div class="text-muted text-right w-100 pr-2"><small>{{ \Carbon\Carbon::parse($video->created_at)->timezone('Europe/Belgrade')->format('j. F Y. H:i') }}</small></div>
+              <div class="text-muted text-right w-100 pr-2"><small>{{ date('j. F Y. H:i', strtotime($video->created_at)) }}</small></div>
               <a href="{{ route('videos.show',$video->id)}}" class="text-black"><h2>{{$video->name}}</h2></a>
                 <p class="text-muted">
                   @if( sizeof($video->categories) > 0 )

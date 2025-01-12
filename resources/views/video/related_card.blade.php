@@ -13,7 +13,7 @@
       Your browser does not support the video tag.
     </video>
 
-      <div class="text-muted text-right w-100 pr-2"><small>{{ \Carbon\Carbon::parse($video->created_at)->timezone('Europe/Belgrade')->format('j. F Y. H:i') }}</small></div>
+      <div class="text-muted text-right w-100 pr-2"><small>{{ date('j. F Y. H:i', strtotime($video->created_at)) }}</small></div>
     <div class="card-body pt-0 pb-0" style="overflow: hidden;">
       <a href="{{ route('videos.show',$video->id)}}" class="text-black"><h5 class="pb-0 mb-0">{{ Str::limit($video->name, 40, $end='...')}}</h5></a>
       <p class="text-muted mb-0 pb-3" style="">{{ Str::limit($video->description, 50, $end='...')}}</p>

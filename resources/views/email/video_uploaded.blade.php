@@ -36,7 +36,7 @@
       <source src="{{ url('uploads/videos/previews/preview_'.$video->file_name) }}" type="{{$video->mime}}"></video>
 
 
-      <div class="text-muted text-right w-100 pr-2"><small>{{ \Carbon\Carbon::parse($video->created_at)->timezone('Europe/Belgrade')->format('j. F Y. H:i') }}</small></div>
+      <div class="text-muted text-right w-100 pr-2"><small>{{ date('j. F Y. H:i', strtotime($video->created_at)) }}</small></div>
 
 {{--      <a href="{{ route('videos.show',$video->id)}}" class="text-black"><h2 class="pb-0 mb-0">{{ $video->name }}</h2></a>--}}
       <p class="text-muted" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
