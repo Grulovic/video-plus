@@ -1,10 +1,10 @@
 <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 d-flex align-items-stretch p-1">
   <div class="card mb-4 w-100 shadow-sm">
-      
+
       <div class="p-2 bg-light text-primary" style="position:absolute; top:0; left:0; border-radius: 0.2rem 0 0.2rem 0; opacity:1; padding-top:2px!important; padding-bottom:2px!important;  ">
-          <i class="fas fa-video"></i> 
+          <i class="fas fa-video"></i>
       </div>
-      
+
        <video id="{{$video->id}}" class="card-img-top bg-dark" poster="{{ url('uploads/videos/thumbs/thumb_'.$video->thumbnail.'_'. $video->file_name.'.png') }}"
     style="height: 190px; height:auto; min-width: 100%!important; display: block;" controls="true" playsinline muted  preload="none">
       <!-- preload="none" -->
@@ -13,26 +13,26 @@
       Your browser does not support the video tag.
     </video>
 
-      <div class="text-muted text-right w-100 pr-2"><small>{{ date('j. F Y. H:i', strtotime($video->created_at)) }}</small></div>
+      <div class="text-muted text-right w-100 pr-2"><small>{{ \Carbon\Carbon::parse($video->created_at)->timezone('Europe/Belgrade')->format('j. F Y. H:i') }}</small></div>
     <div class="card-body pt-0 pb-0" style="overflow: hidden;">
       <a href="{{ route('videos.show',$video->id)}}" class="text-black"><h5 class="pb-0 mb-0">{{ Str::limit($video->name, 40, $end='...')}}</h5></a>
       <p class="text-muted mb-0 pb-3" style="">{{ Str::limit($video->description, 50, $end='...')}}</p>
     </div>
-   
+
   <div class="text-muted text-right w-100 pr-2"><small>Views: {{$video->view_num()}}</small> </div>
-  
-  
+
+
      @if (!Auth::guest())
     <div class="card-footer  text-right my-auto">
-      
+
         <div class="btn-group ">
-          
+
 
           <a href="{{ route('videos.show',$video->id)}}" class="btn btn-sm btn-primary"><i class="far fa-eye"></i> View</a>
           <a href="{{ route('videos.download',$video->id)}}" class="btn btn-sm btn-success"><i class="fas fa-download"></i></a>
           <button class="btn btn-sm btn-info" onclick="copyToClipboard('{{ route('videos.show',$video->id)}}')"><i class="far fa-share-square"></i></button>
-          
-         
+
+
           @if( auth()->user()->role == "admin")
           <a href="{{ route('videos.edit',$video->id)}}" class="btn btn-sm btn-warning"><i class="far fa-edit"></i></a>
 
@@ -53,7 +53,7 @@
                         Are you sure you want to delete <strong>{{ $video->name }}</strong>?
                       </div>
                       <div class="modal-footer">
-                        
+
                         <form class="" action="{{ route('videos.destroy', $video->id)}}" method="post">
                           {{ csrf_field() }}
                           @method('DELETE')
@@ -61,7 +61,7 @@
                           data-toggle="tooltip" data-placement="top" title="Delete video">
                           <i class="far fa-trash-alt"></i> Delete Video</button>
                         </form>
-                        
+
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                       </div>
                     </div>
@@ -69,7 +69,7 @@
                 </div>
                 <!-- End Modal -->
           @endif
-          
+
 
         </div>
       </div>
