@@ -45,8 +45,7 @@ class MoveVideosToExternalStorage extends Command
      */
     public function handle()
     {
-        $this->info('TESTING 49826');
-        Video::where('id',49826)->where('disk', 'local')->orderBy('id', 'desc')->chunk(100, function ($videos) {
+        Video::where('disk', 'local')->orderBy('id', 'desc')->chunk(100, function ($videos) {
             foreach ($videos as $video) {
                 $this->info('---------------------------------------');
                 $this->info('Moving video: ' . $video->id);
@@ -66,8 +65,8 @@ class MoveVideosToExternalStorage extends Command
 
                             $video->update(['disk' => 'remote-sftp']);
 //                            // Remove the local file only if the write operation was successful
-                            Storage::disk('videos')->delete($fileName);
-                            $this->info("Delete done");
+//                            Storage::disk('videos')->delete($fileName);
+//                            $this->info("Delete done");
                         } else {
                             $this->error("Failed to copy to remote-sftp: Not enough space or other error.");
                         }
