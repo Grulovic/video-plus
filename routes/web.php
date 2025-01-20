@@ -15,8 +15,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/bounce-handler', function (Request $request) {
-    $email = $request->query('email');
+Route::get('/bounce-handler', function () {
+    $email = request()->get('email');
+
+    if(!$email){
+        Log::info("Bounce email note present!");
+    }
 
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
         // Store email in the database if it's valid and not already stored
