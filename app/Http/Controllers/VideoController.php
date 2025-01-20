@@ -159,12 +159,12 @@ class VideoController extends Controller
 
         if( $email_push == "admin" ){
             Log::debug('Sending email to admins only');
-        	 $users = User::where('role','admin')->where('mail_notifications',1)->orderBy('id','asc')->get();
-            Log::debug(json_encode($users->pluck('id')->toArray()));
+        	 $users = User::select('email')->where('role','admin')->where('mail_notifications',1)->orderBy('id','asc')->get();
+            Log::debug(json_encode($users));
         }
     	elseif(  $email_push == "all" ){
             Log::debug('Sending email to everyone');
-			$users = User::where('id','>=',0)->where('mail_notifications',1)->where('active',1)->orderBy('id','asc');
+			$users = User::select('email')->where('id','>=',0)->where('mail_notifications',1)->where('active',1)->orderBy('id','asc');
 
             $has_breaking_category = false;
             if( sizeof(request()->category) >0 ){
@@ -177,7 +177,7 @@ class VideoController extends Controller
             $users = $users->get();
 
 
-            Log::debug(json_encode($users->pluck('id')->toArray()));
+            Log::debug(json_encode($users));
         }else{
             $users= [];
         }
@@ -185,7 +185,7 @@ class VideoController extends Controller
             if($new_video){
                 $data['data'] = $new_video;
                 $data['mail'] = 'App\Mail\VideoUploaded';
-                $data['users'] = $users;
+                $data['users'] = isset($users) ? $users->pluck('email') : [];
                 $job = (new SendQueueEmail($data))->delay(now()->addSeconds(2));
                 dispatch($job);
             }
