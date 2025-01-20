@@ -1,6 +1,8 @@
 <?php
 
 use App\Models\Category;
+use App\Models\InvalidEmail;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,7 +15,20 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/bounce-handler', function (Request $request) {
+    $email = $request->query('email');
 
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        // Store email in the database if it's valid and not already stored
+        InvalidEmail::firstOrCreate(['email' => $email]);
+
+        Log::info("Bounce email stored: " . $email);
+        return response()->json(['message' => 'Email stored successfully.']);
+    } else {
+        Log::error("Invalid email received: " . $email);
+        return response()->json(['message' => 'Invalid email.'], 400);
+    }
+});
 
 Route::get('/timezone', function (){
     dd(config('app.timezone'), now()->toDateTimeString());
