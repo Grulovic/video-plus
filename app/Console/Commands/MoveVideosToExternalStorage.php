@@ -80,7 +80,7 @@ class MoveVideosToExternalStorage extends Command
                         }
                     }
                 } else {
-                    $this->warning("File does not exist on local storage.");
+                    $this->info("File does not exist on local storage.");
                 }
 
                 $this->info('---------------------------------------');
