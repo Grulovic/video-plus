@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Consts;
+use App\Jobs\MoveVideoToExternal;
 use App\Jobs\SendQueueEmail;
 use App\Models\Plan;
 use App\Models\PlanItem;
@@ -209,6 +210,9 @@ class VideoController extends Controller
             }
         }
 
+
+        $job = (new MoveVideoToExternal($new_video))->delay(now()->addMinutes(10));
+        dispatch($job);
 
        //  return Redirect::to('videos')
        // ->with('success','Greate! Video created successfully.');
