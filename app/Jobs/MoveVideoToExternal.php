@@ -42,31 +42,31 @@ class MoveVideoToExternal implements ShouldQueue
     {
         $video = $this->video;
 
-        $this->info('---------------------------------------');
-        $this->info('Moving video: ' . $video->id);
+//        $this->info('---------------------------------------');
+//        $this->info('Moving video: ' . $video->id);
 
         $fileName = $video->file_name;
-        $this->info("File Name: " . $fileName);
+//        $this->info("File Name: " . $fileName);
 
         if (Storage::disk('videos')->exists($fileName)) {
-            $this->info("File exists");
+//            $this->info("File exists");
 
             $stream = Storage::disk('videos')->readStream($fileName);
 
             try {
                 // Attempt to write to the destination disk
                 if (Storage::disk('remote-sftp')->writeStream($fileName, $stream)) {
-                    $this->info("Copy done");
+//                    $this->info("Copy done");
 
                     $video->update(['disk' => 'remote-sftp']);
 //                            // Remove the local file only if the write operation was successful
                     Storage::disk('videos')->delete($fileName);
-                    $this->info("Delete done");
+//                    $this->info("Delete done");
                 } else {
-                    $this->error("Failed to copy to remote-sftp: Not enough space or other error.");
+//                    $this->error("Failed to copy to remote-sftp: Not enough space or other error.");
                 }
             } catch (\Exception $e) {
-                $this->error("Error copying file: " . $e->getMessage());
+//                $this->error("Error copying file: " . $e->getMessage());
             } finally {
                 // Close the stream if it's open
                 if (is_resource($stream)) {
@@ -74,7 +74,7 @@ class MoveVideoToExternal implements ShouldQueue
                 }
             }
         } else {
-            $this->info("File does not exist on local storage.");
+//            $this->info("File does not exist on local storage.");
         }
     }
 }
