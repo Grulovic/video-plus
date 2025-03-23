@@ -211,8 +211,8 @@ class VideoController extends Controller
         }
 
 
-        $job = (new MoveVideoToExternal($new_video))->delay(now()->addMinutes(10));
-        dispatch($job);
+//        $job = (new MoveVideoToExternal($new_video))->delay(now()->addMinutes(10));
+//        dispatch($job);
 
        //  return Redirect::to('videos')
        // ->with('success','Greate! Video created successfully.');
