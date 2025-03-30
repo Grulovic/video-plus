@@ -105,7 +105,6 @@
             </main>
         </div>
 
-        @include('impresum')
 
         @include('footer')
 
