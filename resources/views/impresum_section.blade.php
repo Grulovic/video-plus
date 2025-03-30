@@ -1,6 +1,5 @@
 <section>
     <div class="rounded shadow-sm">
-        <h5 class="text-uppercase fw-bold mb-4 text-primary">IMPRESUM</h5>
         <p class="mb-2"><strong>Videoplus video news agency</strong></p>
         <p class="mb-2">Videoplus d.o.o. Beograd</p>
         <p class="mb-2">Matični broj: <span class="text-muted">20891432</span></p>

@@ -14,6 +14,10 @@
                             <img src="{{ url('uploads/settings/'.settings()->get('logo')) }}" style="max-height: 100px; " class="mb-5">
                         </div>
 
+                        <div class="mt-8 text-2xl">
+                            <h5 class="text-uppercase fw-bold mb-4 text-primary">IMPRESUM</h5>
+                        </div>
+
                         @include('impresum_section')
                     </div>
 
