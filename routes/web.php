@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/impresum', function () {
     return view('impresum');
-});
+})->name('impresum');
 
 
 Route::get('/bounce-handler', function () {

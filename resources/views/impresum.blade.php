@@ -1,24 +1,26 @@
-<section>
-    <div class="rounded shadow-sm">
-        <h5 class="text-uppercase fw-bold mb-4 text-primary">IMPRESUM</h5>
-        <p class="mb-2"><strong>Videoplus video news agency</strong></p>
-        <p class="mb-2">Videoplus d.o.o. Beograd</p>
-        <p class="mb-2">Matični broj: <span class="text-muted">20891432</span></p>
-        <p class="mb-2">PIB: <span class="text-muted">107891120</span></p>
-        <p class="mb-2">Adresa: Stjepana Filipovića 31, 11000 Beograd, Republika Srbija</p>
-        <p class="mb-2">Direktor: <strong>Eldin Ćorović</strong></p>
-        <p class="mb-2">Email:
-            <a href="mailto:desk.videoplus@gmail.com" class="text-decoration-none">
-                desk.videoplus@gmail.com
-            </a>
-        </p>
-        <p class="mb-2">Delatnost novinskih agencija: <span class="text-muted">6391</span></p>
-        <p class="mb-2">Website:
-            <a href="http://www.videoplus.rs" target="_blank" class="text-decoration-none">
-                www.videoplus.rs
-            </a>
-        </p>
-        <p class="mb-2">Glavni i odgovorni urednik: <strong>Eldin Ćorović</strong></p>
-        <p class="mb-0">Videoplus - video servis<br><span class="text-muted">NA000047</span></p>
+<x-home-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Dashboard') }}
+        </h2>
+    </x-slot>
+
+    <div class="py-12" >
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8" style="margin-top:65px!important;">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg ml-2 mr-2">
+                <div class="sm:px-20 bg-white border-b border-gray-200" style="padding-left: 0px!important; padding-right: 0px!important;">
+                    <div class="p-6 my-auto" style="padding-right: 50px!important;padding-left: 50px!important;">
+                        <div>
+                            <img src="{{ url('uploads/settings/'.settings()->get('logo')) }}" style="max-height: 100px; " class="mb-5">
+                        </div>
+
+                        @include('impresum_section')
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
     </div>
-</section>
+
+</x-home-layout>
