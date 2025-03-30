@@ -105,6 +105,8 @@
             </main>
         </div>
 
+        @include('impresum')
+
         @include('footer')
 
         @stack('modals')
