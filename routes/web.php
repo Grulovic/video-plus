@@ -15,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/impresum', function () {
+    return view('impresum');
+});
+
+
 Route::get('/bounce-handler', function () {
     $email = request()->get('email');
 
