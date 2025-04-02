@@ -1,7 +1,7 @@
 <section>
     <div class="">
         <p class="mb-2"><strong>Videoplus video news agency</strong></p>
-        <p class="mb-2">Videoplus d.o.o. Beograd</p>
+        <p class="mb-2">Izdavač: Videoplus d.o.o. Beograd</p>
         <p class="mb-2">Matični broj: <span class="text-muted">20891432</span></p>
         <p class="mb-2">PIB: <span class="text-muted">107891120</span></p>
         <p class="mb-2">Adresa: Stjepana Filipovića 31, 11000 Beograd, Republika Srbija</p>
@@ -11,7 +11,6 @@
                 desk.videoplus@gmail.com
             </a>
         </p>
-        <p class="mb-2">Delatnost novinskih agencija: <span class="text-muted">6391</span></p>
         <p class="mb-2">Website:
             <a href="http://www.videoplus.rs" target="_blank" class="text-decoration-none">
                 www.videoplus.rs
