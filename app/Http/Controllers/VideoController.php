@@ -186,7 +186,7 @@ class VideoController extends Controller
             if($new_video){
                 $data['data'] = $new_video;
                 $data['mail'] = 'App\Mail\VideoUploaded';
-                $data['users'] = isset($users) ? $users->pluck('email') : [];
+                $data['users'] = isset($users) ? collect($users)->pluck('email') : [];
                 $job = (new SendQueueEmail($data))->delay(now()->addSeconds(2));
                 dispatch($job);
             }
@@ -389,7 +389,11 @@ class VideoController extends Controller
 //            Log::info('Remote SFTP file downloading');
             $disk = 'remote-sftp';
 
-            $stream = Storage::disk($disk)->readStream($fileName);
+            try {
+                $stream = Storage::disk($disk)->readStream($fileName);
+            }catch (\Exception $e){
+                abort(404);
+            }
 
             return response()->stream(function () use ($stream) {
                 fpassthru($stream);
@@ -576,9 +580,13 @@ class VideoController extends Controller
 
         abort_unless( auth()->user()->role == "admin",403);
 
-        $video = Video::where('id',$id);
+        $video = Video::where('id',$id)->latest()->first();
 
-        $this->delete_video_files( $video->latest()->first()->file_name );
+        if(!$video){
+            abort(404);
+        }
+
+        $this->delete_video_files( $video->file_name );
 
         $planner_items = PlanItem::where('type',0)->where('item_id',$id)->delete();
 
