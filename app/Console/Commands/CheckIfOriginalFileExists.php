@@ -25,7 +25,8 @@ class CheckIfOriginalFileExists extends Command
                     $fileName = $video->file_name;
 
                     if (!Storage::disk('videos')->exists($fileName)) {
-                        $video->update(['has_missing_original_file' => true]);
+                        $video->has_missing_original_file = true;
+                        $video->save();
                         $this->warn("File missing: {$fileName}");
                     } else {
                         $this->info("File exists: {$fileName}");
