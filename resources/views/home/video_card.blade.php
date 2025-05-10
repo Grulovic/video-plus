@@ -34,7 +34,9 @@
 
 
           <a href="{{ route('videos.show',$video->id)}}" class="btn btn-sm btn-primary"><i class="far fa-eye"></i> View</a>
+            @if(!$video->has_missing_original_file)
           <a href="{{ route('videos.download',$video->id)}}" class="btn btn-sm btn-success"><i class="fas fa-download"></i></a>
+            @endif
           <button class="btn btn-sm btn-info" onclick="copyToClipboard('{{ route('videos.show',$video->id)}}')"><i class="far fa-share-square"></i></button>
 
 

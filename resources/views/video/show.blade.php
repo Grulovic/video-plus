@@ -126,7 +126,9 @@
         <div class="btn-group">
           <button class="btn btn-sm btn-info" onclick="copyToClipboard('{{ route('videos.show',$video->id)}}')"><i class="far fa-share-square"></i> Copy Link</button>
           <!-- <a href="{{ route('videos.show',$video->id)}}" class="btn btn-sm btn-outline-primary"><i class="far fa-eye"></i> View</a> -->
-          <a href="{{ route('videos.download',$video->id)}}" class="btn btn-sm btn-success"><i class="fas fa-download"></i> Download</a>
+            @if(!$video->has_missing_original_file)
+                <a href="{{ route('videos.download',$video->id)}}" class="btn btn-sm btn-success"><i class="fas fa-download"></i> Download</a>
+            @endif
 
           @if( auth()->user()->role == "admin")
           <a href="{{ route('videos.edit',$video->id)}}" class="btn btn-sm btn-warning text-white"><i class="far fa-edit"></i> Edit</a>
