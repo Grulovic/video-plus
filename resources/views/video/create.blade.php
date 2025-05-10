@@ -53,13 +53,13 @@ $( document ).ready(function() {
 
   <div class="form-group col-lg-6">
         <strong>Name</strong>
-        <input type="text" name="name" class="form-control" placeholder="Enter name of the video..." value="{{ old('name') }}" required>
+        <input maxlength="255" type="text" name="name" class="form-control" placeholder="Enter name of the video..." value="{{ old('name') }}" required>
         <span class="text-danger">{{ $errors->first('name') }}</span>
     </div>
 
     <div class="form-group col-lg-6">
         <strong>Location</strong>
-        <input type="text" name="location" class="form-control" placeholder="Enter the location..." value="{{ old('location') }}">
+        <input maxlength="255" type="text" name="location" class="form-control" placeholder="Enter the location..." value="{{ old('location') }}">
         <span class="text-danger">{{ $errors->first('location') }}</span>
     </div>
 
@@ -95,7 +95,7 @@ $( document ).ready(function() {
 
     <div class="form-group mb-3">
         <strong>Description</strong>
-        <textarea class="form-control" col="4" name="description" placeholder="Enter video description..." style="min-height:175px;">{{ old('description') }}</textarea>
+        <textarea maxlength="255" class="form-control" col="4" name="description" placeholder="Enter video description..." style="min-height:175px;">{{ old('description') }}</textarea>
         <span class="text-danger">{{ $errors->first('description') }}</span>
     </div>
 </div>
