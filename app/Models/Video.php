@@ -28,6 +28,7 @@ class Video extends Model
 			'progress',
             'runtime',
             'disk',
+            'has_missing_original_file',
 		];
 
 	public function history() {
