@@ -129,7 +129,7 @@ class MoveVideosToExternalStorage extends Command
 
                         // Remove local file
                         try {
-//                            Storage::disk('videos')->delete($fileName);
+                            Storage::disk('videos')->delete($fileName);
                             $this->info(($alreadyThere ? "Skipped copy; " : "Copied; ") . "deleted local and set disk='{$targetDisk}'.");
                         } catch (\Throwable $e) {
                             $this->error("Updated disk to '{$targetDisk}' but failed to delete local: " . $e->getMessage());
