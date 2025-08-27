@@ -46,46 +46,74 @@ class MoveVideosToExternalStorage extends Command
     public function handle()
     {
 
-        Video::where('disk', 'local')->where('has_missing_original_file',false)->orderBy('id', 'asc')->chunk(100, function ($videos) {
-            foreach ($videos as $video) {
-                $this->info('---------------------------------------');
-                $this->info('Moving video: ' . $video->id);
+        $remoteDisks = ['remote-sftp-2', 'remote-sftp'];
 
-                $fileName = $video->file_name;
-                $this->info("File Name: " . $fileName);
+        Video::where('disk', 'local')
+            ->where('has_missing_original_file', false)
+            ->orderBy('id', 'asc')
+            ->chunk(100, function ($videos) use ($remoteDisks) {
+                foreach ($videos as $video) {
+                    $this->info('---------------------------------------');
+                    $this->info('Moving video: ' . $video->id);
 
-                if (Storage::disk('videos')->exists($fileName)) {
-                    $this->info("File exists");
+                    $fileName = $video->file_name;
+                    $this->info("File Name: " . $fileName);
 
-                    $stream = Storage::disk('videos')->readStream($fileName);
+                    if (!Storage::disk('videos')->exists($fileName)) {
+                        $this->warn("File does not exist on local storage.");
+                        $this->info('---------------------------------------');
+                        continue;
+                    }
 
-                    try {
-                        // Attempt to write to the destination disk
-                        if (Storage::disk('remote-sftp')->writeStream($fileName, $stream)) {
-                            $this->info("Copy done");
+                    $copiedToDisk = null;
 
-                            $video->update(['disk' => 'remote-sftp']);
-//                            // Remove the local file only if the write operation was successful
-                            Storage::disk('videos')->delete($fileName);
-                            $this->info("Delete done");
-                        } else {
-                            $this->error("Failed to copy to remote-sftp: Not enough space or other error.");
+                    foreach ($remoteDisks as $diskName) {
+                        $this->info("Trying remote disk: {$diskName}");
+
+                        // Open a FRESH read stream for each attempt (important).
+                        $stream = Storage::disk('videos')->readStream($fileName);
+                        if ($stream === false || !is_resource($stream)) {
+                            $this->error("Failed to open read stream for local file on attempt to {$diskName}.");
+                            continue;
                         }
-                    } catch (\Exception $e) {
-                        $this->error("Error copying file: " . $e->getMessage());
-                    } finally {
-                        // Close the stream if it's open
-                        if (is_resource($stream)) {
-                            fclose($stream);
+
+                        try {
+                            $ok = Storage::disk($diskName)->writeStream($fileName, $stream);
+
+                            if ($ok) {
+                                $this->info("Copy done to {$diskName}");
+                                $copiedToDisk = $diskName;
+                                break; // stop trying further disks
+                            } else {
+                                $this->error("Failed to copy to {$diskName}: Not enough space or other error.");
+                            }
+                        } catch (\Throwable $e) {
+                            $this->error("Error copying to {$diskName}: " . $e->getMessage());
+                        } finally {
+                            if (is_resource($stream)) {
+                                fclose($stream);
+                            }
                         }
                     }
-                } else {
-                    $this->info("File does not exist on local storage.");
-                }
 
-                $this->info('---------------------------------------');
-            }
-        });
+                    if ($copiedToDisk) {
+                        // Update DB and delete local *only after* a successful remote write
+                        $video->update(['disk' => $copiedToDisk]);
+
+                        try {
+                            Storage::disk('videos')->delete($fileName);
+                            $this->info("Delete done (local) after successful copy to {$copiedToDisk}");
+                        } catch (\Throwable $e) {
+                            $this->error("Copied to {$copiedToDisk} but failed to delete local file: " . $e->getMessage());
+                        }
+                    } else {
+                        $this->error("All remote disks failed for {$fileName}. Keeping local file.");
+                    }
+
+                    $this->info('---------------------------------------');
+                }
+            });
+
     }
 
 }

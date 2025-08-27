@@ -119,6 +119,19 @@ return [
             'url' => env('SFTP_STORAGE_HOST').':'.env('SFTP_STORAGE_URL_PORT').'/files',
         ],
 
+        'remote-sftp-2' => [
+            'driver' => 'sftp',
+            'host' => env('SFTP_2_STORAGE_HOST'),
+            'username' => env('SFTP_2_STORAGE_USERNAME'),
+            'password' => env('SFTP_2_STORAGE_PASSWORD'),
+            'visibility' => 'public',
+            'permPublic' => 0766, /// <- this one did the trick
+            // 'port' => 22,
+            'root' => '/var/www/html/files',
+            // 'timeout' => 30,
+            'url' => env('SFTP_2_STORAGE_HOST').':'.env('SFTP_2_STORAGE_URL_PORT').'/files',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
