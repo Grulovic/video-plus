@@ -96,19 +96,19 @@ class MoveVideosToExternalStorage extends Command
                         }
                     }
 
-//                    if ($copiedToDisk) {
-//                        // Update DB and delete local *only after* a successful remote write
-//                        $video->update(['disk' => $copiedToDisk]);
-//
+                    if ($copiedToDisk) {
+                        // Update DB and delete local *only after* a successful remote write
+                        $video->update(['disk' => $copiedToDisk]);
+
 //                        try {
 //                            Storage::disk('videos')->delete($fileName);
 //                            $this->info("Delete done (local) after successful copy to {$copiedToDisk}");
 //                        } catch (\Throwable $e) {
 //                            $this->error("Copied to {$copiedToDisk} but failed to delete local file: " . $e->getMessage());
 //                        }
-//                    } else {
-//                        $this->error("All remote disks failed for {$fileName}. Keeping local file.");
-//                    }
+                    } else {
+                        $this->error("All remote disks failed for {$fileName}. Keeping local file.");
+                    }
 
                     $this->info('---------------------------------------');
                 }
