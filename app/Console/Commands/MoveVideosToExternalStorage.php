@@ -65,54 +65,83 @@ class MoveVideosToExternalStorage extends Command
                         continue;
                     }
 
-                    $copiedToDisk = null;
+                    $targetDisk   = null;   // where we will end up (exists or copied)
+                    $alreadyThere = false;  // true if it already existed remotely
 
+                    // ---------- 1) EXISTS CHECK (skip copy if found) ----------
                     foreach ($remoteDisks as $diskName) {
-                        $this->info("Trying remote disk: {$diskName}");
-
-                        // Open a FRESH read stream for each attempt (important).
-                        $stream = Storage::disk('videos')->readStream($fileName);
-                        if ($stream === false || !is_resource($stream)) {
-                            $this->error("Failed to open read stream for local file on attempt to {$diskName}.");
-                            continue;
-                        }
-
                         try {
-                            $ok = Storage::disk($diskName)->writeStream($fileName, $stream);
-
-                            if ($ok) {
-                                $this->info("Copy done to {$diskName}");
-                                $copiedToDisk = $diskName;
-                                break; // stop trying further disks
-                            } else {
-                                $this->error("Failed to copy to {$diskName}: Not enough space or other error.");
+                            if (Storage::disk($diskName)->exists($fileName)) {
+                                $this->info("Remote already has the file on '{$diskName}'. Skipping copy.");
+                                $targetDisk   = $diskName;
+                                $alreadyThere = true;
+                                break;
                             }
                         } catch (\Throwable $e) {
-                            $this->error("Error copying to {$diskName}: " . $e->getMessage());
-                        } finally {
-                            if (is_resource($stream)) {
-                                fclose($stream);
+                            $this->warn("Existence check failed on '{$diskName}': " . $e->getMessage());
+                        }
+                    }
+
+                    // ---------- 2) COPY (only if not found anywhere) ----------
+                    if (!$targetDisk) {
+                        foreach ($remoteDisks as $diskName) {
+                            $this->info("Attempting copy to '{$diskName}'...");
+
+                            // Ensure parent dir on remote if path has directories
+                            $dir = trim(pathinfo($fileName, PATHINFO_DIRNAME), '/.');
+                            if ($dir && $dir !== $fileName) {
+                                try {
+                                    Storage::disk($diskName)->makeDirectory($dir);
+                                } catch (\Throwable $e) {
+                                    $this->warn("Could not ensure remote dir '{$dir}' on '{$diskName}': " . $e->getMessage());
+                                }
+                            }
+
+                            // Fresh stream per attempt
+                            $stream = Storage::disk('videos')->readStream($fileName);
+                            if ($stream === false || !is_resource($stream)) {
+                                $this->error("Failed to open local read stream.");
+                                continue;
+                            }
+
+                            try {
+                                if (Storage::disk($diskName)->writeStream($fileName, $stream)) {
+                                    $this->info("Copy succeeded on '{$diskName}'.");
+                                    $targetDisk = $diskName;
+                                    break;
+                                } else {
+                                    $this->error("Copy failed on '{$diskName}'.");
+                                }
+                            } catch (\Throwable $e) {
+                                $this->error("Error copying to '{$diskName}': " . $e->getMessage());
+                            } finally {
+                                if (is_resource($stream)) {
+                                    fclose($stream);
+                                }
                             }
                         }
                     }
 
-                    if ($copiedToDisk) {
-                        // Update DB and delete local *only after* a successful remote write
-                        $video->update(['disk' => $copiedToDisk]);
+                    // ---------- 3) FINALIZE (both scenarios) ----------
+                    if ($targetDisk) {
+                        // Update DB to whichever remote we chose
+                        $video->update(['disk' => $targetDisk]);
 
-//                        try {
+                        // Remove local file
+                        try {
 //                            Storage::disk('videos')->delete($fileName);
-//                            $this->info("Delete done (local) after successful copy to {$copiedToDisk}");
-//                        } catch (\Throwable $e) {
-//                            $this->error("Copied to {$copiedToDisk} but failed to delete local file: " . $e->getMessage());
-//                        }
+                            $this->info(($alreadyThere ? "Skipped copy; " : "Copied; ") . "deleted local and set disk='{$targetDisk}'.");
+                        } catch (\Throwable $e) {
+                            $this->error("Updated disk to '{$targetDisk}' but failed to delete local: " . $e->getMessage());
+                        }
                     } else {
-                        $this->error("All remote disks failed for {$fileName}. Keeping local file.");
+                        $this->error("No remote had the file and copy failed on all remotes. Keeping local file.");
                     }
 
                     $this->info('---------------------------------------');
                 }
             });
+
 
     }
 
