@@ -134,7 +134,7 @@ class MoveVideosToExternalStorage extends Command
                     // ---------- 3) FINALIZE (both scenarios) ----------
                     if ($targetDisk) {
                         // Update DB to whichever remote we chose
-//                        $video->update(['disk' => $targetDisk]);
+                        $video->update(['disk' => $targetDisk]);
 
                         // Remove local file only if remote file size > 0
                         try {
