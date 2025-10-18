@@ -395,6 +395,8 @@ class VideoController extends Controller
             try {
                 $stream = Storage::disk($disk)->readStream($fileName);
             }catch (\Exception $e){
+
+                \Log::info('$e: '.$e->getMessage());
                 abort(404);
             }
 
