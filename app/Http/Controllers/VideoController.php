@@ -383,6 +383,9 @@ class VideoController extends Controller
         $disk = $video->disk;
         $fileName = $video->file_name;
 
+
+        $disk = 'remote-sftp-2'; //TEST AFTER COPY EVERYTING ON NFS
+
         if($disk == 'local'){
             $disk = 'videos';
         }elseif($disk == 'remote-sftp' || $disk == 'remote-sftp-2'){
