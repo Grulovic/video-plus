@@ -64,15 +64,16 @@ class MoveVideosWeekBeforeToExternalStorage extends Command
                         $stream = Storage::disk('videos')->readStream($fileName);
 
                         try {
-                            if (Storage::disk('remote-sftp')->writeStream($fileName, $stream)) {
+                            $disk = 'remote-sftp-2';
+                            if (Storage::disk('' . $disk . '')->writeStream($fileName, $stream)) {
                                 $this->info("Copy done");
 
-                                $video->update(['disk' => 'remote-sftp']);
+                                $video->update(['disk' => $disk]);
 
                                 Storage::disk('videos')->delete($fileName);
                                 $this->info("Delete done");
                             } else {
-                                $this->error("Failed to copy to remote-sftp: Not enough space or other error.");
+                                $this->error("Failed to copy to $disk: Not enough space or other error.");
                             }
                         } catch (\Exception $e) {
                             $this->error("Error copying file: " . $e->getMessage());
