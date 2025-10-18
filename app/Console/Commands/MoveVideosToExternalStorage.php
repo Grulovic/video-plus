@@ -72,10 +72,19 @@ class MoveVideosToExternalStorage extends Command
                     foreach ($remoteDisks as $diskName) {
                         try {
                             if (Storage::disk($diskName)->exists($fileName)) {
-                                $this->info("Remote already has the file on '{$diskName}'. Skipping copy.");
-                                $targetDisk   = $diskName;
-                                $alreadyThere = true;
-                                break;
+                                try {
+                                    $size = Storage::disk($diskName)->size($fileName);
+                                    if ($size > 0) {
+                                        $this->info("Remote already has the file on '{$diskName}' with size {$size}. Skipping copy.");
+                                        $targetDisk   = $diskName;
+                                        $alreadyThere = true;
+                                        break;
+                                    } else {
+                                        $this->warn("Remote file exists on '{$diskName}' but size is 0. Will attempt copy.");
+                                    }
+                                } catch (\Throwable $e) {
+                                    $this->warn("Failed to get remote file size on '{$diskName}': " . $e->getMessage() . ". Will attempt copy.");
+                                }
                             }
                         } catch (\Throwable $e) {
                             $this->warn("Existence check failed on '{$diskName}': " . $e->getMessage());
@@ -127,12 +136,18 @@ class MoveVideosToExternalStorage extends Command
                         // Update DB to whichever remote we chose
 //                        $video->update(['disk' => $targetDisk]);
 
-                        // Remove local file
+                        // Remove local file only if remote file size > 0
                         try {
-//                            Storage::disk('videos')->delete($fileName);
-                            $this->info(($alreadyThere ? "Skipped copy; " : "Copied; ") . "deleted local and set disk='{$targetDisk}'.");
+                            $remoteSize = Storage::disk($targetDisk)->size($fileName);
+                            $this->info("Remote file size on '{$targetDisk}': {$remoteSize}");
+                            if ($remoteSize > 0) {
+//                                Storage::disk('videos')->delete($fileName);
+                                $this->info(($alreadyThere ? "Skipped copy; " : "Copied; ") . "deleted local and set disk='{$targetDisk}'.");
+                            } else {
+                                $this->warn("Remote file size is 0 on '{$targetDisk}', skipping local file deletion.");
+                            }
                         } catch (\Throwable $e) {
-                            $this->error("Updated disk to '{$targetDisk}' but failed to delete local: " . $e->getMessage());
+                            $this->warn("Failed to get remote file size on '{$targetDisk}': " . $e->getMessage() . ". Skipping local file deletion.");
                         }
                     } else {
                         $this->error("No remote had the file and copy failed on all remotes. Keeping local file.");
