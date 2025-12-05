@@ -388,7 +388,7 @@ class VideoController extends Controller
 
         if($disk == 'local'){
             $disk = 'videos';
-        }elseif($disk == 'remote-sftp' || $disk == 'remote-sftp-2'){
+        }elseif($disk == 'remote-sftp' || $disk == 'remote-sftp-2' || $disk == 'hetzner_sftp'){
 //            Log::info('Remote SFTP file downloading');
 //            $disk = 'remote-sftp';
 
