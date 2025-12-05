@@ -46,7 +46,8 @@ class MoveVideosToExternalStorage extends Command
     public function handle()
     {
 
-        $remoteDisks = ['remote-sftp-2', 'remote-sftp'];
+//        $remoteDisks = ['remote-sftp-2', 'remote-sftp'];
+        $remoteDisks = ['hetzner_sftp'];
 
         Video::where('disk', 'local')
             ->where('has_missing_original_file', false)
@@ -141,7 +142,7 @@ class MoveVideosToExternalStorage extends Command
                             $remoteSize = Storage::disk($targetDisk)->size($fileName);
                             $this->info("Remote file size on '{$targetDisk}': {$remoteSize}");
                             if ($remoteSize > 0) {
-                                Storage::disk('videos')->delete($fileName);
+//                                Storage::disk('videos')->delete($fileName);
                                 $this->info(($alreadyThere ? "Skipped copy; " : "Copied; ") . "deleted local and set disk='{$targetDisk}'.");
                             } else {
                                 $this->warn("Remote file size is 0 on '{$targetDisk}', skipping local file deletion.");

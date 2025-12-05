@@ -132,6 +132,17 @@ return [
             'url' => env('SFTP_2_STORAGE_HOST').':'.env('SFTP_2_STORAGE_URL_PORT').'/files',
         ],
 
+
+        'hetzner_sftp' => [
+            'driver'   => 'sftp',
+            'host'     => env('HETZNER_SFTP_HOST'),
+            'port'     => env('HETZNER_SFTP_PORT', 22),
+            'username' => env('HETZNER_SFTP_USERNAME'),
+            'password' => env('HETZNER_SFTP_PASSWORD'), // or use 'privateKey' instead
+            'root'     => env('HETZNER_SFTP_ROOT', '/'), // from your perspective this is /home
+            'timeout'  => 30,
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
