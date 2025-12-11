@@ -51,7 +51,7 @@ class CheckIfExistsOnHetzner extends Command
 
         Video::where('has_missing_original_file', false)
             ->where('disk', '!=', $targetDisk) // any disk except hetzner
-            ->orderBy('id')
+            ->orderBy('id','desc')
             ->chunk(100, function ($videos) use ($targetDisk) {
                 foreach ($videos as $video) {
                     $this->info('---------------------------------------');
