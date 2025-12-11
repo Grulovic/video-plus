@@ -51,7 +51,7 @@ class MoveVideosToExternalStorage extends Command
 
         Video::where('disk', 'local')
             ->where('has_missing_original_file', false)
-            ->orderBy('id', 'asc')
+            ->orderBy('id', 'desc')
             ->chunk(100, function ($videos) use ($remoteDisks) {
                 foreach ($videos as $video) {
                     $this->info('---------------------------------------');
