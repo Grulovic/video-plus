@@ -26,7 +26,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         $schedule->command('checkGovFtpUpdates')->everyFifteenMinutes();
-        $schedule->command('moveVideosWeekBeforeToExternalStorage')->dailyAt('01:00');
+//        $schedule->command('moveVideosWeekBeforeToExternalStorage')->dailyAt('01:00');
     }
 
     /**
