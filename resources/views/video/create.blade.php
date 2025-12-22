@@ -95,7 +95,7 @@ $( document ).ready(function() {
 
     <div class="form-group mb-3">
         <strong>Description</strong>
-        <textarea maxlength="255" class="form-control" col="4" name="description" placeholder="Enter video description..." style="min-height:175px;">{{ old('description') }}</textarea>
+        <textarea maxlength="2550" class="form-control" col="4" name="description" placeholder="Enter video description..." style="min-height:175px;">{{ old('description') }}</textarea>
         <span class="text-danger">{{ $errors->first('description') }}</span>
     </div>
 </div>
