@@ -50,7 +50,7 @@ class MoveVideosToExternalStorage extends Command
         $remoteDisks = ['hetzner_sftp'];
 
         Video::where('disk', 'local')
-            ->where('has_missing_original_file', false)
+//            ->where('has_missing_original_file', false)
             ->orderBy('id', 'asc')
             ->chunk(100, function ($videos) use ($remoteDisks) {
                 foreach ($videos as $video) {
